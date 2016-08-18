@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/mystyle.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="my-vue">
+        <template v-if="data.length">
+            <div class="list">
+                <div class="item">
+                    <span>名称</span>
+                    <span>金额</span>
+                    <span>数量</span>
+                    <span>操作</span>
+                </div>
+                <div class="item" v-for="item in data">
+                    <span>{{item.name}}</span>
+                    <span>{{item.jiage|currency '￥' 0}}</span>
+                    <span><em @click="jian($index)" :class="{off:item.shuliang==1}">-</em>{{item.shuliang}}<em @click="add($index)" :class="{off: item.shuliang==10}">+</em></span>
+                    <span><i @click="remove(item)">移除</i></span>
+                </div>
+            </div>
+            <div class="info">
+                <label for="">收件人:</label>
+                <input type="text" v-model="name">
+                <label for="">收货地址:</label>
+                <input type="text" v-model="address">
+            </div>
+            <div class="result">
+                <h3>商品清单</h3> 产品总价：{{zongjia|currency '￥' 0}}
+                </br> 收件人：{{name}}
+                </br> 收货地址：{{address}}
+            </div>
+        </template>
+        <template v-else>
+            购物车为空
+        </template>
+
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#my-vue",
+        data: {
+            data: data,
+            name: '',
+            address: ''
+        },
+        computed: {
+            zongjia: function() {
+                var zong = 0;
+                for (var i = 0; i < this.data.length; i++) {
+                    var seft = this.data[i];
+                    zong += seft.jiage * seft.shuliang;
+                }
+                return zong;
+            }
+        },
+        methods: {
+            add: function(index) {
+                var item = this.data[index];
+                if (item.shuliang == 10) {
+                    return false;
+                }
+                item.shuliang++;
+            },
+            jian: function(index) {
+                var item = this.data[index];
+                if (item.shuliang == 1) {
+                    return false;
+                }
+                item.shuliang--;
+            },
+            remove: function(index) {
+                this.data.$remove(index);
+            }
+        }
+
+    });
+</script>
+
+</html>
