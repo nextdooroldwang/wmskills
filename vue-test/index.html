@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			body {
+				-moz-user-select: none;
+				/*火狐*/
+				-webkit-user-select: none;
+				/*webkit浏览器*/
+				-ms-user-select: none;
+				/*IE10*/
+				user-select: none;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				text-decoration: none;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.timeline-container {
+				width: 768px;
+			}
+			
+			.canvasTitle {
+				width: 100%;
+			}
+			
+			.canvasTitle ul {
+				width: 100%;
+				height: 20px;
+				position: relative;
+			}
+			
+			.canvasTitle li {
+				font-size: 10px;
+				position: absolute;
+			}
+			
+			.rangeSilid {
+				width: 100%;
+				height: 8px;
+				outline: 1px solid #dddddd;
+				outline-radius: 5px;
+				position: relative;
+			}
+			
+			.guide1 {
+				width: 0.5px;
+				height: 38px;
+				border-left: 2px solid red;
+				position: absolute;
+				top: -30px;
+				left: 95px;
+			}
+			
+			.clickSlider1 {
+				width: 15px;
+				height: 15px;
+				border-left: 1px solid #bbbbbb;
+				border-radius: 3px;
+				position: absolute;
+				top: -3px;
+				left: 87px;
+				background: #dddddd;
+			}
+			
+			.clickSlider2 {
+				width: 15px;
+				height: 15px;
+				border-left: 1px solid #bbbbbb;
+				border-radius: 3px;
+				position: absolute;
+				top: -3px;
+				left: 91px;
+				background: #dddddd;
+			}
+			
+			.slidercolor {
+				width: 115px;
+				height: 10px;
+				position: absolute;
+				top: -1px;
+				left: 91px;
+				background: #FF0000;
+			}
+			
+			.guide2 {
+				width: 0.5px;
+				height: 38px;
+				border-left: 2px solid red;
+				position: absolute;
+				top: -30px;
+				left: 99px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="timeline-container">
+			<div class="canvasTitle">
+				<ul>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li>17</li>
+					<li>18</li>
+					<li>19</li>
+					<li>20</li>
+					<li>21</li>
+					<li>22</li>
+					<li>23</li>
+					<div style="clear:both"></div>
+				</ul>
+			</div>
+			<canvas id="can" width="768px" height="30px"></canvas>
+			<div class="rangeSilid">
+				<span class="slidercolor"></span>
+				<span class="guide1">
+
+            </span>
+				<span class="clickSlider1"></span>
+				<span class="guide2">
+
+            </span>
+				<span class="clickSlider2"></span>
+
+			</div>
+		</div>
+
+		<div id="myvue">
+			<p>{{ startTime }}~{{ endTime }}</p>
+			<p>{{ localTime }} </p>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/vue.js"></script>
+
+	<script>
+		+ function() {
+			document.ondragstart = function() {
+				return false;
+			};
+			$(".canvasTitle li").eq(0).css("left", "46px");
+			$(".canvasTitle li").eq(1).css("left", "90px");
+			$(".canvasTitle li").eq(2).css("left", "138px");
+			$(".canvasTitle li").eq(3).css("left", "184px");
+			$(".canvasTitle li").eq(4).css("left", "232px");
+			$(".canvasTitle li").eq(5).css("left", "282px");
+			$(".canvasTitle li").eq(6).css("left", "330px");
+			$(".canvasTitle li").eq(7).css("left", "376px");
+			$(".canvasTitle li").eq(8).css("left", "426px");
+			$(".canvasTitle li").eq(9).css("left", "476px");
+			$(".canvasTitle li").eq(10).css("left", "520px");
+			$(".canvasTitle li").eq(11).css("left", "570px");
+			$(".canvasTitle li").eq(12).css("left", "618px");
+			$(".canvasTitle li").eq(13).css("left", "666px");
+			$(".canvasTitle li").eq(14).css("left", "713px");
+
+			var hour = 16;
+			//刻度范围总小时数：16小时为8点～24点
+			var today = new Date();
+			var todayHour = today.getHours();
+			var todayMin = today.getMinutes();
+			var timeline = todayMin / 5 * 4 + ((todayHour - 8) * 48);
+			var defaulSTime, defaulETime, todayEHour, todayEMin;
+			pageLoad(timeline);
+			if(timeline % 4 == 0) {
+				$(".guide1").css("left", timeline - 1 + "px");
+				$(".clickSlider1").css("left", timeline - 8 + "px");
+				$(".guide2").css("left", timeline + 3 + "px");
+				$(".clickSlider2").css("left", timeline - 4 + "px");
+			} else {
+				timeline = parseInt(timeline / 4) * 4 + 4;
+				$(".guide1").css("left", timeline - 1 + "px");
+				$(".clickSlider1").css("left", timeline - 8 + "px");
+				$(".guide2").css("left", timeline + 3 + "px");
+				$(".clickSlider2").css("left", timeline - 4 + "px");
+			}
+
+			$(".slidercolor").css({
+				"left": $(".guide1").css("left"),
+				"width": ($(".guide2").position().left - $(".guide1").position().left) + "px"
+			})
+			var vm = new Vue({
+				el: '#myvue',
+				data: {
+					startTime: '1',
+					endTime: '2',
+					localTime: ''
+				},
+
+			})
+			var myDate = new Date();
+			if(todayMin % 5 > 0) {
+				if(todayMin > 55) {
+					todayMin = 0;
+					todayHour = todayHour + 1;
+				} else todayMin = parseInt(todayMin / 5) * 5 + 5;
+			}
+
+			if(todayMin > 55) {
+				todayEMin = todayMin + 5 - 60;
+				todayEHour = todayHour + 1;
+			} else {
+				todayEMin = todayMin + 5;
+				todayEHour = todayHour;
+			}
+
+			todayMin = todayMin < 10 ? "0" + todayMin : todayMin;
+			todayHour = todayHour < 10 ? "0" + todayHour : todayHour;
+			defaulSTime = todayHour + ":" + todayMin;
+			todayEMin = todayEMin < 10 ? "0" + todayEMin : todayEMin;
+			todayEHour = todayEHour < 10 ? "0" + todayEHour : todayEHour;
+			defaulETime = todayEHour + ":" + todayEMin;
+			vm.startTime = defaulSTime;
+			vm.endTime = defaulETime;
+			silider(".clickSlider1", ".guide1", 0); //开始时间
+			silider(".clickSlider2", ".guide2", 1); //结束时间
+
+			//区间选择方法，参数为：点击控制移动的元素，对应的指针，0-返回开始时间/1-返回结束时间。
+			function silider(mdown, guide, time) {
+				$(mdown).mousedown(function(x) {
+					$(this).css("background", "#23a197");
+					var guideX = $(guide).position().left;
+					var mouseStartX = x.pageX;
+					var mouseX, Xvaul, guideTime, guideMoveX, guideFiveNum, guideHour, guideMin;
+					$(window).on("mousemove", function(e) {
+						mouseX = e.pageX;
+						Xvaul = mouseX - mouseStartX;
+						guideMoveX = guideX + Xvaul;
+						if(guideMoveX > 767) {
+							guideMoveX = 767;
+						}
+						if(guideMoveX < 0) {
+							guideMoveX = 0;
+						}
+						if(time==0&&($(".guide2").position().left - $(".guide1").position().left)<=4){
+							if(Xvaul>0){
+								guideMoveX=$(".guide2").position().left-4;
+								$(".guide2").css("left", $(".guide1").position().left +4 + "px");
+								$(".clickSlider2").css("left", $(".guide1").position().left -3 + "px");
+							}
+						}
+						if(time==1&&($(".guide2").position().left - $(".guide1").position().left)<=4){
+							if(Xvaul<0){
+								guideMoveX=$(".guide1").position().left+4;
+								$(".guide1").css("left", $(".guide2").position().left -4 + "px");
+								$(".clickSlider1").css("left", $(".guide2").position().left -11 + "px");
+							}
+						}
+						if(Xvaul % 4 == 0) {
+							$(guide).css("left", guideMoveX + "px");
+							$(mdown).css("left", guideMoveX - 7 + "px");
+							$(".slidercolor").css({
+								"left": $(".guide1").css("left"),
+								"width": ($(".guide2").position().left - $(".guide1").position().left) + "px"
+							})
+							if(guideMoveX + 1 < 4) {
+								guideTime = "08:00";
+							} else {
+								guideFiveNum = (guideMoveX + 1) / 4;
+								guideHour = 8;
+								guideMin = 5 * guideFiveNum;
+								guideHour = guideHour + parseInt(guideMin / 60);
+								if(guideMin % 60 == 0) {
+									guideMin = 0;
+								} else {
+									guideMin = guideMin % 60;
+								}
+								guideMin = guideMin < 10 ? "0" + guideMin : guideMin;
+								guideHour = guideHour < 10 ? "0" + guideHour : guideHour;
+								guideTime = guideHour + ":" + guideMin;
+							}
+							if(time == 0) {
+								vm.startTime = guideTime;
+							}
+							if(time == 1) {
+								vm.endTime = guideTime;
+							}
+
+						
+}
+					})
+				})
+			}
+
+			$(document).mouseup(function() {
+				$(window).off("mousemove");
+				$(".clickSlider1,.clickSlider2").css("background", "");
+			})
+
+			function pageLoad(timeline) {
+				var cans = $("#can").get(0).getContext('2d');
+				/////////////////时间刻度表/////////////////////////////
+				cans.moveTo(0, 20);
+				cans.lineTo(768, 20);
+				//主线
+				for(var i = 0; i < hour; i++) {
+					cans.moveTo(0 + (i * 48), 20); //第一个点
+					cans.lineTo(0 + (i * 48), 5);
+
+					cans.moveTo(24 + (i * 48), 20); //第二个点
+					cans.lineTo(24 + (i * 48), 10);
+
+					cans.moveTo(48 + (i * 48), 20); //第三个点
+					cans.lineTo(48 + (i * 48), 5);
+				}
+				/////////////////时间刻度表/////////////////////////////
+				/////////////////时间线/////////////////////////////
+
+				cans.lineWidth = 1;
+				cans.strokeStyle = 'black';
+				cans.stroke();
+				var cans1 = $("#can").get(0).getContext('2d');
+				cans1.beginPath();
+				cans1.moveTo(0, 0);
+				cans1.lineTo(timeline, 0);
+				cans1.lineWidth = 4;
+				cans1.strokeStyle = '#62c2eb';
+				cans1.stroke();
+			}
+		}();
+	</script>
+
+</html>

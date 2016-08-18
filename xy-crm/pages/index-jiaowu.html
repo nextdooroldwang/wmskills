@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>星云CRM</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- MetisMenu CSS -->
+		<link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+		<link href="../dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+		<!--<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/jquery.range.css">-->
+
+		<!-- Custom Fonts -->
+		<link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/jquery-ui.css">
+		<style media="screen">
+			* {
+				text-decoration: none;
+				list-style: none;
+			}
+			
+			ul,
+			h1,
+			h2,
+			h3,
+			h4 {
+				margin: 0;
+			}
+			
+			th,
+			td {
+				text-align: center;
+				font-size: 13px;
+				position: relative;
+			}
+			
+			td span {
+				color: #ff5400
+			}
+			
+			.weekContainer {
+				padding: 30px 15px 15px 15px;
+			}
+			
+			.dayContainer {
+				padding: 30px 15px 15px 15px;
+			}
+			
+			.iconSanjiao {
+				width: 0;
+				height: 0;
+				border-bottom-width: 10px;
+				border-bottom-style: solid;
+				border-left: 10px solid transparent;
+				display: inline-block;
+			}
+			
+			.iconColorGreen {
+				border-bottom-color: green;
+			}
+			
+			.iconColorOrange {
+				border-bottom-color: #ff5400;
+			}
+			
+			.iconYuan {
+				border: 1px solid rgb(255, 0, 0);
+				border-radius: 50%;
+				padding: 3px 3px;
+				font-size: 12px;
+			}
+			
+			.iconYuanColorRed {
+				border-color: red;
+				color: red;
+			}
+			
+			.iconYuanColorBlue {
+				border-color: #62c2eb;
+				color: #62c2eb;
+			}
+			
+			.scheduleInfo {
+				margin-top: 20px;
+				margin-bottom: 15px;
+			}
+			
+			#scheduleDateWeekInput {
+				/*width: 160px;*/
+				color: rgba(255, 255, 255, 0);
+			}
+			
+			#scheduleDateDayInput {
+				/*width: 160px;*/
+				color: rgba(255, 255, 255, 0);
+			}
+			
+			#scheduleTeacherInput {
+				width: 150px;
+			}
+			
+			.week {
+				position: relative;
+			}
+			
+			.day {
+				position: relative;
+			}
+			
+			.weekAll {
+				position: absolute;
+				top: 7px;
+				left: 5px;
+				z-index: 100;
+			}
+			
+			.dayAll {
+				position: absolute;
+				top: 7px;
+				left: 5px;
+				z-index: 100;
+			}
+			
+			* {
+				text-decoration: none;
+				list-style: none;
+			}
+			
+			ul,
+			h1,
+			h2,
+			h3,
+			h4 {
+				margin: 0;
+			}
+			
+			.containerPanel {
+				width: 100%;
+				padding: 12px 12px;
+			}
+			
+			.panelBodyContainer {
+				width: 768px;
+				margin: 0 auto;
+			}
+			
+			.courseInput {
+				margin-top: 20px;
+			}
+			
+			lable {
+				line-height: 34px;
+			}
+			
+			.courseLeftInput {
+				margin-bottom: 15px;
+			}
+			
+			.courseLeftInput span {
+				color: red;
+			}
+			
+			.courseRight {
+				width: 100%;
+				border: 1px solid #dddddd;
+			}
+			
+			.courseRightHead {
+				padding: 5px 10px;
+				line-height: 34px;
+			}
+			
+			.courseRightHead button {
+				margin-right: 5px;
+			}
+			
+			.courseRightBody {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			
+			table,
+			th,
+			td {
+				text-align: center;
+			}
+			
+			.courseRightTable {
+				min-height: 350px;
+				border: 1px solid #dddddd;
+				margin-bottom: 15px;
+			}
+			
+			.courseRightTable table {
+				border: 0px solid #dddddd;
+			}
+			
+			.courseRightTable th {
+				color: #ffffff;
+				background-color: #666666;
+			}
+			
+			.table-bordered>tbody>tr>th {
+				border-top: 0px solid #dddddd;
+			}
+			
+			.courseBtn {
+				margin-top: 30px;
+			}
+			
+			.courseBtn button {
+				width: 100px;
+				margin-right: 30px;
+			}
+			
+			.mycontainer {
+				width: 100%;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			
+			.timeSlider {
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			
+			td {
+				cursor: pointer;
+			}
+			
+			.modal-dialog {
+				min-width: 1200px;
+			}
+			
+			.timeline-container {
+				width: 768px;
+			}
+			
+			.canvasTitle {
+				width: 100%;
+			}
+			
+			.canvasTitle ul {
+				width: 100%;
+				height: 20px;
+				position: relative;
+			}
+			
+			.canvasTitle li {
+				font-size: 10px;
+				position: absolute;
+			}
+			
+			.rangeSilid {
+				width: 100%;
+				height: 8px;
+				position: relative;
+			}
+			
+			.guide1 {
+				width: 0.5px;
+				height: 38px;
+				border-left: 2px solid red;
+				position: absolute;
+				top: -30px;
+				left: 95px;
+			}
+			
+			.guide2 {
+				width: 0.5px;
+				height: 38px;
+				border-left: 2px solid red;
+				position: absolute;
+				top: -30px;
+				left: 99px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+
+			<!-- Navigation -->
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+					<a class="navbar-brand" href="./index-gongzuotai.html">星云CRM</a>
+				</div>
+				<!-- /.navbar-header -->
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="./index-zuzhi.html">组织</a>
+					</li>
+					<li>
+						<a href="./index-crm.html">CRM</a>
+					</li>
+					<li class="active">
+						<a href="#">教务</a>
+					</li>
+					<li>
+						<a href="./index-yingxiao.html">营销</a>
+					</li>
+					<li>
+						<a href="./index-yunying.html">运营</a>
+					</li>
+					<li>
+						<a href="./index-xitong.html">系统</a>
+					</li>
+				</ul>
+
+				<ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+						</a>
+						<ul class="dropdown-menu dropdown-user">
+							<li>
+								<a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+							</li>
+						</ul>
+						<!-- /.dropdown-user -->
+					</li>
+					<!-- /.dropdown -->
+				</ul>
+				<!-- /.navbar-top-links -->
+
+				<div class="navbar-default sidebar" role="navigation">
+					<div class="sidebar-nav navbar-collapse">
+						<ul class="nav" id="side-menu">
+							<li class="sidebar-search">
+								<div class="input-group custom-search-form">
+									<input type="text" class="form-control" placeholder="Search...">
+									<span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+								</div>
+								<!-- /input-group -->
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-calendar fa-fw"></i> 教务管理<span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level">
+									<li>
+										<a href="index-jiaowu.html">课程表</a>
+									</li>
+									<li>
+										<a href="course-add.html">课程系列</a>
+									</li>
+									<li>
+										<a href="course-admin.html">课程管理</a>
+									</li>
+									<li>
+										<a href="classroom-add.html">教室管理</a>
+									</li>
+									<li>
+										<a href="class-admin.html">班级管理</a>
+									</li>
+								</ul>
+								<!-- /.nav-second-level -->
+							</li>
+						</ul>
+					</div>
+					<!-- /.sidebar-collapse -->
+				</div>
+				<!-- /.navbar-static-side -->
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<ol class="breadcrumb" style="margin:20px 0px 10px 0px">
+							<li>
+								<a href="#">教务</a>
+							</li>
+							<li>教务管理</li>
+							<li>课程表</li>
+						</ol>
+					</div>
+					<!-- /.col-lg-12 -->
+				</div>
+
+				<div class="row">
+					<div class="container-fluid">
+						<!-- /.row -->
+						<div class="row">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<!-- Nav tabs -->
+									<ul class="nav nav-tabs">
+										<li class="active">
+											<a href="#home" data-toggle="tab">周课表</a>
+										</li>
+										<li>
+											<a href="#profile" data-toggle="tab">日课表</a>
+										</li>
+									</ul>
+									<!-- Tab panes -->
+									<div class="tab-content">
+										<div class="tab-pane fade in active" id="home">
+											<div class="weekContainer">
+												<div class="row">
+													<div class="col-md-4 form-inline" id="scheduleDateWeekContainer">
+														<lable>日期: </lable>
+														<!-- <input type="date" class="form-control" id="scheduleDateWeekInput"> -->
+														<div class="input-group date week">
+															<div class="weekAll">
+																<span class="glyphicon glyphicon-triangle-left"></span>
+																<span style="color:#ff5400"></span>
+																<span class="glyphicon glyphicon-triangle-right"></span>
+															</div>
+															<input type="text" class="form-control" id="scheduleDateWeekInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+														</div>
+													</div>
+													<div class="col-md-3 form-inline">
+														<lable> 教师: </lable>
+														<select class="form-control" id="scheduleTeacherInput">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2 text-center">
+														<button class="btn btn-primary">一键排课</button>
+													</div>
+												</div>
+												<div class="row scheduleInfo">
+													“ <span class="iconSanjiao iconColorOrange"></span> ”未签到课程，“ <span class="iconSanjiao iconColorGreen"></span> ”教师已提交签到申请，待审核。<span class="iconYuan iconYuanColorBlue">预</span>表示该排课支持预约; <span class="iconYuan iconYuanColorRed">警</span>表示该排课部分学员课时不足。
+												</div>
+												<div class="row">
+													<table class="table table-bordered">
+														<tr class="weekTableHead">
+															<th>
+
+															</th>
+															<th>
+																周一（<span></span>）
+															</th>
+															<th>
+																周二（<span></span>）
+															</th>
+															<th>
+																周三（<span></span>）
+															</th>
+															<th>
+																周四（<span></span>）
+															</th>
+															<th>
+																周五（<span></span>）
+															</th>
+															<th>
+																周六（<span></span>）
+															</th>
+															<th>
+																周日（<span></span>）
+															</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td class="nosigned"><span>+新建课程</span></td>
+															<td class="signed"><span>+新建课程</span></td>
+															<td><span>+新建课程</span></td>
+															<td><span>+新建课程</span></td>
+															<td><span>+新建课程</span></td>
+															<td><span>+新建课程</span></td>
+															<td><span>+新建课程</span></td>
+
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="profile">
+											<div class="dayContainer">
+												<div class="row">
+													<div class="col-md-4 form-inline" id="scheduleDateDayContainer">
+														<lable>日期: </lable>
+														<!-- <input type="date" class="form-control" id="scheduleDateWeekInput"> -->
+														<div class="input-group date day">
+															<div class="dayAll">
+																<span class="glyphicon glyphicon-triangle-left"></span>
+																<span style="color:#ff5400"></span>
+																<span class="glyphicon glyphicon-triangle-right"></span>
+															</div>
+															<input type="text" class="form-control" id="scheduleDateDayInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+														</div>
+													</div>
+												</div>
+												<div class="row scheduleInfo">
+													“ <span class="iconSanjiao iconColorOrange"></span> ”未签到课程，“ <span class="iconSanjiao iconColorGreen"></span> ”教师已提交签到申请，待审核。<span class="iconYuan iconYuanColorBlue">预</span>表示该排课支持预约; <span class="iconYuan iconYuanColorRed">警</span>表示该排课部分学员课时不足。
+												</div>
+												<div class="row">
+													<table class="table table-bordered">
+														<tr>
+															<th>1</th>
+														</tr>
+														<tr>
+															<td class="nosigned">
+																<div>
+																	12:00~17:50
+																</div>
+																<div>
+																	新概念英语（一）
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<span>+新建课程</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<!-- weektab -->
+
+								</div>
+								<!-- /.panel-body -->
+							</div>
+							<!-- /.panel -->
+						</div>
+						<!-- /.row -->
+					</div>
+
+					<div class="containerPanel">
+						<div class="panel panel-default">
+							<div class="panel-heading text-center">新增排课信息</div>
+							<div class="panel-body">
+								<div class="mycontainer">
+									<div class="panelBodyContainer">
+										<div class="clearfix">
+											<div class="pull-left">
+												上下课时间: <span class="localTime"></span> <span class="startTime"></span>~<span class="endTime"></span>
+											</div>
+											<div class="pull-right">
+												<span style="color:red">提示: </span><span style="color:#62c2eb">蓝色</span>区域表示不可选的时间段
+											</div>
+										</div>
+										<div class="timeline-container">
+											<div class="canvasTitle">
+												<ul>
+													<li>9</li>
+													<li>10</li>
+													<li>11</li>
+													<li>12</li>
+													<li>13</li>
+													<li>14</li>
+													<li>15</li>
+													<li>16</li>
+													<li>17</li>
+													<li>18</li>
+													<li>19</li>
+													<li>20</li>
+													<li>21</li>
+													<li>22</li>
+													<li>23</li>
+													<div style="clear:both"></div>
+												</ul>
+											</div>
+											<canvas id="can" width="768px" height="30px"></canvas>
+											<div class="rangeSilid">
+												<span class="guide1">
+
+        	  </span>
+												<span class="guide2">
+
+           		</span>
+
+											</div>
+											<div id="slider"></div>
+										</div>
+
+										<div class="row courseInput">
+											<div class="col-sm-5">
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable><span>* </span>主讲教师: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control" placeholder="请选择老师">
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable>助教教师: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable>外教教师: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable><span>* </span>上课教师: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable><span>* </span>选择课程: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable>选择课节: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable><span>* </span>占用课时: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable><span>* </span>最大容量: </lable>
+													</div>
+													<div class="col-sm-8">
+														<select class="form-control">
+															<option>所有教师</option>
+															<option>李老师</option>
+															<option>张老师</option>
+															<option>王老师</option>
+															<option>宋老师</option>
+														</select>
+													</div>
+												</div>
+												<div class="row courseLeftInput">
+													<div class="col-sm-4 text-center">
+														<lable>支持预约 </lable>
+													</div>
+													<div class="col-sm-8">
+														<input type="checkbox" class="checkbox" />
+
+													</div>
+												</div>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="courseRight">
+													<div class="courseRightHead clearfix">
+														<span>选择学员</span>
+														<button class="btn btn-outline btn-warning pull-right">清空</button>
+														<button class="btn btn-outline btn-warning pull-right" data-toggle="modal" data-target="#myModal">添加学员</button>
+
+														<!-- Modal -->
+														<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																		<h4 class="modal-title" id="myModalLabel">添加学员</h4>
+																	</div>
+																	<div class="modal-body">
+																		<div class="row form-inline">
+																			<div class="col-md-3 form-group">
+																				<label for="">姓名：</label>
+																				<input type="text" name="" id="" value="" class="form-control" />
+																			</div>
+																			<div class="col-md-3">
+																				<label for="">班级：</label>
+																				<input type="text" name="" id="" value="" class="form-control" />
+																			</div>
+																			<div class="col-md-3">
+																				<label for="">产品：</label>
+																				<input type="text" name="" id="" value="" class="form-control" />
+																			</div>
+																			<div class="col-md-3">
+																				<label for="">课程：</label>
+																				<input type="text" name="" id="" value="" class="form-control" />
+																			</div>
+																		</div>
+																		<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture>
+																			<thead>
+																				<tr>
+																					<th>操作</th>
+																					<th>学员姓名</th>
+																					<th>性别</th>
+																					<th>联系电话</th>
+																					<th>班级名称</th>
+																					<th>产品名称</th>
+																					<th>剩余课时</th>
+																					<th>可排课时</th>
+																					<th>合同结束</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td>Item 1</td>
+																					<td>$1</td>
+																					<td>1</td>
+																					<td>1</td>
+																					<td>Item 1</td>
+																					<td>$1</td>
+																					<td>1</td>
+																					<td>1</td>
+																				</tr>
+
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="modal-footer">
+
+																		<button type="button" class="btn btn-primary">确定</button>
+																		<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+																	</div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+															<!-- /.modal-dialog -->
+														</div>
+														<!-- /.modal -->
+													</div>
+													<div class="courseRightBody">
+														<div class="courseRightTable">
+															<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture>
+																<thead>
+																	<tr>
+																		<th style="border-left:0px">姓名</th>
+																		<th>联系电话</th>
+																		<th>产品名称</th>
+																		<th>可排课时</th>
+																		<th style="border-right:0px">操作</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>李丽丽</td>
+																		<td>13733945358</td>
+																		<td>鲨鱼公园</td>
+																		<td>5</td>
+																		<td>11</td>
+																	</tr>
+																	<tr>
+																		<td>王晓燕</td>
+																		<td>13733986453</td>
+																		<td>鲨鱼公园</td>
+																		<td>7</td>
+																		<td>11</td>
+																	</tr>
+																	<tr>
+																		<td>张可可</td>
+																		<td>18654345358</td>
+																		<td>托马斯英语（初级）</td>
+																		<td>20</td>
+																		<td>11</td>
+																	</tr>
+																</tbody>
+															</table>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row text-center courseBtn">
+											<button class="btn btn-primary"> 保存 </button>
+											<button class="btn btn-default cancelbtn"> 取消 </button>
+										</div>
+									</div>
+									<div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.row -->
+
+			</div>
+			<!-- /#page-wrapper -->
+
+		</div>
+		<!-- /#wrapper -->
+
+		<!-- jQuery -->
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+		<!-- Custom Theme JavaScript -->
+		<script src="../dist/js/sb-admin-2.js"></script>
+		<script src="../dist/js/bootstrap-datepicker.min.js"></script>
+		<script src="../dist/js/bootstrap-datepicker.zh-CN.min.js"></script>
+		<script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
+		<script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+		<!--<script src="../bower_components/bootstrap/dist/js/jquery.range.js"></script>-->
+		<script src="../bower_components/bootstrap/dist/js/jquery-ui.js"></script>
+		<script type="text/javascript">
+			$("th:eq(0)").css("width", "9%");
+			$("th:eq(0)").siblings().css("width", "13%");
+			$('#scheduleDateWeekContainer .input-group.date').datepicker({
+					language: "zh-CN",
+					autoclose: true,
+					todayHighlight: true
+				}
+
+			);
+			$('#scheduleDateDayContainer .input-group.date').datepicker({
+					language: "zh-CN",
+					autoclose: true,
+					todayHighlight: true
+				}
+
+			);
+			//周课程日期
+			(function() {
+					var todayDate, realToday;
+					todayDate = new Date();
+					realToday = new Date();
+					$(".weekAll span:eq(1)").html(weekDefaultTime());
+					weekClickTime();
+					nextWeekClick();
+					// 获取以当天时间为基准的当周的星期一
+					function weekDefaultTime() {
+						var todayTime, todayWeek, startTime, endTime, startDate, endDate;
+						todayTime = todayDate.getTime();
+						todayWeek = todayDate.getDay();
+						if(todayWeek == 0) {
+							todayWeek = 7;
+						}
+						startTime = todayTime - ((todayWeek - 1) * 24 * 60 * 60 * 1000);
+						endTime = todayTime + ((7 - todayWeek) * 24 * 60 * 60 * 1000);
+						startDate = new Date(startTime);
+						endDate = new Date(endTime);
+						var defaultStartYear = startDate.getFullYear();
+						var defaultStartMonth = startDate.getMonth() + 1;
+						var defaultStartDay = startDate.getDate();
+						var defaultEndYear = endDate.getFullYear();
+						var defaultEndMonth = endDate.getMonth() + 1;
+						var defaultEndDay = endDate.getDate();
+						defaultStartMonth = dateToString0(defaultStartMonth);
+						defaultStartDay = dateToString0(defaultStartDay);
+						defaultEndMonth = dateToString0(defaultEndMonth);
+						defaultEndDay = dateToString0(defaultEndDay);
+						for(var i = 0; i < 7; i++) {
+							$(".weekTableHead span").eq(i).parent().css({
+								"background": "",
+								"color": ""
+							});
+							var weekTableHeadTime = startTime + (i * 24 * 60 * 60 * 1000);
+							var weekTableHeadDate = new Date(weekTableHeadTime);
+							var weekTableHeadMonth = weekTableHeadDate.getMonth() + 1;
+							var weekTableHeadDay = weekTableHeadDate.getDate();
+							weekTableHeadMonth = dateToString0(weekTableHeadMonth);
+							weekTableHeadDay = dateToString0(weekTableHeadDay);
+							$(".weekTableHead span").eq(i).html(weekTableHeadMonth + "-" + weekTableHeadDay);
+							if(realToday.getFullYear() == weekTableHeadDate.getFullYear() && realToday.getDate() == weekTableHeadDate.getDate() && realToday.getMonth() == weekTableHeadDate.getMonth()) {
+								$(".weekTableHead span").eq(i).parent().css({
+									"background": "#ff5400",
+									"color": "#ffffff"
+								});
+							}
+						}
+						var defaultStartTime = defaultStartYear + "-" + defaultStartMonth + "-" + defaultStartDay;
+						var defaultTime = defaultStartTime + "~" + defaultEndMonth + "-" + defaultEndDay;
+						return defaultTime;
+
+						function dateToString0(d) {
+							if(d < 10) {
+								d = "0" + d;
+							}
+							return d;
+						}
+					}
+					// 获取点击选择日历后的选择周(重新设置todaydate值即可)
+					function weekClickTime() {
+						var clickTime;
+						$("#scheduleDateWeekInput").change(function() {
+							clickTime = $(this).val();
+							clickTime = clickTime.substring(0, 4) + "-" + clickTime.substring(5, 7) + "-" + clickTime.substring(8, 10);
+							todayDate = getDate(clickTime);
+							$(".weekAll span:eq(1)").html(weekDefaultTime());
+						})
+					}
+					// 点击< >来切换周
+					function nextWeekClick() {
+						$(".weekAll span:eq(0)").on("click", function() {
+							var clickTime = $(".weekAll span:eq(1)").html().substring(0, 10);
+							clickTime = getDate(clickTime);
+							clickTime = clickTime.getTime();
+							clickTime = clickTime - (7 * 24 * 60 * 60 * 1000);
+							todayDate = new Date(clickTime);
+							$(".weekAll span:eq(1)").html(weekDefaultTime());
+						})
+						$(".weekAll span:eq(2)").on("click", function() {
+							var clickTime = $(".weekAll span:eq(1)").html().substring(0, 10);
+							clickTime = getDate(clickTime);
+							clickTime = clickTime.getTime();
+							clickTime = clickTime + (7 * 24 * 60 * 60 * 1000);
+							todayDate = new Date(clickTime);
+							$(".weekAll span:eq(1)").html(weekDefaultTime());
+						})
+					}
+					// 年-月-日格式的string转化为date
+					function getDate(strDate) {
+						var date2 = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/, function(a) {
+							return parseInt(a, 10) - 1;
+						}).match(/\d+/g) + ')');
+						return date2;
+					}
+				}
+
+			)(),
+			// 课表css(singned:已签到；nosigned：未签到)
+			(function() {
+					$("td").append("<div class='iconSanjiao iconColorOrange'></div><div class='iconSanjiao iconColorGreen'></div>");
+					$("table .iconSanjiao").css({
+						"position": "absolute",
+						"right": "0",
+						"bottom": "0",
+						"z-index": "2",
+						"display": "none"
+					})
+					for(var i = 0; i < $("td").size(); i++) {
+						if($("td").eq(i).hasClass("signed")) {
+							$("td .iconColorGreen").eq(i).show();
+						}
+						if($("td").eq(i).hasClass("nosigned")) {
+							$("td .iconColorOrange").eq(i).show();
+						}
+					}
+				}
+
+			)(),
+			// 日课日期
+			(function() {
+					var todayDate, realToday;
+					todayDate = new Date();
+					realToday = new Date();
+					$(".dayAll span:eq(1)").html(dayDefaultTime());
+					dayClickTime();
+					nextDayClick();
+					// 获取当天时间
+					function dayDefaultTime() {
+						var todayTime, todayWeek, defaultDayYear, defaultDayMonth, defaultDay;
+						todayTime = todayDate.getTime();
+						todayWeek = todayDate.getDay();
+						switch(todayWeek) {
+							case 0:
+								todayWeek = "星期天";
+								break;
+							case 1:
+								todayWeek = "星期一";
+								break;
+							case 2:
+								todayWeek = "星期二";
+								break;
+							case 3:
+								todayWeek = "星期三";
+								break;
+							case 4:
+								todayWeek = "星期四";
+								break;
+							case 5:
+								todayWeek = "星期五";
+								break;
+							case 6:
+								todayWeek = "星期六";
+								break;
+						}
+						defaultDayYear = todayDate.getFullYear();
+						defaultDayMonth = todayDate.getMonth() + 1;
+						defaultDay = todayDate.getDate();
+						defaultDayMonth = dateToString0(defaultDayMonth);
+						defaultDay = dateToString0(defaultDay);
+						var defaultDayTime = " " + todayWeek + " " + defaultDayYear + "-" + defaultDayMonth + "-" + defaultDay;
+						return defaultDayTime;
+
+						function dateToString0(d) {
+							if(d < 10) {
+								d = "0" + d;
+							}
+							return d;
+						}
+					}
+					// 获取点击选择日历后的选择日期(重新设置todaydate值即可)
+					function dayClickTime() {
+						var clickTime;
+						$("#scheduleDateDayInput").change(function() {
+							clickTime = $(this).val();
+							clickTime = clickTime.substring(0, 4) + "-" + clickTime.substring(5, 7) + "-" + clickTime.substring(8, 10);
+							todayDate = getDate(clickTime);
+							$(".dayAll span:eq(1)").html(dayDefaultTime());
+						})
+					}
+					// 点击< >来切换天
+					function nextDayClick() {
+						$(".dayAll span:eq(0)").on("click", function() {
+							var clickTime = $(".dayAll span:eq(1)").html().substring(5, 15);
+							clickTime = getDate(clickTime);
+							clickTime = clickTime.getTime();
+							clickTime = clickTime - (24 * 60 * 60 * 1000);
+							todayDate = new Date(clickTime);
+							$(".dayAll span:eq(1)").html(dayDefaultTime());
+						});
+						$(".dayAll span:eq(2)").on("click", function() {
+							var clickTime = $(".dayAll span:eq(1)").html().substring(5, 15);
+							clickTime = getDate(clickTime);
+							clickTime = clickTime.getTime();
+							clickTime = clickTime + (24 * 60 * 60 * 1000);
+							todayDate = new Date(clickTime);
+							$(".dayAll span:eq(1)").html(dayDefaultTime());
+						})
+					}
+					// 年-月-日格式的string转化为date
+					function getDate(strDate) {
+						var date2 = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/, function(a) {
+							return parseInt(a, 10) - 1;
+						}).match(/\d+/g) + ')');
+						return date2;
+					}
+				}
+
+			)(),
+			// td点击
+			(function() {
+					$(".containerPanel").hide();
+					$("td").on("click", function() {
+						if($(this).children("span").html() == "+新建课程") {
+							$(".container-fluid").hide();
+							$(".containerPanel").show();
+						}
+					});
+					$(".cancelbtn").on("click", function() {
+						$(".container-fluid").show();
+						$(".containerPanel").hide();
+					})
+				}
+
+			)(),
+			// 滑动条
+			(function() {
+					$("#slider").slider({
+						range: true,
+						values: [444, 768],
+						max: 768,
+						min: 0,
+						orientation: "horizontal",
+						step: 4
+					});
+				}
+
+			)(), + function() {
+				document.ondragstart = function() {
+					return false;
+				};
+				$(".canvasTitle li").eq(0).css("left", "46px");
+				$(".canvasTitle li").eq(1).css("left", "90px");
+				$(".canvasTitle li").eq(2).css("left", "138px");
+				$(".canvasTitle li").eq(3).css("left", "184px");
+				$(".canvasTitle li").eq(4).css("left", "232px");
+				$(".canvasTitle li").eq(5).css("left", "282px");
+				$(".canvasTitle li").eq(6).css("left", "330px");
+				$(".canvasTitle li").eq(7).css("left", "376px");
+				$(".canvasTitle li").eq(8).css("left", "426px");
+				$(".canvasTitle li").eq(9).css("left", "476px");
+				$(".canvasTitle li").eq(10).css("left", "520px");
+				$(".canvasTitle li").eq(11).css("left", "570px");
+				$(".canvasTitle li").eq(12).css("left", "618px");
+				$(".canvasTitle li").eq(13).css("left", "666px");
+				$(".canvasTitle li").eq(14).css("left", "713px");
+				var hour = 16;
+				//刻度范围总小时数：16小时为8点～24点
+				var today = new Date();
+				var todayHour = today.getHours();
+				var todayMin = today.getMinutes();
+				var timeline = todayMin / 5 * 4 + ((todayHour - 8) * 48);
+				var defaulSTime,
+					defaulETime,
+					todayEHour,
+					todayEMin;
+				pageLoad(timeline);
+
+				$("#slider").slider("values", [timeline, timeline + 40]);
+				$(".startTime").html(timemove(timeline));
+				$(".endTime").html(timemove(timeline + 40));
+
+				function pageLoad(timeline) {
+					var cans = $("#can").get(0).getContext('2d');
+					/////////////////时间刻度表/////////////////////////////
+					cans.moveTo(0, 20);
+					cans.lineTo(768, 20);
+					//主线
+					for(var i = 0; i < hour; i++) {
+						cans.moveTo(0 + (i * 48), 20); //第一个点
+						cans.lineTo(0 + (i * 48), 5);
+						cans.moveTo(24 + (i * 48), 20); //第二个点
+						cans.lineTo(24 + (i * 48), 10);
+						cans.moveTo(48 + (i * 48), 20); //第三个点
+						cans.lineTo(48 + (i * 48), 5);
+					}
+					/////////////////时间刻度表/////////////////////////////
+					/////////////////时间线/////////////////////////////
+					cans.lineWidth = 1;
+					cans.strokeStyle = 'black';
+					cans.stroke();
+					var cans1 = $("#can").get(0).getContext('2d');
+					cans1.beginPath();
+					cans1.moveTo(0, 0);
+					cans1.lineTo(timeline, 0);
+					cans1.lineWidth = 4;
+					cans1.strokeStyle = '#62c2eb';
+					cans1.stroke();
+				}
+
+				function timemove(value) {
+					var guideFiveNum = value / 4;
+					var guideHour = 8;
+					var guideMin = 5 * guideFiveNum;
+					guideHour = guideHour + parseInt(guideMin / 60);
+					if(guideMin % 60 == 0) {
+						guideMin = 0;
+					} else {
+						guideMin = guideMin % 60;
+					}
+					guideMin = guideMin < 10 ? "0" + guideMin : guideMin;
+					guideHour = guideHour < 10 ? "0" + guideHour : guideHour;
+					var guideTime = guideHour + ":" + guideMin;
+					return guideTime;
+				}
+			}
+			(), + function() {
+				var mdown,
+					localtime,
+					handle1,
+					handle2;
+				var today = new Date();
+				var todayHour = today.getHours();
+				var todayMin = today.getMinutes();
+				localtime = today.getFullYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日";
+				$(".localTime").html(localtime);
+				$(".guide1").css("left", $(".ui-slider-handle:eq(0)").css("left"));
+				$(".guide2").css("left", $(".ui-slider-handle:eq(1)").css("left"));
+				$(".ui-slider-handle:eq(0)").on("mousedown", function() {
+					mdown = 1;
+				});
+				$(".ui-slider-handle:eq(1)").on("mousedown", function() {
+					mdown = 2;
+				});
+				$(".ui-slider-handle").on("mouseup", function() {
+					mdown = 0;
+				});
+				$(".ui-slider-handle").on("mousemove", function() {
+					handle1 = $("#slider").slider("values")[0];
+					handle2 = $("#slider").slider("values")[1];
+					if(mdown != 0) {
+						$(".guide1").css("left", handle1);
+						$(".guide2").css("left", handle2);
+					};
+					if(mdown == 1) timemove(handle1, mdown);
+					if(mdown == 2) timemove(handle2, mdown);
+
+				})
+
+				function timemove(value, clickNum) {
+					var guideFiveNum = value / 4;
+					var guideHour = 8;
+					var guideMin = 5 * guideFiveNum;
+					guideHour = guideHour + parseInt(guideMin / 60);
+					if(guideMin % 60 == 0) {
+						guideMin = 0;
+					} else {
+						guideMin = guideMin % 60;
+					}
+					guideMin = guideMin < 10 ? "0" + guideMin : guideMin;
+					guideHour = guideHour < 10 ? "0" + guideHour : guideHour;
+					var guideTime = guideHour + ":" + guideMin;
+					if(clickNum == 1) {
+						$(".startTime").html(guideTime);
+					}
+					if(clickNum == 2) {
+						$(".endTime").html(guideTime);
+					}
+				}
+			}
+
+			();
+		</script>
+	</body>
+
+</html>

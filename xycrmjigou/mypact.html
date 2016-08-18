@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-我的合同</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+
+		<style>
+			body {
+				background-color: rgb(243, 243, 243);
+			}
+			
+			p,
+			ul,
+			.mePact {
+				margin: 0px;
+				text-decoration: none;
+				list-style: none;
+			}
+			
+			.weui_tab_bd {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			
+			.weui_panel:first-child {
+				margin-top: 10px;
+			}
+			
+			.weui_cell {
+				display: block;
+			}
+			
+			.weui_navbar+.weui_tab_bd {
+				padding-top: 40px;
+				padding-bottom: 10px;
+			}
+			
+			.xyHomePannel {
+				background: rgb(255, 255, 255);
+				border: 2px solid #E3E3E3;
+				margin-top: 10px;
+			}
+			
+			.xyHomePannelHeader {
+				padding: 10px 15px;
+			}
+			
+			.xyHomePannel ul {
+				padding: 10px 15px;
+			}
+			
+			.myPactnav {
+				width: 90%;
+				height: 0.5px;
+				border-bottom: 1px solid #E3E3E3;
+				margin-left: 15px;
+			}
+			
+			.pactOver {
+				padding-left: 10px;
+			}
+			
+			.weui_navbar {
+				background: rgb(79, 83, 108);
+			}
+			
+			.weui_navbar_item {
+				padding-top: 7px;
+				padding-bottom: 7px;
+			}
+			
+			.xyHomeItemOn {
+				border-bottom: 3px solid rgb(230, 78, 91);
+				color: #F5F5F5;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+			<div class="weui_navbar">
+				<div class="weui_navbar_item xyHomeItemOn">
+					全部
+				</div>
+				<div class="weui_navbar_item">
+					已取消
+				</div>
+				<div class="weui_navbar_item">
+					已完成
+				</div>
+				<div class="weui_navbar_item">
+					进行中
+				</div>
+			</div>
+			<div class="weui_tab_bd">
+				<div class="xyHomePannel">
+					<div class="clearfix xyHomePannelHeader">
+						<div class="pull-left">
+							<p>机构名称：<span>小象英语</span></p>
+						</div>
+						<div class="pull-right">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+					</div>
+					<div class="myPactnav"></div>
+					<div>
+						<ul>
+							<li><span>合同编号：</span><span>32112121123</span></li>
+							<li><span>产品名称：</span><span>初级英语（春季班）</span></li>
+							<li><span>课程信息：</span><span>总课时20 赠送2课时</span></li>
+							<li>
+								<div class="weui_progress">
+									<span>课程进度：</span>
+									<div class="weui_progress_bar">
+										<div class="weui_progress_inner_bar js_progress"></div>
+									</div>
+									<span class="pactOver"><span class="pactDivisor">20</span>/<span class="pactDividend">20</span></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="xyHomePannel">
+					<div class="clearfix xyHomePannelHeader">
+						<div class="pull-left">
+							<p>机构名称：<span>小象英语</span></p>
+						</div>
+						<div class="pull-right">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+					</div>
+					<div class="myPactnav"></div>
+					<div>
+						<ul>
+							<li><span>合同编号：</span><span>32112121123</span></li>
+							<li><span>产品名称：</span><span>初级英语2（春季班）</span></li>
+							<li><span>课程信息：</span><span>总课时20 赠送2课时</span></li>
+							<li>
+								<div class="weui_progress">
+									<span>课程进度：</span>
+									<div class="weui_progress_bar">
+										<div class="weui_progress_inner_bar js_progress"></div>
+									</div>
+									<span class="pactOver"><span class="pactDivisor">5</span>/<span class="pactDividend">20</span></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="xyHomePannel">
+					<div class="clearfix xyHomePannelHeader">
+						<div class="pull-left">
+							<p>机构名称：<span>小象英语</span></p>
+						</div>
+						<div class="pull-right">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+					</div>
+					<div class="myPactnav"></div>
+					<div>
+						<ul>
+							<li><span>合同编号：</span><span>32112121123</span></li>
+							<li><span>产品名称：</span><span>初级英语3（春季班）</span></li>
+							<li><span>课程信息：</span><span>总课时20 赠送2课时</span></li>
+							<li>
+								<div class="weui_progress">
+									<span>课程进度：</span>
+									<div class="weui_progress_bar">
+										<div class="weui_progress_inner_bar js_progress"></div>
+									</div>
+									<span class="pactOver"><span class="pactDivisor">18</span>/<span class="pactDividend">20</span></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="xyHomePannel">
+					<div class="clearfix xyHomePannelHeader">
+						<div class="pull-left">
+							<p>机构名称：<span>小象英语</span></p>
+						</div>
+						<div class="pull-right">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+					</div>
+					<div class="myPactnav"></div>
+					<div>
+						<ul>
+							<li><span>合同编号：</span><span>32112121123</span></li>
+							<li><span>产品名称：</span><span>初级英语4（春季班）</span></li>
+							<li><span>课程信息：</span><span>总课时20 赠送2课时</span></li>
+							<li>
+								<div class="weui_progress">
+									<span>课程进度：</span>
+									<div class="weui_progress_bar">
+										<div class="weui_progress_inner_bar js_progress"></div>
+									</div>
+									<span class="pactOver"><span class="pactDivisor">0</span>/<span class="pactDividend">20</span></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="null"></div>
+			</div>
+
+			<div class="weui_tabbar">
+				<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_button.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">主页</p>
+				</a>
+				<a href="remind.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_msg.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">推推</p>
+				</a>
+				<a href="schedule.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">课表</p>
+				</a>
+				<a href="question.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">我的</p>
+				</a>
+
+			</div>
+
+			<script src="js/jquery-2.1.4.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/jquery-weui.js"></script>
+			<script src="js/swiper.js"></script>
+			<script>
+			
+				$(".null").height($(".weui_tabbar").height());
+				for (var i = 0; i < $(".xyHomePannel").size(); i++) {
+					$(".xyHomePannel:eq("+i+") .weui_progress_inner_bar").css("width", $(".xyHomePannel:eq("+i+") .pactDivisor").html() / $(".xyHomePannel:eq("+i+") .pactDividend").html() * 100 + "%");
+					if ($(".xyHomePannel:eq("+i+") .pactDivisor").html() / $(".xyHomePannel:eq("+i+") .pactDividend").html() == 1) {
+						$(".xyHomePannel:eq("+i+") .pactDivisor").parent().html("已完成");
+						$(".xyHomePannel:eq("+i+") .pactOver").css("color", "#04BE02");
+						
+					}
+				}
+				$(".weui_navbar_item").on("click", function() {
+					$(".weui_navbar_item").removeClass("xyHomeItemOn");
+					$(this).addClass("xyHomeItemOn");
+				})
+				$(".xyHomePannel").on("click", function() {
+					window.location.href = "pactdetails.html"
+				})
+				$(".weui_navbar_item:eq(0)").on("click", function() {
+					$(".xyHomePannel").fadeIn();
+				})
+				$(".weui_navbar_item:eq(1)").on("click", function() {
+					$(".xyHomePannel").fadeOut();
+
+				})
+				$(".weui_navbar_item:eq(2)").on("click", function() {
+					$(".xyHomePannel").fadeOut();
+					for (var i = 0; i < $(".pactOver").size(); i++) {
+						if ($(".pactOver").eq(i).html() == "已完成") {
+							$(".xyHomePannel").eq(i).fadeIn();
+						}
+					}
+				})
+				$(".weui_navbar_item:eq(3)").on("click", function() {
+					$(".xyHomePannel").fadeOut();
+					for (var i = 0; i < $(".xyHomePannel").size(); i++) {
+						if ($(".xyHomePannel:eq("+i+") .pactDivisor").html() > 0 && $(".xyHomePannel:eq("+i+") .pactOver").html() != "已完成") {
+							$(".xyHomePannel").eq(i).fadeIn();
+						}
+					}
+				})
+			</script>
+	</body>
+
+</html>

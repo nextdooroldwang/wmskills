@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-老师推送</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+
+		<style>
+			body {
+				background-color: rgb(243, 243, 243);
+				font-family: "微软雅黑";
+			}
+			
+			h1,
+			h4,
+			ul {
+				margin: 0;
+				list-style: none;
+			}
+			
+			.weui_input {
+				display: none;
+			}
+			
+			.weui_tab_bd {
+				position: relative;
+			}
+			
+			.weui_navbar+.weui_tab_bd {
+				padding-top: 35px;
+				padding-bottom: 0;
+			}
+			
+			.weui_cells_form {
+				margin: 0px;
+				background: #23a197;
+				color: rgb(255, 255, 255);
+				font-weight: 300;
+			}
+			
+			.cellDate {
+				height: 35px;
+			}
+			
+			.weui_navbar_item:after {
+				content: " ";
+				position: absolute;
+				right: 0;
+				top: 7px;
+				width: 1px;
+				height: 21px;
+				border-right: 1px solid #ccc;
+				color: #ccc;
+				-webkit-transform-origin: 100% 0;
+				transform-origin: 100% 0;
+				-webkit-transform: scaleX(.5);
+				transform: scaleX(.5);
+			}
+			
+			.cellDate label {
+				width: 100%;
+			}
+			
+			.clearfix {
+				display: block;
+			}
+			
+			.pushCells {
+				margin-top: 0px;
+				background-color: rgb(243, 243, 243);
+				padding: 0px 10px;
+			}
+			
+			.pushCell {
+				border-left: 4px solid;
+				margin-bottom: 3px;
+				margin: 5px 0px;
+				background: rgb(255, 255, 255);
+				box-shadow: 1px 1px 1px 1px rgb(173, 173, 173);
+			}
+			
+			.pushDate {
+				font-size: 12px;
+				color: rgb(177, 177, 177);
+			}
+			
+			.push {
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 70%;
+			}
+			
+			.pushTalk {
+				font-size: 14px;
+				color: rgb(77, 77, 77);
+				width: 70%;
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				padding-top: 3px;
+			}
+			
+			.weui_title {
+				font-size: 14px;
+				color: rgb(0, 0, 0);
+				font-weight: 700;
+				padding: 5px 0px 5px 5px;
+			}
+			
+			.pushDadge {
+				padding: 5px 13px;
+				background: rgb(222, 56, 134);
+			}
+			/*.weuiCellsForm {
+				width: 100%;
+				height: 35px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}*/
+			
+			.weuiCellsDiv {
+				padding-top: 0px;
+				padding-bottom: 0px;
+			}
+			
+			.weuiCellsDiv label {
+				margin-bottom: 0px;
+				color: #FFFFFF;
+				font-family: "微软雅黑";
+				font-weight: 500;
+				font-size: 14px;
+			}
+			.pushImgs {
+				width: 100%;
+				padding-top: 10px;
+			}
+			.pushImgs ul{
+				width: 100%;
+			}
+			.pushImgs li{
+				width: 20%;
+				padding: 3px 5px;
+				float: left;
+			}
+			.pushImgs img{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+			<div class="weui_navbar weui_cells_form weuiCellsForm">
+				<div class="weui_navbar_item  weuiCellsDiv">
+					<div class="weui_cell text-center cellDate cellDateMy">
+						<label for="time">按时间筛选 <span class="glyphicon glyphicon-chevron-down" ></span></label>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" id="time" type="text" value="">
+						</div>
+					</div>
+				</div>
+				<div class="weui_navbar_item weuiCellsDiv">
+					<div class="weui_cell text-center cellDate">
+						<label for="kind" class="weui_label text-center">按种类筛选 <span class="glyphicon glyphicon-chevron-down" ></span></label>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" id="kind" type="text" value="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="weui_tab_bd">
+				<div class="weui_cells pushCells">
+					<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								李泽天
+							</div>
+							<div class="pull-right pushDate">2016-07-20</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								今天作业：给妈妈讲一个小鱼去游乐场的故事。
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">作业</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="" alt="" /></li>
+								<li id="pb2"><img src="" alt="" /></li>
+								<li id="pb3"><img src="" alt="" /></li>
+								<li id="pb4"><img src="" alt="" /></li>
+								<li id="pb5"><img src="" alt="" /></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								张新意
+							</div>
+							<div class="pull-right pushDate">2016-07-21</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								周六晚上7点有小伙伴生日晚会，所有小伙伴均可参加。
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">通知</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="" alt="" /></li>
+								<li id="pb2"><img src="" alt="" /></li>
+								<li id="pb3"><img src="" alt="" /></li>
+								<li id="pb4"><img src="" alt="" /></li>
+								<li id="pb5"><img src="" alt="" /></li>
+							</ul>
+						</div>
+					</div>
+					<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								王琳琳
+							</div>
+							<div class="pull-right pushDate">2016-07-22</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								今天在未来科技课上出色的完成了所有任务，表现很精彩，赞！
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">课堂点评</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="img/xiaohai1.jpg" alt="" /></li>
+								<li id="pb2"><img src="img/xiaohai2.jpg" alt="" /></li>
+								<li id="pb3"><img src="img/xiaohai3.jpg" alt="" /></li>
+								<li id="pb4"><img src="img/xiaohai4.jpg" alt="" /></li>
+								<li id="pb5"><img src="img/xiaohai9.jpg" alt="" /></li>
+							</ul>
+						</div>
+					</div>
+					<!--<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								阳顶天
+							</div>
+							<div class="pull-right pushDate">2016-07-20</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								记得写作业
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">作业</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="img/img3.jpg" alt="" /></li>
+								<li id="pb2"><img src="img/icon_nav_noti.png" alt="" /></li>
+								<li id="pb3"><img src="img/icon_nav_swiper.png" alt="" /></li>
+								<li id="pb4"><img src="" alt="" /></li>
+								<li id="pb5"><img src="" alt="" /></li>
+							</ul>
+						</div>
+					</div>-->
+
+					<!--<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								王重阳
+							</div>
+							<div class="pull-right pushDate">2016-07-22</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								表现的很好！
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">课堂点评</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="img/img3.jpg" alt="" /></li>
+								<li id="pb2"><img src="img/icon_nav_noti.png" alt="" /></li>
+								<li id="pb3"><img src="img/icon_nav_swiper.png" alt="" /></li>
+								<li id="pb4"><img src="" alt="" /></li>
+								<li id="pb5"><img src="" alt="" /></li>
+							</ul>
+						</div>
+					</div>
+					<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								张无忌
+							</div>
+							<div class="pull-right pushDate">2016-07-21</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								记得来上课
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">通知</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="img/img3.jpg" alt="" /></li>
+								<li id="pb2"><img src="img/icon_nav_noti.png" alt="" /></li>
+								<li id="pb3"><img src="img/icon_nav_swiper.png" alt="" /></li>
+								<li id="pb4"><img src="" alt="" /></li>
+								<li id="pb5"><img src="" alt="" /></li>
+							</ul>
+						</div>
+					</div>
+					<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								王重阳
+							</div>
+							<div class="pull-right pushDate">2016-07-22</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								表现的很好！
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">课堂点评</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="img/img3.jpg" alt="" /></li>
+								<li id="pb2"><img src="img/icon_nav_noti.png" alt="" /></li>
+								<li id="pb3"><img src="img/icon_nav_swiper.png" alt="" /></li>
+								<li id="pb4"><img src="" alt="" /></li>
+								<li id="pb5"><img src="" alt="" /></li>
+							</ul>
+						</div>
+					</div>-->
+					<div class="weui_cell clearfix pushCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left push">
+								朱梓琪
+							</div>
+							<div class="pull-right pushDate">2016-07-23</div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left pushTalk">
+								未来科技课程得分：85分
+							</div>
+							<div class="pull-right"><span class="badge pushDadge">成绩单</span></div>
+						</div>
+						<div class="pushImgs">
+							<ul>
+								<li id="pb1"><img src="img/xiaohai5.jpg" alt="" /></li>
+								<li id="pb2"><img src="img/xiaohai6.jpg" alt="" /></li>
+								<li id="pb3"><img src="img/xiaohai7.jpg" alt="" /></li>
+								<li id="pb4"><img src="img/xiaohai8.jpg" alt="" /></li>
+								<li id="pb5"><img src="img/xiaohai10.jpg" alt="" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script>
+				$(".pushImgs li").height($(".pushImgs li").width());
+				$(".pushImgs").hide();
+				for(var i=0;i<$(".pushImgs").size();i++) {
+					var x=0;
+					for(var j=0;j<5;j++) {
+						if($(".pushImgs:eq("+i+") img:eq("+j+")").attr("src")=="") {
+							x++;
+						}
+					}
+					if(x<5) {
+						$(".pushImgs").eq(i).show();
+					}
+				}
+			
+				$("#time").datetimePicker({
+			        min: "2012-12-12",
+			        max: "2022-12-12"
+			      });
+//			      $(".cellDateMy").on("click",function() {
+//			      	$(".picker-items>.picker-items-col").eq(3).hide();
+//			      });      
+				$("#kind").picker({
+					title: "全部类型",
+					cols: [{
+						textAlign: 'center',
+						values: ['作业', '通知单', '课堂点评', '成绩单']
+					}]
+				});
+				var pb1 = $.photoBrowser({
+					items: [
+						"img/icon1.png",
+						"img/icon2.png"
+					],
+	
+					onSlideChange: function(index) {
+						console.log(this, index);
+					},
+	
+					onOpen: function() {
+						console.log("onOpen", this);
+					},
+					onClose: function() {
+						console.log("onClose", this);
+					}
+				});
+				$("#pb1,#pb2,#pb3").click(function() {
+					pb1.open();
+				});
+				for (var i = 0; i < $(".pushCell").size(); i++) {
+					var colorA = "#0098D9";
+					var colorB = "#FFE800";
+					var colorC = "#F5A819";
+					var colorD = "#23A197";
+					if ($(".pushDadge").eq(i).html() == "作业") {
+						$(".pushDadge").eq(i).css("background-color", colorA);
+					} else if ($(".pushDadge").eq(i).html() == "通知单") {
+						$(".pushDadge").eq(i).css("background-color", colorB);
+					} else if ($(".pushDadge").eq(i).html() == "课堂点评") {
+						$(".pushDadge").eq(i).css("background-color", colorC);
+					} else if ($(".pushDadge").eq(i).html() == "成绩单") {
+						$(".pushDadge").eq(i).css("background-color", colorD);
+					}
+					$(".pushCell").eq(i).css("border-left-color", $(".pushDadge").eq(i).css("background-color"));
+				}
+
+				function getRandom(n) {
+					return Math.floor(Math.random() * n + 1)
+				}
+			
+		</script>
+	</body>
+
+</html>

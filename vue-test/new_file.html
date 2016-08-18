@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="utf-8" />
+<title> js双滑块区间 </title>
+<style type='text/css'>
+#range{position:relative;width:148px;height:2px;font-size:0;line-height:0;background:#fff;border:1px inset #9C9B97}
+#meaBox{position:absolute;width:148px;height:4px;background:#ccc;top:-2px;border:1px inset #9C9B97;border-left:0;border-right:0;}
+.mea{position:absolute;top:-5px;width:2px;height:10px;border:3px solid #fff;border-top:13px solid #3f8e55;}
+#mea_l{left:0;}
+#mea_r{right:0;border-top:13px solid #ff0000;}
+</style>
+</head>
+<body>
+<div id='range'>
+	 <div id='meaBox' onmousedown="change(this,event)"> </div>
+     <div id='mea_l' class='mea' onmousedown="change(this,event)" ></div>
+	 <div id='mea_r' class='mea' onmousedown="change(this,event)" ></div>
+</div>
+
+<script type='text/javascript'>
+var $id=function(o){return document.getElementById(o) || o;}
+var change=function(o,e){
+	var e = e ? e : window.event;
+	if(!window.event) {e.preventDefault();}
+	var init={
+		mX: o.offsetLeft,
+		lX: $id('mea_l').offsetLeft,
+		rX: $id('mea_r').offsetLeft,
+		dX: e.clientX
+	};
+	document.onmousemove=function(e){
+		var e = e ? e : window.event;
+		var dist=e.clientX-init.dX,
+			len=init.mX + dist,
+			l_x=init.lX,
+			r_x=init.rX;
+		switch ($id(o).id){
+			case 'mea_l':
+				l_x=init.lX + dist;
+				move();
+				break;
+			case 'mea_r':
+				r_x=init.rX + dist;
+				move();
+				break;
+			case 'meaBox':
+				l_x=init.lX + dist;
+				r_x=init.rX + dist;
+				move2();
+				break;
+			default: break;
+		}
+		
+		function move(){
+			if(r_x > l_x + 20 && len>=0 && len<=140 ) {
+				o.style.left=len+"px";
+				$id('meaBox').style.left= l_x + 'px';
+				$id('meaBox').style.width=r_x - l_x + 'px';
+			}
+		};
+		function move2(){
+			if(l_x>=0 && r_x <=140 ) {
+				o.style.left=len+"px";
+				$id('mea_l').style.left= l_x + "px";
+				$id('mea_r').style.left= r_x +"px";
+			}
+		};
+	}
+	document.onmouseup=function(){
+		document.onmousemove=null;
+		document.onmouseup=null;
+	}
+}
+</script>
+</body>
+</html>

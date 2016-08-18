@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-我的</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+
+		<style>
+			body {
+				background-color: rgb(243, 243, 243);
+			}
+			
+			p,
+			ul,
+			.mePact {
+				margin: 0px;
+			}
+			
+			.headerImg {
+				width: 100%;
+				height: 130px;
+				background-image: url(img/img2.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.headerImgIcon {
+				width: 100%;
+				height: 60px;
+				position: relative;
+			}
+			
+			.headerImgIcon>div {
+				left: 30px;
+				top: -30px;
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				background-image: url(img/icon1.png);
+			}
+			
+			.headerImgIcon>p {
+				padding-left: 110px;
+				padding-top: 10px;
+				font-weight: 600;
+			}
+			
+			.headerImgBtn {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				background: rgba(0, 0, 0, 0);
+				border-radius: 50%;
+			}
+			
+			.weui_btn:after {
+				border: 0px;
+			}
+			
+			.redRadius {
+				width: 15px;
+				height: 15px;
+				background: rgb(255, 255, 255);
+				border-radius: 50%;
+				position: absolute;
+				font-size: 10px;
+				border: 1px solid red;
+			}
+			
+			.weui_tab_bd {
+				padding-bottom: 5px;
+			}
+			
+			.indexPick {
+				background-color: rgb(255, 255, 255);
+				color: rgb(83, 83, 83);
+				font-size: 14px;
+				padding-top: 10px;
+			}
+			
+			.indexPickTitle {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			
+			.weui-col-33 {
+				position: relative;
+			}
+			
+			.iconXyhome {
+				width: 100%;
+				height: 50px;
+				background-image: url(img/icon1.png);
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+
+			<div class="weui_tab_bd">
+
+				<div class="headerImg">
+
+				</div>
+				<div class="headerImgIcon">
+					<div class='demos-content-padded'>
+						<div class="weui_btn weui_btn_primary headerImgBtn" id="pb1">
+
+						</div>
+						<div class="redRadius">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</div>
+					</div>
+					<p>阳顶天</p>
+				</div>
+				<div class="weui-row weui-no-gutter indexPick">
+					<div class="weui-col-33 text-center">
+
+						<div class="iconXyhome">
+							<div>
+
+							</div>
+						</div>
+						<div class="text-center indexPickTitle">
+							已取消
+						</div>
+					</div>
+					<div class="weui-col-33 text-center">
+						<div class="iconXyhome">
+
+						</div>
+						<div class="text-center indexPickTitle">
+							进行中
+						</div>
+					</div>
+					<div class="weui-col-33 text-center">
+						<div class="iconXyhome">
+
+						</div>
+						<div class="text-center indexPickTitle">
+							已完成
+						</div>
+					</div>
+				</div>
+				<div class="weui_cells weui_cells_access mePact">
+					<a class="weui_cell" href="javascript:;" style="text-decoration: none;">
+						<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p> 全部合同</p>
+						</div>
+						<div class="weui_cell_ft"></div>
+					</a>
+				</div>
+				<div class="weui_cells weui_cells_access mySetCells">
+					<a class="weui_cell weui_grid js_grid open-popup " href="#" style="text-decoration: none;padding: 10px 15px;" data-target="#about">
+						<div class="weui_cell_bd weui_cell_primary">
+							<p> 关于我们</p>
+						</div>
+						<div class="weui_cell_ft "></div>
+					</a>
+					<div style="clear: both;"></div>
+					<a class="weui_cell" href="opinion.html" style="text-decoration: none;">
+						<div class="weui_cell_bd weui_cell_primary">
+							<p> 意见反馈</p>
+						</div>
+						<div class="weui_cell_ft"></div>
+					</a>
+				</div>
+				<div id="about" class='weui-popup-container'>
+					<div class="weui-popup-modal">
+						<header class='demos-header'>
+							<h2 class="demos-second-title">关于 jQuery WeUI</h2>
+							<p class="demos-sub-title">By 言川 @2016/03/30</p>
+						</header>
+
+						<article class="weui_article">
+							<h1>大标题</h1>
+							<section>
+								<h2 class="title">章标题</h2>
+								<section>
+									<h3>1.1 节标题</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
+								</section>
+								<section>
+									<h3>1.2 节标题</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								</section>
+							</section>
+							<section>
+								<a href="javascript:;" class="weui_btn weui_btn_plain_primary close-popup">关闭</a>
+							</section>
+						</article>
+					</div>
+				</div>
+
+			</div>
+			<div class="weui_tabbar">
+				<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_button.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">主页</p>
+				</a>
+				<a href="remind.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_msg.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">推推</p>
+				</a>
+				<a href="schedule.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">课表</p>
+				</a>
+				<a href="me.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">我的</p>
+				</a>
+			</div>
+
+			<div class="null"></div>
+		</div>
+
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/swiper.js"></script>
+		<script>
+			$(".null").height($(".weui_tabbar").height());
+			var pb1 = $.photoBrowser({
+				items: [
+					"img/icon1.png"
+					//		          "./images/swiper-2.jpg",
+					//		          "./images/swiper-3.jpg",
+					//		          "./images/swiper-4.jpg"
+				],
+
+				onSlideChange: function(index) {
+					console.log(this, index);
+				},
+
+				onOpen: function() {
+					console.log("onOpen", this);
+				},
+				onClose: function() {
+					console.log("onClose", this);
+				}
+			});
+			$("#pb1").click(function() {
+				pb1.open();
+			});
+
+			$(".weui_panel_bd a").css("text-decoration", "none");
+			$(".weui_media_title").css("font-weight", "350");
+			$(".weui_xyhome_date").css({
+				"font-weight": "",
+				"color": "rgb(133,133,133)"
+			});
+			$(".weui_media_desc").css({
+				"color": "rgb(114,114,114)",
+				"font-size": "13px"
+			});
+			$(".redRadius").css({
+				"left": 46 + "px",
+				"top": 46 + "px"
+			});
+			$(".iconXyhome").eq(0).on("click", function() {
+				window.location.href = "#";
+			})
+			$(".iconXyhome").eq(1).on("click", function() {
+				window.location.href = "#";
+			})
+			$(".iconXyhome").eq(2).on("click", function() {
+				window.location.href = "#";
+			})
+			$(".mePact").on("click", function() {
+				window.location.href = "mypact.html";
+			})
+			
+			$(".mySetCells p:eq(0)").width($(".mySetCells p:eq(1)").width());
+		</script>
+	</body>
+
+</html>

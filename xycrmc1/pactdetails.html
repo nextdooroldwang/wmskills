@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-合同详情</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+
+		<style>
+			body {
+				background-color: rgb(243, 243, 243);
+			}
+			
+			p,
+			ul,
+			.mePact {
+				margin: 0px;
+				text-decoration: none;
+				list-style: none;
+				font-family: "微软雅黑";
+				
+			}
+			.xyHomePannelHeader {
+				padding: 10px 15px;
+			}
+			
+			.xyHomePannel ul {
+				padding: 10px 15px;
+				font-size: 16px;
+			}
+			.xyHomePannel li {
+				padding: 3px 4px;
+				color: rgb(100,100,100);
+			}
+			.xyHomePannel p{
+				font-weight: 500;
+				color: rgb(0,0,0);
+			}
+			.myPactnav {
+				width: 90%;
+				height: 0.5px;
+				border-bottom: 1px solid #E3E3E3;
+				margin-left: 15px;
+			}
+			.pactOver {
+				padding-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+			<div class="weui_tab_bd">
+				<div class="xyHomePannel">
+					<div class="clearfix xyHomePannelHeader">
+						<div class="pull-left">
+							<p>机构名称：<span>小象英语</span></p>
+						</div>
+						<div class="pull-right">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+					</div>
+					<div class="myPactnav"></div>
+					<div>
+						<ul>
+							<li><span>合同编号：</span><span>32112121123</span></li>
+							<li><span>订购时间：</span><span>2016-05-31</span></li>
+							<li><span>失效时间：</span><span>2016-08-25</span></li>
+							<li><span>产品名称：</span><span>初级英语（春季班）</span></li>
+							<li><span>课程信息：</span><span>总课时20 赠送2课时</span></li>
+							<li >
+								<div class="weui_progress">
+									<span>课程进度：</span>
+							        <div class="weui_progress_bar">
+							          <div class="weui_progress_inner_bar js_progress" style="width: 70%;"></div>
+							        </div>
+							          <span class="pactOver"><span class="pactDivisor">20</span>/<span class="pactDividend">20</span></span>
+							     </div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			<div class="null"></div>
+			</div>
+			
+			<div class="weui_tabbar">
+				<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_button.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">主页</p>
+				</a>
+				<a href="remind.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_msg.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">推推</p>
+				</a>
+				<a href="schedule.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">课表</p>
+				</a>
+				<a href="me.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">我的</p>
+				</a>
+
+			</div>
+
+			<script src="js/jquery-2.1.4.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/jquery-weui.js"></script>
+			<script src="js/swiper.js"></script>
+			<script>
+				$(".null").height($(".weui_tabbar").height());
+				for(var i=0;i<$(".pactOver").size();i++){
+					$(".weui_progress_inner_bar").eq(i).css("width",$(".pactDivisor").eq(i).html()/$(".pactDividend").eq(i).html()*100+"%");
+					if($(".pactDivisor").eq(i).html()/$(".pactDividend").eq(i).html()==1){
+						$(".pactDivisor").eq(i).parent().html("已完成");
+						$(".pactOver").eq(i).css("color","#04BE02");
+					}
+				}
+			</script>
+	</body>
+
+</html>

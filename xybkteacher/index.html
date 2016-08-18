@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云备课</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+
+		<style>
+			.swiper-container {
+				width: 100%;
+			}
+			
+			.swiper-container img {
+				display: block;
+				width: 100%;
+			}
+			
+			body {
+				background-color: rgb(243, 243, 243);
+			}
+			
+			.weui_tab_bd {
+				padding-bottom: 5px;
+			}
+			
+			#search_bar {
+				background: rgba(255, 255, 255, 0.3);
+				position: absolute;
+				width: 100%;
+			}
+			
+			#search_input,
+			.weui_search_inner,
+			.weui_search_outer {
+				border-radius: 30%;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+			<div class="weui_search_bar" id="search_bar">
+				<form class="weui_search_outer">
+					<div class="weui_search_inner">
+						<i class="weui_icon_search"></i>
+						<input type="search" class="weui_search_input" id="search_input" placeholder="搜索" required/>
+						<a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+					</div>
+					<label for="search_input" class="weui_search_text" id="search_text">
+			          <i class="weui_icon_search"></i>
+			          <span>搜索</span>
+			        </label>
+				</form>
+				<a href="javascript:" class="weui_search_cancel" id="search_cancel">取消</a>
+			</div>
+
+			<div class="weui_tab_bd">
+
+				<div class="swiper-container">
+
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide"><img src="./img/img1.jpg" /></div>
+						<div class="swiper-slide"><img src="./img/img2.jpg" /></div>
+						<div class="swiper-slide"><img src="./img/img3.jpg" /></div>
+					</div>
+
+					<div class="swiper-pagination"></div>
+				</div>
+			
+
+			<div class="weui_cells_title">最新提醒</div>
+			<div class="weui_cells weui_cells_access">
+
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>今日课程1：小手摆摆！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>今日课程2：小象口才！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>今日课程3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>今日课程4：小伙伴互动！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+			</div>
+	
+			<div class="weui_tabbar">
+				<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_button.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">播放课件</p>
+				</a>
+				<a href="remind.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_msg.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">查看提醒</p>
+				</a>
+				<a href="question.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">答题管理</p>
+				</a>
+			</div>
+			<div class="null"></div>
+		</div>
+		</div>
+		<!--<!-- jQuery -->
+		<!--<script src="js/jquery.min.js"></script>-->
+		<!-- jQuery-WeUI -->
+		<!--<script src="js/jquery-2.1.4.js"></script>-->
+
+		<!--<script src="js/jquery-weui.min.js"></script>-->
+
+		<!-- Swiper -->
+
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script>
+			$(".swiper-container").swiper({
+				loop: true,
+				autoplay: 3000
+			});
+			$(".null").height($(".weui_tabbar").height());
+		</script>
+	</body>
+
+</html>

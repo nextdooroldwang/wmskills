@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-编写推送</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+
+		<style>
+		*{
+			font-family: "微软雅黑";
+		}
+			.weui_cells_form {
+				margin: 0px;
+				
+				font-size: 13px;
+			}
+			
+			.weui_tab_bd {
+				padding-bottom: 5px;
+			}
+			.pushCell{
+				border-left: 3px solid #E64340;
+			}
+			.pushSelect p{
+				font-size: 14px;
+			}
+			.pushSelect p span{
+				color:#ADADAD;
+				font-size: 12px;
+			}
+			.weui_cells {
+    margin-top: 0px;
+  
+}
+.pushRadio {
+	border-left:3px solid #E4B9B9;
+	display: none;
+}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+
+			<div class="weui_tab_bd">
+				<div class="weui_cells weui_cells_form">
+					<div class="weui_cell">
+						<div class="weui_cell_bd weui_cell_primary">
+							<textarea class="weui_textarea" placeholder="开始编写推送吧......." rows="6"></textarea>
+							<div class="weui_textarea_counter"><span>0</span>/200</div>
+						</div>
+					</div>
+				</div>
+				<div class="weui_cells weui_cells_form">
+					<div class="weui_cell">
+						<div class="weui_cell_bd weui_cell_primary">
+							<div class="weui_uploader">
+								<div class="weui_uploader_hd weui_cell">
+									<div class="weui_cell_bd weui_cell_primary">图片上传</div>
+									<div class="weui_cell_ft">0/2</div>
+								</div>
+								<div class="weui_uploader_bd">
+									<ul class="weui_uploader_files">
+										<div class="weui_uploader_status_content">
+											<i class="weui_icon_warn"></i>
+										</div>
+										</li>
+									</ul>
+									<div class="weui_uploader_input_wrp">
+										<input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="weui_cells weui_cells_access pushSelect">
+					<a class="weui_cell pushCell pushClick" href="javascript:;">
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>推选种类<span>（<span>作业</span>）</span></p>
+						</div>
+						<div class="weui_cell_ft">
+						</div>
+					</a>
+      <div class="weui_cells weui_cells_radio pushRadio">
+        <label class="weui_cell weui_check_label" for="x11">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>作业</p>
+          </div>
+          <div class="">
+            <input type="radio" class="weui_check" name="radio1" id="x11">
+            <span class="weui_icon_checked"></span>
+          </div>
+        </label>
+        <label class="weui_cell weui_check_label" for="x12">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>通知</p>
+          </div>
+          <div class="">
+            <input type="radio" class="weui_check" name="radio1" id="x12">
+            <span class="weui_icon_checked"></span>
+          </div>
+        </label>
+        <label class="weui_cell weui_check_label" for="x13">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>成绩单</p>
+          </div>
+          <div class="">
+            <input type="radio" class="weui_check" name="radio1" id="x13">
+            <span class="weui_icon_checked"></span>
+          </div>
+        </label>
+        <label class="weui_cell weui_check_label" for="x14">
+
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>课堂点评</p>
+          </div>
+          <div class="">
+            <input type="radio" name="radio1" class="weui_check" id="x14" checked="checked">
+            <span class="weui_icon_checked"></span>
+          </div>
+        </label>
+        </div>
+					<a class="weui_cell pushCell" href="pushstudentselect.html">
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>选择学员<span>（<span>还没选择学员</span>）</span></p>
+						</div>
+						<div class="weui_cell_ft">
+						</div>
+					</a>
+					<a class="weui_cell pushCell" href="pushHistory.html">
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>查看历史推送记录</p>
+						</div>
+						<div class="weui_cell_ft">
+						</div>
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script>
+			$(".weui_textarea").focus();
+			$(".pushClick").on("click",function() {
+				if($(".pushRadio").hasClass("pushshow")){
+					$(".pushRadio").slideUp();
+					$(".pushRadio").removeClass("pushshow");
+				}else {
+					$(".pushRadio").addClass("pushshow");
+					$(".pushRadio").slideDown();
+					
+				}
+			})
+		</script>
+	</body>
+
+</html>

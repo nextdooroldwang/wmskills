@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>星云CRM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+    <style media="screen">
+        .mycontainer {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        #toolbar {
+            margin-top: 10px;
+        }
+
+        td .glyphicon {
+            color: #428bca;
+        }
+
+        lable {
+            line-height: 34px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./index-gongzuotai.html">星云CRM</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-nav">
+                <li><a href="./index-zuzhi.html">组织</a></li>
+                <li class="active"><a href="#">CRM</a></li>
+                <li><a href="./index-jiaowu.html">教务</a></li>
+                <li><a href="./index-yingxiao.html">营销</a></li>
+                <li><a href="./index-yunying.html">运营</a></li>
+                <li><a href="./index-xitong.html">系统</a></li>
+            </ul>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> 意向客户<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index-crm.html">新客户录入</a>
+                                </li>
+                                <li>
+                                    <a href="client-edit.html">客户管理</a>
+                                </li>
+                                <li>
+                                    <a href="client-listen.html">试听签到</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file fa-fw"></i> 合同管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="pact-list.html">合同列表</a>
+                                </li>
+                                <li>
+                                    <a href="product-list.html">产品列表</a>
+                                </li>
+                                <li>
+                                    <a href="pact-sure.html">合同审核</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="student-list.html">学员列表</a>
+                                </li>
+                                <li>
+                                    <a href="student-bespeak.html">预约登记</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
+                        <li><a href="#">工作台</a></li>
+                        <li>意向客户</li>
+                        <li>客户管理</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="mycontainer">
+                    <!-- <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-minimum-count-columns="2"
+          data-show-pagination-switch="true" data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, ALL]" data-show-footer="false" data-side-pagination="server" data-url="/examples/bootstrap_table/data" data-response-handler="responseHandler">
+      </table> -->
+                    <div id="toolbar" class="pull-left">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            分配顾问
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">分配顾问</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <lable><span style="color:red">* </span>请选择一位顾问跟进这1位客户: </lable>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <select class="form-control" placeholder="请选择老师">
+                                                    <option>李老师</option>
+                                                    <option>张老师</option>
+                                                    <option>王老师</option>
+                                                    <option>宋老师</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-primary">确定</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                    </div>
+                    <table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture
+                        data-minimum-count-columns=1 data-select-item-name="客户姓名">
+                        <thead>
+                            <tr>
+                                <th data-checkbox=true>客户姓名</th>
+                                <th>客户姓名</th>
+                                <th>客户来源</th>
+                                <th>联系电话</th>
+                                <th>联系地址</th>
+                                <th>状态</th>
+                                <th>跟进顾问</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            	<td></td>
+                                <td><a href="client-xiangqing.html">陌陌</a></td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td><span class="glyphicon glyphicon-edit" onclick="edit()"> </span></td>
+                            </tr>
+                            <tr>
+                            	<td></td>
+                                <td><a href="client-xiangqing.html">结了</a></td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td id="iii"><span class="glyphicon glyphicon-edit" onclick="edit()"> </span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script type="text/javascript">
+  function edit() {
+  	window.location.href="client.html"
+  }
+    </script>
+</body>
+
+</html>

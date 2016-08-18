@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云备课</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+
+		<style>
+
+			body {
+				background-color: rgb(243, 243, 243);
+			}
+			
+			.questionTittle,.questionTalk{
+				float: left;
+			}
+			.questionDate,.questionRead,.questionNoRead{
+				float: right;
+			}
+			.weui_tab_bd {
+				padding-bottom: 5px;
+			}
+			.nav-2,.nav-3{
+				display: none;
+			}
+			.questionList{
+				border-left: 3px solid rgb(179,64,33);
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+			<div class="weui_navbar">
+            <div class="weui_navbar_item weui_bar_item_on">
+                答题
+            </div>
+            <div class="weui_navbar_item">
+                查看历史
+            </div>
+        </div>
+
+			<div class="weui_tab_bd">
+			<div class="nav-1">
+			<div class="weui_cells_title">计划提醒</div>
+			<div class="weui_cells weui_cells_access">
+
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划1：小手摆摆！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划2：小象口才！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<div class="questionList clearfix">
+					<a class="cell" href="javascript:;">
+						<!-- <div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div> -->
+						<div class="clearfix">
+							<p class="questionTittle">计划3：英语熟知</p>
+							<p class="questionDate">2016-07-20</p>
+						</div>
+						<div class="clearfix">
+							<p class="questionTalk">审批审批审批审批审批审批</p>
+							<div class="questionRead">已审批</div>
+						</div>
+					</a>
+				</div>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划2：小象口才！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划4：小伙伴互动！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>计划4：小伙伴互动！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+			</div>
+			</div>
+			<div class="nav-2">
+			<div class="weui_cells_title">答题历史</div>
+			<div class="weui_cells weui_cells_access">
+
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题1：小手摆摆！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题2：小象口才！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题4：小伙伴互动！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题5：小象口才！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题4：小伙伴互动！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题3：英语熟知！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+				<a class="weui_cell" href="javascript:;">
+					<div class="weui_cell_hd"><img src="img/icon_nav_article.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>答题4：小伙伴互动！</p>
+					</div>
+					<div class="weui_cell_ft">2016-07-20</div>
+				</a>
+			</div>
+			</div>
+			<div class="weui_tabbar">
+				<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_button.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">播放课件</p>
+				</a>
+				<a href="remind.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_msg.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">查看提醒</p>
+				</a>
+				<a href="question.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/icon_nav_cell.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">答题管理</p>
+				</a>
+			</div>
+			<div class="null"></div>
+		</div>
+		</div>
+
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+			$(".swiper-container").swiper({
+				loop: true,
+				autoplay: 3000
+			});
+			$(".null").height($(".weui_tabbar").height());
+			$(".weui_navbar").children().eq(0).click(function() {
+				$(".nav-1,.nav-2").hide();
+				$(".nav-1").show();
+			});
+			$(".weui_navbar").children().eq(1).click(function() {
+				$(".nav-1,.nav-2").hide();
+				$(".nav-2").show();
+			});
+			
+		</script>
+	</body>
+
+</html>

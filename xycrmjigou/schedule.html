@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-课表（周）</title>
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style type="text/css">
+			ul,
+			p {
+				margin: 0px;
+			}
+			
+			.weekToday {
+				width: 100%;
+				padding: 10px 0px;
+				font-size: 16px;
+			}
+			
+			.weekAll {
+				width: 100%;
+				background: rgb(243, 243, 243);
+				overflow: auto;
+				-webkit-overflow-scrolling : touch;
+				padding: 15px 0px 10px 0px;
+				/*box-shadow:0px 1px 3px 6px #CCC;*/
+			}
+			
+			.weekAll li {
+				text-align: center;
+				list-style: none;
+				float: left;
+				color: rgb(255, 255, 255);
+				font-size: 15px;
+				padding: 0px 10px;
+			}
+			
+			#txtTest,
+			#txtDay {
+				display: none;
+			}
+			
+			.yearDiv {
+				padding-top: 5px;
+				color: rgb(168,169,173);
+			}
+			
+			.scheduleList {
+				width: 100%;
+			}
+			
+			.listLeft {
+				width: 20%;
+				height: 100%;
+				float: left;
+				color: rgb(107, 113, 127);
+				text-align: center;
+			}
+			
+			.listRight {
+				width: 80%;
+				height: 100%;
+				float: left;
+				overflow: auto;
+				overflow-y:hidden;
+				-webkit-overflow-scrolling : touch;
+				text-align: center;
+			}
+			#listRightTables td {
+				font-size: 12px;
+			}
+			/*#listRightTables p {
+				width: 100%;
+				height: 1px;
+				background: rgb(66,66,66);
+				padding: 0px 10px;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="weekToday text-center">
+			(<span>12.14-12.20</span>) <span class="glyphicon glyphicon-chevron-down"></span>
+		</div>
+		<div class="weekAll" id="weekScorll">
+			<ul class="clearfix"></ul>
+		</div>
+		<!--日期初始化接口(起始时间必须是周一)-->
+		<input type="text" id="txtTest" value="2016-02-01">
+		<input type="text" id="txtDay" value="6">
+		<!--日期初始化接口-->
+		<div class="scheduleList clearfix">
+			<div class="listLeft">
+				<div>
+
+				</div>
+				<ul>
+					<li>
+						<p class="listLeftNum">1</p>
+						<p>星期一</p>
+					</li>
+					<li>
+						<p class="listLeftNum">2</p>
+						<p>星期二</p>
+					</li>
+					<li>
+						<p class="listLeftNum">3</p>
+						<p>星期三</p>
+					</li>
+					<li>
+						<p class="listLeftNum">4</p>
+						<p>星期四</p>
+					</li>
+					<li>
+						<p class="listLeftNum">5</p>
+						<p>星期五</p>
+					</li>
+					<li>
+						<p class="listLeftNum">6</p>
+						<p>星期六</p>
+					</li>
+					<li>
+						<p class="listLeftNum">7</p>
+						<p>星期天</p>
+					</li>
+				</ul>
+			</div>
+			<div class="listRight">
+				<div id="listRightTables">
+					<table class="table-bordered">
+						<tr>
+							<th>01</th>
+							<th>02</th>
+							<th>03</th>
+							<th>04</th>
+							<th>05</th>
+							<th>06</th>
+							<th>07</th>
+							<th>08</th>
+						</tr>
+						<tr>
+							<td>
+								<div>朗文...初级</div>
+								<div>————</div>
+								<p>11:00~12:00</p>
+							</td>
+							<td>
+								<div>Lesson 1</div>
+								<div>————</div>
+								<p>13:00~14:00</p>
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr >
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/jquery-weui.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script type="text/javascript">
+		var weekSrollLeft;
+		$(".scheduleList").height($(window).height() - (20 + $(".weekToday").height()));
+		$(".listLeft div:eq(0)").css({
+			"width": 100 + "%",
+			"height": 30 + "px",
+			"background": "rgb(107,113,127)"
+		});
+		$(".listLeft li:eq(6)").css("border", "0px");
+		$(".table-bordered tr:eq(1) td").css("border-top","0px");
+		$(".table-bordered tr:eq(7) td").css("border-bottom","0px");
+		listLeftCss();
+		listRightCss();
+		schedule(); //轮换周
+		for (var j = 0; j < $(".weekDiv").size(); j++) {
+			dateMate(j);
+		} //当前周、天匹配
+		weekShowHide(); //点击显示隐藏weekall--课程表大小自适应
+		weekClick(); //点击选择周
+		//判断跨年
+		for (var i = 0; i < $(".weekDiv").size(); i++) {
+			if ($(".weekDiv").eq(i).html().substring(0, 2) == "12" && $(".weekDiv").eq(i).html().substring(6, 8) == "01") {
+				$(".weekAll").data("yearData", $(".yearDiv").eq(i).children("span").html());
+				$(".yearDiv").eq(i).children("span").html("跨");
+			}
+		}
+		$("td").on("click",function() {
+			window.location.href="classdetails.html"
+		})
+		function listLeftCss() {
+			$(".listLeft ul").css({
+				"width": 100 + "%",
+				"height": $(".listLeft").height() - 30 + "px",
+				"background": "rgb(59,63,75)",
+				"padding": "0px 10px"
+			});
+			$(".listLeft li").css({
+				"width": 100 + "%",
+				"height": $(".listLeft ul").height() / 7 + "px",
+				"border-bottom": "1px solid rgb(107,113,127)",
+				"padding": "8px 0px"
+			});
+		}
+		function listRightCss() {
+			$("#listRightTables th").addClass("text-center");
+			$("#listRightTables tr").eq(0).height(30);
+			$("#listRightTables tr").eq(0).css({"background":"rgb(168,169,173)"});
+			$("#listRightTables td").css({"background":"rgb(243,243,243)"});
+			$("#listRightTables td p").css({"font-size":"10px"});
+			$("#listRightTables th").css("border","0px");
+			$("#listRightTables table").css("border-left","0px");
+			$("#listRightTables tr").eq(0).siblings().height($(".listLeft ul").height() / 7);
+			$("#listRightTables td").width($(".listLeft ul").height() / 7+30);
+			$("#listRightTables").width(($(".listLeft ul").height() / 7+30)*8);
+			
+			$("td:eq(0)").css({"background":"rgb(107,113,127)","color":"rgb(255,255,255)","border":"0px"});
+			$("td:eq(1)").css({"background-image": "url(img/sanjiao.png)","background-size": "35%","background-repeat":"no-repeat","background-position-x":"right"});
+			
+		}
+		
+		function schedule() {
+			var showyear;
+			var stardate;
+			var enddate;
+			var realydate;
+			var datadate = document.getElementById("txtTest").value;
+			var datajump;
+
+			//i为需要轮的周数
+			for (var i = 0; i < 60; i++) {
+				weekShow();
+			}
+			weekAllCss();
+			function weekAllCss() {
+				var i = $(".weekAll li").size();
+				$(".weekAll li").css("width", ($(".weekAll").width()) / 3 + "px")
+				$(".weekAll ul").css("width", (($(".weekAll").width()) * i) / 3 + "px");
+				$(".weekDiv").css({
+					"background-color": "rgb(168,169,173)",
+					"border-radius": "5px"
+				});
+			}
+			function weekShow() {
+				datajump = document.getElementById("txtDay").value;
+				addDateStr(datadate, datajump);
+				appenddiv(stardate, enddate);
+				datadate = bddDateStr(realydate, 1);
+				
+			}
+
+			function addDateStr(dateStr, days) {
+
+				var year = parseInt(dateStr.substring(0, 4));
+				var month = parseInt(dateStr.substring(5, 7), 10) - 1;
+				var day = parseInt(dateStr.substring(8, 10), 10);
+				//		alert("year :[" + year + "]" + "\nmonth :[" + month + "]" + "\nday :[" + day + "]");
+				var smonth = month + 1;
+				if (smonth < 10) {
+					smonth = "0" + smonth;
+				}
+				if (day < 10) {
+					day = "0" + day;
+				}
+				stardate = smonth + "." + day;
+
+				var date = new Date(year, month, day);
+				var d = date.getTime() + days * 24 * 60 * 60 * 1000;
+				var newDate = new Date(d);
+				year = newDate.getFullYear();
+				month = newDate.getMonth() + 1;
+				if (month < 10) {
+					month = "0" + month;
+				}
+				day = newDate.getDate();
+				if (day < 10) {
+					day = "0" + day;
+				}
+				//		alert("year :[" + year + "]" + "\nmonth :[" + month + "]" + "\nday :[" + day + "]");
+
+				enddate = month + "." + day;
+				realydate = year + "-" + month + "-" + day;
+				showyear = year;
+			}
+
+			function appenddiv(star, end) {
+				// $(".week").children().remove();
+				$(".weekAll ul").append("<li><div class='weekDiv'>" + star + "-" + end + "</div><div class='yearDiv'><span>" + showyear + "</span>年</div></li>");
+			}
+
+			function bddDateStr(dateStr, days) {
+
+				var year = parseInt(dateStr.substring(0, 4));
+				var month = parseInt(dateStr.substring(5, 7), 10) - 1;
+				var day = parseInt(dateStr.substring(8, 10), 10);
+				//		alert("year :[" + year + "]" + "\nmonth :[" + month + "]" + "\nday :[" + day + "]");
+				var smonth = month + 1;
+				if (smonth < 10) {
+					smonth = "0" + smonth;
+				}
+				if (day < 10) {
+					day = "0" + day;
+				}
+				// stardate= smonth+ "-"  + day ;
+
+				var date = new Date(year, month, day);
+				var d = date.getTime() + days * 24 * 60 * 60 * 1000;
+				var newDate = new Date(d);
+				year = newDate.getFullYear();
+				month = newDate.getMonth() + 1;
+				if (month < 10) {
+					month = "0" + month;
+				}
+				day = newDate.getDate();
+				if (day < 10) {
+					day = "0" + day;
+				}
+				//		alert("year :[" + year + "]" + "\nmonth :[" + month + "]" + "\nday :[" + day + "]");
+
+				// enddate = month + "-" + day;
+				var bdddate = year + "-" + month + "-" + day;
+				return bdddate;
+
+			}
+		}
+		//  以年-月-日的格式字符串换算成日期格式
+		function getDate(strDate) {
+			var date2 = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+				function(a) {
+					return parseInt(a, 10) - 1;
+				}).match(/\d+/g) + ')');
+			return date2;
+		}
+		//	日期运算，增加往后1周的日期参数格式字符串“年-月-日”
+		function operation(time) {
+			var listLeftFirst = getDate(time);
+			var mydate = new Date();
+			for (var jj = 0; jj < 7; jj++) {
+				var d = listLeftFirst.getTime() + jj * 24 * 60 * 60 * 1000;
+				var newDate = new Date(d);
+				$(".listLeftNum").eq(jj).html(newDate.getDate());
+				if (mydate.getFullYear() == newDate.getFullYear() && mydate.getMonth() == newDate.getMonth() && mydate.getDate() == newDate.getDate()) {
+					$(".listLeft li").eq(jj).css("color", "rgb(255,107,102)");
+				}
+			}
+		}
+
+		function dateMate(eqNum) {
+
+			var mydate = new Date();
+			var mmm = $(".weekDiv").eq(eqNum).html().substring(0, 2);
+			var ddd = $(".weekDiv").eq(eqNum).html().substring(3, 5);
+			var yyy = $(".yearDiv").eq(eqNum).children("span").html();
+			if (mmm.substring(0, 1) == '0') {
+				mmm = mmm.substring(1, 2);
+			}
+			if (ddd.substring(0, 1) == '0') {
+				ddd = ddd.substring(1, 2);
+			}
+			var s = yyy + "-" + mmm + "-" + ddd;
+
+			var mmmm = $(".weekDiv").eq(eqNum).html().substring(6, 8);
+			var dddd = $(".weekDiv").eq(eqNum).html().substring(9, 11);
+			var yyyy = $(".yearDiv").eq(eqNum).children("span").html();
+			if (mmmm.substring(0, 1) == '0') {
+				mmmm = mmmm.substring(1, 2);
+			}
+			if (dddd.substring(0, 1) == '0') {
+				dddd = dddd.substring(1, 2);
+			}
+			var s2 = yyyy + "-" + mmmm + "-" + dddd;
+			//			判断当前日期在哪一周
+			if (mydate >= getDate(s) && mydate <= getDate(s2)) {
+				$(".weekDiv").eq(eqNum).css("background", "#007AFF");
+				$(".yearDiv").eq(eqNum).css("color", "#007AFF");
+				$(".weekToday>span:eq(0)").html($(".weekDiv").eq(eqNum).html());
+				weekSrollLeft = $(".weekAll ul").width() / $(".weekDiv").size() * (eqNum - 1);
+				$(".weekToday").data("weekData",$(".yearDiv").eq(eqNum).children("span").html());
+				
+				$(".yearDiv").eq(eqNum).html("当前周");
+				var listLeftFirst = getDate(s);
+				for (var jj = 0; jj < 7; jj++) {
+					var d = listLeftFirst.getTime() + jj * 24 * 60 * 60 * 1000;
+					var newDate = new Date(d);
+					$(".listLeftNum").eq(jj).html(newDate.getDate());
+					if (mydate.getFullYear() == newDate.getFullYear() && mydate.getMonth() == newDate.getMonth() && mydate.getDate() == newDate.getDate()) {
+						$(".listLeft li").eq(jj).css("color", "rgb(255,107,102)");
+					}
+				}
+			}
+		}
+
+		function weekShowHide() {
+			$(".weekAll").hide();
+			$(".weekToday").click(function() {
+				if ($(".weekToday span:eq(1)").hasClass("glyphicon-chevron-down")) {
+					$(".weekAll").fadeIn();
+					$(".weekAll").scrollLeft(weekSrollLeft);
+					$(".weekToday span:eq(1)").removeClass("glyphicon-chevron-down");
+					$(".weekToday span:eq(1)").addClass("glyphicon-chevron-up");
+					$(".scheduleList").height($(window).height() - (92 + $(".weekToday").height()));
+					listLeftCss();
+					listRightCss();
+				} else {
+					$(".weekAll").hide();
+					$(".weekToday span:eq(1)").removeClass("glyphicon-chevron-up");
+					$(".weekToday span:eq(1)").addClass("glyphicon-chevron-down");
+					$(".scheduleList").height($(window).height() - (20 + $(".weekToday").height()));
+					listLeftCss();
+					listRightCss();
+				}
+			})
+		}
+
+		function weekClick() {
+			$(".weekAll li").on("click", function() {
+				$(".yearDiv").css("color", "rgb(168,169,173)");
+				$(".weekDiv").css("background", "rgb(168,169,173)");
+				$(this).children(".weekDiv").css("background", "#007AFF");
+				$(this).children(".yearDiv").css("color", "#007AFF");
+				$(".listLeft li").css("color", "");
+				var timesYear, timesMonth, timesDate;
+				timesYear = $(this).children(".yearDiv").children("span").html();
+				if (timesYear == "跨") {
+					timesYear = $(".weekAll").data("yearData");
+				}
+				if (timesYear==undefined) {
+					timesYear = $(".weekToday").data("weekData");
+				}
+				timesMonth = $(this).children(".weekDiv").html();
+				timesDate = $(this).children(".weekDiv").html();
+				timesMonth = timesMonth.substring(0, 2);
+				timesDate = timesDate.substring(3, 5)
+				var times = timesYear + "-" + timesMonth + "-" + timesDate;
+				operation(times);
+
+			})
+		}
+	</script>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-提醒</title>
+		<!-- WeUI --><link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+		
+		<style>
+			body {
+				background-color: rgb(243, 243, 243);
+				font-family: "微软雅黑";
+			}
+			
+			h4 {
+				margin: 0;
+			}
+			
+			.clearfix {
+				display: block;
+			}
+			
+			.remindCells {
+				margin-top: 0px;
+				background-color: rgb(243, 243, 243);
+				padding: 0px 10px;
+			}
+			
+			.remindCell {
+				border-left: 4px solid;
+				margin-bottom: 3px;
+				margin: 5px 0px;
+				background: rgb(255, 255, 255);
+				box-shadow: 1px 1px 1px 1px rgb(173, 173, 173);
+			}
+			
+			.remindDate {
+				font-size: 12px;
+				color: rgb(177, 177, 177);
+			}
+			
+			.remind {
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 70%;
+			}
+			
+			.remindTalk {
+				font-size: 14px;
+				color: rgb(77, 77, 77);
+				width: 70%;
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				padding-top: 3px;
+			}
+			
+			.weui_title {
+				font-size: 14px;
+				color: rgb(0, 0, 0);
+				font-weight: 700;
+				padding: 5px 0px 5px 5px;
+			}
+			
+			.remindDadge {
+				padding: 5px 13px;
+				background: rgb(222, 56, 134);
+			}
+			
+			.weui_tab_bd {
+				padding-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+
+			<div class="weui_tab_bd">
+
+				<div class="weui_cells remindCells">
+					<div class="text-center"><span>2016-06-23</span>(<span>后天</span>)</div>
+					<div class="weui_cell clearfix remindCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left remind">
+								朗文英语初级
+							</div>
+							<div class="pull-right remindDate"><span class="glyphicon glyphicon-time"></span> <span>10：00</span></div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								地点：<span>301</span>
+							</div>
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								时间：<span>2016-06-23 10:30</span>
+							</div>
+							<div><span class="badge remindDadge">课程提醒</span></div>
+						</div>
+					</div>
+					<div class="text-center"><span>2016-06-23</span>(<span>后天</span>)</div>
+					<div class="weui_cell clearfix remindCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left remind">
+								朗文英语初级
+							</div>
+							<div class="pull-right remindDate"><span class="glyphicon glyphicon-time"></span> <span>10：00</span></div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								地点：<span>301</span>
+							</div>
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								时间：<span>2016-06-23 10:30</span>
+							</div>
+							<div><span class="badge remindDadge">活动提醒</span></div>
+						</div>
+					</div>
+					<div class="text-center"><span>2016-06-23</span>(<span>后天</span>)</div>
+					<div class="weui_cell clearfix remindCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left remind">
+								朗文英语初级
+							</div>
+							<div class="pull-right remindDate"><span class="glyphicon glyphicon-time"></span> <span>10：00</span></div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								地点：<span>301</span>
+							</div>
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								时间：<span>2016-06-23 10:30</span>
+							</div>
+							<div><span class="badge remindDadge">消息提醒</span></div>
+						</div>
+					</div>
+					<div class="text-center"><span>2016-06-23</span>(<span>后天</span>)</div>
+					<div class="weui_cell clearfix remindCell">
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary pull-left remind">
+								朗文英语初级
+							</div>
+							<div class="pull-right remindDate"><span class="glyphicon glyphicon-time"></span> <span>10：00</span></div>
+						</div>
+						<div class="clearfix">
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								地点：<span>301</span>
+							</div>
+							<div class="weui_cell_bd weui_cell_primary remindTalk">
+								时间：<span>2016-06-23 10:30</span>
+							</div>
+							<div><span class="badge remindDadge">订单提醒</span></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script>
+				 $(".remindCell").on("click", function() {
+				 	var remindCellClick=$(this);
+			        $.confirm("您确定要删除这条提醒吗?", "确认删除?", function() { 
+			        	remindCellClick.prev().remove();
+			        	remindCellClick.remove();
+			          $.toast("删除成功!");
+			         
+			        }, function() {
+			          //取消操作
+			        });
+			      });
+				var remindColor = 0;
+				for (var i = 0; i < $(".remindCell").size(); i++) {
+					var colorA = "rgb(28,118,207)";
+					var colorB = "rgb(128,18,237)";
+					var colorC = "rgb(192,244,63)";
+					var colorD = "rgb(28,118,37)";
+					if (remindColor == 0) {
+						$(".remindDadge").eq(i).css("background-color", colorA);
+					}
+					if (remindColor == 1) {
+						$(".remindDadge").eq(i).css("background-color", colorB);
+					}
+					if (remindColor == 2) {
+						$(".remindDadge").eq(i).css("background-color", colorC);
+					}
+					if (remindColor == 3) {
+						$(".remindDadge").eq(i).css("background-color", colorD);
+					}
+					remindColor++;
+					if (remindColor == 4) {
+						remindColor = 0;
+					}
+					$(".remindCell").eq(i).css("border-left-color", $(".remindDadge").eq(i).css("background-color"));
+				}
+		</script>
+	</body>
+
+</html>

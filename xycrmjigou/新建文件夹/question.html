@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <title>星云备课</title>
+    <!-- WeUI -->
+    <link rel="stylesheet" href="css/weui.min.css">
+    <!-- jQuery-WeUI-->
+    <!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <!-- Budder -->
+    <link rel="stylesheet" href="css/budder.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    body {
+        background-color: rgb(243, 243, 243);
+    }
+    
+    .weui_tab_bd {
+        padding-bottom: 5px;
+    }
+    
+    .nav-2,
+    .nav-3 {
+        display: none;
+    }
+    .weui_cells{
+    	margin-top: 0px;
+    }
+    .weui_cell {
+        border-left: 3px solid rgb(167, 83, 164);
+    	margin-bottom:3px;
+    }
+    .clearfix {
+    	display: block;
+    }
+    .questionDate {
+		font-size: 12px;
+		color: rgb(177,177,177);
+    }
+    .badge-success {
+    	background: rgb(67,205,128);
+    }
+    .badge-danger{
+    	background: rgb(220,20,60);
+    }
+    .question {
+    	display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+		width: 70%;
+    }
+    .questionTalk {
+    	font-size: 14px;
+		color: rgb(77,77,77);
+		width: 70%;
+		display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+		padding-top: 3px;
+    }
+    .weui_title{
+    	font-size: 14px;
+    	color: rgb(0,0,0);
+    	font-weight: 700;
+    	padding: 5px 0px 5px 5px;
+    }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui_tab">
+        <div class="weui_navbar">
+            <div class="weui_navbar_item weui_bar_item_on">
+                答题
+            </div>
+            <div class="weui_navbar_item">
+                查看历史
+            </div>
+        </div>
+        <div class="weui_tab_bd">
+            <div class="nav-2">
+                <div class="weui_cells_title">答题历史</div>
+                <div class="weui_cells weui_cells_access">
+                    <div class="weui_cells">
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    反馈很好，继续努力反馈很好，继续努力反馈很好，继续努力
+                                </div>
+                                <div class="pull-right"><span class="badge badge-success">已审阅</span></div>
+                            </div>
+                        </div>
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    
+                                </div>
+                                <div class="pull-right"><span class="badge badge-danger">未审阅</span></div>
+                            </div>
+                        </div>
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    反馈很好，继续努力反馈很好，继续努力反馈很好，继续努力
+                                </div>
+                                <div class="pull-right"><span class="badge badge-success">已审阅</span></div>
+                            </div>
+                        </div>
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    反馈很好，继续努力反馈很好，继续努力反馈很好，继续努力
+                                </div>
+                                <div class="pull-right"><span class="badge badge-success">已审阅</span></div>
+                            </div>
+                        </div>
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    反馈很好，继续努力反馈很好，继续努力反馈很好，继续努力
+                                </div>
+                                <div class="pull-right"><span class="badge badge-success">已审阅</span></div>
+                            </div>
+                        </div>
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    反馈很好，继续努力反馈很好，继续努力反馈很好，继续努力
+                                </div>
+                                <div class="pull-right"><span class="badge badge-success">已审阅</span></div>
+                            </div>
+                        </div>
+                        <div class="weui_cell clearfix">
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left question">
+                                    试卷1
+                                </div>
+                                <div class="pull-right questionDate">2016-07-20</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="weui_cell_bd weui_cell_primary pull-left questionTalk">
+                                    
+                                </div>
+                                <div class="pull-right"><span class="badge badge-danger">未审阅</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-1">
+                <div class="weui_cells_title clearfix">试卷：<span>试卷1</span><a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary pull-right">交卷</a></div>
+                <div class="weui_cells weui_cells_access">
+                	<div class="weui_title">试题<span>1</span>：<span>小手动动的动作要领是？</span></div>
+				      <div class="weui_cells weui_cells_radio">
+				        <label class="weui_cell weui_check_label" for="x11">
+				          <div class="weui_cell_bd weui_cell_primary">
+				            <p>A.cell standard</p>
+				          </div>
+				          <div class="">
+				            <input type="radio" class="weui_check" name="radio1" id="x11">
+				            <span class="weui_icon_checked"></span>
+				          </div>
+				        </label>
+				        <label class="weui_cell weui_check_label" for="x13">
+				          <div class="weui_cell_bd weui_cell_primary">
+				            <p>B.cell standard</p>
+				          </div>
+				          <div class="">
+				            <input type="radio" class="weui_check" name="radio1" id="x13">
+				            <span class="weui_icon_checked"></span>
+				          </div>
+				        </label>
+				        <label class="weui_cell weui_check_label" for="x12">
+				
+				          <div class="weui_cell_bd weui_cell_primary">
+				            <p>C.cell 和各个房间的机会</p>
+				          </div>
+				          <div class="">
+				            <input type="radio" name="radio1" class="weui_check" id="x12" checked="checked">
+				            <span class="weui_icon_checked"></span>
+				          </div>
+				        </label>
+				      </div>
+				      <div class="weui_title">试题<span>2</span>：<span>小手动动的动作要领是？</span></div>
+				      <div class="weui_cells weui_cells_radio">
+				        <label class="weui_cell weui_check_label" for="x14">
+				          <div class="weui_cell_bd weui_cell_primary">
+				            <p>A.cell standard</p>
+				          </div>
+				          <div class="">
+				            <input type="radio" class="weui_check" name="radio2" id="x14">
+				            <span class="weui_icon_checked"></span>
+				          </div>
+				        </label>
+				        <label class="weui_cell weui_check_label" for="x15">
+				          <div class="weui_cell_bd weui_cell_primary">
+				            <p>B.cell standard</p>
+				          </div>
+				          <div class="">
+				            <input type="radio" class="weui_check" name="radio2" id="x15">
+				            <span class="weui_icon_checked"></span>
+				          </div>
+				        </label>
+				        <label class="weui_cell weui_check_label" for="x16">
+				
+				          <div class="weui_cell_bd weui_cell_primary">
+				            <p>C.cell 和各个房间的机会</p>
+				          </div>
+				          <div class="">
+				            <input type="radio" name="radio2" class="weui_check" id="x16" checked="checked">
+				            <span class="weui_icon_checked"></span>
+				          </div>
+				        </label>
+				      </div>
+                </div>
+            </div>
+            <div class="weui_tabbar">
+                <a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+                    <div class="weui_tabbar_icon">
+                        <img src="./img/icon_nav_button.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">播放课件</p>
+                </a>
+                <a href="remind.html" class="weui_tabbar_item">
+                    <div class="weui_tabbar_icon">
+                        <img src="./img/icon_nav_msg.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">查看提醒</p>
+                </a>
+                <a href="question.html" class="weui_tabbar_item">
+                    <div class="weui_tabbar_icon">
+                        <img src="./img/icon_nav_cell.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">答题管理</p>
+                </a>
+            </div>
+            <div class="null"></div>
+        </div>
+    </div>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/jquery-weui.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script>
+    $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 3000
+    });
+    $(".null").height($(".weui_tabbar").height());
+    $(".weui_navbar").children().eq(0).click(function() {
+        $(".nav-1,.nav-2").hide();
+        $(".nav-1").show();
+    })
+    $(".weui_navbar").children().eq(1).click(function() {
+        $(".nav-1,.nav-2").hide();
+        $(".nav-2").show();
+    })
+    </script>
+</body>
+
+</html>

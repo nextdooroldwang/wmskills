@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>星云CRM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/bootstrap/dist/css/city-picker.css" rel="stylesheet">
+    <link href="../dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+    <style media="screen">
+    .panel-body{
+    	line-height: 34px;
+    }
+        .mycontainer {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        * {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .tips {
+            color: red;
+            font-size: 12px;
+        }
+
+        .cowMargin {
+            line-height: 34px;
+            margin-bottom: 15px;
+        }
+
+        textarea.form-control {}
+
+        .clientNav {
+            width: 96%;
+            height: 0.5px;
+            border-top: 1px solid #dddddd;
+            margin: 40px auto;
+        }
+
+        input[type=checkbox],
+        input[type=radio] {
+            margin: 10px 0 0;
+            margin-top: 1px\9;
+            line-height: normal;
+        }
+
+        .groupAddBtn button {
+            width: 100px;
+            margin-right: 30px;
+        }
+
+        td .glyphicon {
+            color: #428bca;
+        }
+
+        .btnSave {
+            margin-left: 30px;
+            width: 80px;
+        }
+        .btn-default {
+            margin-left: 10px;
+            width: 80px;
+        }
+        .textMove p {
+        	padding-top: 210px;
+        	margin: 0 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./index-gongzuotai.html">星云CRM</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-nav">
+                <li><a href="./index-zuzhi.html">组织</a></li>
+                <li class="active"><a href="#">CRM</a></li>
+                <li><a href="./index-jiaowu.html">教务</a></li>
+                <li><a href="./index-yingxiao.html">营销</a></li>
+                <li><a href="./index-yunying.html">运营</a></li>
+                <li><a href="./index-xitong.html">系统</a></li>
+            </ul>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> 意向客户<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index-crm.html">新客户录入</a>
+                                </li>
+                                <li>
+                                    <a href="client-edit.html">客户管理</a>
+                                </li>
+                                <li>
+                                    <a href="client-listen.html">试听签到</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file fa-fw"></i> 合同管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="pact-list.html">合同列表</a>
+                                </li>
+                                <li>
+                                    <a href="product-list.html">产品列表</a>
+                                </li>
+                                <li>
+                                    <a href="pact-sure.html">合同审核</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="student-list.html">学员列表</a>
+                                </li>
+                                <li>
+                                    <a href="student-bespeak.html">预约登记</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
+                        <li><a href="#">工作台</a></li>
+                        <li>合同管理</li>
+                        <li>合同详情</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="container-fluid">
+                    <!-- /.row -->
+                    <div class="clientContainer">
+                        <div class="row cowMargin">
+                            <button type="button" class="btn btn-primary btnSave">保存</button>
+                            <button type="button" class="btn btn-default btnBack">取消</button>
+                        </div>
+                        <div class="col-md-5">
+                        	<div class="panel panel-default">
+	                            <div class="panel-heading text-center">学员信息</div>
+		                            <div class="panel-body">
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">学员姓名：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>马啊啊</span>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">学长姓名：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>马啊</span>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">完成课时：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>课时啊</span>
+		                                	</div>
+		                                </div>
+		                            </div>
+	                        </div>
+	                        <div class="panel panel-default">
+	                            <div class="panel-heading text-center">主合同信息</div>
+		                            <div class="panel-body">
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">合同号：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>9876987598759</span>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">选择产品：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>新概念英语</span>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">产品价格：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>￥<span>998</span></span>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">合同课时：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>20</span>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">剩余课时：</labal>
+		                                	<div class="col-md-4">
+		                                		<span>19</span>
+		                                	</div>
+		                                </div>
+		                            </div>
+	                        </div>
+                        </div>
+                        <div class="col-md-1 textMove">
+                        	<p>转移合同>></p>
+                        </div>
+                        <div class="col-md-5">
+                        	<div class="panel panel-default">
+	                            <div class="panel-heading text-center">学员信息</div>
+		                            <div class="panel-body">
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">学员姓名：</labal>
+		                                	<div class="col-md-6">
+		                                		<input type="text" name="" class="form-control" value="" />
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">学长姓名：</labal>
+		                                	<div class="col-md-6">
+		                                		<select name="" class="form-control">
+		                                			<option value=""></option>
+		                                		</select>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">完成课时：</labal>
+		                                	<div class="col-md-6">
+		                                		<input type="text" name="" class="form-control" value="" />
+		                                	</div>
+		                                </div>
+		                            </div>
+	                        </div>
+	                        <div class="panel panel-default">
+	                            <div class="panel-heading text-center">主合同信息</div>
+		                            <div class="panel-body">
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">创建日期：</labal>
+		                                	<div class="col-md-6">
+		                                		<p>9876987598759</p>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">截止日期：</labal>
+		                                	<div class="col-md-6">
+		                                		<input type="date" name="" class="form-control" value="" />
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">转移课时：</labal>
+		                                	<div class="col-md-6">
+		                                		<p>99</p>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">安排课程：</labal>
+		                                	<div class="col-md-6">
+		                                		<select name="" class="form-control">
+		                                			<option value=""></option>
+		                                		</select>
+		                                	</div>
+		                                </div>
+		                                <div class="row form-group">
+		                                		<labal class="col-md-3 control-label col-md-offset-1">剩余课时：</labal>
+		                                	<div class="col-md-6">
+		                                		<input type="text" name="" class="form-control" value="" />
+		                                	</div>
+		                                </div>
+		                            </div>
+	                        </div>
+                        </div>
+                        
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/city-picker.data.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/city-picker.min.js"></script>
+    <script src="../dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../dist/js/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script type="text/javascript">$(".btnBack").click(function() {
+	window.location.href="pact-list.html";
+}
+
+)</script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+body, html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.budder-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.budder-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.budder-header {
+  padding: 8px 10px;
+  background: #04BE02;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.budder-content-padded {
+  padding: 15px;
+}
+
+.budder-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.budder-padding-xl {
+  margin-top: 20px;
+}
+
+.budder-banner {
+  width: 100%;
+}
+
+.budder-banner img {
+  display: block;
+  width: 100%;
+}
