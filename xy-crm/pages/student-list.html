@@ -40,6 +40,28 @@
         lable {
             line-height: 34px;
         }
+         .btnAll {
+        	width: 80px;
+        	margin-left: 5px;
+        }
+         .inputGroupSearch {
+         	margin-top: 15px;
+         	display: none;
+         }
+        .inputGroupSearch .form-control {
+        	width: 68%;
+    display: inline-block;
+        }
+        .inputGroupSearch span {
+        	font-size: 12px;
+        	color: #666666;
+        }
+        .btnSearchOk {
+        	padding: 5px 20px 0 0;
+        }
+        .btnSearchOk button {
+        	margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -164,8 +186,7 @@
 
             <div class="row">
                 <div class="mycontainer">
-                    <div id="toolbar" class="pull-left">
-                        <button class="btn btn-primary addstdentbtn" data-toggle="modal" data-target="#myModal">
+                	<button class="btn btn-primary addstdentbtn" data-toggle="modal" data-target="#myModal">
                             添加学员
                         </button>
                         <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
@@ -174,6 +195,45 @@
                         <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
                             模板导入
                         </button>
+                         <button class="btn btn-default pull-right btnAll">全部</button>
+                        <button class="btn btn-default pull-right btnSearch">高级搜索 <em class="glyphicon glyphicon-menu-down"></em></button>
+                    <div class="inputGroupSearch">
+                    <div class="row">
+                    	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    		<span>客户姓名：</span>
+                    		<input type="text" class="form-control" />
+                    	</div>
+                    	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    		<span>客户姓名：</span>
+                    		<input type="text" class="form-control" />
+                    	</div>
+                    	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    		<span>客户姓名：</span>
+                    		<select class="form-control" placeholder="请选择老师">
+                                                    <option>李老师</option>
+                                                    <option>张老师</option>
+                                                    <option>王老师</option>
+                                                    <option>宋老师</option>
+                                                </select>
+                    	</div>
+                    	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    		<span>客户姓名：</span>
+                    		<select class="form-control" placeholder="请选择老师">
+                                                    <option>李老师</option>
+                                                    <option>张老师</option>
+                                                    <option>王老师</option>
+                                                    <option>宋老师</option>
+                                                </select>
+                    	</div>
+                    	
+                    </div>
+                    <div class="row btnSearchOk">
+                    		<button class="btn btn-default pull-right">重置</button>
+                    		<button class="btn btn-primary pull-right">搜索</button>
+                    	</div>
+                    </div>
+                    <div id="toolbar" class="pull-left">
+                        
                     </div>
                     <table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture>
                         <thead>
@@ -241,6 +301,19 @@
            function hhhh() {
         	window.location.href="student-edit.html";
         }
+           $(".btnSearch").click(function() {
+  	$(" .inputGroupSearch").slideUp();
+  	if($(" .inputGroupSearch").hasClass("searchShow")) {
+  		$(".btnSearch em").removeClass("glyphicon-menu-up");
+  		$(".btnSearch em").addClass("glyphicon-menu-down");
+  		$(" .inputGroupSearch").removeClass("searchShow");
+  	}else {
+  		$(".btnSearch em").removeClass("glyphicon-menu-down");
+  		$(".btnSearch em").addClass("glyphicon-menu-up");
+  		$(" .inputGroupSearch").addClass("searchShow");
+  	}
+  	$(".searchShow").slideDown();
+  });
     </script>
 </body>
 

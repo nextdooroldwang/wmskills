@@ -23,6 +23,7 @@
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/select2.min.css">
     <style media="screen">
         .mycontainer {
             padding-left: 15px;
@@ -39,6 +40,47 @@
 
         lable {
             line-height: 34px;
+        }
+
+        .btnAll {
+            width: 80px;
+            margin-left: 5px;
+        }
+
+        .inputGroupSearch {
+            margin-top: 15px;
+            display: none;
+        }
+
+        .inputGroupSearch .row {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .inputGroupSearch input {
+            width: 68%;
+            display: inline-block;
+        }
+
+        .select2-container {
+            width: 68% ! important;
+        }
+
+        .inputGroupSearch span {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .btnSearchOk {
+            padding: 5px 20px 0 0;
+        }
+
+        .btnSearchOk button {
+            margin-left: 5px;
+        }
+
+        .glyphicon {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -164,13 +206,67 @@
 
             <div class="row">
                 <div class="mycontainer">
-                    <!-- <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-minimum-count-columns="2"
-          data-show-pagination-switch="true" data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, ALL]" data-show-footer="false" data-side-pagination="server" data-url="/examples/bootstrap_table/data" data-response-handler="responseHandler">
-      </table> -->
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        分配顾问
+                    </button>
+                    <button class="btn btn-default pull-right btnAll">全部</button>
+                    <button class="btn btn-default pull-right btnSearch">高级搜索 <em class="glyphicon glyphicon-menu-down"></em></button>
+                    <div class="inputGroupSearch">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>客户姓名：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>客户来源：</span>
+                                <select class="js-example-basic-single form-control">
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>联系电话：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>联系地址：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>客户状态：</span>
+                                <select class="js-example-basic-single form-control">
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>跟进顾问：</span>
+                                <select class="js-example-basic-single form-control">
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>开始时间：</span>
+                                <input type="date" class="form-control startDate">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>结束时间：</span>
+                                <input type="date" class="form-control endDate">
+                            </div>
+
+
+                        </div>
+                        <div class="row btnSearchOk">
+                            <button class="btn btn-default pull-right">重置</button>
+                            <button class="btn btn-primary pull-right">搜索</button>
+                        </div>
+                    </div>
                     <div id="toolbar" class="pull-left">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            分配顾问
-                        </button>
+
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -223,7 +319,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                            	<td></td>
+                                <td></td>
                                 <td><a href="client-xiangqing.html">陌陌</a></td>
                                 <td>Item 1</td>
                                 <td>$1</td>
@@ -231,10 +327,10 @@
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
-                                <td><span class="glyphicon glyphicon-edit" onclick="edit()"> </span></td>
+                                <td><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> <span class="glyphicon glyphicon-tag" onclick="genzong()"> </span></td>
                             </tr>
                             <tr>
-                            	<td></td>
+                                <td></td>
                                 <td><a href="client-xiangqing.html">结了</a></td>
                                 <td>Item 1</td>
                                 <td>$1</td>
@@ -242,7 +338,7 @@
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
-                                <td id="iii"><span class="glyphicon glyphicon-edit" onclick="edit()"> </span></td>
+                                <td id="iii"><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> </span><span class="glyphicon glyphicon-tag" onclick="genzong()"> </span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -269,10 +365,31 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/select2.min.js"></script>
     <script type="text/javascript">
-  function edit() {
-  	window.location.href="client.html"
-  }
+        function edit() {
+            window.location.href = "client.html"
+        }
+
+        function genzong() {
+            window.location.href = "clientgenzong.html"
+        }
+        $(document).ready(function() {
+            $(".js-example-basic-single").select2();
+        });
+        $(".btnSearch").click(function() {
+            $(" .inputGroupSearch").slideUp();
+            if ($(" .inputGroupSearch").hasClass("searchShow")) {
+                $(".btnSearch em").removeClass("glyphicon-menu-up");
+                $(".btnSearch em").addClass("glyphicon-menu-down");
+                $(" .inputGroupSearch").removeClass("searchShow");
+            } else {
+                $(".btnSearch em").removeClass("glyphicon-menu-down");
+                $(".btnSearch em").addClass("glyphicon-menu-up");
+                $(" .inputGroupSearch").addClass("searchShow");
+            }
+            $(".searchShow").slideDown();
+        });
     </script>
 </body>
 
