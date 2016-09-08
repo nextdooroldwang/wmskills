@@ -65,9 +65,15 @@
             width: 100px;
             margin-right: 30px;
         }
+
         .btnDelete {
-        	color: red;
-        	cursor: pointer;
+            color: red;
+            cursor: pointer;
+        }
+
+        .times {
+            font-size: 16px;
+            padding: 10px;
         }
     </style>
 </head>
@@ -198,49 +204,49 @@
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">学员信息</div>
                             <div class="panel-body">
-                            	<div class="divAppend">
-                                <div class="row cowMargin">
-                                    <div class="col-md-4 ">
-                                        <div class="row">
-                                            <div class="col-sm-5 text-right">
-                                                <lable><span class="tips">* </span>学员姓名: </lable>
+                                <div class="divAppend">
+                                    <div class="row cowMargin">
+                                        <div class="col-md-4 ">
+                                            <div class="row">
+                                                <div class="col-sm-5 text-right">
+                                                    <lable><span class="tips">* </span>学员姓名: </lable>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" placeholder="请选择老师">
+                                                        <option>李老师</option>
+                                                        <option>张老师</option>
+                                                        <option>王老师</option>
+                                                        <option>宋老师</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-sm-5 text-right">
+                                                    <lable><span class="tips">* </span>家长信息: </lable>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" placeholder="请选择老师">
+                                                        <option>李老师</option>
+                                                        <option>张老师</option>
+                                                        <option>王老师</option>
+                                                        <option>宋老师</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-sm-5 text-right">
+                                                    <lable>完成课时: </lable>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-sm-5 text-right">
-                                                <lable><span class="tips">* </span>家长信息: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-sm-5 text-right">
-                                                <lable>完成课时: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 </div>
                                 <div class="row cowMargin ">
                                     <div class="col-sm-6 col-sm-offset-3">
@@ -281,16 +287,16 @@
                                             </div>
                                             <div class="col-sm-2">
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="inlineRadioOptions"  id="radioY" checked> 直降
+                                                    <input type="radio" name="inlineRadioOptions" id="radioY" checked> 直降
                                                 </label>
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="inputY">
+                                                    <div class="input-group-addon">元</div>
                                                 </div>
-                                                <div class="form-group col-sm-4">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" id="inputY">
-                                                        <div class="input-group-addon">元</div>
-                                                    </div>
-                                                </div>
-                                            
+                                            </div>
+
                                         </div>
                                         <div class="row cowMargin">
                                             <div class="col-sm-4 text-right">
@@ -299,13 +305,13 @@
                                                 <label class="radio-inline">
                                                     <input type="radio" name="inlineRadioOptions" id="radioZ"> 折扣
                                                 </label>
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" disabled id="inputZ">
+                                                    <div class="input-group-addon">%</div>
                                                 </div>
-                                                <div class="form-group col-sm-4">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" disabled id="inputZ">
-                                                        <div class="input-group-addon">%</div>
-                                                    </div>
-                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row cowMargin">
                                             <div class="col-sm-4 text-right">
@@ -402,6 +408,26 @@
 
                             </div>
                         </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">301教室（满额20人）</div>
+                            <div class="panel-body">
+                                <div class="text-center times">
+                                    08:00~10:00 <span class="badge">4</span>
+                                </div>
+                                <div class="text-center times">
+                                    10:00~12:00 <span class="badge">6</span>
+                                </div>
+                                <div class="text-center times">
+                                    13:00~15:00 <span class="badge">13</span>
+                                </div>
+                                <div class="text-center times">
+                                    15:00~17:00 <span class="badge">10</span>
+                                </div>
+                                <div class="text-center times">
+                                    18:00~20:00 <span class="badge">8</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row text-center groupAddBtn">
                             <button class="btn btn-primary"> 提交 </button>
                             <button class="btn btn-default btnBack"> 取消 </button>
@@ -433,41 +459,72 @@
     <script src="../bower_components/bootstrap/dist/js/city-picker.min.js"></script>
     <script src="../dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../dist/js/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script type="text/javascript">$('#target').citypicker( {
-	province: '江苏省', city: '常州市', district: '溧阳市'
-});
-var clickAppend=0;
-$(".btnAddStudent").on("click", function() {
-	$(".divAppend").append('<div class="row cowMargin addRow"><div class="col-md-4 "><div class="row"><div class="col-sm-5 text-right"><lable><span class="tips">* </span>学员姓名: </lable></div><div class="col-sm-6"><select class="form-control" placeholder="请选择老师"><option>李老师</option><option>张老师</option><option>王老师</option><option>宋老师</option></select> </div></div></div><div class="col-md-4"><div class="row"><div class="col-sm-5 text-right"><lable><span class="tips">* </span>家长信息: </lable></div><div class="col-sm-6"><select class="form-control" placeholder="请选择老师"><option>李老师</option><option>张老师</option><option>王老师</option><option>宋老师</option></select></div></div></div><div class="col-md-4"><div class="row"><div class="col-sm-5 text-right"><lable>完成课时: </lable></div><div class="col-sm-6"><input type="text" class="form-control"></div><span  class="btnDelete">删除</span></div></div></div>');
-	clickAppend++;
-	$(".btnDelete").off("click");
-	$(".btnDelete").on("click",function(){
-		clickAppend=clickAppend-1;
-		$(this).parents(".addRow").remove();
-		if(clickAppend<4){
-		$(".btnAddStudent").show();
-	}
-	})
-	if(clickAppend>3){
-		$(".btnAddStudent").hide();
-	}
-	
-})
-$(":radio").change(function() {
-	var rchecked=$(".radio-inline :checked").attr("id")
-	
-	if(rchecked=="radioY") {
-		$("#inputY,#inputZ").removeAttr("disabled");
-		$("#inputZ").attr("disabled",1);
-	}
-	if(rchecked=="radioZ") {
-		$("#inputZ,#inputY").removeAttr("disabled");
-		$("#inputY").attr("disabled",1);
-	}
-});
-$(".btnBack").click(function() {
-				window.location.href = "pact-list.html";
-			});
+    <script type="text/javascript">
+        $('#target').citypicker({
+            province: '江苏省',
+            city: '常州市',
+            district: '溧阳市'
+        });
+        var clickAppend = 0;
+        $(".btnAddStudent").on("click", function() {
+            $(".divAppend").append(
+                '<div class="row cowMargin addRow"><div class="col-md-4 "><div class="row"><div class="col-sm-5 text-right"><lable><span class="tips">* </span>学员姓名: </lable></div><div class="col-sm-6"><select class="form-control" placeholder="请选择老师"><option>李老师</option><option>张老师</option><option>王老师</option><option>宋老师</option></select> </div></div></div><div class="col-md-4"><div class="row"><div class="col-sm-5 text-right"><lable><span class="tips">* </span>家长信息: </lable></div><div class="col-sm-6"><select class="form-control" placeholder="请选择老师"><option>李老师</option><option>张老师</option><option>王老师</option><option>宋老师</option></select></div></div></div><div class="col-md-4"><div class="row"><div class="col-sm-5 text-right"><lable>完成课时: </lable></div><div class="col-sm-6"><input type="text" class="form-control"></div><span  class="btnDelete">删除</span></div></div></div>'
+            );
+            clickAppend++;
+            $(".btnDelete").off("click");
+            $(".btnDelete").on("click", function() {
+                clickAppend = clickAppend - 1;
+                $(this).parents(".addRow").remove();
+                if (clickAppend < 4) {
+                    $(".btnAddStudent").show();
+                }
+            })
+            if (clickAppend > 3) {
+                $(".btnAddStudent").hide();
+            }
+
+        })
+        $(":radio").change(function() {
+            var rchecked = $(".radio-inline :checked").attr("id")
+
+            if (rchecked == "radioY") {
+                $("#inputY,#inputZ").removeAttr("disabled");
+                $("#inputZ").attr("disabled", 1);
+            }
+            if (rchecked == "radioZ") {
+                $("#inputZ,#inputY").removeAttr("disabled");
+                $("#inputY").attr("disabled", 1);
+            }
+        });
+        $(".btnBack").click(function() {
+            window.location.href = "pact-list.html";
+        });
+
+
+        $(".times").eq(1).css({
+            "background": "green",
+            "color": "#fff"
+        });
+        $(".badge").eq(1).css({
+            "background": "#fff",
+            "color": "#666"
+        });
+        $(".times").eq(2).css({
+            "background": "yellow",
+            "color": "#fff"
+        });
+        $(".badge").eq(2).css({
+            "background": "#fff",
+            "color": "#666"
+        });
+        $(".times").eq(3).css({
+            "background": "red",
+            "color": "#fff"
+        });
+        $(".badge").eq(3).css({
+            "background": "#fff",
+            "color": "#666"
+        });
     </script>
 </body>
 

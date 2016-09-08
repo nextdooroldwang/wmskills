@@ -60,6 +60,71 @@
         .groupAddBtn button {
             margin-right: 30px;
         }
+
+        .clientbiaoqian ul {
+            padding: 15px;
+            border: 2px dashed #f5a819;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .clientbiaoqian li {
+            display: inline-block;
+            /*width: 56px;*/
+            /*height: 70px;*/
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        .clientbiaoqian label {
+            font-size: 12px;
+        }
+
+        .ulTitle {
+            position: absolute;
+            padding-left: 5px;
+            padding-right: 5px;
+            background: #fff;
+            top: -16px;
+            left: 30px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .schoolTag {
+            line-height: 34px;
+        }
+
+        .fa-minus-circle {
+            color: red;
+        }
+
+        .schoolTagList {
+            margin: auto 0;
+        }
+
+        .clientbiaoqian ul {
+            margin-bottom: 15px;
+        }
+
+        .schoolTagList li {
+            float: left;
+            margin: 0px 20px 10px 0;
+        }
+
+        .schoolTagList span {
+            display: inline-block;
+            padding: 0px 5px;
+            min-width: 30px;
+            border: 1px solid #f5a819;
+            border-radius: 5px;
+            margin-right: 5px;
+            color: rgb(116, 116, 116);
+        }
+
+        .btnTips {
+            margin-right: 15px;
+        }
     </style>
 </head>
 
@@ -189,114 +254,29 @@
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">新客户录入</div>
                             <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="row cowMargin">
-                                            <div class="col-sm-4 text-right">
-                                                <lable><span class="tips">* </span>客户姓名: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row cowMargin">
-                                            <div class="col-sm-4 text-right">
-                                                <lable><span class="tips">* </span>客户来源: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="row cowMargin">
-                                            <div class="col-sm-4 text-right">
-                                                <lable><span class="tips">* </span>手机号码: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row cowMargin">
-                                            <div class="col-sm-4 text-right">
-                                                <lable><span class="tips">* </span>学员关系: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row cowMargin">
-                                    <div class="col-sm-2 text-right">
-                                        <lable>联系地址: </lable>
-                                    </div>
-                                    <div class="col-sm-3" style="position:relative;">
-                                        <input readonly type="text" data-toggle="city-picker">
-                                    </div>
-                                    <div class="col-md-3" style="padding-top:5px">
-                                        <input type="text" placeholder="详细地址..." value="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row cowMargin">
-                                    <div class="col-sm-2 text-right">
-                                        <lable>备注信息: </lable>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <textarea class="form-control" name="name" rows="3" cols="10"></textarea>
-                                    </div>
-                                </div>
-                                <div class="row cowMargin">
-                                    <div class="col-sm-2 text-right">
-                                        <lable>跟进顾问: </lable>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <select class="form-control" placeholder="请选择老师">
-                                            <option>李老师</option>
-                                            <option>张老师</option>
-                                            <option>王老师</option>
-                                            <option>宋老师</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="clientNav">
 
-                                </div>
+                                <h4>基础信息</h4>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="row cowMargin">
                                             <div class="col-sm-4 text-right">
-                                                <lable>学员姓名: </lable>
+                                                <lable><span class="tips">* </span>学员姓名: </lable>
                                             </div>
                                             <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
+                                                <input type="text" placeholder="" value="" class="form-control">
                                             </div>
                                         </div>
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>就读学校: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" placeholder="" value="" class="form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
                                         <div class="row cowMargin">
                                             <div class="col-sm-4 text-right">
                                                 <lable>学员性别: </lable>
@@ -310,22 +290,6 @@
                                                 </label>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="row cowMargin">
-                                            <div class="col-sm-4 text-right">
-                                                <lable>学员昵称: </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" placeholder="请选择老师">
-                                                    <option>李老师</option>
-                                                    <option>张老师</option>
-                                                    <option>王老师</option>
-                                                    <option>宋老师</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="row cowMargin">
                                             <div class="col-sm-4 text-right">
                                                 <lable>学员生日: </lable>
@@ -334,14 +298,361 @@
                                                 <input type="date" class="form-control">
                                             </div>
                                         </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable><span class="tips">* </span>家长姓名: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" placeholder="" value="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable><span class="tips">* </span>联系电话: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" placeholder="" value="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>微信/qq: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="clientNav">
+
+                                </div>
+                                <h4>高级信息</h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>客户来源: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="form-control">
+                                                    <option>百度搜索</option>
+                                                    <option>传单</option>
+                                                    <option>介绍</option>
+                                                    <option>广告</option>
+                                                    <option>组团</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row cowMargin">
+                                    <div class="col-sm-4 text-right">
+                                      <lable><span class="tips">* </span>是否成交: </lable>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions2" id="inlineRadio3"> 是
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions2" id="inlineRadio4"> 否
+                                      </label>
+                                    </div>
+                                  </div> -->
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>跟进顾问: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="form-control">
+                                                    <option>老李</option>
+                                                    <option>老王</option>
+                                                    <option>老张</option>
+                                                    <option>老宋</option>
+                                                    <option>老师</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>客户状态: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="form-control">
+                                                    <option>请选择客户状态</option>
+                                                    <option>跟进中：1次</option>
+                                                    <option>跟进中：2次</option>
+                                                    <option>跟进中：3次</option>
+                                                    <option>跟进中：3次以上</option>
+                                                    <option>预约试听</option>
+                                                    <option>已试听</option>
+                                                    <option>未分配</option>
+                                                    <option>未跟进</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>录入时间: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="date" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable>客户级别: </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="form-control">
+                                                    <option>请选择客户级别</option>
+                                                    <option>A</option>
+                                                    <option>B</option>
+                                                    <option>C</option>
+                                                    <option>D</option>
+                                                    <option>E</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row cowMargin schoolTag">
+                                    <div class="col-sm-2 text-right">
+                                        <label>详情标签:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="clientbiaoqian">
+                                            <ul>
+                                                <div class="ulTitle">
+                                                    性格特征
+                                                </div>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="tiaoti">
+                                                    <label for="tiaoti">挑剔</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="duoyi">
+                                                    <label for="duoyi">多疑</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="aoman">
+                                                    <label for="aoman">傲慢</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="kouruoxuanhe">
+                                                    <label for="kouruoxuanhe">口若悬河</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="lizhiwenjian">
+                                                    <label for="lizhiwenjian">理智稳健</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="yourouguaduan">
+                                                    <label for="yourouguaduan">优柔寡断</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="shaoyanguayu">
+                                                    <label for="shaoyanguayu">少言寡语</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="shuoyibuer">
+                                                    <label for="shuoyibuer">说一不二</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="qiangshi">
+                                                    <label for="qiangshi">强势</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="didiao">
+                                                    <label for="didiao">低调</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="zhanqianguhou">
+                                                    <label for="zhanqianguhou">瞻前顾后</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="chengshuwenzhong">
+                                                    <label for="chengshuwenzhong">成熟稳重</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="tuisanzusi">
+                                                    <label for="tuisanzusi">推三阻四</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="diediebuxiu">
+                                                    <label for="diediebuxiu">喋喋不休</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="dadalielie">
+                                                    <label for="dadalielie">大大咧咧</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="neixiang">
+                                                    <label for="neixiang">内向</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xingge" id="waixiang">
+                                                    <label for="waixiang">外向</label>
+                                                </li>
+                                            </ul>
+
+
+                                            <ul>
+                                                <div class="ulTitle">
+                                                    课程爱好
+                                                </div>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="legao">
+                                                    <label for="legao">乐高</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="baduo">
+                                                    <label for="baduo">芭朵</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="jiewu">
+                                                    <label for="jiewu">街舞</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="minzuwu">
+                                                    <label for="minzuwu">民族舞</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="xiandaiwu">
+                                                    <label for="xiandaiwu">现代舞</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="qiyue">
+                                                    <label for="qiyue">器乐</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="youkelili">
+                                                    <label for="youkelili">尤克里里</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="biaoyan">
+                                                    <label for="biaoyan">表演</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="hechang">
+                                                    <label for="hechang">合唱</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="yingbishufa">
+                                                    <label for="yingbishufa">硬笔书法</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="ruanbishufa">
+                                                    <label for="ruanbishufa">软笔书法</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="guohua">
+                                                    <label for="guohua">国画</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="aihao" id="kongshoudao">
+                                                    <label for="kongshoudao">空手道</label>
+                                                </li>
+
+                                            </ul>
+
+
+                                            <ul>
+                                                <div class="ulTitle">
+                                                    消费能力
+                                                </div>
+                                                <li>
+                                                    <input type="checkbox" name="xiaofei" id="5000yixia">
+                                                    <label for="5000yixia">5000以下</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xiaofei" id="5000">
+                                                    <label for="5000">5000</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xiaofei" id="10000">
+                                                    <label for="10000">10000</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xiaofei" id="10000yishang">
+                                                    <label for="10000yishang">10000以上</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="xiaofei" id="danke">
+                                                    <label for="danke">单科</label>
+                                                </li>
+
+                                            </ul>
+
+
+                                        </div>
+                                        <!-- <div class="pull-left">
+                                    <button type="button" class="btn btn-success btnTagAdd">增加标签
+                                    </button>
+                                    <a href="#" class="btnTips" id="btnTips" data-toggle="modal" data-target="#myModal" rel="popover" data-content="点击可选择客户标签！" data-original-title="温馨提示">
+                                      <icon class="glyphicon glyphicon-info-sign"></icon>
+                                    </a>
+                                  </div>
+                                  <div class="pull-left schoolTagList">
+                                    <ul>
+
+                                    </ul>
+                                  </div> -->
+                                        <!-- Modal -->
+                                        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                          <h4 class="modal-title" id="myModalLabel">可选标签</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+
+                                        </div>
+                                        <div class="modal-footer">
+
+                                          <button type="button" class="btn btn-primary">确定</button>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div> -->
+                                        <!-- /.modal -->
+                                    </div>
+
+                                </div>
+                                <div class="row cowMargin">
+                                    <div class="col-sm-2 text-right">
+                                        <label>客户备注:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" rows="3" cols="40" placeholder="可输入客户动机、背景、特质"></textarea>
                                     </div>
                                 </div>
                                 <div class="row cowMargin">
                                     <div class="col-sm-2 text-right">
-                                        <lable>学员备注: </lable>
+                                        <label>满意要素:</label>
                                     </div>
-                                    <div class="col-sm-5">
-                                        <textarea class="form-control" name="name" rows="3" cols="10"></textarea>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" rows="3" cols="40" placeholder="可输入客户最满意的要素"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row cowMargin">
+                                    <div class="col-sm-2 text-right">
+                                        <label>不满要素:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" rows="3" cols="40" placeholder="可输入客户不满意的要素"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -378,16 +689,11 @@
     <script src="../dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../dist/js/bootstrap-datepicker.zh-CN.min.js"></script>
     <script type="text/javascript">
-        $('#target').citypicker({
-            province: '江苏省',
-            city: '常州市',
-            district: '溧阳市'
-        });
         $(".save1").click(function() {
-        	window.location.href="client-edit.html"
+            window.location.href = "client-edit.html"
         })
         $(".save2").click(function() {
-        	window.location.reload();
+            window.location.reload();
         })
     </script>
 </body>

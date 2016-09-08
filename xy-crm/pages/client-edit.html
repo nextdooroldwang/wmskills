@@ -206,9 +206,45 @@
 
             <div class="row">
                 <div class="mycontainer">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        分配顾问
+                    <button type="button" class="btn btn-success">批量导入</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                        批量分配顾问
                     </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4>未分配客户数量：<span class="weifenpei"></span></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="请输入分配的客户数量">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>李</option>
+                                                <option>王</option>
+                                                <option>孙</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-primary">确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
                     <button class="btn btn-default pull-right btnAll">全部</button>
                     <button class="btn btn-default pull-right btnSearch">高级搜索 <em class="glyphicon glyphicon-menu-down"></em></button>
                     <div class="inputGroupSearch">
@@ -327,7 +363,7 @@
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
-                                <td><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> <span class="glyphicon glyphicon-tag" onclick="genzong()"> </span></td>
+                                <td><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> <span class="glyphicon glyphicon-tag" onclick="genzong()"> </span> <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-resize-small"></span></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -338,7 +374,7 @@
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
-                                <td id="iii"><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> </span><span class="glyphicon glyphicon-tag" onclick="genzong()"> </span></td>
+                                <td id="iii"><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> </span><span class="glyphicon glyphicon-tag" onclick="genzong()"> </span> </span> <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-resize-small"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -390,6 +426,9 @@
             }
             $(".searchShow").slideDown();
         });
+        //未分配的客户数量
+        var weifenpei = 674;
+        $(".weifenpei").html(weifenpei);
     </script>
 </body>
 

@@ -32,6 +32,11 @@
             color: #428bca;
         }
 
+        .cowMargin {
+            line-height: 34px;
+            margin-bottom: 15px;
+        }
+
         lable {
             line-height: 34px;
         }
@@ -117,9 +122,7 @@
                                 <li>
                                     <a href="classroom-add.html">教室管理</a>
                                 </li>
-                                <li>
-                                    <a href="class-admin.html">班级管理</a>
-                                </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -148,8 +151,11 @@
           data-show-pagination-switch="true" data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, ALL]" data-show-footer="false" data-side-pagination="server" data-url="/examples/bootstrap_table/data" data-response-handler="responseHandler">
       </table> -->
                     <div id="toolbar" class="pull-left">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal">
                             添加教室
+                        </button>
+                        <button class="btn btn-primary btnZhuangtai">
+                            教室状态
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -160,9 +166,17 @@
                                         <h4 class="modal-title" id="myModalLabel">添加教室</h4>
                                     </div>
                                     <div class="modal-body">
+                                        <div class="row cowMargin">
+                                            <div class="col-sm-4 text-right">
+                                                <lable><span style="color:red">* </span>教室名称： </lable>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" name="" id="" value="" class="form-control" />
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-4 text-right">
-                                                <lable ><span style="color:red">* </span>教室名称： </lable>
+                                                <lable><span style="color:red">* </span>容纳人数： </lable>
                                             </div>
                                             <div class="col-sm-6">
                                                 <input type="text" name="" id="" value="" class="form-control" />
@@ -186,52 +200,63 @@
                         <thead>
                             <tr>
                                 <th>教室名称</th>
+                                <th>容纳人数</th>
                                 <th>创建时间</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>陌陌</td>
-                                <td>Item 1</td>
-                                <td><span class="glyphicon glyphicon-edit"  data-toggle="modal" data-target="#myModal2"> </span></td>
+                                <td>301</td>
+                                <td>20</td>
+                                <td>2016-9-1</td>
+                                <td><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#myModal2"> </span></td>
                             </tr>
                             <tr>
-                                <td>结了</td>
-                                <td>Item 1</td>
-                                <td><span class="glyphicon glyphicon-edit"  data-toggle="modal" data-target="#myModal2"> </span></td>
+                                <td>302</td>
+                                <td>16</td>
+                                <td>2016-10-1</td>
+                                <td><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#myModal2"> </span></td>
                             </tr>
                         </tbody>
                     </table>
                     <!-- Modal -->
-                        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel2">编辑教室</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-sm-4 text-right">
-                                                <lable ><span style="color:red">* </span>教室名称： </lable>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="text" name="" id="" value="" class="form-control" />
-                                            </div>
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel2">编辑教室</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row cowMargin">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span style="color:red">* </span>教室名称： </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="" id="" value="" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-
-                                        <button type="button" class="btn btn-primary">确定</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span style="color:red">* </span>容纳人数： </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="" id="" value="" class="form-control" />
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- /.modal-content -->
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-primary">确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
                             </div>
-                            <!-- /.modal-dialog -->
+                            <!-- /.modal-content -->
                         </div>
-                        <!-- /.modal -->
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
                 </div>
 
             </div>
@@ -256,7 +281,11 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
-
+    <script type="text/javascript">
+        $(".btnZhuangtai").on("click", function() {
+            window.location.href = "classroom-zhuangtai.html"
+        })
+    </script>
 </body>
 
 </html>

@@ -20,15 +20,10 @@
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
     <style media="screen">
-        .mycontainer {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
         #toolbar {
             margin-top: 10px;
         }
@@ -37,8 +32,28 @@
             color: #428bca;
         }
 
+        .cowMargin {
+            line-height: 34px;
+            margin-bottom: 15px;
+        }
+
         lable {
             line-height: 34px;
+        }
+
+        .mycontainer {
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .times {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .panel-body {
+            padding: 0px;
         }
     </style>
 </head>
@@ -62,8 +77,8 @@
 
             <ul class="nav navbar-nav">
                 <li><a href="./index-zuzhi.html">组织</a></li>
-                <li class="active"><a href="#">CRM</a></li>
-                <li><a href="./index-jiaowu.html">教务</a></li>
+                <li><a href="./index-crm.html">CRM</a></li>
+                <li class="active"><a href="#">教务</a></li>
                 <li><a href="./index-yingxiao.html">营销</a></li>
                 <li><a href="./index-yunying.html">运营</a></li>
                 <li><a href="./index-xitong.html">系统</a></li>
@@ -102,43 +117,22 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> 意向客户<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-calendar fa-fw"></i> 教务管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="index-crm.html">新客户录入</a>
+                                    <a href="index-jiaowu.html">课程表</a>
                                 </li>
                                 <li>
-                                    <a href="client-edit.html">客户管理</a>
+                                    <a href="course-add.html">课程系列</a>
                                 </li>
                                 <li>
-                                    <a href="client-listen.html">试听签到</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file fa-fw"></i> 合同管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="pact-list.html">合同列表</a>
+                                    <a href="course-admin.html">课程管理</a>
                                 </li>
                                 <li>
-                                    <a href="product-list.html">产品列表</a>
+                                    <a href="classroom-add.html">教室管理</a>
                                 </li>
                                 <li>
-                                    <a href="pact-sure.html">合同审核</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="student-list.html">学员列表</a>
-                                </li>
-                                <li>
-                                    <a href="student-bespeak.html">预约登记</a>
+                                    <a href="class-admin.html">班级管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -154,9 +148,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
-                        <li><a href="#">工作台</a></li>
-                        <li>合同管理</li>
-                        <li>产品列表</li>
+                        <li><a href="#">教务</a></li>
+                        <li>教务管理</li>
+                        <li>教室管理</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -164,57 +158,30 @@
 
             <div class="row">
                 <div class="mycontainer">
-                    <!-- <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-minimum-count-columns="2"
-          data-show-pagination-switch="true" data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, ALL]" data-show-footer="false" data-side-pagination="server" data-url="/examples/bootstrap_table/data" data-response-handler="responseHandler">
-      </table> -->
-                    <div id="toolbar" class="pull-left">
-                        <button class="btn btn-primary addproductbtn" data-toggle="modal" data-target="#myModal">
-                            添加产品
-                        </button>
-                    </div>
-                    <table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture
-                        data-minimum-count-columns=1 data-select-item-name="客户姓名">
-                        <thead>
-                            <tr>
-                                <th>产品编号</th>
-                                <th>产品名称</th>
-                                <th>所含课程</th>
-                                <th>教室</th>
-                                <th>上课时段</th>
-                                <th>课时</th>
-                                <th>价格</th>
-                                <th>是否上架</th>
-                                <th>创建时间</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>陌陌</td>
-                                <td>Item 1</td>
-                                <td>Item 1</td>
-                                <td>Item 1</td>
-                                <td>Item 1</td>
-                                <td>1</td>
-                                <td>Item 1</td>
-                                <td>$1</td>
-                                <td>1</td>
-                                <td><span class="glyphicon glyphicon-edit" onclick="hhhh()"> </span></td>
-                            </tr>
-                            <tr>
-                                <td>结了</td>
-                                <td>Item 1</td>
-                                <td>Item 1</td>
-                                <td>Item 1</td>
-                                <td>Item 1</td>
-                                <td>1</td>
-                                <td>Item 1</td>
-                                <td>$1</td>
-                                <td>1</td>
-                                <td><span class="glyphicon glyphicon-edit" onclick="hhhh()"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <!-- <div class="row">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading text-center">301教室（满额20人）</div>
+                                <div class="panel-body">
+                                    <div class="text-center times">
+                                        08:00~10:00 <span class="badge">4</span>
+                                    </div>
+                                    <div class="text-center times">
+                                        10:00~12:00 <span class="badge">6</span>
+                                    </div>
+                                    <div class="text-center times">
+                                        13:00~15:00 <span class="badge">13</span>
+                                    </div>
+                                    <div class="text-center times">
+                                        15:00~17:00 <span class="badge">10</span>
+                                    </div>
+                                    <div class="text-center times">
+                                        18:00~20:00 <span class="badge">8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <!-- /.row -->
@@ -239,14 +206,62 @@
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript">
-        $(".addproductbtn").click(function() {
-            window.location.href = "product-add.html";
-        })
-
-        function hhhh() {
-            window.location.href = "product-edit.html";
+        var classroomNum = 6;
+        var rowNum = parseInt(classroomNum / 3);
+        var colNum = classroomNum % 3;
+        if (colNum > 0) {
+            rowNum = rowNum + 1;
         }
+        for (var i = 0; i < rowNum; i++) {
+
+            $(".mycontainer").append("<div class='row'><div class='col-sm-4 classroom'></div><div class='col-sm-4 classroom'></div><div class='col-sm-4 classroom'></div></div>")
+        }
+        for (var i = 0; i < classroomNum; i++) {
+            $(".classroom").eq(i).append(
+                '<div class="panel panel-default"><div class="panel-heading text-center"><span class="classroomNum">301</span>教室（满额<span class="fully">20</span>人）</div><div class="panel-body classBody"><div class="text-center times">08:00~10:00 <span class="badge">4</span></div><div class="text-center times">10:00~12:00 <span class="badge">6</span></div><div class="text-center times">13:00~15:00 <span class="badge">13</span></div><div class="text-center times">15:00~17:00 <span class="badge">10</span></div><div class="text-center times">18:00~20:00 <span class="badge">8</span></div></div></div>'
+            );
+            for (var j = 0; j < 5; j++) {
+                var students = $(".classBody:eq(" + i + ") .badge:eq(" + j + ")").html();
+                if (students < 5) {
+                    $(".classBody:eq(" + i + ") .times").eq(j).css({
+                        "background": "green",
+                        "color": "#fff"
+                    });
+                    $(".classBody:eq(" + i + ") .badge").eq(j).css({
+                        "background": "#fff",
+                        "color": "#666"
+                    });
+                }
+                if (students > 5 && students < 10) {
+                    $(".classBody:eq(" + i + ") .times").eq(j).css({
+                        "background": "yellow",
+                        "color": "#fff"
+                    });
+                    $(".classBody:eq(" + i + ") .badge").eq(j).css({
+                        "background": "#fff",
+                        "color": "#666"
+                    });
+                }
+                if (students > 10 && students < 20) {
+                    $(".classBody:eq(" + i + ") .times").eq(j).css({
+                        "background": "red",
+                        "color": "#fff"
+                    });
+                    $(".classBody:eq(" + i + ") .badge").eq(j).css({
+                        "background": "#fff",
+                        "color": "#666"
+                    });
+                }
+            }
+
+        }
+        $(".classroomNum").eq(0).html(303);
+        $(".fully").eq(0).html(40);
     </script>
+</body>
+
+</html>
+>
 </body>
 
 </html>
