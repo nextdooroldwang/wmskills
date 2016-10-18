@@ -1,0 +1,129 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+ul,dl,h3 {
+	margin: 0px;
+}
+#header {
+	height: 55px;
+	background: rgb(234,177,69);
+}
+#menu {
+	height: 60px;
+	background: rgb(234,190,69);
+}
+#carousel {
+	
+}
+#notice {
+	
+}
+#grid{
+	background-image: url(../img/img6.jpg);
+}
+#news{
+	background-image: url(../img/img8.jpg);
+}
+#join{
+	background-image: url(../img/join.png);
+	background-size: 100%;
+}
+#footer{
+	
+}
+
+
+
+.divCenter {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+}
+#logo {
+	width: 160px;
+	height: 100%;
+	background-image: url(../img/weblogo.png);
+	background-size: 100%;
+	background-position: center center; 
+}
+#serviceCall,
+#joinCall {
+	line-height: 55px;
+	font-family: "黑体";
+	color: rgb(255,255,255);
+	padding-left: 25px;
+	background-image: url(../img/ico_tel.png);
+	background-size: auto;
+	background-position: 0 50%;
+	margin-left: 25px;	
+	margin-bottom: 0px;
+	/*display:-moz-box; -moz-box-pack:center; -moz-box-align:center;
+	display:-webkit-box; -webkit-box-pack:center;-webkit-box-align:center;*/
+}
+#header strong {
+	font-size: 20px;
+	font-weight: 700;
+}
+#menu dt {
+	float: left;
+	color: rgb(255,255,255);
+	margin-right: 30px;
+	padding: 8px 20px;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+#grid ul {
+	height: 500px;
+	background: rgb(255,255,255);
+	
+}
+#grid li {
+	float: left;
+	width: 400px;
+	height: 100%;
+	position: relative;
+}
+#grid ul div {
+	width: 100%;
+	height: 50%;
+}
+#grid ul img {
+	width: 100%;
+	height: 100%;
+}
+#grid ul h3 {
+	text-align: center;
+	padding-top:120px;
+}
+#news>.divCenter {
+	height: 500px;
+}
+#newsLeft,#newsRight {
+	width: 50%;
+	height: 100%;
+} 
+#newsRight ul {
+	width: 100%;
+	height: 100%;	
+}
+#newsRight li {
+	width: 100%;
+	height: 25%;
+	background: rgb(255,255,255);
+	padding: 20px 40px 20px 40px;
+}
+#newsRight h5 {
+	font-size: 18px;
+	color:rgb(0,0,0);
+	font-weight: 500;
+}
+#newsRight h6 {
+	color:rgb(103,103,103);
+	font-size: 14px;
+}
