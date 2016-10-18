@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+	<title>xyhome</title>
+	<!-- WeUI -->
+	<link rel="stylesheet" href="css/weui.min.css">
+	<!-- jQuery-WeUI-->
+	<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Budder -->
+	<link rel="stylesheet" href="css/budder.css">
+
+	<style>
+		/*@font-face {
+				font-family: myfont;
+				src: url(../font/RTWSYueGoTrial-Regular.otf);
+			}*/
+
+		html,
+		body,
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		img,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		b,
+		u,
+		i,
+		center,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		table,
+		caption,
+		tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td,
+		article,
+		aside,
+		canvas,
+		details,
+		embed,
+		figure,
+		figcaption,
+		footer,
+		header,
+		hgroup,
+		menu,
+		nav,
+		output,
+		ruby,
+		section,
+		summary,
+		time,
+		mark,
+		audio,
+		video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			vertical-align: baseline;
+			text-decoration: none;
+			list-style: none;
+			/*font-family: myfont;*/
+			font-family: '微软雅黑'
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.inputContainer {
+			width: 80%
+		}
+
+		input {
+			width: 80%;
+		}
+
+		label {
+			margin-top: 10px;
+		}
+
+		.inputContainer {
+			padding: 20px 20px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+		}
+
+		#content {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: rgba(122, 122, 122, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.img {
+			width: 85%;
+			background: #fff;
+			border: 1px solid #bbb;
+			border-radius: 8px;
+			padding: 2.5vh 1.5vh;
+			background-image: url("img/bg.jpg");
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			font-size: .8em;
+		}
+
+		li {
+			float: left;
+		}
+	</style>
+</head>
+
+<body ontouchstart>
+	<div class="inputContainer">
+		<div>
+			<label for="">姓名:</label>
+			<input type="text" class="form-control">
+			<label for="">性别:</label>
+			<input type="text" class="form-control">
+		</div>
+		<div class="text-center" style="padding-top:10px">
+			<button class="btn btn-primary">获取我的星座运势</button>
+		</div>
+	</div>
+	
+	<div id="content">
+		<div class="img">
+			<div class="clearfix" style="border-bottom:0.5vh dashed #444">
+				<div class="pull-left" style="width:50%">
+					<div style="padding-top:55%;padding-left:15%;font-size:2em">杨胖子</div>
+				</div>
+				<div class="pull-right" style="width:50%">
+					<div style="font-size:4em" class="text-center">42°</div>
+					<div style="padding-left:5vh">腹黑指数</div>
+					<div style="padding-left:5vh">总结:有点城府</div>
+				</div>
+			</div>
+			<div>
+				<ul>
+					<li class="myli" style="padding:0.6vh 5vh 0vh 5vh"> </li>
+					<li class="myli" style="padding:1.3vh 5vh 0vh 5vh;"> </li>
+					<li class="myli" style="padding:.6vh 5vh 0vh 3vh"></li>
+					<li class="myli" style="padding:2.3vh 3vh 0vh 3vh"></li>
+					<li class="myli" style="padding:2.0vh 1vh 0.3vh 3vh"></li>
+					<li class="myli" style="padding:0vh 1vh 0.3vh 6vh"></li>
+					<li class="myli" style="padding:1.6vh 1vh 0.3vh 3vh"></li>
+					<li class="myli" style="padding:0vh 0vh 0.3vh 1.6vh"></li>
+					<li class="myli" style="padding:1vh 0vh 0.3vh 1.6vh"></li>
+					<li class="myli" style="padding:1.5vh 7vh 1.3vh 3.6vh"></li>
+					<li class="myli" style="padding:0vh 1.8vh 0vh 2.6vh"></li>
+					<li class="myli" style="padding:0vh 0vh 0.3vh 5.6vh"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<canvas width="80%" height="200px"></canvas>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-weui.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/html2canvas.js"></script>
+
+	<script>
+		var data = ['洁癖怪', '宽容带人', '实力流', '大忽悠', '天生乐呵呵', '直肠子', '好贱中的‘郝建’', '急性子', '一直很优雅', '业内一股清流', '经得起诱惑', '懒到没朋友'];
+
+		$(".img").css("height", $(".img").css("width"));
+		$("#content").hide();
+		for (var i = 0; i < $(".myli").size(); i++) {
+			$(".myli").eq(i).html(data[i]);
+		}
+
+		// function ok() {
+		// 	$(".content").fadeIn()
+		// }
+	var canvas = document.querySelector("canvas");
+
+    document.querySelector("button").addEventListener("click", function() {
+        html2canvas(document.querySelector("#content"), {canvas: canvas}).then(function(canvas) {
+            console.log('Drew on the existing canvas');
+        });
+    }, false);
+	</script>
+</body>
+
+</html>

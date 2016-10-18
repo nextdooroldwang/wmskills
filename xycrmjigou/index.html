@@ -1,310 +1,502 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
-		<title>星云CRM-机构端-首页</title>
-		<!-- WeUI -->
-		<link rel="stylesheet" href="css/weui.min.css">
-		<!-- jQuery-WeUI-->
-		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
-		<link rel="stylesheet" href="css/jquery-weui.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>星云CRM-机构端-首页</title>
+	<!-- WeUI -->
+	<link rel="stylesheet" href="css/weui.min.css">
+	<!-- jQuery-WeUI-->
+	<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-		<!-- Budder -->
-		<link rel="stylesheet" href="css/budder.css">
+	<!-- Budder -->
+	<link rel="stylesheet" href="css/budder.css">
 
-		<style>
-			.swiper-container {
-				width: 100%;
-			}
-			
-			.swiper-container img {
-				display: block;
-				width: 100%;
-			}
-			
-			body {
-				background-color: rgb(243, 243, 243);
-			}
-			
-			.redRadius {
-				width: 15px;
-				height: 15px;
-				background: red;
-				border-radius: 50%;
-				position: absolute;
-				color: rgb(255, 255, 255);
-				font-size: 12px;
-			}
-			
-			.weui_tab_bd {
-				padding-bottom: 5px;
-			}
-			
-			.indexPick {
-				background-color: rgb(255, 255, 255);
-				color: rgb(83, 83, 83);
-				font-size: 14px;
-				padding-top: 10px;
-			}
-			
-			.indexPickTitle {
-				padding-top: 10px;
-				padding-bottom: 10px;
-			}
-			
-			.weui_panel_hd img {
-				width: 15px;
-				padding-right: 3px;
-			}
-			
-			.weui_panel_hd {
-				font-size: 14px;
-				color: rgb(0, 0, 0);
-			}
-			
-			.more {
-				color: rgb(200, 200, 200);
-			}
-			
-			.weui-col-33 {
-				position: relative;
-			}
-			
-			.weui_panel_xyhome {
-				overflow: auto;
-				overflow-x: hidden;
-				-webkit-overflow-scrolling: touch;
-			}
-			
-			.iconXyhome {
-				width: 100%;
-				height: 50px;
-				background-image: url(img/icon1.png);
-				background-repeat: no-repeat;
-				background-position: center;
-			}
-			
-			.weui_tabbar_label {
-				margin-bottom: 0px;
-			}
-		</style>
-	</head>
+	<style>
+		.swiper-container {
+			width: 100%;
+		}
 
-	<body ontouchstart>
-		<div class="weui_tab">
+		.swiper-container img {
+			display: block;
+			width: 100%;
+		}
 
-			<div class="weui_tab_bd">
+		body {
+			background-color: rgb(243, 243, 243);
+		}
 
-				<div class="swiper-container">
+		.redRadius {
+			width: 15px;
+			height: 15px;
+			background: red;
+			border-radius: 50%;
+			position: absolute;
+			color: rgb(255, 255, 255);
+			font-size: 12px;
+		}
 
-					<div class="swiper-wrapper">
+		.weui_tab_bd {
+			padding-bottom: 5px;
+		}
 
-						<div class="swiper-slide"><img src="./img/img1.jpg" /></div>
-						<div class="swiper-slide"><img src="./img/img2.jpg" /></div>
-						<div class="swiper-slide"><img src="./img/img3.jpg" /></div>
-					</div>
+		.indexPick {
+			background-color: rgb(255, 255, 255);
+			color: rgb(83, 83, 83);
+			font-size: 14px;
+			padding-top: 10px;
+		}
 
-					<div class="swiper-pagination"></div>
-				</div>
-				<div class="weui-row weui-no-gutter indexPick">
-					<div class="weui-col-25 text-center">
-						<div class="redRadius">
-							<span>3</span>
-						</div>
-						<div class="iconXyhome">
+		.weui_panel_hd img {
+			width: 15px;
+			padding-right: 3px;
+		}
 
-						</div>
-						<div class="text-center indexPickTitle">
-							推送
-						</div>
-					</div>
-					<div class="weui-col-25 text-center">
-						<div class="iconXyhome">
+		.weui_panel_hd {
+			font-size: 14px;
+			color: rgb(0, 0, 0);
+		}
 
-						</div>
-						<div class="text-center indexPickTitle">
-							提醒
-						</div>
-					</div>
-					<div class="weui-col-25 text-center">
-						<div class="iconXyhome">
+		.more {
+			color: rgb(200, 200, 200);
+		}
 
-						</div>
-						<div class="text-center indexPickTitle">
-							课程表
-						</div>
-					</div>
-					<div class="weui-col-25 text-center">
-						<div class="iconXyhome">
+		.weui-col-33 {
+			position: relative;
+		}
 
-						</div>
-						<div class="text-center indexPickTitle">
-							客户
-						</div>
-					</div>
-				</div>
-				<div class="weui_panel weui_panel_access">
-					<div class="weui_panel_hd indexMore">
-						<div class="pull-left">
-							<i><img src="img/icon_nav_article.png"/></i>消息
-						</div>
-						<div class="pull-right more">更多</div>
-						<div style="clear: both;"></div>
-					</div>
-					<div class="weui_panel_xyhome">
-						<div class="weui_panel_bd">
-							<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
-								<div class="weui_media_hd">
-									<img class="weui_media_appmsg_thumb" src="./img/icon_nav_cell.png" alt="">
-								</div>
-								<div class="weui_media_bd">
-									<div class="clearfix">
-										<div class="pull-left weui_media_title">小象英语</div>
-										<div class="pull-right weui_xyhome_date">2016-06-20</div>
-									</div>
-									<div class="weui_media_desc">
-										由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="weui_panel_bd">
-							<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
-								<div class="weui_media_hd">
-									<img class="weui_media_appmsg_thumb" src="./img/icon_nav_cell.png" alt="">
-								</div>
-								<div class="weui_media_bd">
-									<div class="clearfix">
-										<div class="pull-left weui_media_title">小象英语</div>
-										<div class="pull-right weui_xyhome_date">2016-06-20</div>
-									</div>
-									<div class="weui_media_desc">
-										由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="weui_panel_bd">
-							<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
-								<div class="weui_media_hd">
-									<img class="weui_media_appmsg_thumb" src="./img/icon_nav_cell.png" alt="">
-								</div>
-								<div class="weui_media_bd">
-									<div class="clearfix">
-										<div class="pull-left weui_media_title">小象英语</div>
-										<div class="pull-right weui_xyhome_date">2016-06-20</div>
-									</div>
-									<div class="weui_media_desc">
-										由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="weui_panel_bd">
-							<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
-								<div class="weui_media_hd">
-									<img class="weui_media_appmsg_thumb" src="./img/icon_nav_cell.png" alt="">
-								</div>
-								<div class="weui_media_bd">
-									<div class="clearfix">
-										<div class="pull-left weui_media_title">小象英语</div>
-										<div class="pull-right weui_xyhome_date">2016-06-20</div>
-									</div>
-									<div class="weui_media_desc">
-										由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="weui_panel_bd">
-							<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
-								<div class="weui_media_hd">
-									<img class="weui_media_appmsg_thumb" src="./img/icon_nav_cell.png" alt="">
-								</div>
-								<div class="weui_media_bd">
-									<div class="clearfix">
-										<div class="pull-left weui_media_title">小象英语</div>
-										<div class="pull-right weui_xyhome_date">2016-06-20</div>
-									</div>
-									<div class="weui_media_desc">
-										由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="null"></div>
-				<div class="weui_tabbar">
-					<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
-						<div class="weui_tabbar_icon">
-							<img src="./img/icon_nav_button.png" alt="">
-						</div>
-						<p class="weui_tabbar_label">主页</p>
-					</a>
-					<a href="remind.html" class="weui_tabbar_item">
-						<div class="weui_tabbar_icon">
-							<img src="./img/icon_nav_msg.png" alt="">
-						</div>
-						<p class="weui_tabbar_label">联系人</p>
-					</a>
-					<a href="me.html" class="weui_tabbar_item">
-						<div class="weui_tabbar_icon">
-							<img src="./img/icon_nav_cell.png" alt="">
-						</div>
-						<p class="weui_tabbar_label">我的</p>
-					</a>
+		.weui_panel_xyhome {
+			overflow: auto;
+			overflow-x: hidden;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.iconXyhome {
+			width: 100%;
+			height: 50px;
+			background-image: url(img/icon1.png);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.weui_tabbar_label {
+			margin-bottom: 0px;
+		}
+
+		@font-face {
+			font-family: myfont;
+			src: url(../font/RTWSYueGoTrial-Regular.otf);
+		}
+
+		html,
+		body,
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		img,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		b,
+		u,
+		i,
+		center,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		table,
+		caption,
+		tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td,
+		article,
+		aside,
+		canvas,
+		details,
+		embed,
+		figure,
+		figcaption,
+		footer,
+		header,
+		hgroup,
+		menu,
+		nav,
+		output,
+		ruby,
+		section,
+		summary,
+		time,
+		mark,
+		audio,
+		video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			vertical-align: baseline;
+			text-decoration: none;
+			list-style: none;
+			font-family: myfont;
+		}
+
+		.swiper-container {
+			width: 100%;
+		}
+
+		.swiper-container img {
+			display: block;
+			width: 100%;
+		}
+
+		body {
+			background-color: rgb(243, 243, 243);
+		}
+
+		.redRadius {
+			width: 15px;
+			height: 15px;
+			background: red;
+			border-radius: 50%;
+			position: absolute;
+			color: rgb(255, 255, 255);
+			font-size: 12px;
+		}
+
+		.weui_tab_bd {
+			padding-bottom: 5px;
+		}
+
+		.indexPick {
+			background-color: rgb(255, 255, 255);
+			color: rgb(83, 83, 83);
+			font-size: 14px;
+			padding-top: 10px;
+		}
+
+		.indexPickTitle {
+			/*padding-top: 10px;*/
+			padding-bottom: 10px;
+		}
+
+		.weui_panel_hd img {
+			width: 16px;
+			padding-right: 3px;
+		}
+
+		.weui_panel_hd {
+			font-size: 14px;
+			color: rgb(0, 0, 0);
+		}
+
+		.more {
+			color: rgb(200, 200, 200);
+		}
+
+		.weui-col-33 {
+			position: relative;
+		}
+
+		.weui_panel_xyhome {
+			overflow: auto;
+			overflow-x: hidden;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.iconXyhome1 {
+			width: 100%;
+			height: 50px;
+			background-image: url(img/icon1.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 33% 70%;
+		}
+
+		.iconXyhome2 {
+			width: 100%;
+			height: 50px;
+			background-image: url(img/icon2.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 33% 70%;
+		}
+
+		.iconXyhome3 {
+			width: 100%;
+			height: 50px;
+			background-image: url(img/icon3.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 33% 70%;
+		}
+
+		.iconXyhome4 {
+			width: 100%;
+			height: 50px;
+			background-image: url(img/icon4.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 33% 70%;
+		}
+
+		.weui_tabbar_label {
+			margin-bottom: 0px;
+		}
+
+		.weui_tabbar_item.weui_bar_item_on .weui_tabbar_label {
+			color: #f5a819;
+		}
+	</style>
+</head>
+
+<body ontouchstart>
+	<div class="weui_tab">
+
+		<div class="weui_tab_bd">
+
+			<div class="swiper-container">
+
+				<div>
+
+					<div class="swiper-slide"><img src="./img/img1.png" /></div>
 				</div>
 			</div>
+			<div class="weui-row weui-no-gutter indexPick">
+				<div class="weui-col-33 text-center">
+					<!-- <div class="redRadius">
+						<span>3</span>
+					</div> -->
+					<div class="iconXyhome1">
 
+					</div>
+					<div class="text-center indexPickTitle">
+						推送
+					</div>
+				</div>
+				<div class="weui-col-33 text-center">
+					<div class="iconXyhome2">
+
+					</div>
+					<div class="text-center indexPickTitle">
+						提醒
+					</div>
+				</div>
+				<div class="weui-col-33 text-center">
+					<div class="iconXyhome4">
+
+					</div>
+					<div class="text-center indexPickTitle">
+						客户
+					</div>
+				</div>
+			</div>
+			<div class="weui_panel weui_panel_access">
+				<div class="weui_panel_hd indexMore">
+					<div class="pull-left">
+						<i><img src="img/icon_nav_article.png"/></i>消息
+					</div>
+					<div class="pull-right more">更多</div>
+					<div style="clear: both;"></div>
+				</div>
+				<div class="weui_panel_xyhome">
+					<div class="weui_panel_bd">
+						<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+							<div class="weui_media_hd">
+								<img class="weui_media_appmsg_thumb" src="./img/icontuomasi.png" alt="">
+							</div>
+							<div class="weui_media_bd">
+								<div class="clearfix">
+									<div class="pull-left weui_media_title">小象英语</div>
+									<div class="pull-right weui_xyhome_date">2016-06-20</div>
+								</div>
+								<div class="weui_media_desc">
+									由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="weui_panel_bd">
+						<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+							<div class="weui_media_hd">
+								<img class="weui_media_appmsg_thumb" src="./img/iconxiaoxiang.jpg" alt="">
+							</div>
+							<div class="weui_media_bd">
+								<div class="clearfix">
+									<div class="pull-left weui_media_title">小象英语</div>
+									<div class="pull-right weui_xyhome_date">2016-06-20</div>
+								</div>
+								<div class="weui_media_desc">
+									由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="weui_panel_bd">
+						<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+							<div class="weui_media_hd">
+								<img class="weui_media_appmsg_thumb" src="./img/iconshayu.png" alt="">
+							</div>
+							<div class="weui_media_bd">
+								<div class="clearfix">
+									<div class="pull-left weui_media_title">小象英语</div>
+									<div class="pull-right weui_xyhome_date">2016-06-20</div>
+								</div>
+								<div class="weui_media_desc">
+									由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="weui_panel_bd">
+						<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+							<div class="weui_media_hd">
+								<img class="weui_media_appmsg_thumb" src="./img/iconshayu.png" alt="">
+							</div>
+							<div class="weui_media_bd">
+								<div class="clearfix">
+									<div class="pull-left weui_media_title">小象英语</div>
+									<div class="pull-right weui_xyhome_date">2016-06-20</div>
+								</div>
+								<div class="weui_media_desc">
+									由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="weui_panel_bd">
+						<a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+							<div class="weui_media_hd">
+								<img class="weui_media_appmsg_thumb" src="./img/iconshayu.png" alt="">
+							</div>
+							<div class="weui_media_bd">
+								<div class="clearfix">
+									<div class="pull-left weui_media_title">小象英语</div>
+									<div class="pull-right weui_xyhome_date">2016-06-20</div>
+								</div>
+								<div class="weui_media_desc">
+									由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道阿拉哈哈龙卡及哈空间啊哈。
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="null"></div>
+			<div class="weui_tabbar">
+				<a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="./img/iconzhuye.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">主页</p>
+				</a>
+				<a href="schedule.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/iconkebiao2.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">课表</p>
+				</a>
+				<a href="me.html" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="./img/iconwode2.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">我的</p>
+				</a>
+			</div>
 		</div>
-		<script src="js/jquery-2.1.4.js"></script>
-		<script src="js/jquery-weui.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/swiper.min.js"></script>
-		<script>
-			$(".swiper-container").swiper({
-				loop: true,
-				autoplay: 3000
-			});
-			$(".null").height($(".weui_tabbar").height());
-			$(".weui_panel_bd a").css("text-decoration", "none");
-			$(".weui_media_title").css("font-weight", "350");
-			$(".weui_xyhome_date").css({
-				"font-weight": "",
-				"color": "rgb(133,133,133)"
-			});
-			$(".weui_media_desc").css({
-				"color": "rgb(114,114,114)",
-				"font-size": "13px"
-			});
-			$(".redRadius").css({
-				"left": 60 + "%",
-				"top": 0 + "px"
-			});
-			$(".weui_panel_xyhome").css("height", $(window).height() - ($(".swiper-container").height() + $(".indexPick").height() + $(".weui_panel_hd").height() + 10 + 39 + $(".weui_tabbar").height()) + "px");
-			$(".swiper-slide").on("click", function() {
-				window.location.href = "details.html";
-			})
-			$(".iconXyhome").eq(0).on("click", function() {
-				window.location.href = "push.html";
-			})
-			$(".iconXyhome").eq(1).on("click", function() {
-				window.location.href = "remind.html";
-			})
-			$(".indexMore").on("click", function() {
-				window.location.href = "news.html";
-			})
-			$(".weui_panel_bd").on("click", function() {
-				window.location.href = "newsDetails.html";
-			})
-		</script>
-	</body>
+
+	</div>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/jquery-weui.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script>
+		$(".swiper-container").swiper({
+			loop: true,
+			autoplay: 3000
+		});
+		$(".null").height($(".weui_tabbar").height());
+		$(".weui_panel_bd a").css("text-decoration", "none");
+		$(".weui_media_title").css("font-weight", "350");
+		$(".weui_xyhome_date").css({
+			"font-weight": "",
+			"color": "rgb(133,133,133)"
+		});
+		$(".weui_media_desc").css({
+			"color": "rgb(114,114,114)",
+			"font-size": "13px"
+		});
+		$(".redRadius").css({
+			"left": 60 + "%",
+			"top": 0 + "px"
+		});
+		$(".weui_panel_xyhome").css("height", $(window).height() - ($(".swiper-container").height() + $(".indexPick").height() + $(".weui_panel_hd").height() + 10 + 39 + $(".weui_tabbar").height()) + "px");
+		$(".swiper-slide").on("click", function() {
+			window.location.href = "details.html";
+		})
+		$(".iconXyhome1").on("click", function() {
+			window.location.href = "push.html";
+		})
+		$(".iconXyhome2").on("click", function() {
+			window.location.href = "remind.html";
+		})
+		$(".iconXyhome3").on("click", function() {
+			window.location.href = "schedule.html";
+		})
+		$(".iconXyhome4").on("click", function() {
+			window.location.href = "kehu.html";
+		})
+		$(".indexMore").on("click", function() {
+			window.location.href = "news.html";
+		})
+		$(".weui_panel_bd").on("click", function() {
+			window.location.href = "newsDetails.html";
+		})
+	</script>
+</body>
 
 </html>

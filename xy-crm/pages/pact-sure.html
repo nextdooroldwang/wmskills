@@ -107,7 +107,7 @@
                                     <a href="client-edit.html">客户管理</a>
                                 </li>
                                 <li>
-                                    <a href="client-listen.html">试听签到</a>
+                                    <a href="client-listen.html">试听管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -127,18 +127,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="student-list.html">学员列表</a>
-                                </li>
-                                <li>
-                                    <a href="student-bespeak.html">预约登记</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -182,7 +171,7 @@
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
-                                <td><span class="glyphicon glyphicon-edit"> </span></td>
+                                <td><span class="glyphicon glyphicon-list-alt" onclick="hhhh()"> </span></td>
                             </tr>
 
                         </tbody>
@@ -211,6 +200,9 @@
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript">
+        function hhhh() {
+            window.location.href = "pact-print.html";
+        }
     </script>
 </body>
 

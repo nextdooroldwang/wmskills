@@ -116,7 +116,7 @@
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> 员工组织<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="index-zuzhi.html">机构管理</a>
+                                    <a href="index-zuzhi.html">社区店管理</a>
                                 </li>
                                 <li>
                                     <a href="group-departments.html">部门管理</a>
@@ -234,7 +234,7 @@
                 expanded: false,
                 selected: false
             },
-            tags: ['删除','修改','增加'],
+            tags: ['删除', '修改', '增加'],
             nodes: [{
                 text: "财务部星云分部",
                 nodes: [{
@@ -260,14 +260,14 @@
         $('#tree').treeview({
             data: getTree(),
             multiSelect: false,
-            showTags:true
+            showTags: true
         });
 
-//      $('#tree').treeview('expandAll', {
-//          levels: 1,
-//          silent: true
-//          
-//      });
+        //      $('#tree').treeview('expandAll', {
+        //          levels: 1,
+        //          silent: true
+        //
+        //      });
 
         $(".input-group-addon").on("click", function() {
             var searchTxt = $("#exampleInputAmount").val();
@@ -277,12 +277,13 @@
                 revealResults: true, // reveal matching nodes
             }]);
         })
-var text ='<li class="list-group-item node-tree" data-nodeid="2" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="indent"></span><span class="icon icon-file-empty"></span><span class="icon node-icon"></span>new rectangle</li>'
+        var text =
+            '<li class="list-group-item node-tree" data-nodeid="2" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="indent"></span><span class="icon icon-file-empty"></span><span class="icon node-icon"></span>new rectangle</li>'
 
-$(".list-group").append(text);
+        $(".list-group").append(text);
 
 
-//         $("#tree li").append("<ul class='pull-right clearfix'><li class='pull-left'>增</li><li class='pull-left'>删</li><li class='pull-left'>改</li><li class='pull-left'>查</li></ul>")
+        //         $("#tree li").append("<ul class='pull-right clearfix'><li class='pull-left'>增</li><li class='pull-left'>删</li><li class='pull-left'>改</li><li class='pull-left'>查</li></ul>")
     </script>
 </body>
 

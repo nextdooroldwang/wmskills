@@ -23,13 +23,13 @@
 			p {
 				margin: 0px;
 			}
-			
+
 			.weekToday {
 				width: 100%;
 				padding: 10px 0px;
 				font-size: 16px;
 			}
-			
+
 			.weekAll {
 				width: 100%;
 				background: rgb(243, 243, 243);
@@ -38,7 +38,7 @@
 				padding: 15px 0px 10px 0px;
 				/*box-shadow:0px 1px 3px 6px #CCC;*/
 			}
-			
+
 			.weekAll li {
 				text-align: center;
 				list-style: none;
@@ -47,21 +47,21 @@
 				font-size: 15px;
 				padding: 0px 10px;
 			}
-			
+
 			#txtTest,
 			#txtDay {
 				display: none;
 			}
-			
+
 			.yearDiv {
 				padding-top: 5px;
 				color: rgb(168,169,173);
 			}
-			
+
 			.scheduleList {
 				width: 100%;
 			}
-			
+
 			.listLeft {
 				width: 20%;
 				height: 100%;
@@ -69,7 +69,7 @@
 				color: rgb(107, 113, 127);
 				text-align: center;
 			}
-			
+
 			.listRight {
 				width: 80%;
 				height: 100%;
@@ -153,12 +153,12 @@
 						</tr>
 						<tr>
 							<td>
-								<div>朗文...初级</div>
+								<div>鲨鱼公园</div>
 								<div>————</div>
 								<p>11:00~12:00</p>
 							</td>
 							<td>
-								<div>Lesson 1</div>
+								<div>托马斯英语</div>
 								<div>————</div>
 								<p>13:00~14:00</p>
 							</td>
@@ -264,8 +264,11 @@
 				$(".yearDiv").eq(i).children("span").html("跨");
 			}
 		}
-		$("td").on("click",function() {
-			window.location.href="classdetails.html"
+		$("td:eq(0)").on("click",function() {
+			window.location.href="classdetails1.html";
+		})
+		$("td:eq(1)").on("click",function() {
+			window.location.href="classdetails.html";
 		})
 		function listLeftCss() {
 			$(".listLeft ul").css({
@@ -292,12 +295,13 @@
 			$("#listRightTables tr").eq(0).siblings().height($(".listLeft ul").height() / 7);
 			$("#listRightTables td").width($(".listLeft ul").height() / 7+30);
 			$("#listRightTables").width(($(".listLeft ul").height() / 7+30)*8);
-			
+
 			$("td:eq(0)").css({"background":"rgb(107,113,127)","color":"rgb(255,255,255)","border":"0px"});
-			$("td:eq(1)").css({"background-image": "url(img/sanjiao.png)","background-size": "35%","background-repeat":"no-repeat","background-position-x":"right"});
-			
+			$("td:eq(1)").css({"background":"rgb(255,255,255)","border":"0px"});
+			// $("td:eq(1)").css({"background-image": "url(img/sanjiao.png)","background-size": "35%","background-repeat":"no-repeat","background-position-x":"right"});
+
 		}
-		
+
 		function schedule() {
 			var showyear;
 			var stardate;
@@ -325,7 +329,7 @@
 				addDateStr(datadate, datajump);
 				appenddiv(stardate, enddate);
 				datadate = bddDateStr(realydate, 1);
-				
+
 			}
 
 			function addDateStr(dateStr, days) {
@@ -450,12 +454,12 @@
 			var s2 = yyyy + "-" + mmmm + "-" + dddd;
 			//			判断当前日期在哪一周
 			if (mydate >= getDate(s) && mydate <= getDate(s2)) {
-				$(".weekDiv").eq(eqNum).css("background", "#007AFF");
-				$(".yearDiv").eq(eqNum).css("color", "#007AFF");
+				$(".weekDiv").eq(eqNum).css("background", "#F5A819");
+				$(".yearDiv").eq(eqNum).css("color", "#F5A819");
 				$(".weekToday>span:eq(0)").html($(".weekDiv").eq(eqNum).html());
 				weekSrollLeft = $(".weekAll ul").width() / $(".weekDiv").size() * (eqNum - 1);
 				$(".weekToday").data("weekData",$(".yearDiv").eq(eqNum).children("span").html());
-				
+
 				$(".yearDiv").eq(eqNum).html("当前周");
 				var listLeftFirst = getDate(s);
 				for (var jj = 0; jj < 7; jj++) {
@@ -463,7 +467,7 @@
 					var newDate = new Date(d);
 					$(".listLeftNum").eq(jj).html(newDate.getDate());
 					if (mydate.getFullYear() == newDate.getFullYear() && mydate.getMonth() == newDate.getMonth() && mydate.getDate() == newDate.getDate()) {
-						$(".listLeft li").eq(jj).css("color", "rgb(255,107,102)");
+						$(".listLeft li").eq(jj).css("color", "#F5A819");
 					}
 				}
 			}
@@ -495,8 +499,8 @@
 			$(".weekAll li").on("click", function() {
 				$(".yearDiv").css("color", "rgb(168,169,173)");
 				$(".weekDiv").css("background", "rgb(168,169,173)");
-				$(this).children(".weekDiv").css("background", "#007AFF");
-				$(this).children(".yearDiv").css("color", "#007AFF");
+				$(this).children(".weekDiv").css("background", "#F5A819");
+				$(this).children(".yearDiv").css("color", "#F5A819");
 				$(".listLeft li").css("color", "");
 				var timesYear, timesMonth, timesDate;
 				timesYear = $(this).children(".yearDiv").children("span").html();

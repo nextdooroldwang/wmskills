@@ -142,18 +142,14 @@
 								<li>
 									<a href="index-jiaowu.html">课程表</a>
 								</li>
-								<li>
-									<a href="course-add.html">课程系列</a>
-								</li>
+
 								<li>
 									<a href="course-admin.html">课程管理</a>
 								</li>
 								<li>
 									<a href="classroom-add.html">教室管理</a>
 								</li>
-								<li>
-									<a href="class-admin.html">班级管理</a>
-								</li>
+
 							</ul>
 							<!-- /.nav-second-level -->
 						</li>
@@ -191,31 +187,23 @@
 									<div class="col-sm-4">
 										<span>课程名称： </span><span>英语（高二）</span>
 									</div>
-									<div class="col-sm-4 ">
-										<span>所属系列： </span><span>英语系列</span>
-									</div>
-									<div class="col-sm-4 ">
-										<span>创建时间： </span><span>2016-07-25</span><span>课时</span>
-									</div>
-
-								</div>
-								<div class="row ">
-									<div class="col-sm-4">
+									<!-- <div class="col-sm-4 ">
 										<span>默认教室： </span><span>301</span>
 									</div>
 									<div class="col-sm-4 ">
-										<span>上课时间： </span><span>8:00~10:00</span>
-									</div>
+										<span>课程课时： </span><span>6</span>
+									</div> -->
 
 								</div>
+
 							</div>
 						</div>
 						<div class="panel panel-default">
-							<div class="panel-heading text-center">课节信息</div>
+							<div class="panel-heading text-center">阶段信息</div>
 							<div class="panel-body">
 								<div id="toolbar" class="pull-left">
 									<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-										添加课节
+										添加阶段
 									</button>
 									<!-- Modal -->
 									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -223,12 +211,12 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title" id="myModalLabel">添加课节</h4>
+													<h4 class="modal-title" id="myModalLabel">添加阶段</h4>
 												</div>
 												<div class="modal-body">
 													<div class="row">
 														<div class="col-sm-4 text-right">
-															<lable><span style="color:red">* </span>课节名称： </lable>
+															<lable><span style="color:red">* </span>阶段名称： </lable>
 														</div>
 														<div class="col-sm-6">
 															<input type="text" name="" id="" value="" class="form-control" />
@@ -236,7 +224,15 @@
 													</div>
 													<div class="row" style="margin-top: 15px;">
 														<div class="col-sm-4 text-right">
-															<lable><span style="color:red">* </span>课节内容： </lable>
+															<lable><span style="color:red">* </span>阶段目标： </lable>
+														</div>
+														<div class="col-sm-6">
+															<textarea name="" rows="" cols="" class="form-control"></textarea>
+														</div>
+													</div>
+													<div class="row" style="margin-top: 15px;">
+														<div class="col-sm-4 text-right">
+															<lable><span style="color:red">* </span>能力成长： </lable>
 														</div>
 														<div class="col-sm-6">
 															<textarea name="" rows="" cols="" class="form-control"></textarea>
@@ -258,14 +254,16 @@
 								<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture>
 									<thead>
 										<tr>
-											<th>课节名称</th>
-											<th>课节内容</th>
+											<th>阶段名称</th>
+											<th>阶段目标</th>
+											<th>能力成长</th>
 											<th>操作</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>1</td>
+											<td><a href="course-kejie.html">初级阶段</a></td>
+											<td>Item 1</td>
 											<td>Item 1</td>
 											<td><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#myModal2"> </span></td>
 										</tr>
@@ -278,12 +276,12 @@
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">添加课节</h4>
+												<h4 class="modal-title" id="myModalLabel">编辑阶段信息</h4>
 											</div>
 											<div class="modal-body">
 												<div class="row">
 													<div class="col-sm-4 text-right">
-														<lable><span style="color:red">* </span>课节名称： </lable>
+														<lable><span style="color:red">* </span>阶段名称： </lable>
 													</div>
 													<div class="col-sm-6">
 														<input type="text" name="" id="" value="" class="form-control" />
@@ -291,7 +289,15 @@
 												</div>
 												<div class="row" style="margin-top: 15px;">
 													<div class="col-sm-4 text-right">
-														<lable><span style="color:red">* </span>课节内容： </lable>
+														<lable><span style="color:red">* </span>阶段目标： </lable>
+													</div>
+													<div class="col-sm-6">
+														<textarea name="" rows="" cols="" class="form-control"></textarea>
+													</div>
+												</div>
+												<div class="row" style="margin-top: 15px;">
+													<div class="col-sm-4 text-right">
+														<lable><span style="color:red">* </span>能力成长： </lable>
 													</div>
 													<div class="col-sm-6">
 														<textarea name="" rows="" cols="" class="form-control"></textarea>

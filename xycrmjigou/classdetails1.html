@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<title>星云CRM-C1-课程详情</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- WeUI -->
+		<link rel="stylesheet" href="css/weui.min.css">
+		<!-- jQuery-WeUI-->
+		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<!-- Budder -->
+		<link rel="stylesheet" href="css/budder.css">
+
+		<style>
+			body {
+				background-color: rgb(243, 243, 243);
+				font-family: "微软雅黑";
+			}
+			
+			ul,
+			h4,
+			h1 {
+				margin: 0;
+				list-style: none;
+			}
+			
+			.clearfix {
+				display: block;
+			}
+			
+			.pushCells {
+				margin-top: 0px;
+				background-color: rgb(243, 243, 243);
+				padding: 0px 10px;
+			}
+			
+			.pushCell {
+				border-left: 4px solid;
+				margin-bottom: 3px;
+				margin: 5px 0px;
+				background: rgb(255, 255, 255);
+				box-shadow: 1px 1px 1px 1px rgb(173, 173, 173);
+			}
+			
+			.pushDate {
+				font-size: 12px;
+				color: rgb(177, 177, 177);
+			}
+			
+			.push {
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 70%;
+			}
+			
+			.pushTalk {
+				font-size: 14px;
+				color: rgb(77, 77, 77);
+				width: 70%;
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				padding-top: 3px;
+			}
+			
+			.pushDadge {
+				padding: 5px 13px;
+				background: rgb(222, 56, 134);
+			}
+			
+			.classDetailsImg {
+				width: 100%;
+				height: 200px;
+				/*background-image: url(img/img1.png);*/
+				/*background-repeat: no-repeat;
+				background-size: 100%;*/
+			}
+			
+			.classDetailsImg>div {
+				width: 100%;
+				height: 100%;
+				/*background: rgba(30, 30, 30, 0.7);*/
+				background: #f5a819;
+				
+			}
+			
+			.classDetailsImg ul {
+				padding: 20px 20px 0px 20px;
+				color: #FFFFFF;
+				list-style: none;
+				font-size: 14px;
+			}
+			
+			.classDetailsImg li {
+				padding: 3px 5px;
+			}
+			
+			.classBgImg {
+				width: 100%;
+				/*background-image: url(img/tixing.png);*/
+				background-repeat: no-repeat;
+				background-position: center;
+				display: none;
+			}
+			
+			.classCells {
+				display: block;
+				margin-top: 5px;
+				position: relative;
+				z-index: 1;
+			}
+			
+			.classSet {
+				width: 100%;
+				position: absolute;
+				background-color: rgba(30, 30, 30, 0.7);
+				top: 0px;
+				left: 0px;
+				padding: 15% 5% 25% 5%;
+				display: none;
+				z-index: 0;
+			}
+			
+			.classSetDiv {
+				width: 100%;
+				height: 300px;
+				background: #EEEEEE;
+				padding: 0px 15px;
+			}
+			
+			.classSet p {
+				color: #D9534F;
+				font-family: "微软雅黑";
+				font-size: 20px;
+				padding-top: 10px;
+				padding-bottom: 7px;
+				font-weight: 700;
+			}
+			
+			.classSet ul {
+				background: #FFFFFF;
+				border-left: 5px solid #D43F3A;
+				padding: 6px 10px;
+				color: #A1A1A1;
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+			
+			.weui_tab_bd {
+				padding-bottom: 0px;
+			}
+			.weui_tab_bd p {
+				margin: 0px;
+			}
+			
+			.weui_label {
+				display: block;
+				width: 80px;
+			}
+			
+			.classSetBtn {
+				height: 45px;
+				line-height: 45px;
+				font-family: "微软雅黑";
+				font-size: 18px;
+				font-weight: 600;
+				color: #FFFFFF;
+			}
+			
+			.classSetBtnOK {
+				background: #31B0D5;
+			}
+			
+			.classSetBtnCancel {
+				background: #9D9D9D;
+			}
+			.weui_cells_checkbox .weui_check:checked+.weui_icon_checked:before {
+			content: '\EA06';
+			color: #f5a819;
+		}
+
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<div class="weui_tab">
+
+			<div class="weui_tab_bd">
+				<div class="classDetailsImg ">
+					<div class="clearfix">
+						<div class="pull-left">
+							<ul>
+								<li class="text-center">朗文英语初级</li>
+								<li><span>教室： </span><span>555</span></li>
+								<li><span>教师： </span><span>杨定</span></li>
+								<li><span>教节： </span><span>1</span></li>
+								<li><span>日期： </span><span>2016年6月25日</span></li>
+								<li><span>时间： </span><span>11:00-11：30</span></li>
+							</ul>
+						</div>
+						<div class="pull-right ">
+							<!--<a href="#"><img src="img/tixing.png" alt="" width="50px" /></a>-->
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="weui_cells_title">签到列表</div>
+				<div class="weui_cells weui_cells_checkbox">
+					<label class="weui_cell weui_check_label" for="s11">
+						<div class="weui_cell_hd">
+							<input type="checkbox" class="weui_check" name="checkbox1" id="s11" disabled="disabled" checked="checked">
+							<i class="weui_icon_checked"></i>
+						</div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>学生一</p>
+						</div>
+					</label>
+					<label class="weui_cell weui_check_label" for="s12">
+						<div class="weui_cell_hd">
+							<input type="checkbox" name="checkbox1" class="weui_check" id="s12" disabled="disabled">
+							<i class="weui_icon_checked"></i>
+						</div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>学生二</p>
+						</div>
+					</label>
+					<label class="weui_cell weui_check_label" for="s13">
+						<div class="weui_cell_hd">
+							<input type="checkbox" name="checkbox1" class="weui_check" id="s13" disabled="disabled">
+							<i class="weui_icon_checked"></i>
+						</div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>学生三</p>
+						</div>
+					</label>
+					<label class="weui_cell weui_check_label" for="s14">
+						<div class="weui_cell_hd">
+							<input type="checkbox" name="checkbox1" class="weui_check" id="s14"  disabled="disabled">
+							<i class="weui_icon_checked"></i>
+						</div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<p>学生四</p>
+						</div>
+					</label>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script>
+			$(".classDetailsImg ul li:eq(0)").css({
+					"border": "1px solid #ffffff",
+					"border-radius": "12px",
+					"font-size": "18px",
+					"padding": "5px 10px"
+			});
+
+			
+			$(".classDetailsImg div.pull-right").css({
+					"padding": "135px 15px 0px 20px"
+			});
+
+			
+			$(".classBgImg").height($(window).height() - (200 + $(".null").height()));
+			$(".classSet").height($(window).height() - $(".null").height());
+			$(".classDetailsImg a").on("click", function() {
+					$(".classSet").fadeIn();
+			}); 
+			$(".classSetBtnOK").on("click", function() {
+					$(".classCells").fadeIn();
+					$(".classSet,.classBgImg").fadeOut();
+			});
+
+			$(".classSetBtnCancel").on("click", function() {
+					$(".classCells").fadeIn();
+					$(".classSet,.classBgImg").fadeOut();
+			}) ;
+
+			$("#time").datetimePicker({
+					min: "2015-12-12",
+					max: "2022-12-12 12:12"
+			});
+
+			
+			$(function() {
+					for (var i = 0; i < $(".pushCell").size(); i++) {
+						//			    	var colorA=getRandom(205);
+						//			    	var colorB=getRandom(205);
+						//			    	var colorC=getRandom(205);
+						//			    	$(".pushDadge").eq(i).css("background-color","rgb("+colorA+","+colorB+","+colorC+")");
+						var colorA = "#0098D9";
+					var colorB = "#FFE800";
+					var colorC = "#23A197";
+					var colorD = "#F5A819";
+						if ($(".pushDadge").eq(i).html() == "作业") {
+							$(".pushDadge").eq(i).css("background-color", colorA);
+						} else if ($(".pushDadge").eq(i).html() == "通知单") {
+							$(".pushDadge").eq(i).css("background-color", colorB);
+						} else if ($(".pushDadge").eq(i).html() == "课堂点评") {
+							$(".pushDadge").eq(i).css("background-color", colorC);
+						} else if ($(".pushDadge").eq(i).html() == "成绩单") {
+							$(".pushDadge").eq(i).css("background-color", colorD);
+						}
+						$(".pushCell").eq(i).css("border-left-color", $(".pushDadge").eq(i).css("background-color"));
+					}
+					//				function getRandom(n){
+					//				    return Math.floor(Math.random()*n+1)
+					//				}
+				}
+
+			)
+		</script>
+	</body>
+
+</html>

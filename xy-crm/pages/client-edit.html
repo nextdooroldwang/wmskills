@@ -81,6 +81,7 @@
 
         .glyphicon {
             cursor: pointer;
+            margin-right: 3px;
         }
     </style>
 </head>
@@ -153,7 +154,7 @@
                                     <a href="client-edit.html">客户管理</a>
                                 </li>
                                 <li>
-                                    <a href="client-listen.html">试听签到</a>
+                                    <a href="client-listen.html">试听管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -173,7 +174,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -183,8 +184,7 @@
                                     <a href="student-bespeak.html">预约登记</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -250,7 +250,15 @@
                     <div class="inputGroupSearch">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <span>客户姓名：</span>
+                                <span>学员姓名：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>家长姓名：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>家长电话：</span>
                                 <input type="text" class="form-control" />
                             </div>
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -259,14 +267,6 @@
                                     <option value="AL">Alabama</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <span>联系电话：</span>
-                                <input type="text" class="form-control" />
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <span>联系地址：</span>
-                                <input type="text" class="form-control" />
                             </div>
 
                         </div>
@@ -343,11 +343,11 @@
                         <thead>
                             <tr>
                                 <th data-checkbox=true>客户姓名</th>
-                                <th>客户姓名</th>
+                                <th>学员姓名</th>
+                                <th>家长姓名</th>
+                                <th>家长电话</th>
                                 <th>客户来源</th>
-                                <th>联系电话</th>
-                                <th>联系地址</th>
-                                <th>状态</th>
+                                <th>客户状态</th>
                                 <th>跟进顾问</th>
                                 <th>创建时间</th>
                                 <th>操作</th>
@@ -429,6 +429,7 @@
         //未分配的客户数量
         var weifenpei = 674;
         $(".weifenpei").html(weifenpei);
+        $(".glyphicon").parent().addClass("text-center");
     </script>
 </body>
 

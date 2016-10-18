@@ -220,7 +220,7 @@
 									<a href="client-edit.html">客户管理</a>
 								</li>
 								<li>
-									<a href="client-listen.html">试听签到</a>
+									<a href="client-listen.html">试听管理</a>
 								</li>
 							</ul>
 							<!-- /.nav-second-level -->
@@ -240,7 +240,7 @@
 							</ul>
 							<!-- /.nav-second-level -->
 						</li>
-						<li>
+						<!-- <li>
 							<a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li>
@@ -250,8 +250,7 @@
 									<a href="student-bespeak.html">预约登记</a>
 								</li>
 							</ul>
-							<!-- /.nav-second-level -->
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->
@@ -327,11 +326,9 @@
 												<div class="col-sm-6">
 													<div class="row cowMargin">
 														<div class="col-sm-4 text-right">
-															<lable>跟进次数: </lable>
+															<lable>本次为第<span>x</span>次跟进: </lable>
 														</div>
-														<div class="col-sm-6">
-															<span>3次</span>
-														</div>
+
 													</div>
 													<div class="row cowMargin">
 														<div class="col-sm-4 text-right">
@@ -363,28 +360,12 @@
 
 											</div>
 											<h4>跟进情况</h4>
+
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="row cowMargin">
 														<div class="col-sm-4 text-right">
-															<lable><span class="tips">* </span>是否成交: </lable>
-														</div>
-														<div class="col-sm-6">
-															<label class="radio-inline">
-																<input type="radio" name="inlineRadioOptions2" id="inlineRadio3"> 是
-															</label>
-															<label class="radio-inline">
-																<input type="radio" name="inlineRadioOptions2" id="inlineRadio4"> 否
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-sm-6">
-													<div class="row cowMargin">
-														<div class="col-sm-4 text-right">
-															<lable>所购课程: </lable>
+															<lable>客户状态: </lable>
 														</div>
 														<div class="col-sm-6">
 															<select class="form-control">
@@ -407,10 +388,15 @@
 												<div class="col-sm-6">
 													<div class="row cowMargin">
 														<div class="col-sm-4 text-right">
-															<lable>缴费时间: </lable>
+															<lable>购买产品: </lable>
 														</div>
 														<div class="col-sm-6">
-															<input type="date" class="form-control">
+															<select class="form-control">
+																<option>英语</option>
+																<option>数学</option>
+																<option>情商</option>
+															</select>
+
 														</div>
 													</div>
 													<div class="row cowMargin">
@@ -451,6 +437,10 @@
 												<div class="col-sm-8">
 													<textarea class="form-control" rows="2" cols="40" placeholder="可输入为成交原因"></textarea>
 												</div>
+											</div>
+											<div class="row text-center groupAddBtn">
+												<button class="btn btn-primary"> 提交 </button>
+												<button class="btn btn-default btnBack"> 取消 </button>
 											</div>
 										</div>
 										<div class="tab-pane fade" id="messages">
@@ -516,23 +506,12 @@
 
 											</div>
 											<h4>跟进情况</h4>
+
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="row cowMargin">
 														<div class="col-sm-4 text-right">
-															<lable>是否成交: </lable>
-														</div>
-														<div class="col-sm-6">
-															<span>否</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-sm-6">
-													<div class="row cowMargin">
-														<div class="col-sm-4 text-right">
-															<lable>所购课程: </lable>
+															<lable>客户状态: </lable>
 														</div>
 														<div class="col-sm-6">
 															<span></span>
@@ -550,10 +529,11 @@
 												<div class="col-sm-6">
 													<div class="row cowMargin">
 														<div class="col-sm-4 text-right">
-															<lable>缴费时间: </lable>
+															<lable>购买产品: </lable>
 														</div>
 														<div class="col-sm-6">
-															<span></span>
+															<span>英语</span>
+
 														</div>
 													</div>
 													<div class="row cowMargin">
@@ -602,10 +582,7 @@
 								<!-- /.panel-body -->
 							</div>
 							<!-- /.panel -->
-							<div class="row text-center groupAddBtn">
-								<button class="btn btn-primary"> 提交 </button>
-								<button class="btn btn-default btnBack"> 取消 </button>
-							</div>
+
 						</div>
 						<!-- /.row -->
 					</div>

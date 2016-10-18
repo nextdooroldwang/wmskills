@@ -20,6 +20,7 @@
 
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/city-picker.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -152,7 +153,7 @@
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> 员工组织<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="index-zuzhi.html">机构管理</a>
+                                    <a href="index-zuzhi.html">社区店管理</a>
                                 </li>
                                 <li>
                                     <a href="group-departments.html">部门管理</a>
@@ -176,8 +177,8 @@
                     <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
                         <li><a href="#">工作台</a></li>
                         <li>员工组织</li>
-                        <li>机构管理</li>
-                        <li>添加分支机构</li>
+                        <li>社区店管理</li>
+                        <li>添加分店</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -186,34 +187,40 @@
             <div class="row">
                 <div class="containerPanel">
                     <div class="panel panel-default">
-                        <div class="panel-heading text-center">添加分支机构</div>
+                        <div class="panel-heading text-center">添加分店</div>
                         <div class="panel-body">
                             <div class="mycontainer">
-                                <div class="tips text-center">登录账号为分支机构的管理员帐号，初始密码为“123456”。</div>
+                                <!-- <div class="tips text-center">登录账号为分支机构的管理员帐号，初始密码为“123456”。</div> -->
                                 <div class="row">
                                     <div class="col-sm-5 text-right">
-                                        <lable><span class="tips">* </span>主讲教师: </lable>
+                                        <lable><span class="tips">* </span>社区店名称: </lable>
                                     </div>
-                                    <div class="col-sm-7">
-                                        <select class="form-control" placeholder="请选择老师">
-                                            <option>李老师</option>
-                                            <option>张老师</option>
-                                            <option>王老师</option>
-                                            <option>宋老师</option>
-                                        </select>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-5 text-right">
-                                        <lable><span class="tips">* </span>主讲教师: </lable>
+                                        <lable><span class="tips">* </span>所在城市: </lable>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input readonly type="text" data-toggle="city-picker">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5 text-right">
+                                        <lable><span class="tips">* </span>社区店地址: </lable>
                                     </div>
                                     <div class="col-sm-7">
-                                        <select class="form-control" placeholder="请选择老师">
-                                            <option>李老师</option>
-                                            <option>张老师</option>
-                                            <option>王老师</option>
-                                            <option>宋老师</option>
-                                        </select>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5 text-right">
+                                        <lable><span class="tips">* </span>联系电话: </lable>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="row text-center groupAddBtn">
@@ -250,7 +257,14 @@
 
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/city-picker.data.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/city-picker.min.js"></script>
     <script type="text/javascript">
+        $('#target').citypicker({
+            province: '江苏省',
+            city: '常州市',
+            district: '溧阳市'
+        });
         $(".cancel").click(function() {
             window.location.href = "index-zuzhi.html";
         })

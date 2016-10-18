@@ -1,0 +1,126 @@
+var data = [{
+  levl: 1,
+  dady: '#',
+  type: '首页',
+  clicktoggle: false,
+  deploy: false
+}, {
+  levl: 1,
+  dady: '#',
+  type: '组织机构',
+  clicktoggle: false,
+  deploy: false,
+  children: [{
+    levl: 2,
+    dady: '组织机构',
+    type: '社区店管理',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '组织机构',
+    type: '部门管理',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '组织机构',
+    type: '员工管理',
+    clicktoggle: false,
+    deploy: false
+  }]
+}, {
+  levl: 1,
+  dady: '#',
+  type: 'CRM',
+  clicktoggle: false,
+  deploy: false,
+  children: [{
+    levl: 2,
+    dady: 'CRM',
+    type: '意向客户',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: 'CRM',
+    type: '合同管理',
+    clicktoggle: false,
+    deploy: false
+  }]
+}, {
+  levl: 1,
+  dady: '#',
+  type: '教务',
+  clicktoggle: false,
+  deploy: false,
+  children: [{
+    levl: 2,
+    dady: '教务',
+    type: '课程表',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '教务',
+    type: '课程管理',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '教务',
+    type: '教师管理',
+    clicktoggle: false,
+    deploy: false
+  }]
+}, {
+  levl: 1,
+  dady: '#',
+  type: '营销',
+  clicktoggle: false,
+  deploy: false
+}, {
+  levl: 1,
+  dady: '#',
+  type: '运营',
+  clicktoggle: false,
+  deploy: false,
+  children: [{
+    levl: 2,
+    dady: '运营',
+    type: '新增订单统计',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '运营',
+    type: '新增学员统计',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '运营',
+    type: '客户状态统计',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '运营',
+    type: '试听转化率统计',
+    clicktoggle: false,
+    deploy: false
+  }, {
+    levl: 2,
+    dady: '运营',
+    type: '成单率统计',
+    clicktoggle: false,
+    deploy: false
+  }]
+}, {
+  levl: 1,
+  dady: '#',
+  type: '系统',
+  clicktoggle: false,
+  deploy: false
+}]
+module.exports = data

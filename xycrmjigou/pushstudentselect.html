@@ -1,102 +1,125 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
-		<title>星云CRM-C1-编写推送</title>
-		<!-- WeUI -->
-		<link rel="stylesheet" href="css/weui.min.css">
-		<!-- jQuery-WeUI-->
-		<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
-		<link rel="stylesheet" href="css/jquery-weui.css">
+	<title>星云CRM-C1-编写推送</title>
+	<!-- WeUI -->
+	<link rel="stylesheet" href="css/weui.min.css">
+	<!-- jQuery-WeUI-->
+	<!--<link rel="stylesheet" href="css/jquery-weui.min.css">-->
+	<link rel="stylesheet" href="css/jquery-weui.css">
 
-		<style>
-		
-		</style>
-	</head>
+	<style>
+		.weui_cells_checkbox .weui_check:checked+.weui_icon_checked:before {
+			content: '\EA06';
+			color: #f5a819;
+		}
 
-	<body ontouchstart>
-	
+		.weui_btn_primary {
+			background-color: #f5a819;
+		}
+	</style>
+</head>
+
+<body ontouchstart>
+
 	<div class="bd">
+		<div class="weui_cells weui_cells_form">
+			<div class="weui_cell">
+				<div class="weui_cell_hd">
+					<label for="date" class="weui_label">选择课程</label>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<input class="weui_input" id="mobile" type="text" value="">
+				</div>
+			</div>
+		</div>
 		<div class="weui_cells_title">学生列表</div>
-      <div class="weui_cells weui_cells_checkbox">
-        <label class="weui_cell weui_check_label" for="s11">
-          <div class="weui_cell_hd">
-            <input type="checkbox" class="weui_check" name="checkbox1" id="s11" checked="checked">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生一</p>
-          </div>
-        </label>
-        <label class="weui_cell weui_check_label" for="s12">
-          <div class="weui_cell_hd">
-            <input type="checkbox" name="checkbox1" class="weui_check" id="s12">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生二</p>
-          </div>
-        </label>
-        <label class="weui_cell weui_check_label" for="s13">
-          <div class="weui_cell_hd">
-            <input type="checkbox" name="checkbox1" class="weui_check" id="s13">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生三</p>
-          </div>
-        </label>
-        <label class="weui_cell weui_check_label" for="s14">
-          <div class="weui_cell_hd">
-            <input type="checkbox" name="checkbox1" class="weui_check" id="s14">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生四</p>
-          </div>
-        </label>
-        <label class="weui_cell weui_check_label" for="s15">
-          <div class="weui_cell_hd">
-            <input type="checkbox" name="checkbox1" class="weui_check" id="s15">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生五</p>
-          </div>
-        </label>
-        <label class="weui_cell weui_check_label" for="s16">
-          <div class="weui_cell_hd">
-            <input type="checkbox" name="checkbox1" class="weui_check" id="s16">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生六</p>
-          </div>
-        </label>
-        <label class="weui_cell weui_check_label" for="s17">
-          <div class="weui_cell_hd">
-            <input type="checkbox" name="checkbox1" class="weui_check" id="s17">
-            <i class="weui_icon_checked"></i>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>学生七</p>
-          </div>
-        </label>
-      </div>
-      <div class='demos-content-padded'>
-      <a href="push.html" class="weui_btn weui_btn_primary">确认选择</a>
-    </div>
-      </div>
-		<script src="js/jquery-2.1.4.js"></script>
-		<script src="js/jquery-weui.js"></script>
-		<script>
-			
-		</script>
-	</body>
+		<div class="weui_cells weui_cells_checkbox">
+			<label class="weui_cell weui_check_label" for="s11">
+				<div class="weui_cell_hd">
+					<input type="checkbox" class="weui_check" name="checkbox1" id="s11" checked="checked">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生一</p>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="s12">
+				<div class="weui_cell_hd">
+					<input type="checkbox" name="checkbox1" class="weui_check" id="s12">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生二</p>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="s13">
+				<div class="weui_cell_hd">
+					<input type="checkbox" name="checkbox1" class="weui_check" id="s13">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生三</p>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="s14">
+				<div class="weui_cell_hd">
+					<input type="checkbox" name="checkbox1" class="weui_check" id="s14">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生四</p>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="s15">
+				<div class="weui_cell_hd">
+					<input type="checkbox" name="checkbox1" class="weui_check" id="s15">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生五</p>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="s16">
+				<div class="weui_cell_hd">
+					<input type="checkbox" name="checkbox1" class="weui_check" id="s16">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生六</p>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="s17">
+				<div class="weui_cell_hd">
+					<input type="checkbox" name="checkbox1" class="weui_check" id="s17">
+					<i class="weui_icon_checked"></i>
+				</div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>学生七</p>
+				</div>
+			</label>
+		</div>
+		<div class='demos-content-padded'>
+			<a href="push.html" class="weui_btn weui_btn_primary">确认选择</a>
+		</div>
+	</div>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/jquery-weui.js"></script>
+	<script>
+		$("#mobile").picker({
+			title: "请选择课程",
+			cols: [{
+				textAlign: 'center',
+				values: ['英语', '美术', '舞蹈', '科学']
+			}]
+		});
+	</script>
+</body>
 
 </html>

@@ -33,6 +33,10 @@
 			list-style: none;
 		}
 
+		i {
+			font-style: normal;
+		}
+
 		ul,
 		h1,
 		h2,
@@ -82,7 +86,15 @@
 		}
 
 		.iconColorOrange {
-			border-bottom-color: #ff5400;
+			border-bottom-color: yellow;
+		}
+
+		.iconColorGray {
+			border-bottom-color: #eee;
+		}
+
+		.iconColorRed {
+			border-bottom-color: red;
 		}
 
 		.iconYuan {
@@ -197,8 +209,10 @@
 		}
 
 		.courseRightBody {
-			padding-left: 10px;
-			padding-right: 10px;
+			/*padding-left: 10px;
+			padding-right: 10px;*/
+			max-height: 300px;
+			overflow: auto;
 		}
 
 		table,
@@ -251,7 +265,9 @@
 		}
 
 		.modal-dialog {
-			min-width: 1200px;
+			min-width: 700px;
+			max-height: 80%;
+			overflow: auto;
 		}
 
 		.timeline-container {
@@ -278,24 +294,15 @@
 			height: 8px;
 			position: relative;
 		}
-		/*.1 {
-			width: 0.5px;
-			height: 38px;
-			border-left: 2px solid red;
-			position: absolute;
-			top: -30px;
-			left: 95px;
-		}*/
-		/*.guide2 {
-			width: 0.5px;
-			height: 38px;
-			border-left: 2px solid red;
-			position: absolute;
-			top: -30px;
-			left: 99px;
-		}*/
 
-		.haveClass td {
+		.zhou1 td,
+		.zhou2 td,
+		.zhou3 td,
+		.zhou4 td,
+		.zhou5 td,
+		.zhou6 td,
+		.zhou7 td,
+		{
 			position: relative;
 		}
 
@@ -386,9 +393,7 @@
 								<li>
 									<a href="index-jiaowu.html">课程表</a>
 								</li>
-								<li>
-									<a href="course-add.html">课程系列</a>
-								</li>
+
 								<li>
 									<a href="course-admin.html">课程管理</a>
 								</li>
@@ -423,165 +428,137 @@
 			<div class="row">
 				<div class="container-fluid">
 					<!-- /.row -->
-					<div class="row">
+					<div class="clientContainer">
 						<div class="panel panel-default">
+							<div class="panel-heading text-center">课程表</div>
 							<div class="panel-body">
-								<!-- Nav tabs -->
-								<ul class="nav nav-tabs">
-									<li class="active">
-										<a href="#home" data-toggle="tab">周课表</a>
-									</li>
-									<li>
-										<a href="#profile" data-toggle="tab">日课表</a>
-									</li>
-								</ul>
-								<!-- Tab panes -->
-								<div class="tab-content">
-									<div class="tab-pane fade in active" id="home">
-										<div class="weekContainer">
-											<div class="row">
-												<div class="col-md-4 form-inline" id="scheduleDateWeekContainer">
-													<lable>日期: </lable>
-													<!-- <input type="date" class="form-control" id="scheduleDateWeekInput"> -->
-													<div class="input-group date week">
-														<div class="weekAll">
-															<span class="glyphicon glyphicon-triangle-left"></span>
-															<span style="color:#ff5400"></span>
-															<span class="glyphicon glyphicon-triangle-right"></span>
-														</div>
-														<input type="text" class="form-control" id="scheduleDateWeekInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-													</div>
+								<div class="weekContainer">
+									<div class="row">
+										<div class="col-md-4 form-inline" id="scheduleDateWeekContainer">
+											<lable>日期: </lable>
+											<!-- <input type="date" class="form-control" id="scheduleDateWeekInput"> -->
+											<div class="input-group date week">
+												<div class="weekAll">
+													<span class="glyphicon glyphicon-triangle-left"></span>
+													<span style="color:#ff5400"></span>
+													<span class="glyphicon glyphicon-triangle-right"></span>
 												</div>
-												<div class="col-md-3 form-inline">
-													<lable> 教师: </lable>
-													<select class="form-control" id="scheduleTeacherInput">
-														<option>所有教师</option>
-														<option>李老师</option>
-														<option>张老师</option>
-														<option>王老师</option>
-														<option>宋老师</option>
-													</select>
-												</div>
-												<div class="col-md-3">
-												</div>
-												<div class="col-md-2 text-center">
-													<button class="btn btn-primary">一键排课</button>
-												</div>
-											</div>
-											<div class="row scheduleInfo">
-												“ <span class="iconSanjiao iconColorOrange"></span> ”该课程学员已满，“ <span class="iconSanjiao iconColorGreen"></span> ”该课程学员名额有余。<span class="iconYuan iconYuanColorBlue">预</span>表示该排课支持预约; <span class="iconYuan iconYuanColorRed">警</span>表示该排课部分学员课时不足。
-											</div>
-											<div class="row">
-												<table class="table table-bordered" cellpadding="0">
-													<tr class="weekTableHead">
-														<th>
-
-														</th>
-														<th>
-															周一（<span></span>）
-														</th>
-														<th>
-															周二（<span></span>）
-														</th>
-														<th>
-															周三（<span></span>）
-														</th>
-														<th>
-															周四（<span></span>）
-														</th>
-														<th>
-															周五（<span></span>）
-														</th>
-														<th>
-															周六（<span></span>）
-														</th>
-														<th>
-															周日（<span></span>）
-														</th>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td class="haveClass">
-															<table width="100%" class="table table-bordered">
-																<tr>
-																	<td class="nosigned">英语课</td>
-																</tr>
-																<tr>
-																	<td class="nosigned">口才课</td>
-																</tr>
-																<tr>
-																	<td class="nosigned">情商课</td>
-																</tr>
-																<tr>
-																	<td class="nosigned"><span>+新建课程</span></td>
-																</tr>
-															</table>
-														</td>
-														<td class="signed nullClass"><span>+新建课程</span></td>
-														<td class="nullClass"><span>+新建课程</span></td>
-														<td class="nullClass"><span>+新建课程</span></td>
-														<td class="nullClass"><span>+新建课程</span></td>
-														<td class="nullClass"><span>+新建课程</span></td>
-														<td class="nullClass"><span>+新建课程</span></td>
-
-													</tr>
-												</table>
+												<input type="text" class="form-control" id="scheduleDateWeekInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 											</div>
 										</div>
-									</div>
-									<div class="tab-pane fade" id="profile">
-										<div class="dayContainer">
-											<div class="row">
-												<div class="col-md-4 form-inline" id="scheduleDateDayContainer">
-													<lable>日期: </lable>
-													<!-- <input type="date" class="form-control" id="scheduleDateWeekInput"> -->
-													<div class="input-group date day">
-														<div class="dayAll">
-															<span class="glyphicon glyphicon-triangle-left"></span>
-															<span style="color:#ff5400"></span>
-															<span class="glyphicon glyphicon-triangle-right"></span>
-														</div>
-														<input type="text" class="form-control" id="scheduleDateDayInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-													</div>
-												</div>
-											</div>
-											<div class="row scheduleInfo">
-												“ <span class="iconSanjiao iconColorOrange"></span> ”未签到课程，“ <span class="iconSanjiao iconColorGreen"></span> ”教师已提交签到申请，待审核。<span class="iconYuan iconYuanColorBlue">预</span>表示该排课支持预约; <span class="iconYuan iconYuanColorRed">警</span>表示该排课部分学员课时不足。
-											</div>
-											<div class="row">
-												<table class="table table-bordered">
-													<tr>
-														<th>1</th>
-													</tr>
-													<tr>
-														<td class="nosigned">
-															<div>
-																12:00~17:50
-															</div>
-															<div>
-																新概念英语（一）
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<span>+新建课程</span>
-														</td>
-													</tr>
-												</table>
-											</div>
-										</div>
-									</div>
 
+										<div class="col-md-3">
+										</div>
+
+									</div>
+									<div class="row scheduleInfo">
+										“ <span class="iconSanjiao iconColorRed"></span> ”该课程学员已满，“ <span class="iconSanjiao iconColorOrange"></span> ”该课程学员名额即将满员。“ <span class="iconSanjiao iconColorGreen"></span> ”该课程学员名额充足，“ <span class="iconSanjiao iconColorGray"></span> ”该课程没有足够学员。
+									</div>
+									<div class="row">
+										<table class="table table-bordered">
+											<tr class="weekTableHead">
+												<th>
+
+												</th>
+												<th>
+													周一（<span></span>）
+												</th>
+												<th>
+													周二（<span></span>）
+												</th>
+												<th>
+													周三（<span></span>）
+												</th>
+												<th>
+													周四（<span></span>）
+												</th>
+												<th>
+													周五（<span></span>）
+												</th>
+												<th>
+													周六（<span></span>）
+												</th>
+												<th>
+													周日（<span></span>）
+												</th>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td class="zhou1">
+													<table width="100%" class="table table-bordered">
+														<tr>
+															<td class="haveClass">
+																<div><i>英语</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="haveClass">
+																<div><i>口才</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="haveClass">
+																<div><i>情商</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="haveClass">
+																<div><i>思维</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="noClass"><span>+新建课程</span></td>
+														</tr>
+													</table>
+												</td>
+												<td class="zhou2">
+													<table width="100%" class="table table-bordered">
+														<tr>
+															<td class="haveClass">
+																<div><i>英语</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="haveClass">
+																<div><i>口才</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="haveClass">
+																<div><i>情商</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="haveClass">
+																<div><i>思维</i>(<i>301</i>)</div>
+																<div>08:00~10:00</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="noClass"><span>+新建课程</span></td>
+														</tr>
+													</table>
+												</td>
+												<td class="zhou3 noClass"><span>+新建课程</span></td>
+												<td class="zhou4 noClass"><span>+新建课程</span></td>
+												<td class="zhou5 noClass"><span>+新建课程</span></td>
+												<td class="zhou6 noClass"><span>+新建课程</span></td>
+												<td class="zhou7 noClass"><span>+新建课程</span></td>
+
+											</tr>
+										</table>
+									</div>
 								</div>
-								<!-- weektab -->
-
 							</div>
-							<!-- /.panel-body -->
 						</div>
-						<!-- /.panel -->
 					</div>
-					<!-- /.row -->
 				</div>
 
 				<div class="containerPanel">
@@ -633,53 +610,13 @@
 									</div>
 
 									<div class="row courseInput">
-										<div class="col-sm-5">
+										<div class="col-sm-4">
+
 											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
-													<lable><span>* </span>主讲教师: </lable>
-												</div>
-												<div class="col-sm-8">
-													<select class="form-control" placeholder="请选择老师">
-														<option>李老师</option>
-														<option>张老师</option>
-														<option>王老师</option>
-														<option>宋老师</option>
-													</select>
-												</div>
-											</div>
-											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
-													<lable>助教教师: </lable>
-												</div>
-												<div class="col-sm-8">
-													<select class="form-control">
-														<option>所有教师</option>
-														<option>李老师</option>
-														<option>张老师</option>
-														<option>王老师</option>
-														<option>宋老师</option>
-													</select>
-												</div>
-											</div>
-											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
-													<lable>外教教师: </lable>
-												</div>
-												<div class="col-sm-8">
-													<select class="form-control">
-														<option>所有教师</option>
-														<option>李老师</option>
-														<option>张老师</option>
-														<option>王老师</option>
-														<option>宋老师</option>
-													</select>
-												</div>
-											</div>
-											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
+												<div class="col-sm-5 text-center">
 													<lable><span>* </span>上课教师: </lable>
 												</div>
-												<div class="col-sm-8">
+												<div class="col-sm-7">
 													<select class="form-control">
 														<option>所有教师</option>
 														<option>李老师</option>
@@ -690,10 +627,10 @@
 												</div>
 											</div>
 											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
+												<div class="col-sm-5 text-center">
 													<lable><span>* </span>选择课程: </lable>
 												</div>
-												<div class="col-sm-8">
+												<div class="col-sm-7">
 													<select class="form-control">
 														<option>所有教师</option>
 														<option>李老师</option>
@@ -704,10 +641,10 @@
 												</div>
 											</div>
 											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
+												<div class="col-sm-5 text-center">
 													<lable>选择课节: </lable>
 												</div>
-												<div class="col-sm-8">
+												<div class="col-sm-7">
 													<select class="form-control">
 														<option>所有教师</option>
 														<option>李老师</option>
@@ -718,50 +655,24 @@
 												</div>
 											</div>
 											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
-													<lable><span>* </span>占用课时: </lable>
+												<div class="col-sm-5 text-center">
+													<lable><span>* </span>选择教室: </lable>
 												</div>
-												<div class="col-sm-8">
+												<div class="col-sm-7">
 													<select class="form-control">
-														<option>所有教师</option>
-														<option>李老师</option>
-														<option>张老师</option>
-														<option>王老师</option>
-														<option>宋老师</option>
+														<option>301</option>
+														<option>302</option>
+														<option>303</option>
 													</select>
 												</div>
 											</div>
-											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
-													<lable><span>* </span>最大容量: </lable>
-												</div>
-												<div class="col-sm-8">
-													<select class="form-control">
-														<option>所有教师</option>
-														<option>李老师</option>
-														<option>张老师</option>
-														<option>王老师</option>
-														<option>宋老师</option>
-													</select>
-												</div>
-											</div>
-											<div class="row courseLeftInput">
-												<div class="col-sm-4 text-center">
-													<lable>支持预约 </lable>
-												</div>
-												<div class="col-sm-8">
-													<input type="checkbox" class="checkbox" />
-
-												</div>
-											</div>
-
 										</div>
-										<div class="col-sm-7">
+										<div class="col-sm-8">
 											<div class="courseRight">
 												<div class="courseRightHead clearfix">
 													<span>选择学员</span>
-													<button class="btn btn-outline btn-warning pull-right">清空</button>
-													<button class="btn btn-outline btn-warning pull-right" data-toggle="modal" data-target="#myModal">添加学员</button>
+													<button class="btn btn-outline btn-warning pull-right">保存签到</button>
+													<!-- <button class="btn btn-outline btn-warning pull-right" data-toggle="modal" data-target="#myModal">添加学员</button> -->
 
 													<!-- Modal -->
 													<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -772,47 +683,109 @@
 																	<h4 class="modal-title" id="myModalLabel">添加学员</h4>
 																</div>
 																<div class="modal-body">
-																	<div class="row form-inline">
-																		<div class="col-md-3 form-group">
-																			<label for="">姓名：</label>
-																			<input type="text" name="" id="" value="" class="form-control" />
-																		</div>
-																		<div class="col-md-3">
-																			<label for="">班级：</label>
-																			<input type="text" name="" id="" value="" class="form-control" />
-																		</div>
-																		<div class="col-md-3">
-																			<label for="">产品：</label>
-																			<input type="text" name="" id="" value="" class="form-control" />
-																		</div>
-																		<div class="col-md-3">
-																			<label for="">课程：</label>
-																			<input type="text" name="" id="" value="" class="form-control" />
-																		</div>
-																	</div>
-																	<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture>
+
+																	<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false pagination=true data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture>
 																		<thead>
 																			<tr>
-																				<th>操作</th>
+																				<th data-checkbox=true>操作</th>
 																				<th>学员姓名</th>
-																				<th>性别</th>
-																				<th>联系电话</th>
-																				<th>班级名称</th>
-																				<th>产品名称</th>
 																				<th>剩余课时</th>
-																				<th>可排课时</th>
-																				<th>合同结束</th>
 																			</tr>
 																		</thead>
 																		<tbody>
 																			<tr>
+																				<td></td>
+
 																				<td>1</td>
-																				<td>Item 1</td>
-																				<td>$1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
 																				<td>1</td>
 																				<td>1</td>
-																				<td>Item 1</td>
-																				<td>$1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
+																				<td>1</td>
+																				<td>1</td>
+																			</tr>
+																			<tr>
+																				<td></td>
+
 																				<td>1</td>
 																				<td>1</td>
 																			</tr>
@@ -834,9 +807,10 @@
 												</div>
 												<div class="courseRightBody">
 													<div class="courseRightTable">
-														<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture>
+														<table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false pagination=True data-only-info-pagination=true>
 															<thead>
 																<tr>
+																	<th data-checkbox=true></th>
 																	<th style="border-left:0px">姓名</th>
 																	<th>联系电话</th>
 																	<th>产品名称</th>
@@ -846,6 +820,7 @@
 															</thead>
 															<tbody>
 																<tr>
+																	<td></td>
 																	<td>李丽丽</td>
 																	<td>13733945358</td>
 																	<td>鲨鱼公园</td>
@@ -853,6 +828,7 @@
 																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
 																</tr>
 																<tr>
+																	<td></td>
 																	<td>王晓燕</td>
 																	<td>13733986453</td>
 																	<td>鲨鱼公园</td>
@@ -860,6 +836,127 @@
 																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
 																</tr>
 																<tr>
+																	<td></td>
+																	<td>张可可</td>
+																	<td>18654345358</td>
+																	<td>托马斯英语（初级）</td>
+																	<td>20</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>李丽丽</td>
+																	<td>13733945358</td>
+																	<td>鲨鱼公园</td>
+																	<td>5</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>王晓燕</td>
+																	<td>13733986453</td>
+																	<td>鲨鱼公园</td>
+																	<td>7</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>张可可</td>
+																	<td>18654345358</td>
+																	<td>托马斯英语（初级）</td>
+																	<td>20</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>李丽丽</td>
+																	<td>13733945358</td>
+																	<td>鲨鱼公园</td>
+																	<td>5</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>王晓燕</td>
+																	<td>13733986453</td>
+																	<td>鲨鱼公园</td>
+																	<td>7</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>张可可</td>
+																	<td>18654345358</td>
+																	<td>托马斯英语（初级）</td>
+																	<td>20</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>李丽丽</td>
+																	<td>13733945358</td>
+																	<td>鲨鱼公园</td>
+																	<td>5</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>王晓燕</td>
+																	<td>13733986453</td>
+																	<td>鲨鱼公园</td>
+																	<td>7</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>张可可</td>
+																	<td>18654345358</td>
+																	<td>托马斯英语（初级）</td>
+																	<td>20</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>李丽丽</td>
+																	<td>13733945358</td>
+																	<td>鲨鱼公园</td>
+																	<td>5</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>王晓燕</td>
+																	<td>13733986453</td>
+																	<td>鲨鱼公园</td>
+																	<td>7</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>张可可</td>
+																	<td>18654345358</td>
+																	<td>托马斯英语（初级）</td>
+																	<td>20</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>李丽丽</td>
+																	<td>13733945358</td>
+																	<td>鲨鱼公园</td>
+																	<td>5</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td>王晓燕</td>
+																	<td>13733986453</td>
+																	<td>鲨鱼公园</td>
+																	<td>7</td>
+																	<td><span class="glyphicon glyphicon-edit" onclick="qiandao(this)"></span></td>
+																</tr>
+																<tr>
+																	<td></td>
 																	<td>张可可</td>
 																	<td>18654345358</td>
 																	<td>托马斯英语（初级）</td>
@@ -875,7 +972,7 @@
 										</div>
 									</div>
 									<div class="row text-center courseBtn">
-										<button class="btn btn-primary"> 保存 </button>
+										<button class="btn btn-danger"> 删除课程 </button>
 										<button class="btn btn-default cancelbtn"> 取消 </button>
 									</div>
 								</div>
@@ -1031,7 +1128,7 @@
 		)(),
 		// 课表css(singned:已签到；nosigned：未签到)
 		(function() {
-				$("td").append("<div class='iconSanjiao iconColorOrange'></div><div class='iconSanjiao iconColorGreen'></div>");
+				$("td").append("<div class='iconSanjiao iconColorOrange'></div><div class='iconSanjiao iconColorGreen'></div><div class='iconSanjiao iconColorGray'></div><div class='iconSanjiao iconColorRed'></div>");
 				$("table .iconSanjiao").css({
 					"position": "absolute",
 					"right": "0",
@@ -1039,14 +1136,7 @@
 					"z-index": "2",
 					"display": "none"
 				});
-				// for (var i = 0; i < $("td").size(); i++) {
-				// 	if ($("td").eq(i).hasClass("signed")) {
-				// 		$("td .iconColorGreen").eq(i).show();
-				// 	}
-				// 	if ($("td").eq(i).hasClass("nosigned")) {
-				// 		$("td .iconColorOrange").eq(i).show();
-				// 	}
-				// }
+
 			}
 
 		)(),
@@ -1143,11 +1233,11 @@
 		// td点击
 		(function() {
 				$(".containerPanel").hide();
-				$("td").on("click", function() {
-					if ($(this).children("span").html() == "+新建课程") {
-						$(".container-fluid").hide();
-						$(".containerPanel").show();
-					}
+				$(".haveClass").on("click", function() {
+					window.location.href = "kebiao-qiandao.html";
+				});
+				$(".noClass").on("click", function() {
+					window.location.href = "kebiao-xinzeng.html";
 				});
 				$(".cancelbtn").on("click", function() {
 					$(".container-fluid").show();
@@ -1317,14 +1407,21 @@
 			}
 
 		}
-		$(".haveClass").css("padding", "0px");
-		$(".haveClass td:eq(0) .iconColorOrange").show();
-		$(".haveClass td:eq(1) .iconColorGreen").show();
-		$(".haveClass td:eq(2) .iconColorOrange").show();
+		$(".zhou1,.zhou2,.zhou3,.zhou4,.zhou5,.zhou6,.zhou7").css("padding", "0px");
+		$(".noClass").css("padding", "8px 0px");
+		$(".zhou1 td:eq(0) .iconColorRed").show();
+		$(".zhou1 td:eq(1) .iconColorGreen").show();
+		$(".zhou1 td:eq(2) .iconColorOrange").show();
+		$(".zhou1 td:eq(3) .iconColorGray").show();
 
+		$(".zhou2 td:eq(0) .iconColorOrange").show();
+		$(".zhou2 td:eq(1) .iconColorOrange").show();
+		$(".zhou2 td:eq(2) .iconColorRed").show();
+		$(".zhou2 td:eq(3) .iconColorGreen").show();
 
 		$(".ui-slider-handle").append("<div style='position:relative'><div style='width: 0.5px;height: 38px;border-left: 2px solid red;position: absolute;top: -30px;left: 7px;'></div></div>");
 	</script>
 </body>
 
 </html>
+tml>

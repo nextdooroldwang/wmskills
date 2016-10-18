@@ -27,6 +27,7 @@
         .mycontainer {
             padding-left: 15px;
             padding-right: 15px;
+            line-height: 34px;
         }
 
         #toolbar {
@@ -36,7 +37,14 @@
         td .glyphicon {
             color: #428bca;
         }
-       
+
+        .tips {
+            color: red;
+        }
+
+        .modal-body .row {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -108,7 +116,7 @@
                                     <a href="client-edit.html">客户管理</a>
                                 </li>
                                 <li>
-                                    <a href="client-listen.html">试听签到</a>
+                                    <a href="client-listen.html">试听管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -128,7 +136,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -138,8 +146,7 @@
                                     <a href="student-bespeak.html">预约登记</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -153,7 +160,7 @@
                     <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
                         <li><a href="#">工作台</a></li>
                         <li>意向客户</li>
-                        <li>试听签到</li>
+                        <li>试听管理</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -161,11 +168,95 @@
 
             <div class="row">
                 <div class="mycontainer">
-                	
+                    <div id="toolbar" class="pull-left">
+                        <button class="btn btn-primary addproductbtn" data-toggle="modal" data-target="#myModal">
+                            新增试听
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">添加试听</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>学员名称: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听时间: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听课程: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>英语</option>
+                                                <option>数学</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听教室: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>英语</option>
+                                                <option>数学</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听老师: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>里</option>
+                                                <option>网</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>跟进顾问: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>李</option>
+                                                <option>王</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-primary">确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
                     <table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture>
                         <thead>
                             <tr>
-                                <th>客户姓名</th>
                                 <th>学员姓名</th>
                                 <th>试听时间</th>
                                 <th>试听课程</th>
@@ -177,18 +268,98 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
                                 <td>Item 1</td>
                                 <td>$1</td>
                                 <td>1</td>
-                                <td><span class="glyphicon glyphicon-edit"> </span></td>
+                                <td><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#myModal2"> </span></td>
                             </tr>
 
                         </tbody>
                     </table>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel2">编辑试听</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>学员名称: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听时间: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听课程: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>英语</option>
+                                                <option>数学</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听教室: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>英语</option>
+                                                <option>数学</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>试听老师: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>里</option>
+                                                <option>网</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <lable><span class="tips">* </span>跟进顾问: </lable>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>李</option>
+                                                <option>王</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-primary">确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
                 </div>
             </div>
             <!-- /.row -->
@@ -213,7 +384,6 @@
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript">
-    
     </script>
 </body>
 
