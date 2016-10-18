@@ -1,0 +1,724 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-10">
+            <h3 class="page-header">订单上报</h3>
+        </div>
+        <div class="col-lg-1">
+            <label>&nbsp;</label>
+            <input onclick="fnShowMemoModal();" class="form-control btn btn-warning" type="button" value="添加备注" />
+        </div>
+        <div class="col-lg-1">
+            <label>&nbsp;</label>
+            <input onclick="fnShowSaveModal();" class="form-control btn btn-primary" type="button" value="保存订单" />
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <form>
+                <input type="hidden" id="addTableCount" name="addTableCount" value="0" />
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="pull-right">
+                            <input onclick="fnExtend();" class="form-control btn btn-success" type="button" value="添加更多" />
+                        </div>
+                        <label>订单日期:</label>
+                        <input id="bill_date" name="bill_date" type="date" onchange="fnChangeDate()" />
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%">食材种类</th>
+                                                <th width="30%">食材名称</th>
+                                                <th width="15%">单位</th>
+                                                <th width="25%">数量</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table1">
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_1" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_1" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_1" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_2" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_2" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_2" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_3" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_3" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_3" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_4" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_4" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_4" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_5" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_5" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_5" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%">食材种类</th>
+                                                <th width="30%">食材名称</th>
+                                                <th width="15%">单位</th>
+                                                <th width="25%">数量</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table2">
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_6" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_6" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_6" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_7" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_7" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_7" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_8" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_8" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_8" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_9" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_9" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_9" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size: 16px;">
+                                                <td>
+                                                    <select class="selectpicker kind" name="kind_id_10" style="width: 99%" onchange="fnChangeKind(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="selectpicker food" name="food_id_10" style="width: 99%" onchange="fnChangeFood(this)">
+                                                        <option value="0">请选择</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input class="bill_sum" type="text" name="bill_sum_10" style="width: 99%;text-align: center;" onchange="fnChangeBillSum(this)" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </form>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 80%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" style="color: red">请核实订单信息</h3>
+                <h4 class="modal-title" id="saveModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="30%">食材种类</th>
+                                        <th width="30%">食材名称</th>
+                                        <th width="15%">单位</th>
+                                        <th width="25%">数量</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="modal1">
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_1">&nbsp;</td>
+                                        <td id="food_id_1">&nbsp;</td>
+                                        <td id="food_unit_1">&nbsp;</td>
+                                        <td id="bill_sum_1">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_2">&nbsp;</td>
+                                        <td id="food_id_2">&nbsp;</td>
+                                        <td id="food_unit_2">&nbsp;</td>
+                                        <td id="bill_sum_2">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_3">&nbsp;</td>
+                                        <td id="food_id_3">&nbsp;</td>
+                                        <td id="food_unit_3">&nbsp;</td>
+                                        <td id="bill_sum_3">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_4">&nbsp;</td>
+                                        <td id="food_id_4">&nbsp;</td>
+                                        <td id="food_unit_4">&nbsp;</td>
+                                        <td id="bill_sum_4">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_5">&nbsp;</td>
+                                        <td id="food_id_5">&nbsp;</td>
+                                        <td id="food_unit_5">&nbsp;</td>
+                                        <td id="bill_sum_5">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="30%">食材种类</th>
+                                        <th width="30%">食材名称</th>
+                                        <th width="15%">单位</th>
+                                        <th width="25%">数量</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="modal2">
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_6">&nbsp;</td>
+                                        <td id="food_id_6">&nbsp;</td>
+                                        <td id="food_unit_6">&nbsp;</td>
+                                        <td id="bill_sum_6">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_7">&nbsp;</td>
+                                        <td id="food_id_7">&nbsp;</td>
+                                        <td id="food_unit_7">&nbsp;</td>
+                                        <td id="bill_sum_7">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_8">&nbsp;</td>
+                                        <td id="food_id_8">&nbsp;</td>
+                                        <td id="food_unit_8">&nbsp;</td>
+                                        <td id="bill_sum_8">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_9">&nbsp;</td>
+                                        <td id="food_id_9">&nbsp;</td>
+                                        <td id="food_unit_9">&nbsp;</td>
+                                        <td id="bill_sum_9">&nbsp;</td>
+                                    </tr>
+                                    <tr style="font-size: 16px;">
+                                        <td id="kind_id_10">&nbsp;</td>
+                                        <td id="food_id_10">&nbsp;</td>
+                                        <td id="food_unit_10">&nbsp;</td>
+                                        <td id="bill_sum_10">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="fnSubmit();" class="btn btn-primary">上报</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="memoModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">备注</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="memoForm">
+                            <input type="hidden" id="memo_bill_date" name="memo_bill_date" />
+                            <div class="form-group">
+                                <label>订单日期：</label>
+                                <label id="memo_label"></label>
+                                <textarea class="form-control" rows="10" name="memo_text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="fnSaveMemo();" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+var food_id_list = new Array();
+var doubleFlag = false;
+var addTableCount = 0;
+var kind_id_data;
+
+$(document).ready(function() {
+    document.getElementById("bill_date").valueAsDate = new Date();
+    fnChangeDate();
+
+    // 初始化select
+    fnInitSelect();
+
+});
+
+// 初始化select
+function fnInitSelect() {
+    // 初始化食材种类
+    $.ajax({
+        url: "__CONTROLLER__/getKindList",
+        success: function(data) {
+            kind_id_data = data;
+            $(".kind").select2({
+                data: data
+            });
+        }
+    });
+
+    // 初始化食材名称
+    $(".food").select2();
+}
+
+function fnChangeKind(kind_id_select) {
+    // 获取关联dom
+    // var kind_id_select = e.target;
+    var kind_id_select_value = kind_id_select.value;
+    var kind_id_select_name = kind_id_select.name;
+    var kind_id_td = kind_id_select.parentNode;
+
+    var food_id_td = kind_id_td.nextElementSibling;
+    var food_id_select = food_id_td.children[0];
+
+    var food_unit_td = food_id_td.nextElementSibling;
+
+    var bill_sum_td = food_unit_td.nextElementSibling;
+    var bill_sum_input = bill_sum_td.children[0];
+
+    var kind_id = kind_id_select_value;
+    if (kind_id == 0) {
+        // 食材名称联动
+        $(food_id_select).empty();
+        $(food_id_select).select2({
+            data: [{
+                id: "0",
+                text: "请选择"
+            }],
+        });
+
+        // 单位和数量清空
+        food_unit_td.innerText = "";
+        bill_sum_input.value = "";
+
+        // modal清空
+        var index = kind_id_select_name.split("_").pop();
+        document.getElementById("kind_id_" + index).innerText = "";
+        document.getElementById("food_id_" + index).innerText = "";
+        document.getElementById("food_unit_" + index).innerText = "";
+        document.getElementById("bill_sum_" + index).innerText = "";
+    } else {
+        // 食材名称联动
+        $.ajax({
+            url: "__CONTROLLER__/getFoodListByKind/kind_id/" + kind_id,
+            success: function(data) {
+                $(food_id_select).empty();
+                $(food_id_select).select2({
+                    data: [{
+                        id: "0",
+                        text: "请选择"
+                    }],
+                });
+                $(food_id_select).select2({
+                    data: data,
+                });
+
+                // modal联动
+                var selectedIndex = kind_id_select.selectedIndex;
+                var selectedText = kind_id_select.options[selectedIndex].text;
+                document.getElementById(kind_id_select_name).innerText = selectedText;
+            }
+        });
+    }
+}
+
+function fnChangeFood(food_id_select) {
+    // 获取关联dom
+    // var food_id_select = e.target;
+    var food_id_select_value = food_id_select.value;
+    var food_id_select_name = food_id_select.name;
+    var food_id_td = food_id_select.parentNode;
+
+    var food_unit_td = food_id_td.nextElementSibling;
+
+    var bill_sum_td = food_unit_td.nextElementSibling;
+    var bill_sum_input = bill_sum_td.children[0];
+
+    var kind_id_td = food_id_td.previousElementSibling;
+    var kind_id_select = kind_id_td.children[0];
+
+    var food_id = food_id_select_value;
+    if (food_id == 0) {
+        // 单位和数量清空
+        food_unit_td.innerText = "";
+        bill_sum_input.value = "";
+
+        // modal清空
+        var index = food_id_select_name.split("_").pop();
+        document.getElementById("food_id_" + index).innerText = "";
+        document.getElementById("food_unit_" + index).innerText = "";
+        document.getElementById("bill_sum_" + index).innerText = "";
+    } else {
+        // 判断已选择的食材名称是否重复
+        for (var i = 0; i < food_id_list.length; i++) {
+            if (food_id == food_id_list[i]) {
+                doubleFlag = true;
+                break;
+            }
+        }
+        if (doubleFlag) {
+            alert("已选择过该食材，请重新选择！");
+
+            // 食材名称select重置
+            food_id_select.selectedIndex = 0;
+            kind_id_select.selectedIndex = 0;
+            $(kind_id_select).change();
+            doubleFlag = false;
+        } else {
+            // 加入已选择的食材名称list，用于多重判断
+            food_id_list.push(food_id);
+
+            // 单位联动
+            $.ajax({
+                url: "__CONTROLLER__/getCurrentFood/food_id/" + food_id,
+                success: function(data) {
+                    food_unit_td.innerText = data;
+
+                    // modal联动
+                    var selectedIndex = food_id_select.selectedIndex;
+                    var selectedText = food_id_select.options[selectedIndex].text;
+                    document.getElementById(food_id_select_name).innerText = selectedText;
+
+                    var index = food_id_select_name.split("_").pop();
+                    document.getElementById("food_unit_" + index).innerText = food_unit_td.innerText;
+                }
+            });
+        }
+    }
+}
+
+function fnChangeBillSum(bill_sum_input) {
+    // var bill_sum_input = e.target;
+    document.getElementById(bill_sum_input.name).innerText = bill_sum_input.value;
+}
+
+function fnChangeDate() {
+    var bill_date = document.getElementById("bill_date").value;
+
+    var saveModalLabel = document.getElementById("saveModalLabel");
+    saveModalLabel.innerText = "订单日期: " + bill_date;
+}
+
+function fnSubmit() {
+    $.ajax({
+        url: "__CONTROLLER__/saveBill",
+        type: "POST",
+        data: $("form").serialize(),
+        success: function(data) {
+            $("#saveModal").modal("hide");
+            alert(data.message);
+            window.location.reload();
+        },
+        error: function() {
+            alert("订单新增失败！");
+        }
+    });
+}
+
+function fnShowSaveModal() {
+    var bill_date = document.getElementById('bill_date').value;
+    var today = fomateDate(new Date(), "YYYY-MM-DD");
+    if (bill_date < today) {
+        alert("不能提交今日以前的订单！");
+    } else {
+        $("#saveModal").modal("show");
+    }
+
+}
+
+function fnShowMemoModal() {
+    var bill_date = document.getElementById('bill_date').value;
+    document.getElementById('memo_bill_date').value = bill_date;
+    document.getElementById('memo_label').innerText = bill_date;
+    $("#memoModal").modal("show");
+}
+
+function fnSaveMemo() {
+    $.ajax({
+        url: "__CONTROLLER__/saveMemo",
+        type: "POST",
+        data: $("form").serialize(),
+        success: function(data) {
+            $("#memoModal").modal("hide");
+            alert(data.message);
+        },
+        error: function() {
+            alert("备注保存失败！");
+        }
+    });
+}
+
+function fnExtend() {
+    var startNum1 = 10 * addTableCount + 11;
+    var startNum2 = 10 * addTableCount + 16;
+
+    var table1 = document.getElementById("table1");
+    var table2 = document.getElementById("table2");
+    var modal1 = document.getElementById("modal1");
+    var modal2 = document.getElementById("modal2");
+    fnAddTable(table1, startNum1);
+    fnAddTable(table2, startNum2);
+    fnAddModal(modal1, startNum1);
+    fnAddModal(modal2, startNum2);
+
+    // 初始化食材种类
+    $(".kind-" + addTableCount).select2({
+        data: kind_id_data
+    });
+
+    // 初始化食材名称
+    $(".food-" + addTableCount).select2();
+
+    addTableCount++;
+    document.getElementById("addTableCount").value = addTableCount;
+}
+
+function fnAddTable(tbody, startNum) {
+    for (var i = startNum; i < startNum + 5; i++) {
+        // 食材种类
+        var kind_id_option = document.createElement("option");
+        kind_id_option.value = "0";
+        kind_id_option.innerText = "请选择";
+
+        var kind_id_select = document.createElement("select");
+        kind_id_select.className = "selectpicker kind-" + addTableCount;
+        kind_id_select.name = "kind_id_" + i;
+        kind_id_select.style.width = "99%";
+        kind_id_select.setAttribute("onchange", "fnChangeKind(this)");
+        kind_id_select.appendChild(kind_id_option);
+
+        var kind_id_td = document.createElement("td");
+        kind_id_td.appendChild(kind_id_select);
+
+        // 食材名称
+        var food_id_option = document.createElement("option");
+        food_id_option.value = "0";
+        food_id_option.innerText = "请选择";
+
+        var food_id_select = document.createElement("select");
+        food_id_select.className = "selectpicker food-" + addTableCount;
+        food_id_select.name = "food_id_" + i;
+        food_id_select.style.width = "99%";
+        food_id_select.setAttribute("onchange", "fnChangeFood(this)");
+        food_id_select.appendChild(food_id_option);
+
+        var food_id_td = document.createElement("td");
+        food_id_td.appendChild(food_id_select);
+
+        // 单位
+        var food_unit_td = document.createElement("td");
+
+        // 数量
+        var bill_sum_input = document.createElement("input");
+        bill_sum_input.className = "bill_sum-" + addTableCount;
+        bill_sum_input.type = "text";
+        bill_sum_input.name = "bill_sum_" + i;
+        bill_sum_input.style.width = "99%";
+        bill_sum_input.style.textAlign = "center";
+        bill_sum_input.onchange = function() {
+            fnChangeBillSum(this);
+        };
+
+        var bill_sum_td = document.createElement("td");
+        bill_sum_td.appendChild(bill_sum_input);
+
+        // 构建一行
+        var tr = document.createElement("tr");
+        tr.style.fontSize = "16px";
+        tr.appendChild(kind_id_td);
+        tr.appendChild(food_id_td);
+        tr.appendChild(food_unit_td);
+        tr.appendChild(bill_sum_td);
+
+        // 加入tbody
+        tbody.appendChild(tr);
+    }
+}
+
+function fnAddModal(tbody, startNum) {
+    for (var i = startNum; i < startNum + 5; i++) {
+        var kind_id_td = document.createElement("td");
+        kind_id_td.id = "kind_id_" + i;
+        kind_id_td.innerHTML = "&nbsp;";
+
+        var food_id_td = document.createElement("td");
+        food_id_td.id = "food_id_" + i;
+        food_id_td.innerHTML = "&nbsp;";
+
+        var food_unit_td = document.createElement("td");
+        food_unit_td.id = "food_unit_" + i;
+        food_unit_td.innerHTML = "&nbsp;";
+
+        var bill_sum_td = document.createElement("td");
+        bill_sum_td.id = "bill_sum_" + i;
+        bill_sum_td.innerHTML = "&nbsp;";
+
+        var tr = document.createElement("tr");
+        tr.style.fontSize = "16px";
+        tr.appendChild(kind_id_td);
+        tr.appendChild(food_id_td);
+        tr.appendChild(food_unit_td);
+        tr.appendChild(bill_sum_td);
+
+        tbody.appendChild(tr);
+    }
+}
+</script>
+<include file="./Public/template/footer.html" />

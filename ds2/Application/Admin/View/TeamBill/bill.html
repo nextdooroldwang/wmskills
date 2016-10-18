@@ -1,0 +1,513 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3 class="page-header">订单统计</h3>
+        </div>
+        <div class="col-lg-1">
+            <label>&nbsp;</label>
+            <input onclick="fnShowAddModal();" class="form-control btn btn-primary" type="button" value="新增" / </div>
+        </div>
+        <div class="col-lg-1">
+            <label>&nbsp;</label>
+            <input onclick="fnShowUpdateModal();" class="form-control btn btn-success" type="button" value="修改" / </div>
+        </div>
+        <div class="col-lg-1">
+            <label>&nbsp;</label>
+            <input onclick="fnDeleteConfirm();" class="form-control btn btn-danger" type="button" value="删除" / </div>
+        </div>
+        <div class="col-lg-1">
+            <label>&nbsp;</label>
+            <input onclick="fnSearch();" class="form-control btn btn-warning" type="button" value="查询" / </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <form id="searchForm">
+                                <div class="col-lg-3">
+                                    <label>食材种类</label>
+                                    <select class="selectpicker form-control" id="kind_id" name="kind_id">
+                                        <option value="0">全部种类</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>食材名称</label>
+                                    <select class="selectpicker form-control" id="food_id" name="food_id">
+                                        <option value="0">全部食材</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>起始日期</label>
+                                    <input class="form-control" id="start_date" name="start_date" type="date" />
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>终止日期</label>
+                                    <input class="form-control" id="end_date" name="end_date" type="date" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover" id="dt">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>食材种类</th>
+                                        <th>食材名称</th>
+                                        <th>单位</th>
+                                        <th>数量</th>
+                                        <th>订单日期</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+<div class="modal fade" id="addModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">新增订单</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="addForm">
+                            <div class="form-group">
+                                <label>食材种类</label>
+                                <select class="selectpicker form-control" id="add_kind_id" name="add_kind_id" style="width: 100%">
+                                    <option value="">全部种类</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>食材名称</label>
+                                <select class="selectpicker form-control" id="add_food_id" name="add_food_id" style="width: 100%">
+                                    <option value="">全部食材</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>单位</label>
+                                <input class="form-control" id="add_food_unit" name="add_food_unit" type="text" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label>数量</label>
+                                <input class="form-control" id="add_bill_sum" name="add_bill_sum" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>订单日期</label>
+                                <input class="form-control" id="add_bill_date" name="add_bill_date" type="date" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="fnAdd();" class="btn btn-primary">新增</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="updateModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">修改订单</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="updateForm">
+                            <input type="hidden" id="update_bill_id" name="update_bill_id" />
+                            <div class="form-group">
+                                <label>食材种类</label>
+                                <input class="form-control" id="update_kind_id" name="update_kind_id" type="text" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label>食材名称</label>
+                                <input class="form-control" id="update_food_id" name="update_food_id" type="text" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label>单位</label>
+                                <input class="form-control" id="update_food_unit" name="update_food_unit" type="text" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label>数量</label>
+                                <input class="form-control" id="update_bill_sum" name="update_bill_sum" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>订单日期</label>
+                                <input class="form-control" id="update_bill_date" name="update_bill_date" type="text" disabled />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="fnUpdate();" class="btn btn-primary">修改</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+$(document).ready(function() {
+
+    // 初始化select
+    fnInitSelect();
+
+    // 初始化DataTable
+    $('#dt').DataTable({
+        "aoColumnDefs": [{
+            "aTargets": [0], // ID
+            "visible": false
+        }, {
+            "aTargets": "_all",
+            "className": "column-center"
+        }],
+        "bLengthChange": false,
+        "bFilter": false,
+        "processing": true,
+        "serverSide": true,
+        "ajax": "__CONTROLLER__/defaultSearch"
+    });
+
+    document.getElementById("start_date").valueAsDate = new Date();
+    document.getElementById("end_date").valueAsDate = new Date();
+
+    // 单行选择
+    $('#dt tbody').on('click', 'tr', function() {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            $('#dt').DataTable().$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+
+    $("#updateForm").bootstrapValidator({
+        fields: {
+            update_bill_sum: {
+                validators: {
+                    notEmpty: {
+                        message: "数量不能为空！"
+                    },
+                    regexp: {
+                        regexp: /^\d+(\.\d{1})?$/,
+                        message: "必须输入数字，最多精确到小数点后一位!"
+                    }
+                }
+            }
+        }
+    });
+    $("#addForm").bootstrapValidator({
+        fields: {
+            add_kind_id: {
+                validators: {
+                    notEmpty: {
+                        message: "请选择食材种类！"
+                    }
+                }
+            },
+            add_food_id: {
+                validators: {
+                    notEmpty: {
+                        message: "请选择食材名称！"
+                    }
+                }
+            },
+            add_bill_sum: {
+                validators: {
+                    notEmpty: {
+                        message: "数量不能为空！"
+                    },
+                    regexp: {
+                        regexp: /^\d+(\.\d{1})?$/,
+                        message: "必须输入数字，最多精确到小数点后一位!"
+                    }
+                }
+            },
+            add_bill_date: {
+                validators: {
+                    notEmpty: {
+                        message: "日期不能为空！"
+                    }
+                }
+            }
+        }
+    });
+});
+
+// 初始化食材种类
+function fnInitKindSelect(kind_id) {
+    $.ajax({
+        url: "__CONTROLLER__/getKindList",
+        success: function(data) {
+            $("#" + kind_id).select2({
+                data: data
+            });
+        }
+    });
+}
+
+// 初始化食材名称
+function fnInitFoodSelect(food_id) {
+    $("#" + food_id).select2();
+}
+
+// 食材种类改变
+function fnInitKindSelectChange(kind_id, food_id) {
+    var kind_id_select = $("#" + kind_id);
+    var food_id_select = $("#" + food_id);
+
+    kind_id_select.on("change", function(e) {
+        if (e.target.value == 0) {
+            food_id_select.empty();
+            food_id_select.select2({
+                data: [{
+                    id: "0",
+                    text: "全部食材"
+                }],
+            });
+
+            $("#add_food_unit").val("");
+        } else {
+            $.ajax({
+                url: "__CONTROLLER__/getFoodListByKind/kind_id/" + e.target.value,
+                success: function(data) {
+                    food_id_select.empty();
+                    food_id_select.select2({
+                        data: [{
+                            id: "0",
+                            text: "全部食材"
+                        }],
+                    });
+                    food_id_select.select2({
+                        data: data,
+                    });
+                }
+            });
+        }
+    });
+}
+
+// 食材名称改变
+function fnInitFoodSelectChange() {
+    $("#add_food_id").on("change", function(e) {
+        $.ajax({
+            url: "__CONTROLLER__/getCurrentFood/food_id/" + e.target.value,
+            success: function(data) {
+                $("#add_food_unit").val(data);
+            }
+        });
+    });
+}
+
+// 初始化各种select
+function fnInitSelect() {
+    // 初始化食材种类
+    fnInitKindSelect("kind_id");
+    fnInitKindSelect("add_kind_id");
+
+    // 初始化食材名称
+    fnInitFoodSelect("food_id");
+    fnInitFoodSelect("add_food_id");
+
+    // 食材种类改变
+    fnInitKindSelectChange("kind_id", "food_id");
+    fnInitKindSelectChange("add_kind_id", "add_food_id");
+
+    // 食材名称改变
+    fnInitFoodSelectChange();
+}
+
+function fnSearch() {
+    var kind_id = $("#kind_id").val();
+    var food_id = $("#food_id").val();
+    var start_date = $("#start_date").val();
+    var end_date = $("#end_date").val();
+
+    var searchUrl = "__CONTROLLER__/search";
+    if (kind_id != "0") {
+        searchUrl += "/kind_id/" + kind_id;
+    }
+    if (food_id != "0") {
+        searchUrl += "/food_id/" + food_id;
+    }
+    if (start_date != "") {
+        searchUrl += "/start_date/" + start_date;
+    }
+    if (end_date != "") {
+        searchUrl += "/end_date/" + end_date;
+    }
+
+    var dt = $('#dt').DataTable();
+    dt.ajax.url(searchUrl).load();
+}
+
+function fnShowAddModal() {
+    $("#addModal").modal("show");
+}
+
+function fnAdd() {
+    var validator = $("#addForm").data("bootstrapValidator");
+    validator.validate();
+
+    if (validator.isValid()) {
+
+        var todayDate = new Date();
+        var today = fomateDate(todayDate, "YYYY-MM-DD");
+
+        var tomorrowDate = new Date();
+        tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+        var tommow = fomateDate(tomorrowDate, "YYYY-MM-DD");
+
+        var afrerTomorrowDate = new Date();
+        afrerTomorrowDate.setDate(afrerTomorrowDate.getDate() + 2);
+        var afrerTomorrow = fomateDate(afrerTomorrowDate, "YYYY-MM-DD");
+
+        var add_bill_date = $("#add_bill_date").val();
+        if (add_bill_date <= tommow) {
+            alert("不能新增订单！");
+            window.location.reload();
+        } else if (add_bill_date == afrerTomorrow && todayDate.getHours() > 11) {
+            alert("不能新增后日订单！");
+            window.location.reload();
+        } else {
+            $.ajax({
+                url: "__CONTROLLER__/addSingleBill",
+                type: "POST",
+                data: $("#addForm").serialize(),
+                success: function(data) {
+                    $("#addModal").modal("hide");
+                    alert(data.message);
+                    window.location.reload();
+                },
+                error: function() {
+                    alert("新增失败！");
+                }
+            });
+        }
+    }
+}
+
+function fnShowUpdateModal() {
+    // 当前选中行
+    var row = $('#dt').DataTable().rows(".selected").data()[0];
+    if (!row) {
+        alert("请选中一行！");
+    } else {
+        var todayDate = new Date();
+        var today = fomateDate(todayDate, "YYYY-MM-DD");
+
+        var tomorrowDate = new Date();
+        tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+        var tommow = fomateDate(tomorrowDate, "YYYY-MM-DD");
+        if (row[5] <= today) {
+            alert("不能修改往日订单！");
+        } else if (row[5] == tommow && todayDate.getHours() > 11) {
+            alert("不能修改明日订单！");
+        } else {
+            // 文本框赋值
+            $("#update_bill_id").val(row[0]);
+            $("#update_kind_id").val(row[1]);
+            $("#update_food_id").val(row[2]);
+            $("#update_food_unit").val(row[3]);
+            $("#update_bill_sum").val(row[4]);
+            $("#update_bill_date").val(row[5]);
+
+            $("#updateModal").modal("show");
+        }
+    }
+}
+
+function fnUpdate() {
+    var validator = $("#updateForm").data("bootstrapValidator");
+    validator.validate();
+
+    if (validator.isValid()) {
+        $.ajax({
+            url: "__CONTROLLER__/updateBill",
+            type: "POST",
+            data: $("#updateForm").serialize(),
+            success: function(data) {
+                $("#updateModal").modal("hide");
+
+                if (data.success) {
+                    alert("修改成功!");
+                    window.location.href = "__CONTROLLER__/bill";
+                } else {
+                    alert("修改失败！");
+                }
+            },
+            error: function() {
+                alert("修改失败！");
+            }
+        });
+    }
+}
+
+function fnDeleteConfirm() {
+    // 当前选中行
+    var row = $('#dt').DataTable().rows(".selected").data()[0];
+    if (!row) {
+        alert("请选中一行！");
+    } else {
+        var todayDate = new Date();
+        var today = fomateDate(todayDate, "YYYY-MM-DD");
+
+        var tomorrowDate = new Date();
+        tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+        var tommow = fomateDate(tomorrowDate, "YYYY-MM-DD");
+        if (row[5] <= today) {
+            alert("不能删除往日订单！");
+        } else if (row[5] == tommow && todayDate.getHours() > 11) {
+            alert("不能删除明日订单！");
+        } else {
+            // 文本框赋值
+            var info = "是否删除?";
+            if (confirm(info)) {
+                fnDelete(row[0]);
+            }
+        }
+    }
+}
+
+function fnDelete(bill_id) {
+    $.ajax({
+        url: "__CONTROLLER__/deleteBill/bill_id/" + bill_id,
+        type: "GET",
+        success: function(data) {
+            if (data.success) {
+                alert("删除成功!");
+                window.location.reload();
+            } else {
+                alert("删除失败！");
+            }
+        },
+        error: function() {
+            alert("删除失败！");
+        }
+    });
+}
+</script>
+<include file="./Public/template/footer.html" />

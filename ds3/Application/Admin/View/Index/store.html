@@ -1,0 +1,216 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">社区店管理</h3>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12" id="storeList">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">社区店列表</h5>
+                    <button class="btn btn-primary pull-right" onclick="fnShowCourseList();">课程列表</button>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dt">
+                            <thead>
+                                <tr>
+                                    <th>社区店地址</th>
+                                    <th>logo</th>
+                                    <th>微校长</th>
+                                    <th>早育师</th>
+                                    <th>联系电话</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb">
+                                <tr>
+                                    <td>浑南区万科金域蓝湾店1</td>
+                                    <td>图片</td>
+                                    <td>张三</td>
+                                    <td>李四</td>
+                                    <td>024-2234888867</td>
+                                </tr>
+                                <tr>
+                                    <td>浑南区万科金域蓝湾店2</td>
+                                    <td>图片</td>
+                                    <td>张三</td>
+                                    <td>李四</td>
+                                    <td>024-22345567</td>
+                                </tr>
+                                <tr>
+                                    <td>浑南区万科金域蓝湾店3</td>
+                                    <td>图片</td>
+                                    <td>张三</td>
+                                    <td>李四</td>
+                                    <td>024-22345567</td>
+                                </tr>
+                                <tr>
+                                    <td>浑南区万科金域蓝湾店4</td>
+                                    <td>图片</td>
+                                    <td>张三</td>
+                                    <td>李四</td>
+                                    <td>024-22345567</td>
+                                </tr>
+
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <div class="row" id="courseList">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">课程列表：<span></span></h5>
+                    <div class="pull-right">
+                         <button class="btn btn-primary " onclick="fnShowCourse();">课程信息</button>
+                        <button class="btn btn-warning " onclick="fnReturnStoreList();">返回</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dt2">
+                            <thead>
+                                <tr>
+                                    <th>课程名称</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb2">
+                                <tr>
+                                    <td>小象英语</td>
+                                </tr>
+                                <tr>
+                                    <td>儿童摆手操</td>
+                                </tr>
+                                <tr>
+                                    <td>口才训练</td>
+                                </tr>
+                                <tr>
+                                    <td>儿童社交</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <div class="row" id="course">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">课程信息：<span></span></h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning " onclick="fnReturnCourseList();">返回</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab">课程简介</a>
+                        </li>
+                        <li><a href="#messages" data-toggle="tab">关联题目</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <h4>小象英语</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <div class="tab-pane fade" id="messages">
+                            <h4>关联题目</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+
+
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+var courseName,storeName;
+$(document).ready(function() {
+    // 初始化DataTable
+    $('#dt').DataTable();
+    $('#dt2').DataTable();
+    $("#courseList,#course").hide();
+    addSelectedClass();
+    
+});
+fnGetCourseName();
+fnGetStoreName();
+function fnGetCourseName() {
+    $("#courseList tr").on("click",function() {
+        courseName=$(this).children().eq(0).html();
+    })
+}
+function fnGetStoreName() {
+    $("#storeList tr").on("click",function() {
+        storeName=$(this).children().eq(0).html();
+    })
+}
+function fnShowCourseList() { 
+    if($("tr").hasClass("selected")){
+        $("#storeList,#course").hide();
+        $("#courseList").show();
+        $("#courseList h5>span").html(storeName);
+        $("tr").removeClass("selected");
+    }
+    else{
+        alert("请选择社区店");
+    }
+}
+function fnReturnStoreList() {
+    $("#courseList,#course").hide();
+    $("#storeList").show();
+    $("tr").removeClass("selected");
+}
+function fnShowCourse() {
+    if($("tr").hasClass("selected")){
+        $("#storeList,#courseList").hide();
+        $("#course").show();
+        $("#course h5>span").html(courseName);
+        $("tr").removeClass("selected");   
+    }
+    else{
+        alert("请选择课程");
+    }
+}
+function fnReturnCourseList() {
+    $("#storeList,#course").hide();
+    $("#courseList").show();
+    $("tr").removeClass("selected");
+}
+</script>
+<include file="./Public/template/footer.html" />

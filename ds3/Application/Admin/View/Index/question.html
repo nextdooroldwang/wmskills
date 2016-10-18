@@ -1,0 +1,398 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">答题管理</h3>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12" id="questionList">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">试卷列表</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-info" onclick="fnShowQuestion();">查看</button>
+                        <button class="btn btn-success" onclick="fnAddQuestion();">新增</button>
+                        <button class="btn btn-primary" onclick="fnSaveQuestion();">编辑</button>
+                        <button class="btn btn-danger" onclick="fnDeleteQuestion();">删除</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dt0">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>试卷名称</th>
+                                    <th>试卷类型</th>
+                                    <th>创建时间</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb">
+                                <tr>
+                                    <td>1</td>
+                                    <td>早育师备课</td>
+                                    <td>A类</td>
+                                    <td>2016-6-5</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>微校长技能反馈</td>
+                                    <td>2类</td>
+                                    <td>2016-6-5</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>早育师备课</td>
+                                    <td>A类</td>
+                                    <td>2016-6-5</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>早育师备课</td>
+                                    <td>A类</td>
+                                    <td>2016-6-5</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <div class="row" id="question">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">试卷信息：<span></span></h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning " onclick="fnReturnQuestionList();">返回</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab">试卷题目</a>
+                        </li>
+                        <li><a href="#messages" data-toggle="tab">相关社区店</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <h4>&nbsp;</h4>
+                            <table class="table table-striped table-bordered table-hover" id="dt1">
+                                <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>问题</th>
+                                        <th>选项</th>
+                                        <th>答案</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tb">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>小手摆摆的动作要领是什么？</td>
+                                        <td>抬手；举手；放手；摆手</td>
+                                        <td>摆手</td>
+                                    </tr>
+                                     <tr>
+                                        <td>2</td>
+                                        <td>大手摆摆的动作要领是什么？</td>
+                                        <td>抬手；举手；放手；摆手</td>
+                                        <td>摆手</td>
+                                    </tr>
+                                     <tr>
+                                        <td>3</td>
+                                        <td>中手摆摆的动作要领是什么？</td>
+                                        <td>抬手；举手；放手；摆手</td>
+                                        <td>摆手</td>
+                                    </tr>
+                                     <tr>
+                                        <td>4</td>
+                                        <td>单手摆摆的动作要领是什么？</td>
+                                        <td>抬手；举手；放手；摆手</td>
+                                        <td>摆手</td>
+                                    </tr>
+                                     <tr>
+                                        <td>5</td>
+                                        <td>双手摆摆的动作要领是什么？</td>
+                                        <td>抬手；举手；放手；摆手</td>
+                                        <td>摆手</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="messages">
+                            <h4>&nbsp;</h4>
+                            <table class="table table-striped table-bordered table-hover" id="dt2">
+                                <thead>
+                                    <tr>
+                                        <th>社区店地址</th>
+                                        <th>logo</th>
+                                        <th>微校长</th>
+                                        <th>早育师</th>
+                                        <th>联系电话</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tb">
+                                    <tr>
+                                        <td>浑南区万科金域蓝湾店1</td>
+                                        <td>图片</td>
+                                        <td>张三</td>
+                                        <td>李四</td>
+                                        <td>024-2234888867</td>
+                                    </tr>
+                                    <tr>
+                                        <td>浑南区万科金域蓝湾店2</td>
+                                        <td>图片</td>
+                                        <td>张三</td>
+                                        <td>李四</td>
+                                        <td>024-22345567</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="addQuestion">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">创建试卷</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-primary " onclick="fnBuildQuestion();">生成试卷</button>
+                        <button class="btn btn-warning " onclick="fnReturnQuestionList();">返回</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#home2" data-toggle="tab">选择答题</a>
+                        </li>
+                        <li><a href="#messages2" data-toggle="tab">关联社区店</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home2">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <h4>&nbsp;</h4>
+                                    <div class="form-group">
+                                        <label>所有答题</label>
+                                        <select multiple class="form-control" style="height:250px">
+                                            <option>答题1</option>
+                                            <option>答题2</option>
+                                            <option>答题3</option>
+                                            <option>答题4</option>
+                                            <option>答题5</option>
+                                            <option>答题6</option>
+                                            <option>答题7</option>
+                                            <option>答题8</option>
+                                            <option>答题9</option>
+                                            <option>答题10</option>
+                                            <option>答题11</option>
+                                            <option>答题12</option>
+                                            <option>答题13</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div class="dataTable_wrapper">
+                                        <table class="table table-striped table-bordered table-hover" id="dt4">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tb">
+                                                <tr>
+                                                    <td>小手摆摆的动作要领是什么？</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小手动动的动作要领是什么？</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小脚摆摆的动作要领是什么？</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小脚动动的动作要领是什么？</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小腰扭扭的动作要领是什么？</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小腰扭扭的动作要领是什么？</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> -->
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="questionRightBtn  btn btn-success" onclick="fnQuestionRightBtn();">--></button>
+                                    <button class="questionLeftBtn btn btn-danger" onclick="fnQuestionLeftBtn();"><--</button>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <h4>&nbsp;</h4>
+                                    <div class="form-group">
+                                        <label>已选答题</label>
+                                        <select multiple class="form-control" style="height:250px">
+                                           
+                                        </select>
+                                    </div>
+                                    <!-- <div class="dataTable_wrapper">
+                                        <table class="table table-striped table-bordered table-hover" id="dt5">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tb">
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div> -->
+                                    <!-- /.table-responsive -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="messages2">
+                            <h4>&nbsp;</h4>
+                            <table class="table table-striped table-bordered table-hover" id="dt3">
+                                <thead>
+                                    <tr>
+                                        <th>社区店地址</th>
+                                        <th>logo</th>
+                                        <th>微校长</th>
+                                        <th>早育师</th>
+                                        <th>联系电话</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tb">
+                                    <tr>
+                                        <td>浑南区万科金域蓝湾店1</td>
+                                        <td>图片</td>
+                                        <td>张三</td>
+                                        <td>李四</td>
+                                        <td>024-2234888867</td>
+                                    </tr>
+                                    <tr>
+                                        <td>浑南区万科金域蓝湾店2</td>
+                                        <td>图片</td>
+                                        <td>张三</td>
+                                        <td>李四</td>
+                                        <td>024-22345567</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+var questionName;
+$(document).ready(function() {
+    // 初始化DataTable
+    for(var i=0;i<7;i++){
+        $('#dt'+i).DataTable();
+    }
+    // $('#dt6').DataTable();
+    // $('#dt4,#dt5').dataTable( {
+    //     "scrollY": "200px",
+    //     "scrollCollapse": "true",
+    //     "bLengthChange": false
+    // } );
+    addSelectedClass();
+    $("#question,#addQuestion").hide();
+    fnGetQuestionName();
+    $(".questionRightBtn").css("margin-top",135+"px");
+    $(".questionLeftBtn").css("margin-top",5+"px");
+    // $("#dt4_info,#dt4_paginate,#dt5_info,#dt5_paginate").hide();
+    // $(".dataTables_scroll .dataTables_scrollHead").hide();
+});
+function fnDeleteQuestion() {
+    if($("tr").hasClass("selected")){
+       if (confirm("确认删除？")) {  
+            $(".selected").remove();
+        }
+    }
+    else{
+        alert("请选择要删除的试卷！");
+    }  
+}
+function fnGetQuestionName() {
+    $("#questionList tr").on("click",function() {
+        questionName=$(this).children().eq(1).html();
+    })
+}
+function fnShowQuestion() { 
+    if($("tr").hasClass("selected")){
+        $("#questionList,#addQuestion").hide();
+        $("#question").show();
+        $("#question h5>span").html(questionName);
+        $("tr").removeClass("selected");
+    }
+    else{
+        alert("请选择试卷！");
+    }
+}
+function fnReturnQuestionList() {
+    // $("#question,#addQuestion").hide();
+    // $("#questionList").show();
+    // $("tr").removeClass("selected");
+    // $('#dt4').DataTable();
+    // $('#dt5').DataTable();
+    window.location.reload();
+}
+function fnAddQuestion() {
+    $("#question,#questionList").hide();
+    $("#addQuestion").show();
+    $("tr").removeClass("selected");
+}
+function fnQuestionRightBtn() {
+    $("#addQuestion select:eq(1)").append($("#addQuestion select:eq(0)>option:selected").clone());
+    // if($("#dt5 tr").size()>2){
+    //     $("#dt5 .dataTables_empty").parent().hide();
+    // }
+    $("#addQuestion select:eq(0)>option:selected").addClass("selectedQuestion");
+}
+function fnQuestionLeftBtn() {
+    // $("#dt5 .selected").remove();
+    // if($("#dt5 tr").size()<2){
+    //     $("#dt5 .dataTables_empty").parent().show();
+    // }
+    $("#addQuestion select:eq(1)>option:selected").remove();
+    $(".selectedQuestion").show();
+    $(".selectedQuestion").removeClass("selectedQuestion");
+}
+</script>
+<include file="./Public/template/footer.html" />

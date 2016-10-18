@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>战保大队配送中心</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="__PUBLIC__/css/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap Validator CSS-->
+    <link href="__PUBLIC__/css/bootstrapValidator.min.css" rel="stylesheet">
+    <!-- Bootstrap Combobox CSS -->
+    <!-- <link href="__PUBLIC__/css/bootstrap-combobox.css" rel="stylesheet"> -->
+    <link href="__PUBLIC__/css/select2.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="__PUBLIC__/js/metisMenu.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+    <script src="__PUBLIC__/js/dataTables.bootstrap.min.js"></script>
+    <!-- Moment JavaScript -->
+    <script src="__PUBLIC__/js/moment.min.js"></script>
+    <!-- Bootstrap Validator JavaScript -->
+    <script src="__PUBLIC__/js/bootstrapValidator.min.js"></script>
+    <!-- jQuery PrintArea JavaScript -->
+    <script src="__PUBLIC__/js/jquery.PrintArea.js"></script>
+    <!-- Bootstrap Combobox JavaScript -->
+    <!-- <script src="__PUBLIC__/js/bootstrap-combobox.js"></script> -->
+    <script src="__PUBLIC__/js/select2.full.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="__PUBLIC__/js/sb-admin-2.js"></script>
+
+    <script src="__PUBLIC__/js/vue.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">沈阳市消防支队战保大队配送中心</a>
+        </div>
+        <!-- /.navbar-header -->
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> {$Think.session.user_username}
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> 个人设置</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="__MODULE__/Index/doLogout"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="搜索...">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </li>
+                    <if condition="$Think.session.user_role eq 0">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-file-o fa-fw"></i> 订单管理
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="__MODULE__/AdminPurchaseBill/purchaseBill">
+                                        <i class="fa fa-calendar fa-fw"></i> 采购单管理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="__MODULE__/AdminSortBill/sortBill">
+                                        <i class="fa fa-file-o fa-fw"></i> 分拣单管理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="__MODULE__/AdminDeliverBill/deliverBill">
+                                        <i class="fa fa-file fa-fw"></i> 配送单管理
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="__MODULE__/AdminMemo/memo">
+                                <i class="fa fa-info-circle fa-fw"></i> 订单备注
+                            </a>
+                        </li>
+                        <li>
+                            <a href="__MODULE__/AdminBill/bill">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> 订单统计
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-list-alt fa-fw"></i> 基础信息管理
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="__MODULE__/Kind/index">
+                                        <i class="fa fa-sitemap fa-fw"></i> 食材种类管理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="__MODULE__/Food/index">
+                                        <i class="fa fa-cutlery fa-fw"></i> 食材名称管理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="__MODULE__/User/index">
+                                        <i class="fa fa-user fa-fw"></i> 用户管理
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <else />
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-file-o fa-fw"></i> 订单管理
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="__MODULE__/TeamBill/addBill">
+                                        <i class="fa fa-plus fa-fw"></i> 订单上报
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="__MODULE__/TeamBill/bill">
+                                        <i class="fa fa-bar-chart-o fa-fw"></i> 订单统计
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </if>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>

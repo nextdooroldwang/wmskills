@@ -1,0 +1,242 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">食材种类管理</h3>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <input type="button" value="新增" class="btn btn-primary" onclick="fnShowSaveModal();">
+                    <input type="button" value="修改" class="btn btn-success" onclick="fnShowUpdateModal();">
+                    <input type="button" value="删除" class="btn btn-danger" onclick="fnDeleteConfirm();">
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dt">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>食材种类</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="kindList" id="kind">
+                                    <tr class="odd gradeX">
+                                        <td>{$kind.kind_id}</td>
+                                        <td>{$kind.kind_name}</td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">新增食材种类</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="addForm">
+                            <div class="form-group">
+                                <label>食材种类</label>
+                                <input class="form-control" name="kind_name" type="text" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="fnAdd();" type="button" class="btn btn-primary">新增</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">修改食材种类</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="updateForm">
+                            <input type="hidden" id="kind_id" name="kind_id" />
+                            <div class="form-group">
+                                <label>食材种类</label>
+                                <input class="form-control" id="kind_name" name="kind_name" type="text" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="fnUpdate();" class="btn btn-primary">修改</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+$(document).ready(function() {
+    // 初始化DataTable
+    $('#dt').DataTable({
+        "aoColumnDefs": [{
+            "aTargets": [0], // ID
+            "visible": false
+        }]
+    });
+
+    // 单行选择
+    $('#dt tbody').on('click', 'tr', function() {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            $('#dt').DataTable().$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+
+    // Validator
+    var option = {
+        fields: {
+            kind_name: {
+                validators: {
+                    notEmpty: {
+                        message: "食材种类不能为空！"
+                    }
+                }
+            }
+        }
+    };
+    $("#addForm").bootstrapValidator(option);
+    $("#updateForm").bootstrapValidator(option);
+});
+
+function fnShowSaveModal() {
+    $("#saveModal").modal("show");
+}
+
+function fnShowUpdateModal() {
+    // 当前选中行
+    var row = $('#dt').DataTable().rows(".selected").data()[0];
+    if (!row) {
+        alert("请选中一行！");
+    } else {
+        // 文本框赋值
+        $("#kind_id").val(row[0]);
+        $("#kind_name").val(row[1]);
+
+        $("#updateModal").modal("show");
+    }
+}
+
+function fnAdd() {
+    var validator = $("#addForm").data("bootstrapValidator");
+    validator.validate();
+
+    if (validator.isValid()) {
+        $.ajax({
+            url: "__CONTROLLER__/addKind",
+            type: "POST",
+            data: $("#addForm").serialize(),
+            success: function(data) {
+                $("#saveModal").modal("hide");
+
+                if (data.success) {
+                    alert("新增成功!");
+                    window.location.href = "__CONTROLLER__/index";
+                } else {
+                    alert("新增失败！");
+                }
+            },
+            error: function() {
+                alert("新增失败！");
+            }
+        });
+    }
+}
+
+function fnUpdate() {
+    var validator = $("#updateForm").data("bootstrapValidator");
+    validator.validate();
+
+    if (validator.isValid()) {
+        $.ajax({
+            url: "__CONTROLLER__/updateKind",
+            type: "POST",
+            data: $("#updateForm").serialize(),
+            success: function(data) {
+                $("#updateModal").modal("hide");
+
+                if (data.success) {
+                    alert("修改成功!");
+                    window.location.href = "__CONTROLLER__/index";
+                } else {
+                    alert("修改失败！");
+                }
+            },
+            error: function() {
+                alert("修改失败！");
+            }
+        });
+    }
+}
+
+function fnDeleteConfirm() {
+    // 当前选中行
+    var row = $('#dt').DataTable().rows(".selected").data()[0];
+    if (!row) {
+        alert("请选中一行！");
+    } else {
+        var info = "是否删除食材种类: " + row[1] + " ?";
+        if (confirm(info)) {
+            fnDelete(row[0]);
+        }
+    }
+}
+
+function fnDelete(kind_id) {
+    $.ajax({
+        url: "__CONTROLLER__/deleteKind/kind_id/" + kind_id,
+        type: "GET",
+        success: function(data) {
+            if (data.success) {
+                alert("删除成功!");
+                window.location.href = "__CONTROLLER__/index";
+            } else {
+                alert("删除失败！");
+            }
+        },
+        error: function() {
+            alert("删除失败！");
+        }
+    });
+}
+</script>
+<include file="./Public/template/footer.html" />

@@ -1,0 +1,262 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">课程基础信息管理</h3>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row" id="courseList">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">课程列表</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-info" onclick="fnShowBaseCourse();">查看</button>
+                        <button class="btn btn-success" onclick="fnAddBaseCourse();">新增</button>
+                        <button class="btn btn-primary" onclick="fnSaveBaseCourse();">编辑</button>
+                        <button class="btn btn-danger" onclick="fnDeleteBaseCourse();">删除</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dt2">
+                            <thead>
+                                <tr>
+                                    <th>课程名称</th>
+                                    <th>视频1</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb2">
+                                <tr>
+                                    <td>小象英语</td>
+                                    <td>视频2</td>
+                                </tr>
+                                <tr>
+                                    <td>小象英语</td>
+                                    <td>视频3</td>
+                                </tr>
+                                <tr>
+                                    <td>小象英语</td>
+                                    <td>视频4</td>
+                                </tr>
+                                <tr>
+                                    <td>小象英语</td>
+                                    <td>视频5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <div class="row" id="course">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">课程信息：<span></span></h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning " onclick="fnReturnCourseList();">返回</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab">课程简介</a>
+                        </li>
+                        <li><a href="#messages" data-toggle="tab">课程文件</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <h4>小象英语</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <div class="tab-pane fade" id="messages">
+                            <h4>关联题目</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="modal fade" id="addBaseCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:60%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >新增课程信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="addDateForm">
+                                <div class="form-group">
+                                    <div>
+                                        <label>课程名称</label>
+                                        <input class="form-control" id="addCourse_date" name="addCourse_date" type="text" />
+                                    </div>
+                                    <div>
+                                        <label>课程视频</label>
+                                        <input class="form-control" id="addVideo_date" name="addVideo_date" type="file" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <div class="modal fade" id="saveBaseCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:60%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >编辑课程信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="saveDateForm">
+                                <div class="form-group">
+                                    <div>
+                                        <label>课程名称</label>
+                                        <input class="form-control" id="addCourse_date" name="saveCourse_date" type="text" />
+                                    </div>
+                                    <div>
+                                        <label>课程视频</label>
+                                        <input class="form-control" id="addVideo_date" name="saveVideo_date" type="text" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">修改</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+$(document).ready(function() {
+    // 初始化DataTable
+    $('#dt').DataTable();
+    $('#dt2').DataTable();
+    $("#course").hide();
+    addSelectedClass();
+    verificationSaveCourse();
+    verificationAddCourse();
+});
+ function fnDeleteBaseCourse() {
+    if($("tr").hasClass("selected")){
+       if (confirm("确认删除？")) {  
+            $(".selected").remove();
+        }
+    }
+    else{
+        alert("请选择要删除的课程！");
+    } 
+
+ }
+ function fnAddBaseCourse() {
+    $("#addBaseCourse").modal("show");
+    $("#addBaseCourse input").val("");
+   
+}
+function fnSaveBaseCourse() {
+    if($("tr").hasClass("selected")){
+        $("#saveBaseCourse").modal("show");
+        for(var i=0;i<2;i++){
+        $("#saveBaseCourse input").eq(i).val($(".selected").children("td").eq(i).html());
+        }
+    }else alert("请选择需编辑课程信息!");
+    
+}
+function verificationSaveCourse() {
+    $("#saveDateForm").bootstrapValidator({
+        fields: {
+            saveCourse_date: {
+                validators: {
+                    notEmpty: {
+                        message: "课程名称不能为空！"
+                    }
+                }
+            },
+            saveVideo_date: {
+                validators: {
+                    notEmpty: {
+                        message: "课程视频不能为空！"
+                    }
+                }
+            }
+        }
+    });
+}
+function verificationAddCourse() {
+    $("#addDateForm").bootstrapValidator({
+        fields: {
+            addCourse_date: {
+                validators: {
+                    notEmpty: {
+                        message: "课程名称不能为空！"
+                    }
+                }
+            },
+            addVideo_date: {
+                validators: {
+                    notEmpty: {
+                        message: "课程视频不能为空！"
+                    }
+                }
+            }
+        }
+    });
+}
+function fnReturnCourseList() {
+    $("#course").hide();
+    $("#courseList").show();
+    $("tr").removeClass("selected");
+}
+function fnShowBaseCourse() {
+    if($("tr").hasClass("selected")){
+        $("#storeList,#courseList").hide();
+        $("#course").show();
+        $("#course h5>span").html(storeName);
+        $("tr").removeClass("selected");   
+    }
+    else{
+        alert("请选择课程");
+    }
+}
+</script>
+<include file="./Public/template/footer.html" />

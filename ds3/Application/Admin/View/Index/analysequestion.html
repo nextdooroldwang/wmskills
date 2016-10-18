@@ -1,0 +1,101 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">答题统计</h3>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row" id="courseList">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">统计图表</h5>
+                    <div class="pull-right">
+                        <!-- <button class="btn btn-info" onclick="fnShowBaseCourse();">查看</button>
+                        <button class="btn btn-success" onclick="fnAddBaseCourse();">新增</button>
+                        <button class="btn btn-primary" onclick="fnSaveBaseCourse();">编辑</button>
+                        <button class="btn btn-danger" onclick="fnDeleteBaseCourse();">删除</button> -->
+                    </div>
+               </div>
+                <div class="panel-body">
+                        <form id="analyQuestionSearchForm" class="row">
+                            <div class="col-lg-6">
+                                <label>社区店:</label>
+                                <select class="selectpicker form-control" id="analyQuestionStore" name="analyQuestionSearchStore">
+                                    <option value="0">请选择区域店</option>
+                                    <option value="1">浑南新区社区店1</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>历史记录:</label>
+                                <select class="selectpicker form-control" id="analyQuestionHistory" name="analyQuestionHistory">
+                                    <option value="0">请选择答题历史</option>
+                                </select>
+                            </div>
+                        </form>
+                    <div id="main" style="height:400px;"></div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['回答正确','回答错误']
+                },
+                series: [
+                    {
+                        name:'回答准确率',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:17, name:'回答正确'},
+                            {value:3, name:'回答错误'}
+                        ]
+                    }
+                ]
+            };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+</script>
+<include file="./Public/template/footer.html" />

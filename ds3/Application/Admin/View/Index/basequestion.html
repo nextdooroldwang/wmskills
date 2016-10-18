@@ -1,0 +1,244 @@
+<include file="./Public/template/header.html" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">答题管理</h3>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12" id="questionList">
+            <div class="panel panel-default">
+               <div class="panel-heading clearfix">
+                    <h5 class="pull-left">题目列表</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-success" onclick="fnAddBaseQuestion();">新增</button>
+                        <button class="btn btn-primary" onclick="fnSaveBaseQuestion();">编辑</button>
+                        <button class="btn btn-danger" onclick="fnDeleteBaseQuestion();">删除</button>
+                    </div>
+               </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dt">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>问题</th>
+                                    <th>选项</th>
+                                    <th>答案</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb">
+                                <tr>
+                                    <td>1</td>
+                                    <td>小手摆摆的动作要领是什么？</td>
+                                    <td>抬手；举手；放手；摆手</td>
+                                    <td>摆手</td>
+                                </tr>
+                                 <tr>
+                                    <td>2</td>
+                                    <td>大手摆摆的动作要领是什么？</td>
+                                    <td>抬手；举手；放手；摆手</td>
+                                    <td>摆手</td>
+                                </tr>
+                                 <tr>
+                                    <td>3</td>
+                                    <td>中手摆摆的动作要领是什么？</td>
+                                    <td>抬手；举手；放手；摆手</td>
+                                    <td>摆手</td>
+                                </tr>
+                                 <tr>
+                                    <td>4</td>
+                                    <td>单手摆摆的动作要领是什么？</td>
+                                    <td>抬手；举手；放手；摆手</td>
+                                    <td>摆手</td>
+                                </tr>
+                                 <tr>
+                                    <td>5</td>
+                                    <td>双手摆摆的动作要领是什么？</td>
+                                    <td>抬手；举手；放手；摆手</td>
+                                    <td>摆手</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="modal fade" id="addBaseQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:60%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >新增问题</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="addDateForm">
+                                <div class="form-group">
+                                    <div>
+                                        <label>问题</label>
+                                        <input class="form-control" id="addQuestion_date" name="addQuestion_date" type="text" />
+                                    </div>
+                                    <div>
+                                        <label>选项</label>
+                                        <input class="form-control" id="addChoose_date" name="addChoose_date" type="text" />
+                                    </div>
+                                    <div>
+                                        <label>答案</label>
+                                        <input class="form-control" id="addAnswer_date" name="addAnswer_date" type="text" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <div class="modal fade" id="saveBaseQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:60%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >编辑课程信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="saveDateForm">
+                                <div class="form-group">
+                                    <div>
+                                        <label>问题</label>
+                                        <input class="form-control" id="saveQuestion_date" name="saveQuestion_date" type="text" />
+                                    </div>
+                                    <div>
+                                        <label>选项</label>
+                                        <input class="form-control" id="saveChoose_date" name="saveChoose_date" type="text" />
+                                    </div>
+                                    <div>
+                                        <label>答案</label>
+                                        <input class="form-control" id="saveAnswer_date" name="saveAnswer_date" type="text" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">修改</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+<!-- /#page-wrapper -->
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+$(document).ready(function() {
+    // 初始化DataTable
+    $('#dt').DataTable();
+    $('#dt2').DataTable();
+    $("#course").hide();
+    addSelectedClass();
+    verificationSaveQuestion();
+    verificationAddQuestion();
+});
+ function fnDeleteBaseQuestion() {
+    if($("tr").hasClass("selected")){
+       if (confirm("确认删除？")) {  
+            $(".selected").remove();
+        }
+    }
+    else{
+        alert("请选择要删除的答题！");
+    }
+ }
+ function fnAddBaseQuestion() {
+    $("#addBaseQuestion").modal("show");
+    $("#addBaseQuestion input").val("");
+   
+}
+function fnSaveBaseQuestion() {
+    if($("tr").hasClass("selected")){
+        $("#saveBaseQuestion").modal("show");
+        for(var i=0;i<3;i++){
+        $("#saveBaseQuestion input").eq(i).val($(".selected").children("td").eq(i+1).html());
+        }
+    }else alert("请选择需编辑答题信息!");
+    
+}
+function verificationSaveQuestion() {
+    $("#saveDateForm").bootstrapValidator({
+        fields: {
+            saveQuestion_date: {
+                validators: {
+                    notEmpty: {
+                        message: "问题不能为空！"
+                    }
+                }
+            },
+            saveChoose_date: {
+                validators: {
+                    notEmpty: {
+                        message: "选项不能为空！"
+                    }
+                }
+            },
+            saveAnswer_date: {
+                validators: {
+                    notEmpty: {
+                        message: "答案不能为空！"
+                    }
+                }
+            }
+        }
+    });
+}
+function verificationAddQuestion() {
+    $("#addDateForm").bootstrapValidator({
+        fields: {
+            saveQuestion_date: {
+                validators: {
+                    notEmpty: {
+                        message: "问题不能为空！"
+                    }
+                }
+            },
+            saveChoose_date: {
+                validators: {
+                    notEmpty: {
+                        message: "选项不能为空！"
+                    }
+                }
+            },
+            saveAnswer_date: {
+                validators: {
+                    notEmpty: {
+                        message: "答案不能为空！"
+                    }
+                }
+            }
+        }
+    });
+}
+</script>
+<include file="./Public/template/footer.html" />
