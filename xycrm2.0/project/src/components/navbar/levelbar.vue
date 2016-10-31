@@ -1,62 +1,53 @@
+<style scoped>
+
+#container {
+    width: 100%;
+
+}
+
+.el-breadcrumb {
+    font-size: 14px;
+    margin: 2vh 0vh;
+    border-radius: 4px;
+    padding-left: 10px;
+    border-bottom: 1px solid #eff2f7;
+}
+.el-row {
+  margin-bottom: 0px;
+}
+</style>
+
 <template lang="html">
-  <div class="container">
-    <div class="level-left">
-      <h3><strong>{{ msg }}</strong></h3>
-    </div>
-    <div class="level-right">
-      <ul>
-        <li v-for="item in levelitems" class="level">
-          {{ item }}
-        </li>
-      </ul>
-    </div>
-  </div>
+
+<div id="container">
+  <el-row>
+    <el-col :span="24">
+      <el-breadcrumb separator="/">
+          <el-breadcrumb-item :to="{ path:'/foot'}">首页</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
+          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      </el-breadcrumb>
+    </el-col>
+  </el-row>
+
+</div>
+
 </template>
 
 <script>
+
 export default {
-  data () {
-    return {
+    data() {
+            return {
 
-    }
-  },
-  computed: {
-    
-  },
-  mounted () {
+            }
+        },
+        computed: {
 
-  },
-  methods: {},
-  components: {},
-  props: ['msg', 'levelitems','mythis']
+        },
+        methods: {},
+        components: {}
 }
+
 </script>
-
-<style scoped>
-.container {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 20px;
-}
-.level-left {
-  float: left;
-}
-.level-right {
-  float: right;
-}
-.level {
-  float: left;
-}
-.level:first-child {
-  color: #23a197;
-  cursor: pointer;
-}
-.level:first-child:hover {
-  color: #aaa;
-}
-.level+.level:before {
-    padding: 0 5px;
-    color: #ccc;
-    content: var(--separator, "\2044");
-}
-</style>

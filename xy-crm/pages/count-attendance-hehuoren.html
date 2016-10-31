@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>星云CRM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style media="screen">
+        #toolbar {
+            margin-top: 10px;
+        }
+
+        td .glyphicon {
+            color: #428bca;
+        }
+
+        .mycontainer {
+            width: 100%;
+            height: 550px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./index-gongzuotai-hehuoren.html">星云CRM</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-nav">
+                <li><a href="./index-zuzhi-hehuoren.html">组织</a></li>
+                <li class="active"><a href="#">运营</a></li>
+            </ul>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 统计信息<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index-yunying-hehuoren.html">新增订单统计</a>
+                                </li>
+                                <li>
+                                    <a href="count-attendance-hehuoren.html">新增学员统计</a>
+                                </li>
+                                <li>
+                                    <a href="count-teacher-hehuoren.html">客户状态统计</a>
+                                </li>
+                                <li>
+                                    <a href="count-shiting-hehuoren.html">试听转化率统计</a>
+                                </li>
+                                <li>
+                                    <a href="count-chengdan-hehuoren.html">成单率统计</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
+                        <li><a href="#">工作台</a></li>
+                        <li>统计信息</li>
+                        <li>新增学员统计</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="mycontainer">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                            <option value="option">请选择社区店</option>
+                            <option value="option">新榆公馆</option>
+                            <option value="option">鹿特丹</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div id="chartXueyuan" style="width: 100%;height:100%;"></div>
+
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/echarts.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('chartXueyuan'));
+
+        option = {
+
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['学员总数', '新增学员']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {
+                        readOnly: false
+                    },
+                    magicType: {
+                        type: ['line', 'bar']
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', ]
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            },
+            series: [{
+                name: '学员总数',
+                type: 'line',
+                data: [110, 191, 150, 134, 212, 313, 310, 411, 441, 415, 373, 412],
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        name: '最小值'
+                    }]
+                }
+            }, {
+                name: '新增学员',
+                type: 'line',
+                data: [100, 9, 15, 13, 12, 13, 210, 11, 11, 145, 13, 10],
+                markPoint: {
+                    data: [{
+                        name: '最低值',
+                        type: 'min',
+                        xAxis: 1,
+                        yAxis: 'min'
+                    }]
+                },
+                markLine: {
+                    data: [{
+                            type: 'average',
+                            name: '平均值'
+                        },
+                        [{
+                            symbol: 'none',
+                            x: '90%',
+                            yAxis: 'max'
+                        }, {
+                            symbol: 'circle',
+                            label: {
+                                normal: {
+                                    position: 'start',
+                                    formatter: '最大值'
+                                }
+                            },
+                            type: 'max',
+                            name: '最高点'
+                        }]
+                    ]
+                }
+            }]
+        };
+
+        myChart.setOption(option);
+    </script>
+
+</body>
+
+</html>

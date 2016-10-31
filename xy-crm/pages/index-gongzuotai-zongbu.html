@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>星云CRM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .modal-dialog {
+            width: 800px;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">星云CRM</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">组织</a></li>
+                <li><a href="./index-yunying-zongbu.html">运营</a></li>
+            </ul>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> 员工组织<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index-zuzhi-zongbu.html">城市管理</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
+                        <li><a href="#">工作台</a></li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="echart" style="width: 100%; height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="echart1" style="width: 100%; height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="echart2" style="width: 100%; height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="echart3" style="width: 100%; height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="echart4" style="width: 100%; height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="echart5" style="width: 100%; height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- Echarts JavaScript -->
+    <script src="../js/echarts.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('echart'));
+        var myChart1 = echarts.init(document.getElementById('echart1'));
+        var myChart2 = echarts.init(document.getElementById('echart2'));
+        var myChart3 = echarts.init(document.getElementById('echart3'));
+        var myChart4 = echarts.init(document.getElementById('echart4'));
+        var myChart5 = echarts.init(document.getElementById('echart5'));
+        option = {
+            title: {
+                text: '星云家门口2016年总营业额',
+                subtext: '万元'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['线上', '线下']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {
+                        readOnly: false
+                    },
+                    magicType: {
+                        type: ['line', 'bar']
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            },
+            series: [{
+                name: '线上',
+                type: 'line',
+                data: [11, 11, 15, 13, 12, 13, 10],
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        name: '最小值'
+                    }]
+                },
+                markLine: {
+                    data: [{
+                        type: 'average',
+                        name: '平均值'
+                    }]
+                }
+            }, {
+                name: '线下',
+                type: 'line',
+                data: [1, 4, 2, 5, 3, 2, 1],
+                markPoint: {
+                    data: [{
+                        name: '周最低',
+                        value: -2,
+                        xAxis: 1,
+                        yAxis: -1.5
+                    }]
+                },
+                markLine: {
+                    data: [{
+                            type: 'average',
+                            name: '平均值'
+                        },
+                        [{
+                            symbol: 'none',
+                            x: '90%',
+                            yAxis: 'max'
+                        }, {
+                            symbol: 'circle',
+                            label: {
+                                normal: {
+                                    position: 'start',
+                                    formatter: '最大值'
+                                }
+                            },
+                            type: 'max',
+                            name: '最高点'
+                        }]
+                    ]
+                }
+            }]
+        };
+
+
+        option1 = {
+            title: {
+                text: '星云家门口2016年新增订单统计'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                feature: {
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            legend: {
+                data: ['订单数', '拼单数', '订单总金额']
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['沈阳市', '天津市']
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '数量',
+                min: 0,
+                max: 800,
+                interval: 100,
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            }, {
+                type: 'value',
+                name: '金额',
+                min: 0,
+                max: 800000,
+                interval: 100000,
+                axisLabel: {
+                    formatter: '{value} 元'
+                }
+            }],
+            series: [{
+                name: '订单数',
+                type: 'bar',
+                data: [678, 479]
+            }, {
+                name: '拼单数',
+                type: 'bar',
+                data: [104, 79]
+            }, {
+                name: '订单金额',
+                type: 'line',
+                yAxisIndex: 1,
+                data: [575000, 397000]
+            }]
+        };
+
+
+        option2 = {
+            title: {
+                text: '星云家门口2016年新增学员统计'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                feature: {
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            legend: {
+                data: ['学员总数', '新增学员']
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['沈阳市', '天津市']
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '数量',
+                min: 0,
+                max: 800,
+                interval: 100,
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            }],
+            series: [{
+                name: '学员总数',
+                type: 'bar',
+                data: [678, 479]
+            }, {
+                name: '新增学员',
+                type: 'bar',
+                data: [104, 79]
+            }]
+        };
+
+
+        option3 = {
+            title: {
+                text: '星云家门口2016年客户状态统计'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                feature: {
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['沈阳市', '天津市']
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '数量',
+                min: 0,
+                max: 800,
+                interval: 100,
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            }],
+            series: [{
+                name: '跟进1次',
+                type: 'bar',
+                data: [778, 709]
+            }, {
+                name: '跟进2次',
+                type: 'bar',
+                data: [744, 679]
+            }, {
+                name: '跟进3次',
+                type: 'bar',
+                data: [504, 459]
+            }, {
+                name: '跟进3次以上',
+                type: 'bar',
+                data: [404, 279]
+            }, {
+                name: '预约试听',
+                type: 'bar',
+                data: [304, 279]
+            }, {
+                name: '已试听',
+                type: 'bar',
+                data: [104, 79]
+            }]
+        };
+
+
+        option4 = {
+            title: {
+                text: '星云家门口2016年试听转化率统计'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['试听后未成交', '试听后成交']
+            },
+            toolbox: {
+                feature: {
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['沈阳市', '天津市']
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '数量',
+                min: 0,
+                max: 800,
+                interval: 100,
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            }],
+            series: [{
+                name: '试听后未成交',
+                type: 'bar',
+                data: [578, 409]
+            }, {
+                name: '试听后成交',
+                type: 'bar',
+                data: [366, 302]
+            }]
+        };
+
+
+        option5 = {
+            title: {
+                text: '星云家门口2016年成单率统计'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['成单', '未成单']
+            },
+            toolbox: {
+                feature: {
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['沈阳市', '天津市']
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '数量',
+                min: 0,
+                max: 800,
+                interval: 100,
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            }],
+            series: [{
+                name: '成单',
+                type: 'bar',
+                data: [578, 409]
+            }, {
+                name: '未成单',
+                type: 'bar',
+                data: [366, 302]
+            }]
+        };
+
+        myChart.setOption(option);
+        myChart1.setOption(option1);
+        myChart2.setOption(option2);
+        myChart3.setOption(option3);
+        myChart4.setOption(option4);
+        myChart5.setOption(option5);
+
+        function ok() {
+
+        }
+
+        function hhhh() {
+
+        }
+    </script>
+
+</body>
+
+</html>

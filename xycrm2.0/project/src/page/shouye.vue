@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="container">
+<div id="container">
   <h1>我是首页组件</h1>
 </div>
 </template>
@@ -11,8 +11,6 @@ export default {
     }
   },
   computed: {},
-  ready () {},
-  attached () {},
   methods: {},
   components: {}
 }

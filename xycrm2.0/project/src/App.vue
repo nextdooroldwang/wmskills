@@ -34,41 +34,37 @@ body {
 }
 
 .app-main {
-    padding-top: 50px;
-    margin-left: 180px;
+    padding-top: 60px;
+    margin-left: 220px;
     transform: translate3d(0, 0, 0);
-    background: #F5F7FA;
     width: calc(100%-150px);
     height: 100%;
+    overflow: auto;
 }
 
 .app-container {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
 }
 
+.el-row {
+  margin-bottom: 20px;
+}
 </style>
 
 <template>
 
 <div id="app">
     <headnav></headnav>
-    <slidernav :selectmenu="levelSelect" :mythis="_this"></slidernav>
+    <sliderbar></sliderbar>
     <section class="app-main">
         <div class="app-container">
-            <levelbar :msg="levelNow" :levelitems="levelItems" :mythis="_this"></levelbar>
-            <router-link to="/foot">路由跳转到footer组件</router-link>
-            <div class="" @click="tiaozhuan">
-                -----路由跳转到首页-----
-            </div>
+          <Levelbar></Levelbar>
+          <!-- <router-link to="/zuzhiShequdian">test</router-link> -->
             <router-view transition="fade" transition-mode="out-in" keep-alive>
             </router-view>
-            <footbar></footbar>
-            <hello></hello>
-            <el-button>默认按钮</el-button>
-            <el-button type="primary">主要按钮</el-button>
-            <el-button type="text">文字按钮</el-button>
+            <!-- <footbar></footbar> -->
         </div>
     </section>
 </div>
@@ -77,55 +73,37 @@ body {
 
 <script>
 
-import Hello from './components/Hello'
 import Headnav from './components/navbar/headbar'
-import Slidernav from './components/navbar/slidernav'
 import Levelbar from './components/navbar/levelbar'
 import Footbar from './components/navbar/footbar'
-
+import Sliderbar from './components/navbar/sliderbar'
+require("../node_modules/bootstrap/dist/css/bootstrap.min.css")
 export default {
     components: {
-        Hello,
         Headnav,
-        Slidernav,
+        Sliderbar,
         Levelbar,
         Footbar,
     },
     data() {
         return {
-            levelSelect: '首页',
-            itemslevel: ['首页']
+
         }
     },
     methods: {
-        tiaozhuan: function() {
-            this.$route.router.go({
-                name: 'shouye',
-                params: {
-                    userId: 'hhh'
-                }
-            })
-        }
+
+    },
+    created() {
+      window.addEventListener('hashchange', () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
     },
     mounted() {
 
     },
     computed: {
-        levelNow: function () {
-          this.$on('increment',function (id) {
-            this.levelSelect = id
-          })
-          return this.levelSelect
-        },
-        levelItems: function () {
-          this.$on('itemslevel',function (id) {
-            this.itemslevel = id
-          })
-          return this.itemslevel
-        },
-        _this: function () {
-          return this
-        }
+
     }
 }
 

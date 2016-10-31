@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container" @click="router">
+  <div id="container" @click="router">
     我是footer组件
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-  .container {
+  #container {
     align-items: center;
     justify-content: center;
   }
