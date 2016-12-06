@@ -51,7 +51,6 @@
 
 <script>
 
-import e from 'echarts'
 import opt from '../../data/echars/chengdan'
 export default {
     data() {

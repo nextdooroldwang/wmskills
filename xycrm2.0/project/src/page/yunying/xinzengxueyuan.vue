@@ -17,7 +17,6 @@
 
 <script>
 
-import e from 'echarts'
 import opt from '../../data/echars/xueyuanadd'
 export default {
     data() {

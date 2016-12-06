@@ -1,6 +1,8 @@
 <style lang="css" scoped>
 
-
+.el-button {
+  outline-color:invert;
+}
 
 </style>
 
@@ -29,7 +31,9 @@
                 </el-table-column>
                 <el-table-column property="zhuangtai" label="合同状态">
                 </el-table-column>
-                <el-table-column property="edit" label="操作">
+                <el-table-column inline-template label="操作">
+                  <!-- <el-button type="text" size="small">hh</el-button> -->
+                  <router-link to="/">Go to Foo</router-link>
                 </el-table-column>
             </el-table>
         </el-col>
@@ -50,8 +54,7 @@ export default {
                     jiage: '3300',
                     date: '2016-05-02',
                     keshi: '42',
-                    zhuangtai: '进行中',
-                    edit: '删除'
+                    zhuangtai: '进行中'
                 },{
                     num: '201543747',
                     name: '小明',
@@ -59,8 +62,7 @@ export default {
                     jiage: '3300',
                     date: '2016-05-02',
                     keshi: '42',
-                    zhuangtai: '进行中',
-                    edit: '删除'
+                    zhuangtai: '进行中'
                 } ]
             }
         },

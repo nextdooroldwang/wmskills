@@ -36,56 +36,11 @@
 </template>
 
 <script>
-
+import data from '../../data/zuzhi/yuangong'
 export default {
     data() {
             return {
-                tableData: [{
-                    name: '王小虎',
-                    phone: '133 4456 1518',
-                    sex: '男',
-
-                    dept: '财务部',
-
-                    edit: '删除'
-
-                }, {
-                    name: '王小虎',
-                    phone: '133 4456 1518',
-                    sex: '男',
-
-                    dept: '财务部',
-
-                    edit: '删除'
-
-                }, {
-                    name: '王小虎',
-                    phone: '133 4456 1518',
-                    sex: '男',
-
-                    dept: '财务部',
-
-                    edit: '删除'
-
-                }, {
-                    name: '王小虎',
-                    phone: '133 4456 1518',
-                    sex: '男',
-
-                    dept: '财务部',
-
-                    edit: '删除'
-
-                }, {
-                    name: '王小虎',
-                    phone: '133 4456 1518',
-                    sex: '男',
-
-                    dept: '财务部',
-
-                    edit: '删除'
-
-                }, ]
+                tableData: data
             }
         },
         computed: {},

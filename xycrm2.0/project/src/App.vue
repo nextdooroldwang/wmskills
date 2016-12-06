@@ -49,8 +49,13 @@ body {
 }
 
 .el-row {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
+
+.el-button {
+    outline-color: invert;
+}
+
 </style>
 
 <template>
@@ -60,8 +65,7 @@ body {
     <sliderbar></sliderbar>
     <section class="app-main">
         <div class="app-container">
-          <Levelbar></Levelbar>
-          <!-- <router-link to="/zuzhiShequdian">test</router-link> -->
+            <Levelbar></Levelbar>
             <router-view transition="fade" transition-mode="out-in" keep-alive>
             </router-view>
             <!-- <footbar></footbar> -->
@@ -77,14 +81,19 @@ import Headnav from './components/navbar/headbar'
 import Levelbar from './components/navbar/levelbar'
 import Footbar from './components/navbar/footbar'
 import Sliderbar from './components/navbar/sliderbar'
-require("../node_modules/bootstrap/dist/css/bootstrap.min.css")
+    // require("../node_modules/bootstrap/dist/css/bootstrap.min.css")
+
+import store from './test/store.js'
+
 export default {
     components: {
         Headnav,
         Sliderbar,
         Levelbar,
         Footbar,
+        icon,
     },
+    store,
     data() {
         return {
 
@@ -94,16 +103,18 @@ export default {
 
     },
     created() {
-      window.addEventListener('hashchange', () => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      });
+        window.addEventListener('hashchange', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
     },
     mounted() {
-
+      // console.log(this.count);
     },
     computed: {
-
+        count() {
+            return store.state.count
+        }
     }
 }
 

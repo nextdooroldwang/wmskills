@@ -48,45 +48,45 @@
 
 export default {
     data() {
-            return {
-                tableData: [{
-                    date: '2016-05-02',
-                    name: '301',
-                    num: '30',
-                    edit: '删除'
+          return {
+              tableData: [{
+                  date: '2016-05-02',
+                  name: '301',
+                  num: '30',
+                  edit: '删除'
 
-                }, {
-                    date: '2016-05-02',
-                    name: '301',
-                    num: '30',
-                    edit: '删除'
+              }, {
+                  date: '2016-05-02',
+                  name: '301',
+                  num: '30',
+                  edit: '删除'
 
-                },{
-                    date: '2016-05-02',
-                    name: '301',
-                    num: '30',
-                    edit: '删除'
+              },{
+                  date: '2016-05-02',
+                  name: '301',
+                  num: '30',
+                  edit: '删除'
 
+              }],
+              ruleForm: {
+                  name: '',
+                  num: ''
+              },
+              rules: {
+                name: [{
+                    required: true,
+                    message: '请输入课程名称',
+                    trigger: 'blur'
                 }],
-                ruleForm: {
-                    name: '',
-                    num: ''
-                },
-                rules: {
-                  name: [{
-                      required: true,
-                      message: '请输入课程名称',
-                      trigger: 'blur'
-                  }],
-                  num: [{
-                      required: true,
-                      message: '请输入教室可容纳人数',
-                      trigger: 'blur'
-                  }]
-                },
-                dialogFormVisible: false,
-                formLabelWidth: '100px'
-            }
+                num: [{
+                    required: true,
+                    message: '请输入教室可容纳人数',
+                    trigger: 'blur'
+                }]
+              },
+              dialogFormVisible: false,
+              formLabelWidth: '100px'
+          }
         },
         computed: {},
         mounted() {},

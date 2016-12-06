@@ -111,18 +111,18 @@ export default {
     },
     methods: {
         handleReset() {
-                this.$refs.ruleForm.resetFields();
-            },
-            handleSubmit(ev) {
-                this.$refs.ruleForm.validate((valid) => {
-                    if (valid) {
-                        alert('submit!');
-                    } else {
-                        console.log('error submit!!');
-                        return false;
-                    }
-                });
-            }
+          this.$refs.ruleForm.resetFields();
+        },
+        handleSubmit(ev) {
+          this.$refs.ruleForm.validate((valid) => {
+              if (valid) {
+                  console.log(this.ruleForm.sex);
+              } else {
+                  console.log('error submit!!');
+                  return false;
+              }
+          });
+        }
     }
 }
 

@@ -1,20 +1,16 @@
 import Vue from 'vue'
 import entry from './App'
 import VueRouter from 'vue-router'
-import Vuex from 'vuex'
-import Animate from 'animate.css'
+
+// import Animate from 'animate.css'
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 
-// import Font from 'font-awesome'
-// import Icon from 'vue-awesome/src/components/Icon.vue'
-// import 'vue-awesome/src/icons'
-
 Vue.use(Element)
 Vue.use(VueRouter)
-Vue.use(Vuex)
 
+// Vue.prototype.Axios = require('axios')
 const routes = [{
   path: '/',
   name: '首页',

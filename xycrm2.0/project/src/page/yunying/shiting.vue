@@ -54,7 +54,6 @@
 
 <script>
 
-import e from 'echarts'
 import opt from '../../data/echars/shiting'
 export default {
     data() {

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>xiangce</title>
+
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Light Gallery Plugin Css -->
+    <link href="../../plugins/light-gallery/css/lightgallery.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+    <style>
+        .col-xs-1,
+        .col-sm-1,
+        .col-md-1,
+        .col-lg-1,
+        .col-xs-2,
+        .col-sm-2,
+        .col-md-2,
+        .col-lg-2,
+        .col-xs-3,
+        .col-sm-3,
+        .col-md-3,
+        .col-lg-3,
+        .col-xs-4,
+        .col-sm-4,
+        .col-md-4,
+        .col-lg-4,
+        .col-xs-5,
+        .col-sm-5,
+        .col-md-5,
+        .col-lg-5,
+        .col-xs-6,
+        .col-sm-6,
+        .col-md-6,
+        .col-lg-6,
+        .col-xs-7,
+        .col-sm-7,
+        .col-md-7,
+        .col-lg-7,
+        .col-xs-8,
+        .col-sm-8,
+        .col-md-8,
+        .col-lg-8,
+        .col-xs-9,
+        .col-sm-9,
+        .col-md-9,
+        .col-lg-9,
+        .col-xs-10,
+        .col-sm-10,
+        .col-md-10,
+        .col-lg-10,
+        .col-xs-11,
+        .col-sm-11,
+        .col-md-11,
+        .col-lg-11,
+        .col-xs-12,
+        .col-sm-12,
+        .col-md-12,
+        .col-lg-12 {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .card .body .col-xs-6,
+        .card .body .col-sm-6,
+        .card .body .col-md-6,
+        .card .body .col-lg-6 {
+            margin-bottom: 0px;
+        }
+
+        .card .body .col-xs-4,
+        .card .body .col-sm-4,
+        .card .body .col-md-4,
+        .card .body .col-lg-4 {
+            margin-bottom: 0px;
+        }
+
+        .card .body .col-xs-3,
+        .card .body .col-sm-3,
+        .card .body .col-md-3,
+        .card .body .col-lg-3,
+        .thumbnail {
+            margin-bottom: 0px;
+        }
+
+        section {
+            padding: 8px;
+        }
+
+        .imgName {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px;
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .body {
+            overflow: auto;
+        }
+
+        .card {
+            margin-bottom: 34px;
+        }
+
+        .header {
+            box-sizing: border-box;
+        }
+
+        .footBtn {
+            box-sizing: border-box;
+            width: 100%;
+            height: 34px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .footnav {
+            display: flex;
+            width: inherit;
+            height: inherit;
+        }
+
+        .navleft,
+        .navright {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: inherit;
+            height: inherit;
+        }
+
+        .footnav button {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="theme-red">
+    <section>
+        <div class="container-fluid">
+            <!-- Image Gallery -->
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                我的相册
+                                <small>美术一班</small>
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">美术一班</a></li>
+                                        <li><a href="javascript:void(0);">美术二班</a></li>
+                                        <li><a href="javascript:void(0);">美术三班</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/1.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-1.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/2.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-2.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/3.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-3.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/4.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-4.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/5.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-5.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/6.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-6.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/7.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-7.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/8.jpg" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-8.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/9.jpg" data-sub-html="小明">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-9.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                                    <a href="../../images/image-gallery/10.jpg" data-sub-html="思思">
+                                        <img class="img-responsive thumbnail" src="../../images/image-gallery/thumb/thumb-10.jpg">
+                                        <div class="imgName">思思</div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footBtn">
+        <div class="footnav">
+            <div class="navleft">
+                <button class="btn bg-orange waves-effect">创建相册</button>
+            </div>
+            <div class="navright">
+                <button class="btn  waves-effect">全部相册</button>
+            </div>
+        </div>
+    </footer>
+    <!-- Jquery Core Js -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../../plugins/node-waves/waves.js"></script>
+
+    <!-- Light Gallery Plugin Js -->
+    <script src="../../plugins/light-gallery/js/lightgallery-all.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../../js/pages/medias/image-gallery.js"></script>
+    <script src="../../js/admin.js"></script>
+
+    <!-- Demo Js -->
+    <script src="../../js/demo.js"></script>
+
+    <script type="text/javascript">
+        $(".body").css('height', $(window).height() - $(".header").height() - 91 + "px");
+    </script>
+</body>
+
+</html>

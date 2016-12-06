@@ -12,17 +12,17 @@ const state = {
 
 const mutations = {
   // 初始化state
-  INIT_STORE (state, data) {
+  INIT_STORE(state, data) {
     state.notes = data.notes
     state.activeNote = data.activeNote
     state.show = data.show
     state.c = data.c
   },
-  MY_T (state) {
+  MY_T(state) {
     state.c++
   },
   // 新增笔记
-  NEW_NOTE (state) {
+  NEW_NOTE(state) {
     var newNote = {
       id: +new Date(),
       title: '',
@@ -33,7 +33,7 @@ const mutations = {
     state.activeNote = newNote
   },
   // 修改笔记
-  EDIT_NOTE (state, note) {
+  EDIT_NOTE(state, note) {
     state.activeNote = note
 
     for (var i = 0; i < state.notes.length; i++) {
@@ -44,16 +44,16 @@ const mutations = {
     }
   },
   // 删除笔记
-  DELETE_NOTE (state) {
+  DELETE_NOTE(state) {
     state.notes.$remove(state.activeNote)
     state.activeNote = state.notes[0] || {}
   },
   // 切换笔记的收藏与取消收藏
-  TOGGLE_FAVORITE (state) {
+  TOGGLE_FAVORITE(state) {
     state.activeNote.favorite = !state.activeNote.favorite
   },
   // 切换显示数据列表类型： 全部或者收藏
-  SET_SHOW_ALL (state, show) {
+  SET_SHOW_ALL(state, show) {
     state.show = show
       // 切换数据显示，同步更新activeNote
     if (show === 'favorite') {
@@ -63,12 +63,12 @@ const mutations = {
     }
   },
   // 设置当前激活的笔记
-  SET_ACTIVE_NOTE (state, note) {
+  SET_ACTIVE_NOTE(state, note) {
     state.activeNote = note
   }
 }
 
-export default new Vuex.Store({
-  state,
-  mutations
-})
+// export default new Vuex.Store({
+//   state,
+//   mutations
+// })
