@@ -51,7 +51,7 @@
   height: calc(100vh - 36px - 56px);
 }
 .time {
-  width: 20%;
+  width: 15%;
   height: 100%;
   float: left;
   color: rgb(107, 113, 127);
@@ -78,7 +78,7 @@
 }
 
 .tables {
-  width: 80%;
+  width: 85%;
   float: left;
   overflow: auto;
   overflow-y:hidden;
@@ -684,7 +684,7 @@ export default {
         week.yearCss.color = i === 0 ? '#f5a819' : ''
       },
       routerXiangqing () {
-        this.$router.push('/kcxq')
+        this.$router.push('/paike')
       },
     },
     created() {

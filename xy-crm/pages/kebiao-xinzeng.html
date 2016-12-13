@@ -174,7 +174,7 @@
 		}
 
 		.panelBodyContainer {
-			width: 768px;
+			min-width: 768px;
 			margin: 0 auto;
 		}
 
@@ -311,6 +311,12 @@
 		.endTime {
 			font-size: 18px;
 			color: #f5a819;
+		}
+
+		.shangkeshijian {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
 		}
 	</style>
 </head>
@@ -567,51 +573,39 @@
 						<div class="panel-body">
 							<div class="mycontainer">
 								<div class="panelBodyContainer">
-									<div class="clearfix">
-										<div class="pull-left">
-											上下课时间: <span class="localTime"></span> <span class="startTime"></span>~<span class="endTime"></span>
-										</div>
-										<div class="pull-right">
-											<span style="color:red">提示: </span><span style="color:#62c2eb">蓝色</span>区域表示当天已过去时间段
-										</div>
-									</div>
-									<div class="timeline-container">
-										<div class="canvasTitle">
-											<ul>
-												<li>9</li>
-												<li>10</li>
-												<li>11</li>
-												<li>12</li>
-												<li>13</li>
-												<li>14</li>
-												<li>15</li>
-												<li>16</li>
-												<li>17</li>
-												<li>18</li>
-												<li>19</li>
-												<li>20</li>
-												<li>21</li>
-												<li>22</li>
-												<li>23</li>
-												<div style="clear:both"></div>
-											</ul>
-										</div>
-										<canvas id="can" width="768px" height="30px"></canvas>
-										<div class="rangeSilid">
-											<!-- <span class="guide1">
-
-        	  </span>
-											<span class="guide2">
-
-           		</span> -->
-
-										</div>
-										<div id="slider"></div>
-									</div>
 
 									<div class="row courseInput">
 										<div class="col-sm-4">
+											<div class="row courseLeftInput">
+												<div class="col-sm-5 text-center">
+													<lable><span>* </span>上课时间: </lable>
+												</div>
+												<div class="col-sm-7 shangkeshijian">
+													<select class="form-control">
+														<option>8</option>
+														<option>9</option>
+														<option>10</option>
+														<option>11</option>
+														<option>12</option>
+														<option>13</option>
+														<option>14</option>
+														<option>15</option>
+														<option>16</option>
+														<option>17</option>
+														<option>18</option>
+														<option>19</option>
+														<option>20</option>
+														<option>21</option>
+														<option>22</option>
+													</select>
+													<div style="padding:0 3px;">:</div>
+													<select class="form-control">
+														<option>00</option>
+														<option>30</option>
+													</select>
 
+												</div>
+											</div>
 											<div class="row courseLeftInput">
 												<div class="col-sm-5 text-center">
 													<lable><span>* </span>上课教师: </lable>
@@ -1054,67 +1048,67 @@
 			}
 
 		)(), + function() {
-			document.ondragstart = function() {
-				return false;
-			};
-			$(".canvasTitle li").eq(0).css("left", "46px");
-			$(".canvasTitle li").eq(1).css("left", "90px");
-			$(".canvasTitle li").eq(2).css("left", "138px");
-			$(".canvasTitle li").eq(3).css("left", "184px");
-			$(".canvasTitle li").eq(4).css("left", "232px");
-			$(".canvasTitle li").eq(5).css("left", "282px");
-			$(".canvasTitle li").eq(6).css("left", "330px");
-			$(".canvasTitle li").eq(7).css("left", "376px");
-			$(".canvasTitle li").eq(8).css("left", "426px");
-			$(".canvasTitle li").eq(9).css("left", "476px");
-			$(".canvasTitle li").eq(10).css("left", "520px");
-			$(".canvasTitle li").eq(11).css("left", "570px");
-			$(".canvasTitle li").eq(12).css("left", "618px");
-			$(".canvasTitle li").eq(13).css("left", "666px");
-			$(".canvasTitle li").eq(14).css("left", "713px");
-			var hour = 16;
-			//刻度范围总小时数：16小时为8点～24点
-			var today = new Date();
-			var todayHour = today.getHours();
-			var todayMin = today.getMinutes();
-			var timeline = todayMin / 5 * 4 + ((todayHour - 8) * 48);
-			var defaulSTime,
-				defaulETime,
-				todayEHour,
-				todayEMin;
-			pageLoad(timeline);
+			// document.ondragstart = function() {
+			// 	return false;
+			// };
+			// $(".canvasTitle li").eq(0).css("left", "46px");
+			// $(".canvasTitle li").eq(1).css("left", "90px");
+			// $(".canvasTitle li").eq(2).css("left", "138px");
+			// $(".canvasTitle li").eq(3).css("left", "184px");
+			// $(".canvasTitle li").eq(4).css("left", "232px");
+			// $(".canvasTitle li").eq(5).css("left", "282px");
+			// $(".canvasTitle li").eq(6).css("left", "330px");
+			// $(".canvasTitle li").eq(7).css("left", "376px");
+			// $(".canvasTitle li").eq(8).css("left", "426px");
+			// $(".canvasTitle li").eq(9).css("left", "476px");
+			// $(".canvasTitle li").eq(10).css("left", "520px");
+			// $(".canvasTitle li").eq(11).css("left", "570px");
+			// $(".canvasTitle li").eq(12).css("left", "618px");
+			// $(".canvasTitle li").eq(13).css("left", "666px");
+			// $(".canvasTitle li").eq(14).css("left", "713px");
+			// var hour = 16;
+			// //刻度范围总小时数：16小时为8点～24点
+			// var today = new Date();
+			// var todayHour = today.getHours();
+			// var todayMin = today.getMinutes();
+			// var timeline = todayMin / 5 * 4 + ((todayHour - 8) * 48);
+			// var defaulSTime,
+			// 	defaulETime,
+			// 	todayEHour,
+			// 	todayEMin;
+			// pageLoad(timeline);
+			//
+			// $("#slider").slider("values", [timeline, timeline + 40]);
+			// $(".startTime").html(timemove(timeline));
+			// $(".endTime").html(timemove(timeline + 40));
 
-			$("#slider").slider("values", [timeline, timeline + 40]);
-			$(".startTime").html(timemove(timeline));
-			$(".endTime").html(timemove(timeline + 40));
-
-			function pageLoad(timeline) {
-				var cans = $("#can").get(0).getContext('2d');
-				/////////////////时间刻度表/////////////////////////////
-				cans.moveTo(0, 20);
-				cans.lineTo(768, 20);
-				//主线
-				for (var i = 0; i < hour; i++) {
-					cans.moveTo(0 + (i * 48), 20); //第一个点
-					cans.lineTo(0 + (i * 48), 5);
-					cans.moveTo(24 + (i * 48), 20); //第二个点
-					cans.lineTo(24 + (i * 48), 10);
-					cans.moveTo(48 + (i * 48), 20); //第三个点
-					cans.lineTo(48 + (i * 48), 5);
-				}
-				/////////////////时间刻度表/////////////////////////////
-				/////////////////时间线/////////////////////////////
-				cans.lineWidth = 1;
-				cans.strokeStyle = 'black';
-				cans.stroke();
-				var cans1 = $("#can").get(0).getContext('2d');
-				cans1.beginPath();
-				cans1.moveTo(0, 0);
-				cans1.lineTo(timeline, 0);
-				cans1.lineWidth = 4;
-				cans1.strokeStyle = '#62c2eb';
-				cans1.stroke();
-			}
+			// function pageLoad(timeline) {
+			// 	var cans = $("#can").get(0).getContext('2d');
+			// 	/////////////////时间刻度表/////////////////////////////
+			// 	cans.moveTo(0, 20);
+			// 	cans.lineTo(768, 20);
+			// 	//主线
+			// 	for (var i = 0; i < hour; i++) {
+			// 		cans.moveTo(0 + (i * 48), 20); //第一个点
+			// 		cans.lineTo(0 + (i * 48), 5);
+			// 		cans.moveTo(24 + (i * 48), 20); //第二个点
+			// 		cans.lineTo(24 + (i * 48), 10);
+			// 		cans.moveTo(48 + (i * 48), 20); //第三个点
+			// 		cans.lineTo(48 + (i * 48), 5);
+			// 	}
+			// 	/////////////////时间刻度表/////////////////////////////
+			// 	/////////////////时间线/////////////////////////////
+			// 	cans.lineWidth = 1;
+			// 	cans.strokeStyle = 'black';
+			// 	cans.stroke();
+			// 	var cans1 = $("#can").get(0).getContext('2d');
+			// 	cans1.beginPath();
+			// 	cans1.moveTo(0, 0);
+			// 	cans1.lineTo(timeline, 0);
+			// 	cans1.lineWidth = 4;
+			// 	cans1.strokeStyle = '#62c2eb';
+			// 	cans1.stroke();
+			// }
 
 			function timemove(value) {
 				var guideFiveNum = value / 4;

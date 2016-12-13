@@ -162,18 +162,32 @@
     <div class="selectContainer">
 
       <div class="selectClass">
-        <mu-raised-button icon="expand_more" style="color:#fff;width:100%;height:100%;margin-left:0;background:#23a197" @click="openBottomSheet" labelPosition="before" :label="leixing" />
-        <mu-bottom-sheet v-if="bottomSheet" @close="closeBottomSheet">
-            <mu-menu @itemClick="closeBottomSheet">
+        <mu-raised-button icon="expand_more" style="color:#fff;width:100%;height:100%;margin-left:0;background:#23a197" @click="openBottomSheet2" labelPosition="before" :label="banji" />
+        <mu-bottom-sheet v-if="bottomSheet2" @close="closeBottomSheet2">
+            <mu-menu @itemClick="closeBottomSheet2">
                 <mu-sub-header>
                     请选择一个
                 </mu-sub-header>
-                <mu-menu-item title="通知"  @click="sheet('通知')"/>
-                <mu-menu-item title="课程消息"  @click="sheet('课程消息')"/>
-                <mu-menu-item title="课堂表现"  @click="sheet('课堂表现')"/>
+                <mu-menu-item title="鲨鱼一班"  @click="sheet2('鲨鱼一班')"/>
+                <mu-menu-item title="鲨鱼二班"  @click="sheet2('鲨鱼二班')"/>
+                <mu-menu-item title="鲨鱼三班"  @click="sheet2('鲨鱼三班')"/>
             </mu-menu>
         </mu-bottom-sheet>
       </div>
+
+            <div class="selectClass">
+              <mu-raised-button icon="expand_more" style="color:#fff;width:100%;height:100%;margin-left:0;background:#23a197" @click="openBottomSheet" labelPosition="before" :label="leixing" />
+              <mu-bottom-sheet v-if="bottomSheet" @close="closeBottomSheet">
+                  <mu-menu @itemClick="closeBottomSheet">
+                      <mu-sub-header>
+                          请选择一个
+                      </mu-sub-header>
+                      <mu-menu-item title="通知"  @click="sheet('通知')"/>
+                      <mu-menu-item title="课程消息"  @click="sheet('课程消息')"/>
+                      <mu-menu-item title="课堂表现"  @click="sheet('课堂表现')"/>
+                  </mu-menu>
+              </mu-bottom-sheet>
+            </div>
     </div>
     <div class="nav">
 
@@ -338,7 +352,7 @@
       <mu-card>
 
         <mu-card-text>
-          <mu-text-field hintText="请输入课程消息，如：作业，预习内容，复习内容等。" multiLine fullWidth :rows="3"/>
+          <mu-text-field style="opacity: 1" hintText="请输入课程消息，如：作业，预习内容，复习内容等。" v-model="text" multiLine fullWidth :rows="3"/>
         </mu-card-text>
       </mu-card>
     </div>
@@ -414,12 +428,15 @@ export default {
         shayu,
         xuesheng,
         leixing: '通知',
+        banji:'鲨鱼一班',
+        text:'本期课程复习内容：骨骼分析，骨骼的成分',
         dialog: false,
         dialog1: false,
         topPopup: false,
         topPopup1: false,
         touch: false,
         bottomSheet: false,
+        bottomSheet2: false,
         menus: ['圆圆','小红','小明','豆豆','小童','强强','倩倩','强强','倩倩'],
         menus1: ['骨骼分析','树叶的世界','神奇的静电','灯泡发光啦',],
         value: '骨骼分析课程是为了了解骨骼的构造，和坚硬程度。'
@@ -451,8 +468,14 @@ export default {
           closeBottomSheet() {
               this.bottomSheet = false
           },
+          closeBottomSheet2() {
+              this.bottomSheet2 = false
+          },
           openBottomSheet() {
               this.bottomSheet = true
+          },
+          openBottomSheet2() {
+              this.bottomSheet2 = true
           },
           routerTuisong() {
             this.$router.push('/tuisong')
@@ -460,6 +483,10 @@ export default {
           sheet (val) {
             this.leixing = val
             this.bottomSheet = false
+          },
+          sheet2 (val) {
+            this.banji = val
+            this.bottomSheet2 = false
           },
 
         },

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>星云CRM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-table.min.css">
+    <style media="screen">
+        .mycontainer {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        #toolbar {
+            margin-top: 10px;
+        }
+
+        td .glyphicon {
+            color: #428bca;
+        }
+
+        lable {
+            line-height: 34px;
+        }
+
+        .btnAll {
+            width: 80px;
+            margin-left: 5px;
+        }
+
+        .inputGroupSearch {
+            margin-top: 15px;
+            display: none;
+        }
+
+        .inputGroupSearch .row {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .inputGroupSearch input {
+            width: 68%;
+            display: inline-block;
+        }
+
+        .select2-container {
+            width: 68% ! important;
+        }
+
+        .inputGroupSearch span {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .btnSearchOk {
+            padding: 5px 20px 0 0;
+        }
+
+        .btnSearchOk button {
+            margin-left: 5px;
+        }
+
+        .glyphicon {
+            cursor: pointer;
+            margin-right: 3px;
+        }
+
+        .form-control {
+            display: inline-block;
+        }
+
+        .inputGroupSearch select {
+            width: 68%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./index-gongzuotai.html">星云CRM</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-nav">
+                <li><a href="./index-zuzhi.html">组织</a></li>
+                <li class="active"><a href="#">CRM</a></li>
+                <li><a href="./index-jiaowu.html">教务</a></li>
+                <li><a href="./index-yingxiao.html">营销</a></li>
+                <li><a href="./index-yunying.html">运营</a></li>
+                <li><a href="./index-xitong.html">系统</a></li>
+            </ul>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> 意向客户<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index-crm.html">新客户录入</a>
+                                </li>
+                                <li>
+                                    <a href="client-edit.html">客户管理</a>
+                                </li>
+                                <li>
+                                    <a href="client-listen.html">试听管理</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file fa-fw"></i> 合同管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="pact-list.html">合同列表</a>
+                                </li>
+                                <li>
+                                    <a href="product-list.html">产品列表</a>
+                                </li>
+                                <li>
+                                    <a href="pact-sure.html">合同审核</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i> 学员管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="student-list.html">学员列表</a>
+                                </li>
+                                <li>
+                                    <a href="student-bespeak.html">预约登记</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb" style="margin:20px 0px 10px 0px">
+                        <li><a href="#">工作台</a></li>
+                        <li>意向客户</li>
+                        <li>客户管理</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="mycontainer">
+                    <button type="button" class="btn btn-success">批量导入</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                        批量分配顾问
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4>未分配客户数量：<span class="weifenpei"></span></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="请输入分配的客户数量">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control">
+                                                <option>李</option>
+                                                <option>王</option>
+                                                <option>孙</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-primary">确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                    <button class="btn btn-default pull-right btnAll">全部</button>
+                    <button class="btn btn-default pull-right btnSearch">高级搜索 <em class="glyphicon glyphicon-menu-down"></em></button>
+                    <div class="inputGroupSearch">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>学员姓名：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>家长姓名：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>家长电话：</span>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>客户来源：</span>
+                                <select class="form-control">
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>客户状态：</span>
+                                <select class="form-control">
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>跟进顾问：</span>
+                                <select class="form-control">
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>开始时间：</span>
+                                <input type="date" class="form-control startDate">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <span>结束时间：</span>
+                                <input type="date" class="form-control endDate">
+                            </div>
+
+
+                        </div>
+                        <div class="row btnSearchOk">
+                            <button class="btn btn-default pull-right">重置</button>
+                            <button class="btn btn-primary pull-right">搜索</button>
+                        </div>
+                    </div>
+                    <div id="toolbar" class="pull-left">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">分配顾问</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <lable><span style="color:red">* </span>请选择一位顾问跟进这1位客户: </lable>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <select class="form-control" placeholder="请选择老师">
+                                                    <option>李老师</option>
+                                                    <option>张老师</option>
+                                                    <option>王老师</option>
+                                                    <option>宋老师</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-primary">确定</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                    </div>
+                    <table data-toggle="table" data-striped=true data-undefined-text='-' data-sort-name="undefined" data-sort-order='desc' data-sort-stable=false data-pagination=ture data-search=ture data-show-columns=ture data-show-refresh=ture data-show-toggle=ture data-show-pagination-switch=ture
+                        data-minimum-count-columns=1 data-select-item-name="客户姓名">
+                        <thead>
+                            <tr>
+                                <th data-checkbox=true>客户姓名</th>
+                                <th>学员姓名</th>
+                                <th>家长姓名</th>
+                                <th>家长电话</th>
+                                <th>客户来源</th>
+                                <th>客户状态</th>
+                                <th>跟进顾问</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td><a href="client-xiangqing.html">陌陌</a></td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> <span class="glyphicon glyphicon-tag" onclick="genzong()"> </span> <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-resize-small"></span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><a href="client-xiangqing.html">结了</a></td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td>Item 1</td>
+                                <td>$1</td>
+                                <td>1</td>
+                                <td id="iii"><span class="glyphicon glyphicon-edit" onclick="edit()"> </span> </span><span class="glyphicon glyphicon-tag" onclick="genzong()"> </span> </span> <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-resize-small"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap-table-zh-CN.min.js"></script>
+    <script type="text/javascript">
+        function edit() {
+            window.location.href = "client.html"
+        }
+
+        function genzong() {
+            window.location.href = "clientgenzong.html"
+        }
+        $(".btnSearch").click(function() {
+            $(" .inputGroupSearch").slideUp();
+            if ($(" .inputGroupSearch").hasClass("searchShow")) {
+                $(".btnSearch em").removeClass("glyphicon-menu-up");
+                $(".btnSearch em").addClass("glyphicon-menu-down");
+                $(" .inputGroupSearch").removeClass("searchShow");
+            } else {
+                $(".btnSearch em").removeClass("glyphicon-menu-down");
+                $(".btnSearch em").addClass("glyphicon-menu-up");
+                $(" .inputGroupSearch").addClass("searchShow");
+            }
+            $(".searchShow").slideDown();
+        });
+        //未分配的客户数量
+        var weifenpei = 674;
+        $(".weifenpei").html(weifenpei);
+        $(".glyphicon").parent().addClass("text-center");
+    </script>
+</body>
+
+</html>

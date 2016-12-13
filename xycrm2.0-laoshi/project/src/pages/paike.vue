@@ -125,7 +125,7 @@
 .text {
     font-size: 16px;
     color: #000;
-    font-weight: 700;
+    font-weight: 400;
 }
 .qiandao {
   padding-right: 16px;
@@ -133,6 +133,14 @@
 .qiandao span {
   padding: 3px 5px;
   color: #fff;
+}
+
+.mu-card-text {
+  padding: 0;
+  padding-bottom: 16px;
+}
+video {
+  margin-bottom: 16px;
 }
 </style>
 
@@ -157,32 +165,67 @@
               <span>骨骼分析</span>
           </div>
       </div>
+      <mu-card-text>
+          <p >骨骼分析课程主要内容是对小朋友讲解骨骼的构造以及骨骼对身体的重要性。</p>
+      </mu-card-text>
+      <video src="http://www.youku.com" controls="controls" width="100%">
+      您的浏览器不支持 video 标签。
+      </video>
       <div class="infoBody2">
         <div class="info">
             <div class="title">
-                上课人数
+                班级
             </div>
             <div class="text">
-                8
+                鲨鱼一班
             </div>
         </div>
-          <div class="info">
-              <div class="title">
-                  班级
-              </div>
-              <div class="text">
-                  鲨鱼一班
-              </div>
-          </div>
+
           <div class="info">
               <div class="title">
                   教室
               </div>
               <div class="text">
-                  101
+                  201
               </div>
           </div>
+          <div class="info">
+              <div class="title">
+                  阶段
+              </div>
+              <div class="text">
+                  科学初级
+              </div>
+          </div>
+      </div>
+      <mu-divider/>
+      <div class="infoBody2">
 
+        <div class="info">
+            <div class="title">
+                班级人数
+            </div>
+            <div class="text">
+                12
+            </div>
+        </div>
+
+          <div class="info">
+              <div class="title">
+                  请假人数
+              </div>
+              <div class="text">
+                  2
+              </div>
+          </div>
+          <div class="info">
+              <div class="title">
+                  应到人数
+              </div>
+              <div class="text">
+                  10
+              </div>
+          </div>
       </div>
 
   </div>
@@ -190,52 +233,46 @@
     <div class="nav">
 
     </div>
-
+    <mu-sub-header>学员列表</mu-sub-header>
       <div >
         <div class="meItem">
           <div class="meIcon">
-            <div class="photo">
 
-            </div>
           </div>
           <div class="meText">
-            小明
+            小亮
           </div>
           <div style="display:flex;align-items:center">
 
           </div>
           <div class="qiandao">
-            <span  style="background:#23a197">已签到</span>
+            <span  style="background:#bbb">待签到</span>
           </div>
           </mu-list-item>
         </div>
         <mu-divider/>
         <div class="meItem">
           <div class="meIcon">
-            <div class="photo">
 
-            </div>
           </div>
           <div class="meText">
-            小明
+            小强
           </div>
           <div style="display:flex;align-items:center">
 
           </div>
           <div class="qiandao">
-            <span style="background:red">旷课</span>
+            <span style="background:#bbb">待签到</span>
           </div>
           </mu-list-item>
         </div>
         <mu-divider/>
         <div class="meItem">
           <div class="meIcon">
-            <div class="photo">
 
-            </div>
           </div>
           <div class="meText">
-            小明
+            小李
           </div>
           <div style="display:flex;align-items:center">
 
@@ -248,18 +285,16 @@
         <mu-divider/>
         <div class="meItem">
           <div class="meIcon">
-            <div class="photo">
 
-            </div>
           </div>
           <div class="meText">
-            小明
+            小红
           </div>
           <div style="display:flex;align-items:center">
 
           </div>
           <div class="qiandao">
-            <span style="background:#23a197">已签到</span>
+            <span style="background:#bbb">待签到</span>
           </div>
           </mu-list-item>
         </div>

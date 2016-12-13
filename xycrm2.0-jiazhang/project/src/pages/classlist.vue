@@ -97,7 +97,11 @@
     align-items: center;
     color: #ccc;
 }
-
+.qingjiaBtn {
+  color:#f5a819;
+  text-align:center;
+  padding:5px 0;
+}
 </style>
 
 <template lang="html">
@@ -181,11 +185,11 @@
             <mu-raised-button icon="expand_more" class="demo-raised-butto" @click="clickClassShow(courseA.num)" />
         </mu-card>
 
-        <div class="classAll" v-if="clickCourse.courseShow">
+        <div class="classAll" v-if="clickCourse.courseShow" @click="routerPaike">
             <div class="nav">
                 {{ clickCourse.stage }}
             </div>
-            <div class="classInfo">
+            <div class="classInfo" style="padding-bottom:0;">
                 <div class="classTitle">
                     <div class="className">
                         {{ clickCourse.name }}
@@ -203,6 +207,14 @@
                     </div>
                 </div>
                 <mu-divider/>
+                <div class="qingjiaBtn" @click="open" v-if="clickCourse.sure === '未开课'" :style="qingjiaCss">
+                {{ qingjia }}
+                </div>
+                <mu-dialog :open="dialog" v-if="dialog" title="提醒" @close="close">
+                   是否确认请假？
+                   <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+                   <mu-flat-button slot="actions" primary  @click="clickQingjia" label="确定"/>
+                 </mu-dialog>
             </div>
         </div>
 
@@ -227,8 +239,11 @@
                         <div class="classSure">
                             <mu-badge :content="courseAAA.sure" :color="sureColor(courseAAA.sure)" />
                         </div>
+
                     </div>
+
                     <mu-divider/>
+
                 </div>
 
             </div>
@@ -273,7 +288,7 @@ export default {
                             name: '树叶的世界',
                             time: '2016.11.23 08:00',
                             main: '分析树叶的成分和构造，了解树叶的形状和特性',
-                            sure: '已签到',
+                            sure: '未开课',
                             num: '2',
                             parent: '阶段一',
                         }, ]
@@ -342,6 +357,12 @@ export default {
                     time: '',
                     main: '',
                     sure: '',
+                },
+                qingjia: '申请请假',
+                pri:true,
+                dialog: false,
+                qingjiaCss: {
+                  color: '#f5a819'
                 }
             }
         },
@@ -424,7 +445,26 @@ export default {
                           sureColor = '#666'
                   }
                   return sureColor
-                }
+                },
+                clickQingjia () {
+                  let _this = this
+                  this.qingjia = '已申请请假'
+                  this.qingjiaCss.color = '#666'
+
+                  this.dialog = false
+                  setTimeout(function() {
+                    _this.clickCourse.sure = '请假'
+                  },2000)
+                },
+                open () {
+                  this.dialog = true
+                },
+                close () {
+                   this.dialog = false
+                 },
+                 routerPaike() {
+                   this.$router.push('/paike')
+                 }
         },
         computed: {
             content() {

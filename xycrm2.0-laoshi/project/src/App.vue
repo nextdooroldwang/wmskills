@@ -83,7 +83,7 @@ export default {
         this.$router.push('/')
       }
       if(val === 'xiangce') {
-        window.location.href="http://192.168.1.107/xiangce/pages/medias/image-gallery.html"
+        window.location.href="http://192.168.1.109/xiangce/pages/medias/image-gallery.html"
       }
       if(val === 'me') {
         this.$router.push('/me')

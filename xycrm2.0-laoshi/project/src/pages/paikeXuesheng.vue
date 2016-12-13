@@ -180,7 +180,11 @@
     color: #333;
     max-width: 50vw;
 }
-
+.childName {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
 </style>
 
 <template lang="html">
@@ -197,16 +201,19 @@
               <div class="classImg">
 
               </div>
+              <div class="childName">
+                  小明
+              </div>
 
           </div>
       </div>
       <div class="infoBody2">
           <div class="info">
               <div class="title">
-                  姓名
+                  班级
               </div>
               <div class="text">
-                  李思思
+                  鲨鱼一班
               </div>
           </div>
           <div class="info">
@@ -219,29 +226,22 @@
           </div>
           <div class="info">
               <div class="title">
-                  已完成课时
+                  完成/剩余课时
               </div>
               <div class="text">
-                  33
+                  33 / 9
               </div>
           </div>
       </div>
       <mu-divider/>
       <div class="infoBody2">
-          <div class="info">
-              <div class="title">
-                  剩余课时
-              </div>
-              <div class="text">
-                  11
-              </div>
-          </div>
+
           <div class="info">
               <div class="title">
                   累计签到
               </div>
               <div class="text">
-                  11
+                  31
               </div>
           </div>
           <div class="info">
@@ -249,7 +249,15 @@
                   请假次数
               </div>
               <div class="text">
-                  11
+                  1
+              </div>
+          </div>
+          <div class="info">
+              <div class="title">
+                  旷课次数
+              </div>
+              <div class="text">
+                  1
               </div>
           </div>
       </div>

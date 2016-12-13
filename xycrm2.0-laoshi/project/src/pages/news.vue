@@ -15,6 +15,7 @@
         <mu-tab value="tab1" title="课程消息" />
         <mu-tab value="tab2" title="签到提醒" />
         <mu-tab value="tab3" title="课堂表现" />
+        <mu-tab value="tab4" title="通知消息" />
     </mu-tabs>
     <div class="">
         <mu-list @itemClick="routerNew">

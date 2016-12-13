@@ -61,6 +61,18 @@ const routes = [{
   path: '/new',
   name: '消息详情',
   component: require('./pages/new.vue')
+}, {
+  path: '/paike',
+  name: '课程',
+  component: require('./pages/paike.vue')
+}, {
+  path: '/cunzhe',
+  name: '存折',
+  component: require('./pages/cunzhe.vue')
+}, {
+  path: '/cardchild',
+  name: '我',
+  component: require('./pages/cardchild.vue')
 }, ]
 
 const router = new VueRouter({

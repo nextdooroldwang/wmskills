@@ -121,7 +121,7 @@ flex-direction: column;
                 <div class="classImg">
 
                 </div>
-                <span>思思</span>
+                <span>思思 老师</span>
             </div>
         </div>
         <div class="infoBody">
@@ -151,10 +151,10 @@ flex-direction: column;
             </div>
             <div class="info">
                 <div class="title">
-                    职务
+                    教授课程
                 </div>
                 <div class="text">
-                    老师
+                    鲨鱼科学
                 </div>
             </div>
 

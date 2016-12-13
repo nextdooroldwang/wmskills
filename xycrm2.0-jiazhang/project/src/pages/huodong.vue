@@ -127,6 +127,7 @@
                 <li v-for="textLi in huodong.text">{{ textLi }}</li>
 
             </ul>
+            
         </div>
         <mu-card-actions>
             <mu-raised-button :label="baoming" class="demo-raised-button" icon="perm_phone_msg" style="color:#fff;" :style="baomingBg" @click="open" :disabled="dis"/>
@@ -177,6 +178,7 @@ import huodong5 from '../assets/xiaohai5.jpg'
 import huodong6 from '../assets/xiaohai6.jpg'
 import huodong7 from '../assets/xiaohai7.jpg'
 import huodong8 from '../assets/xiaohai8.jpg'
+import Axios from 'axios'
 export default {
     data() {
             return {
@@ -251,7 +253,19 @@ export default {
             return '2016-11-30 至 2016-12-01'
           }
         },
-        mounted() {}
+        mounted() {
+          let _this = this
+          // Axios.get('http://192.168.1.110:8360/admin/index/login')
+          //   .then(function (response) {
+          //     let data = response
+          //     console.log(data.data);
+          //     _this.huodong = data.data
+          //   })
+          //   .catch(function (error) {
+          //     console.log(error);
+          //   });
+
+        }
 }
 
 </script>

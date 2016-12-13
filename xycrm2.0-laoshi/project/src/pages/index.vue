@@ -2,7 +2,7 @@
 
 .nav {
     padding: 5px 0;
-    background:  rgb(240, 240, 240);
+    background: rgb(240, 240, 240);
 }
 
 .flexCenter {
@@ -136,15 +136,16 @@
 }
 
 .bage {
-  background: red;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  border-radius: 50%;
-  color: #fff;
+    background: red;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    color: #fff;
 }
+
 </style>
 
 <template lang="html">
@@ -229,14 +230,6 @@
             </div>
         </div>
         <div class="infoBody2">
-          <div class="info">
-              <div class="title">
-                  上课人数
-              </div>
-              <div class="text">
-                  {{ classInfo.infoNum }}
-              </div>
-          </div>
             <div class="info">
                 <div class="title">
                     班级
@@ -245,6 +238,7 @@
                     {{ classInfo.infoClass }}
                 </div>
             </div>
+
             <div class="info">
                 <div class="title">
                     教室
@@ -253,7 +247,43 @@
                     {{ classInfo.infoClassroom }}
                 </div>
             </div>
+            <div class="info">
+                <div class="title">
+                    阶段
+                </div>
+                <div class="text">
+                    科学初级
+                </div>
+            </div>
+        </div>
+        <mu-divider/>
+        <div class="infoBody2">
 
+            <div class="info">
+                <div class="title">
+                    班级人数
+                </div>
+                <div class="text">
+                    {{ classInfo.infoNum }}
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="title">
+                    请假人数
+                </div>
+                <div class="text" style="color:#f5a819">
+                    2
+                </div>
+            </div>
+            <div class="info">
+                <div class="title">
+                    应到人数
+                </div>
+                <div class="text">
+                    10
+                </div>
+            </div>
         </div>
 
     </div>
@@ -275,8 +305,8 @@
                 </div>
             </div>
         </mu-sub-header>
-        <mu-list v-for="news in newsToday">
-            <mu-list-item :title="news.title">
+        <mu-list v-for="news in newsToday" >
+            <mu-list-item :title="news.title" @click="routerTui">
                 <mu-avatar :src="news.icon" slot="leftAvatar" />
                 <span slot="describe">
             <span style="color: rgba(0, 0, 0, .87)">{{ news.teacher }} -</span> {{ news.text }}
@@ -309,11 +339,11 @@ export default {
             iconlaoshi,
             iconxingyun,
             bage: {
-              bage1: 0,
-              bage2: 1,
-              bage3: 0,
-            },
-            swiperOption: {
+                    bage1: 0,
+                    bage2: 1,
+                    bage3: 0,
+                },
+                swiperOption: {
                     pagination: '.swiper-pagination',
                     paginationClickable: true,
                     autoplay: 2500,
@@ -321,31 +351,31 @@ export default {
                 classInfo: {
                     infoId: 1,
                     infoName: '骨骼分解',
-                    infoClass: '鲨鱼班',
+                    infoClass: '鲨鱼一班',
                     infoClassroom: '201',
-                    infoNum: 7,
+                    infoNum: 12,
                 },
                 newsToday: [{
-                    title: '小象口才家庭作业',
-                    icon: iconxiaoxiang,
+                    title: '鲨鱼公园家庭作业（系统推送）',
+                    icon: iconlaoshi,
                     teacher: '思思老师',
                     text: '请宝宝给妈妈讲解骨骼的成分是什么。',
                     time: '2016-12-11  09:34',
-                    newClass: '作业',
+                    newClass: '课程消息',
                 }, {
-                    title: '舞蹈课表现',
+                    title: '骨骼分析课堂表现',
                     icon: iconlaoshi,
-                    teacher: '舞蹈老师',
-                    text: '今天宝宝在舞蹈基本功上非常用功，老师给你点个赞。',
+                    teacher: '图图老师',
+                    text: '今天宝宝在课上的讲解非常棒，老师给你点个赞。',
                     time: '2016-12-13  09:54',
                     newClass: '课堂表现',
                 }, {
-                    title: '鲨鱼公园课程预习',
-                    icon: iconshayu,
-                    teacher: '鲨鱼老师',
-                    text: '请提前预习树叶的形状，明天的树叶分析课上需要提问。',
+                    title: '放假通知',
+                    icon: iconlaoshi,
+                    teacher: '乐乐老师',
+                    text: '因下大学，明天的骨骼分析课放假。',
                     time: '2016-12-14  10:34',
-                    newClass: '预习',
+                    newClass: '通知消息',
                 }, {
                     title: '签到提醒消息',
                     icon: iconxingyun,
@@ -374,28 +404,36 @@ export default {
             routerNews() {
                 this.$router.push('/news')
             },
+            routerTui() {
+                this.$router.push('/tuisong')
+            },
             infoColor(newClass) {
                 let classColor = ''
                 switch (newClass) {
-                    case '作业':
+                    case '通知消息':
                         classColor = '#f5a819'
                         break;
-                    case '预习':
+                    case '课堂表现':
                         classColor = '#23a197'
                         break;
-                    case '课堂表现':
-                        classColor = 'blue'
+                    case '课程消息':
+                        classColor = 'red'
                         break;
                     case '签到提醒':
-                        classColor = 'red'
+                        classColor = 'blue'
                         break;
                     default:
                         classColor = '#666'
                 }
                 return classColor
             },
-            clickClass () {
-              this.$router.push({ path: '/paike', query: { id: this.classInfo.infoId }})
+            clickClass() {
+                this.$router.push({
+                    path: '/paike',
+                    query: {
+                        id: this.classInfo.infoId
+                    }
+                })
             },
     },
     computed: {

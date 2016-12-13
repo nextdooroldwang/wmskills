@@ -64,7 +64,53 @@
     text-align: center;
     margin-top: 16px;
 }
-
+.infoBody2 {
+    display: flex;
+    padding: 0px 16px 8px 16px;
+}
+.infoBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pushBtn {
+  padding: 16px 0;
+}
+.mu-dialog {
+  font-size: 12px;
+  text-align: left;
+}
+.dialogText {
+  padding: 6px;
+  display: flex;
+  justify-content: flex-start;
+}
+.demo-popup-top {
+  width: 100%;
+  opacity: .8;
+  height: 48px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 375px;
+  background: #f5a819;
+  opacity: .5;
+  color: #fff;
+}
+.infoHead {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-weight: 700;
+}
+.mu-sub-header {
+  padding: 16px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
 </style>
 
 <template lang="html">
@@ -107,26 +153,49 @@
     <div class="childList">
       <mu-sub-header>
         <div class="">
-          报名学员
+          报名学员列表
         </div>
+        <div class="listBtn">
+        {{ touchText }} <mu-switch v-model="touch">
+      </div>
     </mu-sub-header>
 
-    <mu-list-item title="果果" @click="selectChild">
+    <mu-list-item title="果果">
         <mu-avatar :src="xuesheng" slot="leftAvatar" />
-
+        <mu-checkbox class="demo-checkbox" slot="right"/>
     </mu-list-item>
 
     <mu-divider inset/>
-    <mu-list-item title="果果" @click="selectChild">
+    <mu-list-item title="果果">
         <mu-avatar :src="xuesheng" slot="leftAvatar" />
+        <mu-checkbox class="demo-checkbox" slot="right"/>
     </mu-list-item>
 
     <mu-divider inset/>
-    <mu-list-item title="果果" @click="selectChild">
+    <mu-list-item title="果果">
         <mu-avatar :src="xuesheng" slot="leftAvatar" />
+        <mu-checkbox class="demo-checkbox" slot="right"/>
     </mu-list-item>
 
     <mu-divider inset/>
+
+    </div>
+    <div class="pushBtn" >
+      <div class="infoBody2">
+          <div class="infoBtn">
+            <mu-raised-button label="活动签到" class="demo-raised-button" icon="edit" style="color:#fff;width:100%;height:34px;background:#f5a819;" @click="open"/>
+            <mu-dialog v-if="dialog" title="签到学员" @close="close" scrollable>
+              <mu-menu>
+                 <mu-menu-item :title="menu" v-for="menu in menus"/>
+               </mu-menu>
+                <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+                <mu-flat-button slot="actions" keyboardFocused primary @click="ok" label="确定"/>
+              </mu-dialog>
+              <mu-popup position="top" :overlay="false"  class="demo-popup-top" v-if="topPopup">
+                  签到成功
+              </mu-popup>
+          </div>
+      </div>
 
     </div>
 </div>
@@ -140,6 +209,10 @@ import xuesheng from '../assets/xuesheng.jpg'
 export default {
     data() {
             return {
+              dialog: false,
+              topPopup: false,
+              touch: false,
+                menus: ['圆圆','小红','小明','豆豆','小童','强强','倩倩','强强','倩倩'],
                 iconshayu,
                 xuesheng,
                 huodong: {
@@ -156,13 +229,32 @@ export default {
           selectChild() {
 
           },
+          open () {
+            this.dialog = true
+          },
+          close () {
+            this.dialog = false
+          },
+          ok () {
+            this.dialog = false
+            this.topPopup = true
+          },
         },
         watch: {
-
+          topPopup (val) {
+            if (val) {
+              setTimeout(() => {
+                this.topPopup = false
+              }, 2000)
+            }
+          },
         },
         computed: {
           huodongTime () {
             return '2016-11-30 至 2016-12-01'
+          },
+          touchText () {
+            return this.touch === false ? '反选' : '全选'
           },
         },
         mounted() {}

@@ -1,0 +1,438 @@
+<style lang="css" scoped>
+
+.nav {
+    padding: 5px 0;
+    background: #eee;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexCenter span {
+    display: flex;
+    align-items: center;
+}
+
+.mu-sub-header {
+    padding: 0px 16px;
+}
+
+.swiper {
+    width: 100vw;
+    height: 30vw;
+    max-height: 50vh;
+    background-image: url("../assets/haibao.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 6px;
+}
+
+.menuButton {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.menuTitle {
+    font-size: 14px;
+    color: rgb(122, 122, 122);
+}
+
+.news {
+    min-height: 180px;
+    max-height: 264px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mu-card-text {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.classInfo {
+    padding: 16px;
+}
+
+.infoHead {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-weight: 700;
+}
+
+.infoHead span {
+    display: flex;
+    align-items: center;
+}
+
+.infoBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 0;
+}
+
+.className {
+    display: flex;
+    align-items: center;
+}
+
+.className span {
+    font-size: 20px;
+    color: #222;
+}
+
+.classImg {
+    background-image: url('../assets/iconshayu.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /*border: 3px solid rgba(12, 145, 222, 0.5);;*/
+}
+
+.infoBody2 {
+    display: flex;
+    padding: 5px 0;
+}
+
+.info {
+    flex: 1;
+    align-items: center;
+}
+
+.title,
+.text {
+    text-align: center;
+}
+
+.title {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.text {
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+}
+
+.newsTime {
+    color: rgb(218, 218, 218);
+}
+
+.bage {
+  background: red;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  color: #fff;
+}
+</style>
+
+<template lang="html">
+
+<div id="container">
+
+    <swiper :options="swiperOption">
+        <swiper-slide>
+            <div class="swiper" @click="huodong">
+
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="swiper" @click="huodong">
+
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="swiper" @click="huodong">
+
+            </div>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+    <div class="menu">
+        <div class="menuButton">
+            <mu-icon-button style="color:#f5a819;width:auto;height:auto" touch @click="routerTuisong">
+                <i class="material-icons" style="font-size:34px;width:34px;height:34px;position:relative">speaker_notes
+                  <div class="bage" v-if="bage.bage1">
+                    {{ bage.bage1 }}
+                  </div>
+                </i>
+            </mu-icon-button>
+
+            <div class="menuTitle">
+                老师推送
+            </div>
+        </div>
+        <div class="menuButton">
+            <mu-icon-button style="color:#23a197;width:auto;height:auto" touch @click="routerTixing">
+                <i class="material-icons" style="font-size:34px;width:34px;height:34px;position:relative">watch_later
+                  <div class="bage" v-if="bage.bage2">
+                    {{ bage.bage2 }}
+                  </div>
+                </i>
+            </mu-icon-button>
+            <div class="menuTitle">
+                签到
+            </div>
+        </div>
+        <div class="menuButton">
+            <mu-icon-button style="color:red;width:auto;height:auto" touch @click="routerYueke">
+                <i class="material-icons" style="font-size:34px;width:34px;height:34px;position:relative">book
+                  <div class="bage" v-if="bage.bage3">
+                    {{ bage.bage3 }}
+                  </div>
+                </i>
+            </mu-icon-button>
+            <div class="menuTitle">
+                相册
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+
+    </div>
+    <div class="classInfo" @click="clickClass">
+        <div class="infoHead">
+            <span>
+          即将上课
+        </span>
+            <span>
+          {{ infoTime }}
+         </span>
+        </div>
+        <div class="infoBody">
+            <div class="className">
+                <div class="classImg">
+
+                </div>
+                <span>{{ classInfo.infoName }}</span>
+            </div>
+        </div>
+        <div class="infoBody2">
+            <div class="info">
+                <div class="title">
+                    老师
+                </div>
+                <div class="text">
+                    {{ classInfo.infoTeather }}
+                </div>
+            </div>
+            <div class="info">
+                <div class="title">
+                    教室
+                </div>
+                <div class="text">
+                    {{ classInfo.infoClass }}
+                </div>
+            </div>
+            <div class="info">
+                <div class="title">
+                    阶段
+                </div>
+                <div class="text">
+                    {{ classInfo.infoJieduan }}
+                </div>
+            </div>
+        </div>
+        <mu-divider/>
+        <div class="infoBody2">
+            <div class="info">
+                <div class="title">
+                    剩余课时
+                </div>
+                <div class="text">
+                    {{ classInfo.infoOver }}
+                </div>
+            </div>
+            <div class="info">
+                <div class="title">
+                    累计签到
+                </div>
+                <div class="text">
+                    {{ classInfo.infoSure }}
+                </div>
+            </div>
+            <div class="info">
+                <div class="title">
+                    请假次数
+                </div>
+                <div class="text">
+                    {{ classInfo.infoLeave }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+
+    </div>
+    <div class="news">
+        <mu-sub-header>
+            <div class="flexCenter">
+                <div class="">
+                    <span class="">
+                <mu-icon value="email" color="#f5a819"/>最新消息
+              </span>
+                </div>
+                <div class="">
+                    <span>
+                <mu-icon-button icon="more_horiz" touch @click="routerNews"/>
+              </span>
+                </div>
+            </div>
+        </mu-sub-header>
+        <mu-list v-for="news in newsToday">
+            <mu-list-item :title="news.title">
+                <mu-avatar :src="news.icon" slot="leftAvatar" />
+                <span slot="describe">
+            <span style="color: rgba(0, 0, 0, .87)">{{ news.teacher }} -</span> {{ news.text }}
+                </span>
+                <div class="newsTime">
+                    {{ news.time }}
+                </div>
+                <mu-badge :content="news.newClass" :color="infoColor(news.newClass)" slot="right" />
+            </mu-list-item>
+            <mu-divider inset/>
+        </mu-list>
+    </div>
+</div>
+
+</template>
+
+<script>
+
+import iconshayu from '../assets/iconshayu.png'
+import iconxiaoxiang from '../assets/iconxiaoxiang.jpg'
+import iconlaoshi from '../assets/laoshi.jpg'
+import iconxingyun from '../assets/img1.png'
+
+export default {
+    name: 'carrousel',
+    data() {
+        return {
+            iconshayu,
+            iconxiaoxiang,
+            iconlaoshi,
+            iconxingyun,
+            bage: {
+              bage1: 0,
+              bage2: 1,
+              bage3: 0,
+            },
+            swiperOption: {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    autoplay: 2500,
+                },
+                classInfo: {
+                    infoId: 1,
+                    infoName: '骨骼分解',
+                    infoTeather: '思思',
+                    infoJieduan: '初级',
+                    infoOver: '13',
+                    infoSure: '21',
+                    infoClass: '201',
+                    infoLeave: '0',
+                },
+                newsToday: [{
+                    title: '小象口才家庭作业',
+                    icon: iconxiaoxiang,
+                    teacher: '思思老师',
+                    text: '请宝宝给妈妈讲解骨骼的成分是什么。',
+                    time: '2016-12-11  09:34',
+                    newClass: '作业',
+                }, {
+                    title: '舞蹈课表现',
+                    icon: iconlaoshi,
+                    teacher: '舞蹈老师',
+                    text: '今天宝宝在舞蹈基本功上非常用功，老师给你点个赞。',
+                    time: '2016-12-13  09:54',
+                    newClass: '课堂表现',
+                }, {
+                    title: '鲨鱼公园课程预习',
+                    icon: iconshayu,
+                    teacher: '鲨鱼老师',
+                    text: '请提前预习树叶的形状，明天的树叶分析课上需要提问。',
+                    time: '2016-12-14  10:34',
+                    newClass: '预习',
+                }, {
+                    title: '签到提醒消息',
+                    icon: iconxingyun,
+                    teacher: '星云家门口',
+                    text: '您今天上的小象口才课程已成功签到！',
+                    time: '2016-12-15  09:34',
+                    newClass: '签到提醒',
+                }, ]
+
+        }
+    },
+
+    methods: {
+        huodong() {
+                this.$router.push('/huodong')
+            },
+            routerTuisong() {
+                this.$router.push('/tuisongliebiao')
+            },
+            routerTixing() {
+                this.$router.push('/tixing')
+            },
+            routerYueke() {
+                this.$router.push('/huodong')
+            },
+            routerNews() {
+                this.$router.push('/news')
+            },
+            infoColor(newClass) {
+                let classColor = ''
+                switch (newClass) {
+                    case '作业':
+                        classColor = '#f5a819'
+                        break;
+                    case '预习':
+                        classColor = '#23a197'
+                        break;
+                    case '课堂表现':
+                        classColor = 'blue'
+                        break;
+                    case '签到提醒':
+                        classColor = 'red'
+                        break;
+                    default:
+                        classColor = '#666'
+                }
+                return classColor
+            },
+            clickClass () {
+              this.$router.push({ path: '/kebiao', query: { id: this.classInfo.infoId }})
+            },
+    },
+    computed: {
+        infoTime() {
+                return '2016.11.22 | 08:00'
+            },
+
+    }
+
+}
+
+</script>

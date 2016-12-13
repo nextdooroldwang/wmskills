@@ -144,6 +144,12 @@
   top: 0;
   border-radius: 50%;
   color: #fff;
+
+}
+.qingjia {
+   display:flex;
+   justify-content: center;
+   padding-bottom:8px;
 }
 </style>
 
@@ -281,7 +287,16 @@
                 </div>
             </div>
         </div>
+
     </div>
+    <!-- <div class="qingjia">
+      <mu-raised-button :label="qingjia" class="demo-raised-button" :primary="pri" @click="clickQingjia" :disabled="!pri"/>
+      <mu-dialog :open="dialog" v-if="dialog" title="提醒" @close="close">
+         是否确认请假？
+         <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+         <mu-flat-button slot="actions" primary @click="close" label="确定"/>
+       </mu-dialog>
+    </div> -->
     <div class="nav">
 
     </div>
@@ -329,6 +344,9 @@ export default {
     name: 'carrousel',
     data() {
         return {
+            qingjia: '请假',
+            pri:true,
+            dialog: false,
             iconshayu,
             iconxiaoxiang,
             iconlaoshi,
@@ -397,7 +415,7 @@ export default {
                 this.$router.push('/tixing')
             },
             routerXiangce() {
-                window.location.href = 'http://192.168.1.107/xiangce/pages/medias/image-gallery.html'
+                window.location.href = 'http://192.168.1.109/xiangce/pages/medias/image-gallery.html'
             },
             routerNews() {
                 this.$router.push('/news')
@@ -425,6 +443,14 @@ export default {
             clickClass () {
               this.$router.push({ path: '/kebiao', query: { id: this.classInfo.infoId }})
             },
+            clickQingjia () {
+              this.qingjia = '已请假'
+              this.pri = false
+              this.dialog = true
+            },
+            close () {
+               this.dialog = false
+             }
     },
     computed: {
         infoTime() {

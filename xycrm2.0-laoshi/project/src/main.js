@@ -70,9 +70,9 @@ const routes = [{
   name: '学生',
   component: require('./pages/student.vue')
 }, {
-  path: '/cardChild',
+  path: '/cardchild',
   name: '学生名片',
-  component: require('./pages/cardChild.vue')
+  component: require('./pages/cardchild.vue')
 }, {
   path: '/login',
   name: '登陆',
@@ -85,6 +85,22 @@ const routes = [{
   path: '/paikeXuesheng',
   name: '排课学员',
   component: require('./pages/paikeXuesheng.vue')
+}, {
+  path: '/tuisongjilu',
+  name: '推送记录',
+  component: require('./pages/tuisongjilu.vue')
+}, {
+  path: '/qiandaojilu',
+  name: '签到记录',
+  component: require('./pages/qiandaojilu.vue')
+}, {
+  path: '/qingjia',
+  name: '请假列表',
+  component: require('./pages/qingjia.vue')
+}, {
+  path: '/qingjiachuli',
+  name: '请假处理',
+  component: require('./pages/qingjiachuli.vue')
 }, ]
 
 const router = new VueRouter({

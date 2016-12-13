@@ -151,7 +151,7 @@
 .text {
     font-size: 16px;
     color: #000;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .iconQiandao {
@@ -189,13 +189,20 @@
 .pushBtn {
   padding: 16px 0;
 }
+.qiandaojilu {
+  padding: 16px;
+  font-size: 12px;
+  color: #000;
+  font-weight: 700;
+
+}
 </style>
 
 <template lang="html">
 
   <div id="container">
     <div class="defaultClass">
-    <div class="classInfo">
+    <div class="classInfo" v-if="classClock === true">
         <div class="infoHead">
             <span>
           签到课程
@@ -215,20 +222,13 @@
         <div class="infoBody2">
           <div class="info">
               <div class="title">
-                  上课人数
+                  班级
               </div>
               <div class="text">
-                  {{ classInfo.infoNum }}
+                  {{ classInfo.infoClass }}
               </div>
           </div>
-            <div class="info">
-                <div class="title">
-                    班级
-                </div>
-                <div class="text">
-                    {{ classInfo.infoClass }}
-                </div>
-            </div>
+
             <div class="info">
                 <div class="title">
                     教室
@@ -237,14 +237,63 @@
                     {{ classInfo.infoClassroom }}
                 </div>
             </div>
+            <div class="info">
+                <div class="title">
+                    阶段
+                </div>
+                <div class="text">
+                    科学初级
+                </div>
+            </div>
+        </div>
+        <mu-divider/>
+        <div class="infoBody2">
 
+          <div class="info">
+              <div class="title">
+                  班级人数
+              </div>
+              <div class="text">
+                  {{ classInfo.infoNum }}
+              </div>
+          </div>
+
+            <div class="info">
+                <div class="title">
+                    请假人数
+                </div>
+                <div class="text" style="color:#f5a819">
+                    2
+                </div>
+            </div>
+            <div class="info">
+                <div class="title">
+                    应到人数
+                </div>
+                <div class="text">
+                    10
+                </div>
+            </div>
         </div>
 
+    </div>
+    <div class="" style="text-align:center;padding:30% 0;" v-if="classClock === false">
+<i class="material-icons" style="font-size:88px;color:#f5a819">block</i>
+<div class="">
+  暂无需签到的课程
+</div>
     </div>
     <div class="nav">
 
     </div>
-    <div class="childList">
+    <div v-if="classClock === false" class="qiandaojilu">
+      距离您下一堂课的上课时间还有 <span style="color:#f5a819;font-size:16px;font-weight:700">2小时</span> ，您可以在上课时间1小时区间内使用签到功能。
+      <router-link to="/qiandaojilu" style="font-size:16px;font-weight:700;text-decoration: underline;">查看签到记录</router-link>
+    </div>
+    <div class="nav"  v-if="classClock === false">
+
+    </div>
+    <div class="childList" v-if="classClock === true">
       <mu-sub-header>
         <div class="">
           学员列表
@@ -274,7 +323,7 @@
     <mu-divider inset/>
 
     </div>
-    <div class="pushBtn">
+    <div class="pushBtn" v-if="classClock === true">
       <div class="infoBody2">
           <div class="infoBtn">
             <mu-raised-button label="确认签到" class="demo-raised-button" icon="edit" style="color:#fff;width:100%;height:34px;background:#f5a819;" @click="open"/>
@@ -317,6 +366,7 @@ export default {
             infoClassroom: '201',
             infoNum: 7,
         },
+        classClock:false,
       }
         },
         methods: {
