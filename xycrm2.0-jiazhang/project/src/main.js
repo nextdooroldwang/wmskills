@@ -5,6 +5,22 @@ import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import AwesomeSwiper from 'vue-awesome-swiper'
 
+let ip = 'http://192.168.1.105:8360'
+let imgPath = 'assets/'
+Vue.prototype.xyIp = ip
+Vue.prototype.xyImg = imgPath
+String.prototype.replaceAll = function(s1, s2) {
+  return this.replace(new RegExp(s1, "gm"), s2);
+}
+String.prototype.Trim = function() {
+  return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+String.prototype.LTrim = function() {
+  return this.replace(/(^\s*)/g, "");
+}
+String.prototype.RTrim = function() {
+  return this.replace(/(\s*$)/g, "");
+}
 Vue.use(MuseUI)
 Vue.use(VueRouter)
 Vue.use(AwesomeSwiper)

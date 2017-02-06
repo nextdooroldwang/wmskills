@@ -39,20 +39,9 @@
   height: 44px;
   border-radius: 50%;
   background: #666;
-  background-image: url('../assets/xuesheng.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-.photo2 {
-
-  background-image: url('../assets/iconxiaoxiang.jpg');
-
-}
-.photo1 {
-
-  background-image: url('../assets/iconshayu.png');
-
 }
 .photoClass {
   width: 34px;
@@ -102,7 +91,6 @@
 }
 
 .classImg {
-    background-image: url('../assets/xuesheng.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -221,11 +209,8 @@
       </div>
       <div class="infoBody">
           <div>
-              <div class="classImg">
+              <div class="classImg" :style="{backgroundImage:'url('+myInfo.bgImg+')'}">
 
-              </div>
-              <div class="childName">
-                  王小明
               </div>
 
           </div>
@@ -233,10 +218,10 @@
       <div class="infoBody2">
         <div class="info">
             <div class="title">
-                昵称
+                名字
             </div>
             <div class="text">
-                明明
+                {{ myInfo.name }}
             </div>
         </div>
           <div class="info">
@@ -244,7 +229,7 @@
                   性别
               </div>
               <div class="text">
-                  女
+                  {{ myInfo.sex }}
               </div>
           </div>
 
@@ -253,7 +238,7 @@
                   年龄
               </div>
               <div class="text">
-                  3
+                  {{ myInfo.age }}
               </div>
           </div>
       </div>
@@ -265,7 +250,7 @@
                 生日
             </div>
             <div class="text">
-                2013.07.07
+                {{ myInfo.birthday }}
             </div>
         </div>
           <div class="info">
@@ -273,7 +258,7 @@
                   家长
               </div>
               <div class="text">
-                  妈妈 李梅
+                  {{ myInfo.parent }}
               </div>
           </div>
           <div class="info">
@@ -281,7 +266,7 @@
                   联系电话
               </div>
               <div class="text">
-                  18665543322
+                  {{ myInfo.phone }}
               </div>
           </div>
       </div>
@@ -300,155 +285,134 @@
 
     </mu-sub-header>
     <div>
-      <div class="meItem" @click="qiandao1 = !qiandao1">
-        <div class="meIcon">
-            <div class="photo photo1" >
+      <div v-for="classItem in myInfo.classInfo">
+        <div class="meItem" @click="classItem.clickShow = !classItem.clickShow">
+          <div class="meIcon">
+              <div class="photo" :style="{backgroundImage:'url('+classItem.icon+')'}">
 
-            </div>
-        </div>
-        <div class="meText">
-          鲨鱼一班
-        </div>
-        <div style="display:flex;align-items:center">
-
-        </div>
-        <div class="qiandaoTime">
-        <i class="material-icons">expand_more</i>
-        </div>
-        </mu-list-item>
-      </div>
-      <mu-divider/>
-      <div class="childList" v-show="qiandao1">
-          <mu-sub-header>
-              <div class="">
-                  详情
               </div>
-
-          </mu-sub-header>
-          <div style="display:flex">
-            <div style="flex:1;border-right:1px solid #eee">
-              <mu-card-text>
-                  课程名称：鲨鱼科学
-              </mu-card-text>
-              <mu-card-text>
-                  上课教室：101
-              </mu-card-text>
-              <mu-card-text>
-                  剩余课时：33
-              </mu-card-text>
-            </div>
-            <div style="flex:1">
-              <mu-card-text>
-                  累计签到次数：15
-              </mu-card-text>
-              <mu-card-text>
-                  请假次数：2
-              </mu-card-text>
-              <mu-card-text>
-                  旷课次数：1
-              </mu-card-text>
-            </div>
           </div>
-          <div style="padding:16px">
-            已完成/总课时：15/48
-            <mu-linear-progress mode="determinate" :value="value"/>
+          <div class="meText">
+            {{ classItem.classes }}
           </div>
-
-      </div>
-      <div class="meItem"  @click="qiandao2 = !qiandao2">
-        <div class="meIcon">
-          <div class="photo photo2">
+          <div style="display:flex;align-items:center">
 
           </div>
+          <div class="qiandaoTime">
+          <i class="material-icons">expand_more</i>
+          </div>
+          </mu-list-item>
         </div>
-        <div class="meText">
-          小象一班
-        </div>
-        <div style="display:flex;align-items:center">
+        <mu-divider/>
+        <div class="childList" v-show="classItem.clickShow">
+            <mu-sub-header>
+                <div class="">
+                    详情
+                </div>
 
-        </div>
-        <div class="qiandaoTime">
-<i class="material-icons">expand_more</i>
-        </div>
-        </mu-list-item>
-      </div>
-      <mu-divider/>
-      <div class="childList" v-show="qiandao2">
-          <mu-sub-header>
-              <div class="">
-                  学员签到记录
+            </mu-sub-header>
+            <div style="display:flex">
+              <div style="flex:1;border-right:1px solid #eee">
+                <mu-card-text>
+                    课程名称：{{ classItem.crouse }}
+                </mu-card-text>
+                <mu-card-text>
+                    上课教室：{{ classItem.classroom }}
+                </mu-card-text>
+                <mu-card-text>
+                    剩余课时：{{ classItem.over }}
+                </mu-card-text>
               </div>
+              <div style="flex:1">
+                <mu-card-text>
+                    累计签到次数：{{ classItem.sure }}
+                </mu-card-text>
+                <mu-card-text>
+                    请假次数：{{ classItem.leave }}
+                </mu-card-text>
+                <mu-card-text>
+                    旷课次数：{{ classItem.clear }}
+                </mu-card-text>
+              </div>
+            </div>
+            <div style="padding:16px">
+              已完成/总课时：{{ classItem.done }}/{{ classItem.classTimes }}
+              <mu-linear-progress mode="determinate" :value="classItem.done"/>
+            </div>
 
-          </mu-sub-header>
-          <div style="display:flex">
-            <div style="flex:1;border-right:1px solid #eee">
-              <mu-card-text>
-                  课程名称：小象口才
-              </mu-card-text>
-              <mu-card-text>
-                  上课教室：101
-              </mu-card-text>
-              <mu-card-text>
-                  剩余课时：33
-              </mu-card-text>
-            </div>
-            <div style="flex:1">
-              <mu-card-text>
-                  累计签到次数：15
-              </mu-card-text>
-              <mu-card-text>
-                  请假次数：2
-              </mu-card-text>
-              <mu-card-text>
-                  旷课次数：1
-              </mu-card-text>
-            </div>
-          </div>
-          <div style="padding:16px">
-            已完成/总课时：15/48
-            <mu-linear-progress mode="determinate" :value="value"/>
-          </div>
+        </div>
       </div>
     </div>
-
 </div>
 
 </template>
 
 <script>
 
-import iconshayu from '../assets/iconshayu.png'
-import iconxiaoxiang from '../assets/iconxiaoxiang.jpg'
 export default {
     data() {
         return {
-          value: 33,
-          qiandao1:false,
-          qiandao2:false,
-            bottomSheet: false,
-            activeTab: 'tab1',
-            courseAll: [{
-                title: '鲨鱼公园',
-                subTitle: 'Sharkpark',
-                icon: iconshayu,
-            }, ],
+          myInfo: {
+            name: '',
+            sex: '',
+            age: '',
+            birthday: '',
+            parent: '',
+            phone: '',
+            bgImg:'',
+            classInfo:[]
+          }
 
         }
     },
-    methods: {
-      closeBottomSheet () {
-        this.bottomSheet = false
-      },
-      openBottomSheet () {
-        this.bottomSheet = true
-      },
-      handleTabChange (val) {
-      this.activeTab = val
-      },
-      routerClassStudent() {
+    mounted() {
+      let _this = this
+      Axios.post(_this.xyIp+'/api/home_page/my')
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          _this.myInfo.name = data.data.child_name
+          _this.myInfo.sex = data.data.child_sex
+          _this.myInfo.age = data.data.age
+          _this.myInfo.birthday = data.data.child_birth
+          _this.myInfo.parent = data.data.name
+          _this.myInfo.phone = data.data.phone
+          _this.myInfo.bgImg = require('assets/' + data.data.child_photo)
+          for(let i =0;i < data.data.class_info.length;i++) {
+            _this.myInfo.classInfo.push({
+              clickShow: false,
+              classes: '',
+              icon: '',
+              crouse: '',
+              classroom: '',
+              over: 0,
+              sure: 0,
+              leave: 0,
+              clear: 0,
+              done: 0,
+              classTimes: 0
+            })
+            _this.myInfo.classInfo[i].classes = data.data.class_info[i].class_name
+            _this.myInfo.classInfo[i].icon = require('assets/' + data.data.class_info[i].logo)
+            _this.myInfo.classInfo[i].crouse = data.data.class_info[i].course_name
+            _this.myInfo.classInfo[i].classroom = data.data.class_info[i].classroom
+            _this.myInfo.classInfo[i].over = data.data.class_info[i].rest_hour
+            _this.myInfo.classInfo[i].sure = data.data.class_info[i].sign
+            _this.myInfo.classInfo[i].leave = data.data.class_info[i].leave
+            _this.myInfo.classInfo[i].clear = data.data.class_info[i].cut
+            _this.myInfo.classInfo[i].done = data.data.class_info[i].finish
+            _this.myInfo.classInfo[i].classTimes = data.data.class_info[i].actual_hour
+          }
+        }else {
+          console.log(data.errmsg);
+        }
 
-      }
-    },
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    }
 }
 
 </script>

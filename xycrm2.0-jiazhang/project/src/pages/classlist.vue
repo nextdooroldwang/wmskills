@@ -79,6 +79,9 @@
     font-weight: 500;
     color: #333;
     max-width: 50vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .mu-raised-button {
@@ -102,12 +105,19 @@
   text-align:center;
   padding:5px 0;
 }
+.cardContainer {
+  margin-bottom: 16px;
+}
+p {
+  max-height: 120px;
+  overflow: auto;
+}
 </style>
 
 <template lang="html">
 
 <div id="container">
-    <div v-for="courseA in courseAll">
+    <div v-for="courseA in courseAll" class="cardContainer">
         <mu-card>
             <mu-card-header :title="courseA.title" :subTitle="courseA.subTitle">
                 <mu-avatar :src="courseA.icon" slot="avatar" />
@@ -145,10 +155,10 @@
             </div>
 
             <div class="stepperContainer">
-                <div class="stepper" :style="stepW">
+                <div class="stepper" :style="stepW(courseA.courseNum)">
                     <mu-stepper :activeStep="activeStep" :linear="false">
-                        <mu-step v-for="stepNum in courseNum" :completed="false">
-                            <mu-step-button  @click="clickStep(stepNum)">
+                        <mu-step v-for="stepNum in courseA.courseNum" :completed="false">
+                            <mu-step-button  @click="clickStep(courseA,stepNum)">
                               <mu-icon  slot="icon" :value="iconValue(stepNum.stepSure)" :color="iconColor(stepNum.stepSure)" />
                                 {{ stepNum.text }}
                                 <br> {{ stepNum.time }}
@@ -159,61 +169,39 @@
                     </mu-stepper>
                 </div>
             </div>
-
-            <!-- <div class="stepperContainer">
-          <div class="stepper" :style="stepW">
-            <mu-stepper :activeStep="activeStep" :linear="false">
-                  <mu-step v-for="stepNum in courseNum">
-                    <mu-step-label @click="clickStep(stepNum)">
-                      <mu-icon v-if="stepNum.stepSure === '旷课'" slot="icon" value="cancel" color="red"/>
-                      <mu-icon v-if="stepNum.stepSure === '请假'" slot="icon" value="warning" color="#f5a819"/>
-                      <mu-icon v-if="stepNum.stepSure === '已签到'" slot="icon" value="check" color="#23a197"/>
-                      {{ stepNum.text }}<br>
-                      {{ stepNum.time }}
-                    </mu-step-label>
-
-                  </mu-step>
-
-            </mu-stepper>
-          </div>
-        </div> -->
-            <!-- <div class="tips">
-                <mu-icon slot="icon" value="check" :size="14" color="#23a197" />:已签到
-                <mu-icon slot="icon" value="warning" :size="14" color="#f5a819" />:请假
-                <mu-icon slot="icon" value="clear" :size="14" color="red" />:旷课
-            </div> -->
-            <mu-raised-button icon="expand_more" class="demo-raised-butto" @click="clickClassShow(courseA.num)" />
+            <mu-raised-button icon="expand_more" class="demo-raised-butto" @click="clickClassShow(courseA.num,courseA)" />
         </mu-card>
 
-        <div class="classAll" v-if="clickCourse.courseShow" @click="routerPaike">
+        <div class="classAll" v-if="courseA.clickCourse.courseShow" >
             <div class="nav">
-                {{ clickCourse.stage }}
+                {{ courseA.clickCourse.stage }}
             </div>
             <div class="classInfo" style="padding-bottom:0;">
-                <div class="classTitle">
+                <div class="classTitle" @click="routerPaike(courseA.clickCourse.id)">
                     <div class="className">
-                        {{ clickCourse.name }}
+                        {{ courseA.clickCourse.name }}
                     </div>
                     <div class="classTime">
-                        {{ clickCourse.time }}
+                        {{ courseA.clickCourse.time }}
                     </div>
                 </div>
-                <div class="classBody">
+                <div class="classBody" @click="routerPaike(courseA.clickCourse.id)">
                     <div class="classMain">
-                        {{ clickCourse.main }}
+                        {{ courseA.clickCourse.main }}
                     </div>
                     <div class="classSure">
-                        <mu-badge :content="clickCourse.sure" :color="sureColor(clickCourse.sure)" />
+                        <mu-badge :content="courseA.clickCourse.sure" :color="sureColor(courseA.clickCourse.sure)" />
                     </div>
                 </div>
                 <mu-divider/>
-                <div class="qingjiaBtn" @click="open" v-if="clickCourse.sure === '未开课'" :style="qingjiaCss">
+                <mu-flat-button :label="courseA.clickCourse.qingjia" class="demo-flat-button" style="width:100%"  @click="open(courseA.clickCourse)" :disabled="courseA.clickCourse.dis"  :style="courseA.clickCourse.qingjiaCss" v-if="courseA.clickCourse.sure === '未开课'"/>
+                <!-- <div class="qingjiaBtn" @click="open" v-if="courseA.clickCourse.sure === '待签到'" :style="qingjiaCss">
                 {{ qingjia }}
-                </div>
+                </div> -->
                 <mu-dialog :open="dialog" v-if="dialog" title="提醒" @close="close">
                    是否确认请假？
                    <mu-flat-button slot="actions" @click="close" primary label="取消"/>
-                   <mu-flat-button slot="actions" primary  @click="clickQingjia" label="确定"/>
+                   <mu-flat-button slot="actions" primary  @click="clickQingjia(courseA.clickCourse)" label="确定"/>
                  </mu-dialog>
             </div>
         </div>
@@ -224,7 +212,7 @@
                     {{ courseAA.stage }}
                 </div>
                 <div class="classInfo" v-for="courseAAA in courseAA.stageCourse">
-                    <div class="classTitle">
+                    <div class="classTitle" @click="routerPaike(courseAAA.id)">
                         <div class="className">
                             {{ courseAAA.name }}
                         </div>
@@ -232,7 +220,7 @@
                             {{ courseAAA.time }}
                         </div>
                     </div>
-                    <div class="classBody">
+                    <div class="classBody" @click="routerPaike(courseAAA.id)">
                         <div class="classMain">
                             {{ courseAAA.main }}
                         </div>
@@ -258,118 +246,30 @@
 </template>
 
 <script>
-import iconshayu from '../assets/iconshayu.png'
-import iconxiaoxiang from '../assets/iconxiaoxiang.jpg'
 export default {
     data() {
             return {
-                courseAll: [{
-                    title: '鲨鱼公园',
-                    subTitle: 'Sharkpark',
-                    icon: 'http://192.168.1.112:8360/static/img/course/1.png',
-                    text: '鲨鱼公园是中国青少年科技教育品牌机构，是为校内,外及家庭3-12岁的儿童提供动手科学产品及 趣味性的学科线下校区和网络情景学习。设立的教育与开发研究中心长期参与国家科学课标教参编写，业务覆盖物理化学，生物，地理，天 文，技术，工程，数学，社会实践等教学领域。',
-                    over: '13',
-                    sure: '22',
-                    leave: '1',
-                    show: false,
-                    num: 1,
-                    course: [{
-                        stage: '阶段一',
-                        stageCourse: [{
-                            id: 1,
-                            name: '骨头分析',
-                            time: '2016.11.22 08:00',
-                            main: '分析骨头的成分和构造，了解骨骼的坚韧和硬度',
-                            sure: '已签到',
-                            num: '1',
-                            parent: '阶段一',
-                        }, {
-                            id: 2,
-                            name: '树叶的世界',
-                            time: '2016.11.23 08:00',
-                            main: '分析树叶的成分和构造，了解树叶的形状和特性',
-                            sure: '未开课',
-                            num: '2',
-                            parent: '阶段一',
-                        }, ]
-                    },{
-                        stage: '阶段二',
-                        stageCourse: [{
-                            id: 5,
-                            name: '骨头分析',
-                            time: '2016.11.22 08:00',
-                            main: '分析骨头的成分和构造，了解骨骼的坚韧和硬度',
-                            sure: '已签到',
-                            num: '1',
-                            parent: '阶段二',
-                        }, {
-                            id: 6,
-                            name: '树叶的世界',
-                            time: '2016.11.23 08:00',
-                            main: '分析树叶的成分和构造，了解树叶的形状和特性',
-                            sure: '已签到',
-                            num: '2',
-                            parent: '阶段二',
-                        },]
-                    }]
-                }, ],
+                courseAll: [],
                 activeStep: -1,
-                courseNum: [{
-                    id: 1,
-                    stepSure: '已签到',
-                    text: '骨骼分析',
-                    time: '2016.12.22'
-                }, {
-                    id: 2,
-                    stepSure: '已签到',
-                    text: "树叶的秘密",
-                    time: '2016.12.23'
-                }, {
-                    id: 3,
-                    stepSure: '请假',
-                    text: "神奇的静电",
-                    time: '2016.12.24'
-                }, {
-                    id: 4,
-                    stepSure: '旷课',
-                    text: "电灯泡发光啦",
-                    time: '2016.12.25'
-                }, {
-                    id: '',
-                    stepSure: '',
-                    text: '',
-                    time: ''
-                }, {
-                    id: '',
-                    stepSure: '',
-                    text: '',
-                    time: ''
-                }, {
-                    id: '',
-                    stepSure: '',
-                    text: '',
-                    time: ''
-                }, ],
-                clickCourse: {
-                    courseShow: false,
-                    stage: '',
-                    name: '',
-                    time: '',
-                    main: '',
-                    sure: '',
-                },
-                qingjia: '申请请假',
                 pri:true,
                 dialog: false,
-                qingjiaCss: {
-                  color: '#f5a819'
-                }
+
             }
         },
         methods: {
-            clickClassShow(num) {
-                    this.courseAll[num - 1].show = !this.courseAll[num - 1].show
-                    this.clickCourse.courseShow = false
+            clickClassShow(num,course) {
+                    this.courseAll[num].show = !this.courseAll[num].show
+                    course.clickCourse.courseShow = false
+                },
+                stepW(courseNum) {
+                    let num = courseNum.length
+                    num = num % 4 > 0 ? (num + 1) / 4 * 100 : num / 4 * 100
+                    num = num + 'vw'
+                    let stepWidth = {}
+                    stepWidth = {
+                        width: num
+                    }
+                    return stepWidth
                 },
                 sureColor(sure) {
                     let sureColor = ''
@@ -388,29 +288,24 @@ export default {
                     }
                     return sureColor
                 },
-                clickStep(step) {
-                    for (let i = 0; i < this.courseAll.length; i++) {
-                        this.courseAll[i].show = false
-                    }
-
-                    let {
-                        id, stepSure, text, time
-                    } = step
-                    for (let arr of this.courseAll) {
-                      for(let arrr of arr.course) {
+                clickStep(courseA,courseArr) {
+                    courseA.show = false
+                      for(let arrr of courseA.course) {
                         for(let arrrr of arrr.stageCourse) {
-                          if(id === arrrr.id) {
-                            this.clickCourse.courseShow = true
-                            this.clickCourse.stage = arrrr.parent + '（当前选择的课程）'
-                            this.clickCourse.name = arrrr.name
-                            this.clickCourse.time = arrrr.time
-                            this.clickCourse.main = arrrr.main
-                            this.clickCourse.sure = arrrr.sure
+                          if(courseArr.id === arrrr.id) {
+                            courseA.clickCourse.id = arrrr.id
+                            courseA.clickCourse.courseShow = true
+                            courseA.clickCourse.stage = arrrr.parent + '（当前选择的课程）'
+                            courseA.clickCourse.name = arrrr.name
+                            courseA.clickCourse.time = arrrr.time
+                            courseA.clickCourse.main = arrrr.main
+                            courseA.clickCourse.sure = arrrr.sure
+                            courseA.clickCourse.qiandao = arrrr.qiandao
                             return false
                           }
                         }
                       }
-                    }
+
                 },
                 iconValue(step) {
                   let stepValue = ''
@@ -446,24 +341,40 @@ export default {
                   }
                   return sureColor
                 },
-                clickQingjia () {
-                  let _this = this
-                  this.qingjia = '已申请请假'
-                  this.qingjiaCss.color = '#666'
+                clickQingjia (val) {
 
                   this.dialog = false
-                  setTimeout(function() {
-                    _this.clickCourse.sure = '请假'
-                  },2000)
+                  let _this = this
+                  let qs = require('qs');
+                  Axios.post(_this.xyIp+'/api/home_page/leave', qs.stringify({
+                    schedule_id:val.id
+                  }))
+                  .then(function (response) {
+                    let data = response.data
+                    if(data.errno === 0) {
+                      val.qingjia = '已申请请假'
+                      val.qingjiaCss.color = '#666'
+                      val.dis = true
+                      val.sure = data.data
+
+                    }else {
+                      console.log(data.errmsg);
+                    }
+
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
                 },
-                open () {
+                open (val) {
                   this.dialog = true
+
                 },
                 close () {
                    this.dialog = false
                  },
-                 routerPaike() {
-                   this.$router.push('/paike')
+                 routerPaike(schedule_id) {
+                   this.$router.push({path:'/paike',query:{id:schedule_id}})
                  }
         },
         computed: {
@@ -485,46 +396,114 @@ export default {
                     }
                     return message
                 },
-                stepW() {
-                    let num = this.courseNum.length
-                    num = num % 4 > 0 ? (num + 1) / 4 * 100 : num / 4 * 100
-                    num = num + 'vw'
-                    let stepWidth = {}
-                    stepWidth = {
-                        width: num
-                    }
-                    return stepWidth
-                }
         },
         mounted () {
           let _this = this
+          Axios.post(_this.xyIp+'/api/home_page/schedule')
+          .then(function (response) {
+            let data = response.data
+            if(data.errno === 0) {
 
-          Axios.get('http://192.168.1.112:8360/api/customer/get_course_index')
-            .then(function (response) {
-              let data = response
-
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-
-
-
-          for (let arr of this.courseAll) {
-            for(let arrr of arr.course) {
-              for(let arrrr of arrr.stageCourse) {
-                if(this.$route.query.id === arrrr.id) {
-                  this.clickCourse.courseShow = true
-                  this.clickCourse.stage = arrrr.parent + '（当前选择的课程）'
-                  this.clickCourse.name = arrrr.name
-                  this.clickCourse.time = arrrr.time
-                  this.clickCourse.main = arrrr.main
-                  this.clickCourse.sure = arrrr.sure
-                  return false
+              for(let i =0;i < data.data.length;i++) {
+                _this.courseAll.push({
+                  title: '',
+                  subTitle: '',
+                  icon: '',
+                  text: '',
+                  over: '',
+                  sure: '',
+                  leave: '',
+                  show: false,
+                  num: i,
+                  course:[],
+                  courseNum: [],
+                  clickCourse: {
+                      courseShow: false,
+                      id:'',
+                      stage: '',
+                      name: '',
+                      time: '',
+                      qingjia: '申请请假',
+                      qingjiaCss: {
+                        color: '#f5a819'
+                      },
+                      dis:false,
+                      main: '',
+                      sure: '',
+                  },
+                },)
+                for(let ii = 0;ii < data.data[i].lesson_array.length;ii++) {
+                  _this.courseAll[i].courseNum.push({
+                    id: '',
+                    stepSure: '',
+                    text: '',
+                    time: ''
+                  },)
+                  _this.courseAll[i].courseNum[ii].id = data.data[i].lesson_array[ii].schedule_id
+                  _this.courseAll[i].courseNum[ii].stepSure = data.data[i].lesson_array[ii].status
+                  _this.courseAll[i].courseNum[ii].text = data.data[i].lesson_array[ii].lesson_name
+                  _this.courseAll[i].courseNum[ii].time = data.data[i].lesson_array[ii].start_date
+                }
+                _this.courseAll[i].title = data.data[i].course_name
+                _this.courseAll[i].subTitle = data.data[i].sub
+                _this.courseAll[i].icon = require('assets/' + data.data[i].logo)
+                _this.courseAll[i].text = data.data[i].info
+                _this.courseAll[i].over = data.data[i].rest_hour
+                _this.courseAll[i].sure = data.data[i].sign
+                _this.courseAll[i].leave = data.data[i].leave
+                for(let ii = 0;ii < data.data[i].course_content.length;ii++) {
+                  _this.courseAll[i].course.push({
+                    stage: '',
+                    stageCourse: [],
+                  },)
+                  _this.courseAll[i].course[ii].stage = data.data[i].course_content[ii].stage_name
+                  for(let iii = 0;iii < data.data[i].course_content[ii].lesson.length;iii++) {
+                    _this.courseAll[i].course[ii].stageCourse.push({
+                      id: '',
+                      name: '',
+                      time: '',
+                      main: '',
+                      sure: '',
+                      num: '',
+                      parent: '',
+                    },)
+                    _this.courseAll[i].course[ii].stageCourse[iii].id = data.data[i].course_content[ii].lesson[iii].schedule_id
+                    _this.courseAll[i].course[ii].stageCourse[iii].name = data.data[i].course_content[ii].lesson[iii].lesson_name
+                    _this.courseAll[i].course[ii].stageCourse[iii].time = data.data[i].course_content[ii].lesson[iii].start_date
+                    _this.courseAll[i].course[ii].stageCourse[iii].main = data.data[i].course_content[ii].lesson[iii].lesson_content
+                    _this.courseAll[i].course[ii].stageCourse[iii].sure = data.data[i].course_content[ii].lesson[iii].status
+                    _this.courseAll[i].course[ii].stageCourse[iii].parent = data.data[i].course_content[ii].lesson[iii].stage_name
+                    _this.courseAll[i].course[ii].stageCourse[iii].num = iii
+                  }
                 }
               }
+              for(let arr = 0;arr < _this.courseAll.length;arr++) {
+
+                for(let arrr of _this.courseAll[arr].course) {
+
+                  for(let arrrr of arrr.stageCourse) {
+
+                    if(_this.$route.query.id === arrrr.id) {
+                      _this.courseAll[arr].clickCourse.courseShow = true
+                      _this.courseAll[arr].clickCourse.id = arrrr.id
+                      _this.courseAll[arr].clickCourse.stage = arrrr.parent + '（当前选择的课程）'
+                      _this.courseAll[arr].clickCourse.name = arrrr.name
+                      _this.courseAll[arr].clickCourse.time = arrrr.time
+                      _this.courseAll[arr].clickCourse.main = arrrr.main
+                      _this.courseAll[arr].clickCourse.sure = arrrr.sure
+                      return false
+                    }
+                  }
+                }
+              }
+            }else {
+              console.log(data.errmsg);
             }
-          }
+
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         },
 }
 

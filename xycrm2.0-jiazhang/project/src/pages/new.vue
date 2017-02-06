@@ -42,7 +42,29 @@
 .mu-item-text {
     overflow: visible;
 }
+.gridlist-demo-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
+.gridlist-inline-demo{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.inputHuifu {
+  height:34px;
+  box-shadow:none;
+  border:1px solid #9e9e9e;
+  border-radius:3px;
+  padding-left:6px;
+  flex: 1;
+  margin-right: 8px;
+}
+.mu-list {
+  margin-bottom: 36px;
+}
 </style>
 
 <template lang="html">
@@ -50,39 +72,39 @@
 <div id="container">
     <div class="newTitle">
         <div class="title">
-            舞蹈课堂表现
+            {{ news.title }}
         </div>
         <div class="time">
-            2016-12-1 | 14:23
+            {{ news.time }}
         </div>
     </div>
-
+    <div class="gridlist-demo-container" v-if="news.title === '课堂表现'">
+        <mu-grid-list class="gridlist-inline-demo">
+          <mu-grid-tile v-for="tile in list">
+            <img :src="tile.image"/>
+            <span slot="subTitle">by-<b>{{tile.author}}</b></span>
+          </mu-grid-tile>
+        </mu-grid-list>
+      </div>
     <mu-list>
         <mu-sub-header>留言</mu-sub-header>
-        <mu-list-item>
-            <mu-avatar :src="iconlaoshi" slot="leftAvatar" />
-            <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">李老师 -</span> 今天舞蹈基础课上表现非常棒！点赞
-            </span>
-            <div class="newsTime">
-                2016-12-15 11:34
-            </div>
-        </mu-list-item>
-        <mu-divider inset/>
-        <mu-list-item>
-            <mu-avatar :src="iconxuesheng" slot="leftAvatar" />
-            <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">小红 -</span> 谢谢老师夸奖，我会继续努力的。
-            </span>
-            <div class="newsTime">
-                2016-12-15 12:22
-            </div>
-        </mu-list-item>
-        <mu-divider inset/>
+        <div v-for="newItem in news.main">
+          <mu-list-item>
+              <mu-avatar :src="newItem.icon" slot="leftAvatar" />
+              <span slot="describe">
+          <span style="color: rgba(0, 0, 0, .87)">{{ newItem.name }} -</span> {{ newItem.text }}
+              </span>
+              <div class="newsTime">
+                  {{ newItem.time }}
+              </div>
+          </mu-list-item>
+          <mu-divider inset/>
+        </div>
     </mu-list>
     <div class="callBack">
-        <mu-text-field hintText="请输入您回复的内容" multiLine :rows="2" :rowsMax="4" />
-        <mu-flat-button label="回复" class="demo-flat-button" backgroundColor="#23a197" color="#FFF" />
+
+          <input type="text" class="inputHuifu" name="firstname" placeholder="请输入您回复的内容..." v-model="content">
+            <mu-flat-button label="回复" class="demo-flat-button" backgroundColor="#23a197" color="#FFF" @click="clickHuifu"/>
     </div>
 
 </div>
@@ -90,16 +112,117 @@
 </template>
 
 <script>
-
-import iconlaoshi from '../assets/laoshi.jpg'
-import iconxuesheng from '../assets/xuesheng.jpg'
 export default {
     data() {
         return {
 
-            iconlaoshi,
-            iconxuesheng,
+            news: {
+              title: '',
+              time: '',
+              main: [],
+            },
+            list: [],
+            content:'',
         }
+    },
+    methods: {
+      clickHuifu() {
+        let _this = this
+        let newId = this.$route.query.id
+        let qs = require('qs');
+        Axios.post(_this.xyIp+'/api/home_page/reply', qs.stringify({
+          message_id: newId,
+          content: _this.content
+        }))
+        .then(function (response) {
+          let data = response.data
+          if(data.errno === 0) {
+            Axios.post(_this.xyIp+'/api/home_page/leave_message', qs.stringify({
+              message_id:newId
+            }))
+            .then(function (response) {
+              let data = response.data
+              if(data.errno === 0) {
+                  _this.news.main.push({
+                    name: '',
+                    icon: '',
+                    text: '',
+                    time: ''
+                  },)
+                  let contenLength = _this.news.main.length - 1
+                  _this.news.main[contenLength].icon = require('assets/' + data.data.messageArray[contenLength].logo)
+                  _this.news.main[contenLength].name = data.data.messageArray[contenLength].name
+                  _this.news.main[contenLength].text = data.data.messageArray[contenLength].content
+                  _this.news.main[contenLength].time = data.data.messageArray[contenLength].reply_date
+                  _this.content = ''
+
+              }else {
+                console.log(data.errmsg);
+              }
+
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+          }else {
+            console.log(data.errmsg);
+          }
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    },
+    mounted() {
+      let _this = this
+      let newId = this.$route.query.id
+      let qs = require('qs');
+      Axios.post(_this.xyIp+'/api/home_page/leave_message', qs.stringify({
+        message_id:newId
+      }))
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          _this.news.title = data.data.type
+          _this.news.time = data.data.create_date
+
+          if(data.data.imgArray) {
+            for(let i = 0;i < data.data.imgArray.length;i++) {
+              if (data.data.imgArray[i]) {
+                _this.list.push({
+                  image: '',
+                  title: '',
+                  author: '星云家门口'
+                },)
+                  _this.list[i].image = require('assets/' + data.data.imgArray[i])
+                  console.log(i);
+              }
+
+            }
+
+          }
+          for(let i =0;i < data.data.messageArray.length;i++) {
+            _this.news.main.push({
+              name: '',
+              icon: '',
+              text: '',
+              time: ''
+            },)
+            _this.news.main[i].icon = require('assets/' + data.data.messageArray[i].logo)
+            _this.news.main[i].name = data.data.messageArray[i].name
+            _this.news.main[i].text = data.data.messageArray[i].content
+            _this.news.main[i].time = data.data.messageArray[i].reply_date
+          }
+        }else {
+          console.log(data.errmsg);
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     }
 }
 

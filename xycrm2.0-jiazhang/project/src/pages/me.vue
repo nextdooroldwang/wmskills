@@ -35,6 +35,8 @@
 }
 .meIcon {
   padding: 16px;
+  display: flex;
+  align-items: center;
 }
 .photo {
   width: 44px;
@@ -64,20 +66,20 @@
   <div class="nav">
 
   </div>
-  <div class="meItem">
+  <div class="meItem" @click="routerCard">
     <div class="meIcon">
-      <div class="photo">
+      <div class="photo" :style="{background:xuesheng}">
 
       </div>
     </div>
     <div class="meText">
-      小明
+      {{ myName }}
     </div>
     <div style="display:flex;align-items:center">
       <mu-icon value="texture" color="#f5a819"/>
     </div>
     <div class="">
-      <mu-icon-button icon="chevron_right" @click="routerCard"/>
+      <mu-icon-button icon="chevron_right"/>
     </div>
     </mu-list-item>
   </div>
@@ -89,7 +91,7 @@
       <mu-icon value="home" color="#f5a819"/>
     </div>
     <div class="meText">
-      星云家门口万科鹿特丹店
+      {{ myStores }}
     </div>
     <div class="iconBorder">
       <span>我的社区店</span>
@@ -102,7 +104,7 @@
   <div class="nav">
 
   </div>
-  <div class="meItem">
+  <div class="meItem" @click="routerHetong">
     <div class="meIcon" >
       <mu-icon value="chrome_reader_mode" color="#f5a819"/>
     </div>
@@ -113,12 +115,12 @@
       <span>3</span>
     </div>
     <div class="">
-      <mu-icon-button icon="chevron_right" @click="routerHetong"/>
+      <mu-icon-button icon="chevron_right"/>
     </div>
     </mu-list-item>
   </div>
   <mu-divider inset/>
-  <div class="meItem">
+  <div class="meItem" @click="routerKebiao">
     <div class="meIcon">
       <mu-icon value="date_range" color="#f5a819"/>
     </div>
@@ -129,13 +131,13 @@
 
     </div>
     <div class="">
-      <mu-icon-button icon="chevron_right" @click="routerKebiao"/>
+      <mu-icon-button icon="chevron_right"/>
     </div>
     </mu-list-item>
   </div>
 
   <mu-divider inset/>
-  <div class="meItem">
+  <div class="meItem" @click="routerCunzhe">
     <div class="meIcon" >
       <mu-icon value="credit_card" color="#f5a819"/>
     </div>
@@ -146,7 +148,7 @@
 
     </div>
     <div class="">
-      <mu-icon-button icon="chevron_right" @click="routerCunzhe"/>
+      <mu-icon-button icon="chevron_right"/>
     </div>
     </mu-list-item>
   </div>
@@ -181,7 +183,9 @@ import xuesheng from '../assets/xuesheng.jpg'
 export default {
     data() {
             return {
-                xuesheng
+                xuesheng,
+                myName: '小明',
+                myStores: '星云家门口万科鹿特丹店',
             }
         },
         mounted() {},

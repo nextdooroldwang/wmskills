@@ -1,6 +1,7 @@
 <style lang="css" scoped>
 #container {
   min-height: calc(100vh - 56px);
+  background: #eee;
 }
 .nav {
     padding: 5px 0;
@@ -22,6 +23,8 @@
 
 .classInfo {
     padding: 16px;
+    background: #fff;
+    margin-bottom: 8px;
 }
 
 .infoHead {
@@ -54,14 +57,12 @@
 }
 
 .classImg {
-    background-image: url('../assets/iconshayu.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /*border: 3px solid rgba(12, 145, 222, 0.5);;*/
 }
 
 .infoBody2 {
@@ -72,6 +73,8 @@
 .info {
     flex: 1;
     align-items: center;
+    max-width: calc((100vw - 32px) / 3);
+
 }
 .infoBtn {
   width: 100%;
@@ -93,6 +96,10 @@
     font-size: 16px;
     color: #000;
     font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    display: block;
 }
 
 .iconQiandao {
@@ -112,9 +119,6 @@
   display: flex;
   justify-content: flex-start;
 }
-.dialogTitle {
-
-}
 .dialogTitle+span {
   flex: 1;
   color: #000;
@@ -126,21 +130,28 @@
 <template lang="html">
 
 <div id="container">
-  <div class="classInfo">
+  <div class="" style="text-align:center;padding:50% 0;" v-if="classClock === false">
+    <i class="material-icons" style="font-size:88px;color:#f5a819">block</i>
+    <div class="">
+    暂无需签到的课程
+    </div>
+  </div>
+
+  <div class="classInfo" v-for="courseAll in course">
       <div class="infoHead">
         <span class="iconQiandao">
-          {{ iconQiandao }}
+          {{ courseAll.status }}
         </span>
           <span>
-        {{ infoTime }}
+        {{ courseAll.date }}
        </span>
       </div>
       <div class="infoBody">
           <div class="className">
-              <div class="classImg">
+              <div class="classImg" :style="{backgroundImage:'url('+courseAll.logo+')'}">
 
               </div>
-              <span>{{ classInfo.infoName }}</span>
+              <span>{{ courseAll.lesson_name }}</span>
           </div>
       </div>
       <div class="infoBody2">
@@ -149,7 +160,7 @@
                   老师
               </div>
               <div class="text">
-                  {{ classInfo.infoTeather }}
+                  {{ courseAll.teacher }}
               </div>
           </div>
           <div class="info">
@@ -157,7 +168,7 @@
                   教室
               </div>
               <div class="text">
-                  {{ classInfo.infoClass }}
+                  {{ courseAll.classroom }}
               </div>
           </div>
           <div class="info">
@@ -165,77 +176,100 @@
                   阶段
               </div>
               <div class="text">
-                  {{ classInfo.infoJieduan }}
+                  {{ courseAll.stage }}
               </div>
           </div>
       </div>
       <mu-divider/>
       <div class="infoBody2">
           <div class="infoBtn">
-            <mu-raised-button :label="baoming" class="demo-raised-button" icon="edit" style="color:#fff;width:100%" :style="baomingBg" @click="open" :disabled="dis"/>
-            <mu-dialog v-if="dialog" title="签到提示" @close="close">
-              <div class="dialogText">
-                <span class="dialogTitle">确认签到: </span><span>{{ classInfo.infoName }}？</span>
-              </div>
-              <div class="dialogText">
-                <span class="dialogTitle">上课时间: </span><span>{{ infoTime }}</span>
-              </div>
-              <div class="dialogText">
-                <span class="dialogTitle">上课教室: </span><span>{{ classInfo.infoClass }}</span>
-              </div>
-              <div class="dialogText">
-                <span class="dialogTitle">上课老师: </span><span>{{ classInfo.infoTeather }}</span>
-              </div>
-                <mu-flat-button slot="actions" @click="close" primary label="取消"/>
-                <mu-flat-button slot="actions" keyboardFocused primary @click="ok" label="确定"/>
-              </mu-dialog>
-              <mu-popup position="top" :overlay="false" class="demo-popup-top" v-if="topPopup">
-                  签到成功
-              </mu-popup>
+            <mu-raised-button :label="courseAll.baoming" class="demo-raised-button" icon="edit" style="width:100%;color:#fff" :style="courseAll.baomingBg" @click="open(courseAll)" :disabled="courseAll.dis"/>
           </div>
       </div>
+
   </div>
+  <mu-dialog v-if="dialog" title="签到提示" @close="close">
+    <div class="dialogText">
+      <span class="dialogTitle">确认签到: </span><span>{{ dialogText.lesson_name }}？</span>
+    </div>
+    <div class="dialogText">
+      <span class="dialogTitle">上课时间: </span><span>{{ dialogText.date }}</span>
+    </div>
+    <div class="dialogText">
+      <span class="dialogTitle">上课教室: </span><span>{{ dialogText.classroom }}</span>
+    </div>
+    <div class="dialogText">
+      <span class="dialogTitle">上课老师: </span><span>{{ dialogText.teacher }}</span>
+    </div>
+      <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+      <mu-flat-button slot="actions" keyboardFocused primary @click="ok(dialogText)" label="确定"/>
+  </mu-dialog>
+  <mu-popup position="top" :overlay="false" class="demo-popup-top" v-if="topPopup">
+      签到成功
+  </mu-popup>
 </div>
 
 </template>
 
 <script>
-import myron from '../assets/iconshayu.png'
 export default {
   data () {
     return {
-      myron,
-      classInfo: {
-          infoId: 1,
-          infoName: '骨骼分解',
-          infoTeather: '思思',
-          infoJieduan: '初级',
-          infoClass: '201',
+      classClock:true,
+      dialogText: {
+        lesson_name:'',
+        date:'',
+        classroom:'',
+        teacher:'',
+        schedule_log_id:'',
       },
-      iconQiandao: '待签到',
-      baoming: '点击签到',
-      baomingBg: {
-        background: '#f5a819'
-      },
+      course:[],
       dialog: false,
-      dis: false,
       topPopup: false,
     }
   },
   methods: {
-    open () {
+    open (val) {
       this.dialog = true
+      this.dialogText.lesson_name = val.lesson_name
+      this.dialogText.date = val.date
+      this.dialogText.classroom = val.classroom
+      this.dialogText.teacher = val.teacher
+      this.dialogText.schedule_log_id = val.schedule_log_id
     },
     close () {
       this.dialog = false
     },
-    ok () {
+    ok (val) {
       this.dialog = false
-      this.baoming = '已签到'
-      this.baomingBg.background = '#23a197'
-      this.dis = true
-      this.topPopup = true
-      this.iconQiandao = '已签到'
+      let _this = this
+      let qs = require('qs');
+      Axios.post(_this.xyIp+'/api/home_page/do_sign', qs.stringify({
+        schedule_id:val.schedule_log_id
+      }))
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          _this.topPopup = true
+          for (let i = 0; i < _this.course.length; i++) {
+            if(val.schedule_log_id === _this.course[i].schedule_log_id) {
+              _this.course[i].baoming = '已签到'
+              _this.course[i].baomingBg= {
+                background: '#23a197'
+              }
+              _this.course[i].dis = true
+              _this.course[i].status = data.data
+            }
+          }
+        }else {
+          console.log(data.errmsg);
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     }
   },
   watch: {
@@ -247,12 +281,39 @@ export default {
       }
     }
   },
-  computed: {
-      infoTime() {
-              return '2016.11.22 | 08:00'
-          },
 
-  },
+  mounted() {
+    let _this = this
+    Axios.post(_this.xyIp+'/api/home_page/sign')
+    .then(function (response) {
+      let data = response.data
+      if(data.errno === 0) {
+        _this.course = data.data
+        if (data.data.length === 0) {
+          _this.classClock = false
+        }
+        let objectQiandao = {
+          baomingBg: {
+            background: '#f5a819'
+          },
+          dis: false,
+          baoming: '点击签到',
+        }
+        for (let i = 0; i < _this.course.length; i++) {
+          _this.course[i].logo = require('assets/' + _this.course[i].logo)
+          _this.course[i].date = _this.course[i].date.substring(0,18)
+          Object.assign(_this.course[i],objectQiandao)
+        }
+      }else {
+        console.log(data.errmsg);
+      }
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }
 }
 
 </script>

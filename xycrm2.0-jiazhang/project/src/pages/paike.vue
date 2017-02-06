@@ -92,7 +92,7 @@
 }
 
 .classImg {
-    background-image: url('../assets/iconshayu.png');
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -109,6 +109,7 @@
 
 .info {
     flex: 1;
+    max-width: calc((100vw - 32px) / 3);
     align-items: center;
 }
 
@@ -125,7 +126,11 @@
 .text {
     font-size: 16px;
     color: #000;
-    font-weight: 400;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    display: block;
 }
 .qiandao {
   padding-right: 16px;
@@ -142,6 +147,10 @@
 video {
   margin-bottom: 16px;
 }
+.textContainet {
+  max-height:120px;
+  overflow: auto;
+}
 </style>
 
 <template lang="html">
@@ -150,23 +159,25 @@ video {
 
   <div class="classInfo">
       <div class="infoHead">
-          <span style="color:#fff;background:#23a197;padding:2px 5px;">
-        已签到
+          <span style="color:#fff;padding:2px 5px;" :style="{backgroundColor:classInfo.bg}">
+        {{ classInfo.sure }}
       </span>
           <span>
-        2016-12-12 | 08:00
+        {{ classInfo.time }}
        </span>
       </div>
       <div class="infoBody">
           <div class="className">
-              <div class="classImg">
+              <div class="classImg"  :style="{backgroundImage:'url('+classInfo.bgImg+')'}">
 
               </div>
-              <span>骨骼分析</span>
+              <span>{{ classInfo.name }}</span>
           </div>
       </div>
       <mu-card-text>
-          <p >骨骼分析课程主要内容是对小朋友讲解骨骼的构造以及骨骼对身体的重要性。</p>
+        <div class="textContainet">
+          <p v-for="textItem in classInfo.text">{{ textItem }}</p>
+        </div>
       </mu-card-text>
       <video src="http://www.youku.com" controls="controls" width="100%">
       您的浏览器不支持 video 标签。
@@ -177,7 +188,7 @@ video {
                 班级
             </div>
             <div class="text">
-                鲨鱼一班
+                {{ classInfo.classes }}
             </div>
         </div>
 
@@ -186,7 +197,7 @@ video {
                   教室
               </div>
               <div class="text">
-                  201
+                  {{ classInfo.classroom }}
               </div>
           </div>
           <div class="info">
@@ -194,7 +205,7 @@ video {
                   阶段
               </div>
               <div class="text">
-                  科学初级
+                  {{ classInfo.stage }}
               </div>
           </div>
       </div>
@@ -209,35 +220,59 @@ video {
 
 <script>
 
-import iconshayu from '../assets/iconshayu.png'
+import icon from '../assets/iconshayu.png'
 import iconxiaoxiang from '../assets/iconxiaoxiang.jpg'
 export default {
     data() {
         return {
-            bottomSheet: false,
-            activeTab: 'tab1',
-            courseAll: [{
-                title: '鲨鱼公园',
-                subTitle: 'Sharkpark',
-                icon: iconshayu,
-            }, ],
-
+          classInfo: {
+            sure: '',
+            bg: '#23a197',
+            time: '',
+            bgImg:'',
+            name: '',
+            text: '',
+            classes: '',
+            classroom: '',
+            stage: '',
+          }
         }
     },
     methods: {
-      closeBottomSheet () {
-        this.bottomSheet = false
-      },
-      openBottomSheet () {
-        this.bottomSheet = true
-      },
-      handleTabChange (val) {
-      this.activeTab = val
-      },
-      routerClassStudent() {
 
-      }
     },
+    mounted() {
+      let _this = this
+      let schedule_id = this.$route.query.id
+      let qs = require('qs');
+      Axios.post(_this.xyIp+'/api/home_page/course_detail', qs.stringify({
+        schedule_id:schedule_id
+      }))
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          let logoName = data.data.logo
+          let shangkeTime = data.data.date.substring(0,18)
+          _this.classInfo.sure = data.data.status
+          _this.classInfo.name = data.data.lesson_name
+          _this.classInfo.text = data.data.lesson_content
+          let tempText = _this.classInfo.text.split("&#10;")
+
+          _this.classInfo.text = tempText
+          _this.classInfo.classes = data.data.class
+          _this.classInfo.time = shangkeTime
+          _this.classInfo.classroom = data.data.classroom
+          _this.classInfo.stage = data.data.stage
+          _this.classInfo.bgImg = require('assets/' + logoName)
+        }else {
+          console.log(data.errmsg);
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
 }
 
 </script>

@@ -36,7 +36,8 @@
 }
 
 .text ul {
-    margin-left: 16px;
+    margin-left: 8px;
+    list-style: none;
 }
 
 .call {
@@ -103,8 +104,8 @@
         <mu-card-header title="活动详情">
 
         </mu-card-header>
-        <mu-card-media :subTitle="huodongTime">
-            <img :src="iconshayu" />
+        <mu-card-media :subTitle="huodong.huodongTime">
+            <img :src="huodong.bgImg" />
         </mu-card-media>
         <div class="huodongTitle">
             {{ huodong.title }}
@@ -127,7 +128,7 @@
                 <li v-for="textLi in huodong.text">{{ textLi }}</li>
 
             </ul>
-            
+
         </div>
         <mu-card-actions>
             <mu-raised-button :label="baoming" class="demo-raised-button" icon="perm_phone_msg" style="color:#fff;" :style="baomingBg" @click="open" :disabled="dis"/>
@@ -136,7 +137,7 @@
                 <span class="dialogTitle">确认报名: </span><span>{{ huodong.title }}？</span>
               </div>
               <div class="dialogText">
-                <span class="dialogTitle">活动时间: </span><span>{{ huodongTime }}</span>
+                <span class="dialogTitle">活动时间: </span><span>{{ huodong.huodongTime }}</span>
               </div>
               <div class="dialogText">
                 <span class="dialogTitle">活动地点: </span><span>{{ huodong.address }}</span>
@@ -152,37 +153,17 @@
               </mu-popup>
         </mu-card-actions>
     </mu-card>
-    <mu-sub-header><span class="flexCenter">精彩瞬间</span></mu-sub-header>
-    <div class="gridlist-demo-container">
-        <mu-grid-list class="gridlist-inline-demo">
-            <mu-grid-tile v-for="tile in huodong.list">
-                <img :src="tile.image" />
-                <span slot="title">{{tile.title}}</span>
-                <span slot="subTitle">by <b>{{tile.author}}</b></span>
-                <mu-icon-button icon="star_border" slot="action" />
-            </mu-grid-tile>
-        </mu-grid-list>
-    </div>
+
 </div>
 
 </template>
 
 <script>
 
-import iconshayu from '../assets/xiaohai5.jpg'
-import huodong1 from '../assets/xiaohai1.jpg'
-import huodong2 from '../assets/xiaohai2.jpg'
-import huodong3 from '../assets/xiaohai3.jpg'
-import huodong4 from '../assets/xiaohai4.jpg'
-import huodong5 from '../assets/xiaohai5.jpg'
-import huodong6 from '../assets/xiaohai6.jpg'
-import huodong7 from '../assets/xiaohai7.jpg'
-import huodong8 from '../assets/xiaohai8.jpg'
 import Axios from 'axios'
 export default {
     data() {
             return {
-                iconshayu,
                 baoming: '报名参与',
                 baomingBg: {
                   background: '#23a197'
@@ -191,37 +172,16 @@ export default {
                 dis: false,
                 topPopup: false,
                 huodong: {
-                  title: '星云家门口元旦PARTY',
-                  money: '99',
-                  address: '浑南新区万科鹿特丹星云家门口',
-                  call: '024-22938833',
-                  text: ['这里人很多','这里朋友很多','这里好玩的很多','这里能学的很多',],
-                  list: [{
-                      image: huodong1,
-                      title: 'Breakfast',
-                      author: 'Myron'
-                  }, {
-                      image: huodong3,
-                      title: 'Burger',
-                      author: 'Linyu'
-                  }, {
-                      image: huodong3,
-                      title: 'Camera',
-                      author: 'ruolin'
-                  },{
-                      image: huodong1,
-                      title: 'Breakfast',
-                      author: 'Myron'
-                  }, {
-                      image: huodong2,
-                      title: 'Burger',
-                      author: 'Linyu'
-                  }, {
-                      image: huodong3,
-                      title: 'Camera',
-                      author: 'ruolin'
-                  }, ],
-                }
+                  huodongTime:'',
+                  title: '',
+                  money: '',
+                  address: '',
+                  call: '',
+                  bgImg:'',
+                  text: [],
+
+                },
+                listener:'',
             }
         },
         methods: {
@@ -232,12 +192,27 @@ export default {
             this.dialog = false
           },
           ok () {
-            this.dialog = false
-            this.baoming = '已报名'
-            this.baomingBg.background = '#f5a819'
-            this.dis = true
-            this.topPopup = true
-          }
+            let _this = this
+            let huodongId = this.$route.query.id
+            let qs = require('qs');
+            Axios.post(_this.xyIp+'/api/home_page/enroll_activity', qs.stringify({
+              activity_id:huodongId
+            }))
+            .then(function (response) {
+              let data = response.data
+              if(data.errno === 0) {
+                _this.listener = 1
+
+              }else {
+                console.log(data.errmsg);
+              }
+
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
+          },
         },
         watch: {
           topPopup (val) {
@@ -246,26 +221,44 @@ export default {
                 this.topPopup = false
               }, 2000)
             }
+          },
+          listener () {
+            this.dialog = false
+            this.baoming = '已报名'
+            this.baomingBg.background = '#f5a819'
+            this.dis = true
+            this.topPopup = true
           }
-        },
-        computed: {
-          huodongTime () {
-            return '2016-11-30 至 2016-12-01'
-          }
+
         },
         mounted() {
           let _this = this
-          // Axios.get('http://192.168.1.110:8360/admin/index/login')
-          //   .then(function (response) {
-          //     let data = response
-          //     console.log(data.data);
-          //     _this.huodong = data.data
-          //   })
-          //   .catch(function (error) {
-          //     console.log(error);
-          //   });
+          let huodongId = this.$route.query.id
+          let qs = require('qs');
+          Axios.post(_this.xyIp+'/api/home_page/get_activity', qs.stringify({
+            id:huodongId
+          }))
+          .then(function (response) {
+            let data = response.data
+            if(data.errno === 0) {
+              let huodongT = data.data.date.substring(0,16) + ' 至 ' + data.data.date.substring(20,36)
+              _this.huodong.title = data.data.title
+              _this.huodong.address = data.data.address
+              _this.huodong.call = data.data.phone
+              _this.huodong.money = data.data.expense
+              _this.huodong.bgImg = require('assets/' + data.data.logo)
+              _this.huodong.huodongTime = huodongT
+              let detail = data.data.detail
+              detail = detail.split('\r\n')
+              _this.huodong.text = detail
+            }else {
+              console.log(data.errmsg);
+            }
 
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         }
-}
-
+      }
 </script>

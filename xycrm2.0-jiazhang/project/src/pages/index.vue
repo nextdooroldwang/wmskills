@@ -24,7 +24,6 @@
     width: 100vw;
     height: 30vw;
     max-height: 50vh;
-    background-image: url("../assets/haibao.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -95,14 +94,13 @@
 }
 
 .classImg {
-    background-image: url('../assets/iconshayu.png');
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /*border: 3px solid rgba(12, 145, 222, 0.5);;*/
 }
 
 .infoBody2 {
@@ -158,22 +156,12 @@
 <div id="container">
 
     <swiper :options="swiperOption">
-        <swiper-slide>
-            <div class="swiper" @click="huodong">
+      <swiper-slide v-for="swiperLi in swiperImg">
+        <div class="swiper" @click="routerHuodong(swiperLi)" :style="{backgroundImage:'url('+swiperLi.logo+')'}">
 
-            </div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="swiper" @click="huodong">
-
-            </div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="swiper" @click="huodong">
-
-            </div>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        </div>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     <div class="menu">
         <div class="menuButton">
@@ -202,7 +190,7 @@
             </div>
         </div>
         <div class="menuButton">
-            <mu-icon-button style="color:red;width:auto;height:auto" touch @click="routerXiangce">
+            <mu-icon-button style="color:#e41e1b;width:auto;height:auto" touch @click="routerXiangce">
                 <i class="material-icons" style="font-size:34px;width:34px;height:34px;position:relative">book
                   <div class="bage" v-if="bage.bage3">
                     {{ bage.bage3 }}
@@ -228,7 +216,7 @@
         </div>
         <div class="infoBody">
             <div class="className">
-                <div class="classImg">
+                <div class="classImg" :style="{backgroundImage:'url('+bgImg+')'}">
 
                 </div>
                 <span>{{ classInfo.infoName }}</span>
@@ -289,14 +277,6 @@
         </div>
 
     </div>
-    <!-- <div class="qingjia">
-      <mu-raised-button :label="qingjia" class="demo-raised-button" :primary="pri" @click="clickQingjia" :disabled="!pri"/>
-      <mu-dialog :open="dialog" v-if="dialog" title="提醒" @close="close">
-         是否确认请假？
-         <mu-flat-button slot="actions" @click="close" primary label="取消"/>
-         <mu-flat-button slot="actions" primary @click="close" label="确定"/>
-       </mu-dialog>
-    </div> -->
     <div class="nav">
 
     </div>
@@ -316,7 +296,7 @@
             </div>
         </mu-sub-header>
         <mu-list v-for="news in newsToday">
-            <mu-list-item :title="news.title">
+            <mu-list-item @click="routerTui(news)">
                 <mu-avatar :src="news.icon" slot="leftAvatar" />
                 <span slot="describe">
             <span style="color: rgba(0, 0, 0, .87)">{{ news.teacher }} -</span> {{ news.text }}
@@ -329,6 +309,10 @@
             <mu-divider inset/>
         </mu-list>
     </div>
+  <mu-dialog :open="dialog3" title="提示" v-if="dialog3">
+  系统提示消息！
+  <mu-flat-button label="确定" slot="actions" primary @click="close"/>
+  </mu-dialog>
 </div>
 
 </template>
@@ -344,9 +328,12 @@ export default {
     name: 'carrousel',
     data() {
         return {
+          infoTime:'',
+          bgImg:'',
             qingjia: '请假',
             pri:true,
             dialog: false,
+            dialog3: false,
             iconshayu,
             iconxiaoxiang,
             iconlaoshi,
@@ -361,102 +348,163 @@ export default {
                     paginationClickable: true,
                     autoplay: 2500,
                 },
+                swiperImg:[],
                 classInfo: {
-                    infoId: 1,
-                    infoName: '骨骼分解',
-                    infoTeather: '思思',
-                    infoKeshi: '48',
-                    infoOver: '13',
-                    infoSure: '21',
-                    infoClass: '201',
-                    infoLeave: '0',
+                    infoId: 0,
+                    infoName: '',
+                    infoTeather: '',
+                    infoKeshi: '',
+                    infoOver: '',
+                    infoSure: '',
+                    infoClass: '',
+                    infoLeave: '',
+
                 },
-                newsToday: [{
-                    title: '小象口才家庭作业',
-                    icon: iconxiaoxiang,
-                    teacher: '思思老师',
-                    text: '请宝宝给妈妈讲解骨骼的成分是什么。',
-                    time: '2016-12-11  09:34',
-                    newClass: '作业',
-                }, {
-                    title: '舞蹈课表现',
-                    icon: iconlaoshi,
-                    teacher: '舞蹈老师',
-                    text: '今天宝宝在舞蹈基本功上非常用功，老师给你点个赞。',
-                    time: '2016-12-13  09:54',
-                    newClass: '课堂表现',
-                }, {
-                    title: '鲨鱼公园课程预习',
-                    icon: iconshayu,
-                    teacher: '鲨鱼老师',
-                    text: '请提前预习树叶的形状，明天的树叶分析课上需要提问。',
-                    time: '2016-12-14  10:34',
-                    newClass: '预习',
-                }, {
-                    title: '签到提醒消息',
-                    icon: iconxingyun,
-                    teacher: '星云家门口',
-                    text: '您今天上的小象口才课程已成功签到！',
-                    time: '2016-12-15  09:34',
-                    newClass: '签到提醒',
-                }, ]
+                newsToday: []
 
         }
     },
 
     methods: {
-        huodong() {
-                this.$router.push('/huodong')
-            },
-            routerTuisong() {
-                this.$router.push('/tuisongliebiao')
-            },
-            routerTixing() {
-                this.$router.push('/tixing')
-            },
-            routerXiangce() {
-                window.location.href = 'http://192.168.1.109/xiangce/pages/medias/image-gallery.html'
-            },
-            routerNews() {
-                this.$router.push('/news')
-            },
-            infoColor(newClass) {
-                let classColor = ''
-                switch (newClass) {
-                    case '作业':
-                        classColor = '#f5a819'
-                        break;
-                    case '预习':
-                        classColor = '#23a197'
-                        break;
-                    case '课堂表现':
-                        classColor = 'blue'
-                        break;
-                    case '签到提醒':
-                        classColor = 'red'
-                        break;
-                    default:
-                        classColor = '#666'
-                }
-                return classColor
-            },
-            clickClass () {
-              this.$router.push({ path: '/kebiao', query: { id: this.classInfo.infoId }})
-            },
-            clickQingjia () {
-              this.qingjia = '已请假'
-              this.pri = false
-              this.dialog = true
-            },
-            close () {
-               this.dialog = false
-             }
-    },
-    computed: {
-        infoTime() {
-                return '2016.11.22 | 08:00'
-            },
+        routerHuodong(swiper) {
+          this.$router.push({ path: '/huodong', query: { id: swiper.id }})
+        },
+        routerTuisong() {
+            this.$router.push('/news')
+        },
+        routerTixing() {
+            this.$router.push('/tixing')
+        },
+        routerXiangce() {
+            window.location.href = 'http://192.168.1.109/xiangce/pages/medias/image-gallery.html'
+        },
+        routerTui(val) {
+          let _this = this
+          if(val.newClass === '签到提醒') {
+            _this.dialog3 = true
+            // return false
+          }else {
+            this.$router.push({path:'/new',query:{id:val.id}})
+          }
 
+        },
+        routerNews() {
+            this.$router.push('/news')
+        },
+        infoColor(newClass) {
+            let classColor = ''
+            switch (newClass) {
+                case '课程消息':
+                    classColor = '#f5a819'
+                    break;
+                case '签到提醒':
+                    classColor = '#23a197'
+                    break;
+                case '课堂表现':
+                    classColor = 'blue'
+                    break;
+                case '通知消息':
+                    classColor = '#e41e1b'
+                    break;
+                default:
+                    classColor = '#666'
+            }
+            return classColor
+        },
+        clickClass () {
+          this.$router.push({ path: '/kebiao', query: { id: this.classInfo.infoId }})
+        },
+        clickQingjia () {
+          this.qingjia = '已请假'
+          this.pri = false
+          this.dialog = true
+        },
+        close () {
+          this.dialog = false
+           this.dialog3 = false
+         }
+    },
+    mounted() {
+      let _this = this
+      Axios.post(_this.xyIp+'/api/home_page/get_home_page_lesson')
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          let startTime = data.data[0].start_time
+          startTime = startTime.substring(0, 18)
+          let logoName = data.data[0].logo
+          _this.classInfo.infoId = data.data[0].schedule_id
+          _this.classInfo.infoName = data.data[0].lesson_name
+          _this.classInfo.infoTeather = data.data[0].teacher
+          _this.classInfo.infoKeshi = data.data[0].actual_hour
+          _this.classInfo.infoOver = data.data[0].rest_hour
+          _this.classInfo.infoSure = data.data[0].sign
+          _this.classInfo.infoClass = data.data[0].classroom
+          _this.classInfo.infoLeave = data.data[0].leave
+          _this.infoTime = startTime
+          _this.bgImg = require('assets/' + logoName)
+        }else {
+          if(data.errmsg === 'empty') {
+            _this.classInfo.infoName = '无课程'
+            _this.bgImg = require('assets/img1.png')
+
+          }
+          console.log(data.errmsg);
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      Axios.post(_this.xyIp+'/api/home_page/get_all_activity')
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          _this.swiperImg = data.data
+          for(let i = 0;i < data.data.length;i++) {
+            let logoName = data.data[i].logo
+            _this.swiperImg[i].id = data.data[i].id
+            _this.swiperImg[i].logo = require('assets/' + logoName)
+          }
+        }else {
+          console.log(data.errmsg);
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      Axios.post(_this.xyIp+'/api/home_page/message_alert')
+      .then(function (response) {
+        let data = response.data
+        if(data.errno === 0) {
+          for(let i =0;i < data.data.length;i++) {
+            _this.newsToday.push({
+                id:'',
+                icon: '',
+                teacher: '',
+                text: '',
+                time: '',
+                newClass: '',
+            },)
+            _this.newsToday[i].icon = typeof(data.data[i].staff_logo) === 'undefined' ? require('assets/img1.png') : require('assets/' + data.data[i].staff_logo)
+            _this.newsToday[i].teacher = data.data[i].staff_name || '星云家门口'
+            _this.newsToday[i].text = data.data[i].content
+            _this.newsToday[i].id = data.data[i].message_id
+            console.log(data.data[i].id);
+            _this.newsToday[i].time = data.data[i].create_date
+            _this.newsToday[i].newClass = data.data[i].type
+          }
+        }else {
+          console.log(data.errmsg);
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
 
 }
